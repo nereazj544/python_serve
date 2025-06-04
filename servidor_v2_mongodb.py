@@ -23,9 +23,9 @@ def collection_empresas(conn: socket.socket):
     time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
     log_info(f"Seleccionada la colección: {COLLECTION_1}")
     conn.send("\n¿Qué quieres hacer? 1. Insertar 2. Buscar 3. Salir".encode())
-    time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
     while True:
         msg = conn.recv(1024).decode()
+        log_info(f"Mensaje recibido: {msg}")
         if msg == "1":
             collection = client[DB][COLLECTION_1]
             conn.send("\nIngrese el NOMBRE de la empresa: ".encode())
@@ -35,19 +35,26 @@ def collection_empresas(conn: socket.socket):
                 "nombre": nombre
             }
             collection.insert_one(data)
-            conn.send("Empresa insertada correctamente.".encode())
+            conn.send("Empresa insertada correctamente. PARA CONTINUAR 'ENTER'".encode())
             log_info(f"Empresa insertada: {data}")
-            break
+            collection_empresas(conn)  # Reinicia la función para permitir más acciones
         elif msg == "2":
             collection = client[DB][COLLECTION_1]
             conn.send("\nIngrese el NOMBRE de la empresa a buscar: ".encode())
             nombre = conn.recv(1024).decode()
             empresa = collection.find_one({"nombre": nombre})
             if empresa:
-                conn.send(f"Empresa encontrada: {nombre} número de la empresa: {empresa['id']}".encode())
+                conn.send(f"Empresa encontrada: {nombre} número de la empresa: {empresa['id']}\nPARA CONTINUAR 'ENTER' ".encode())
             else:
                 conn.send("Empresa no encontrada.".encode())
-        return
+            collection_empresas(conn)  # Reinicia la función para permitir más acciones
+        elif msg == "3":
+            conn.send('Saliendo...'.encode())
+            log_info("Saliendo de la colección de empresas.")
+            start_server()  # Reinicia el servidor
+
+
+
 
 
 
