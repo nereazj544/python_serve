@@ -89,7 +89,6 @@ def collection_animales(conn: socket.socket):
                 conn.send("Animal no encontrado.".encode())
             collection_animales(conn)
 
-
 # TODO: START SERVER
 def start_server():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
