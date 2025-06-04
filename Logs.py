@@ -7,16 +7,21 @@ def setup():
                         datefmt='%Y-%m-%d %H:%M:%S')
     
 def log_info(message):
+    setup()
     logging.info(f"[SERVIDOR INFO]: {message}")
 
 def log_error(message):
+    setup()
     logging.error(f"[SERVIDOR ERROR]: {message}")
 
 def log_warning(message):
+    setup()
     logging.warning(f"[SERVIDOR WARNING]: {message}")
 
 def log_debug(message):
+    setup()
     logging.debug(f"[SERVIDOR DEBUG]: {message}")
 
 def log_critical(message):
+    setup()
     logging.critical(f"[SERVIDOR CRITICAL]: {message}")

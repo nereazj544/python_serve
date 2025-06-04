@@ -16,14 +16,46 @@ COLLECTION_2 = "personajes"
 COLLECTION_3 = "Lenguajes"
 
 def COLLECTION_empresas():
-    
+    conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    conn.send("Has seleccionado la coleccion de empresas.".encode())
+    # Aquí iría la lógica para manejar la colección de empresas
+    mgs = "¿Que quieres hacer? 1. Insertar 2. Buscar 3. Salir"
+    conn.send(mgs.encode())
+    while True:
+        msg = conn.recv(1024).decode()
+        if msg == "1":
+            # Lógica para insertar en la colección de empresas
+            conn.send("Insertar en la colección de empresas.".encode())
+            client = MongoClient("mongodb://localhost:27017/")
+            db = client[DB]
+            collection = db[COLLECTION_1]
+            nombre = input("Ingrese el nombre de la empresa: ")
+            data = {
+                "id": collection.count_documents({}) + 1,
+                "nombre": nombre
+            }
+            collection.insert_one(data)
+            conn.send("Empresa insertada correctamente.".encode())
+        elif msg == "2":
+            # Lógica para buscar en la colección de empresas
+            conn.send("Buscar en la colección de empresas.".encode())
+            client = MongoClient("mongodb://localhost:27017/")
+            db = client[DB]
+            collection = db[COLLECTION_1]
+            nombre = input("Ingrese el nombre de la empresa a buscar: ")
+            empresa = collection.find_one({"nombre": nombre})
+            if empresa:
+                conn.send(f"Empresa encontrada: {empresa} numero de la empresa: {empresa['id']}".encode())
+            else:
+                conn.send("Empresa no encontrada.".encode())
+        elif msg == "3":
+            conn.send("Saliendo...".encode())
+            break
+        else:
+            conn.send("Opción no válida. Intente nuevamente.".encode())
+
     raise NotImplementedError
 
-def COLLECTION_personajes():
-    raise NotImplementedError
-
-def COLLECTION_lenguajes():
-    raise NotImplementedError
 
 
 #! SERVIDOR
@@ -54,11 +86,11 @@ def start():
             elif msg == "2":
                 print(f"Coleccion seleccionada: {COLLECTION_2}")
                 log_info(f"Coleccion seleccionada: {COLLECTION_2}")
-                COLLECTION_personajes()
+                # COLLECTION_personajes(conn)
             elif msg == "3":
                 print(f"Coleccion seleccionada: {COLLECTION_3}")
                 log_info(f"Coleccion seleccionada: {COLLECTION_3}")
-                COLLECTION_lenguajes()
+                # COLLECTION_lenguajes()
 
     except Exception as e:
         print (f"Se ha producido un error al iniciar el servidor: {e}")
