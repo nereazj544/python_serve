@@ -59,6 +59,7 @@ def collection_empresas(conn: socket.socket):
 def collection_personajes(conn: socket.socket):
     pass
 
+#! ESTA ES CON LA QUE SE LO TENGO QUE ENSEÑAR 
 def collection_animales(conn: socket.socket):
     log_info(f"Seleccionada la colección: {COLLECTION_2_1}")
     time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
