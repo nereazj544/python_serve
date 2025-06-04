@@ -21,7 +21,6 @@ def collection_empresas(conn: socket.socket):
     
     
     time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
-    conn.send(f"SELECCIONADO: {COLLECTION_1}".encode())
     log_info(f"Seleccionada la colección: {COLLECTION_1}")
     conn.send("\n¿Qué quieres hacer? 1. Insertar 2. Buscar 3. Salir".encode())
     time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
@@ -60,10 +59,10 @@ def start_server():
                 log_info(f"Mensaje recibido: {msg}")
                 time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
                 if msg == "1":
-                    conn.send("ENTER".encode())
                     print(f"Coleccion seleccionada: {COLLECTION_1}")
                     conn.send(f"Coleccion seleccionada: {COLLECTION_1}".encode())
                     log_info(f"Coleccion seleccionada: {COLLECTION_1}")
+                    conn.send("ENTER".encode())
                     time.sleep(tiempo_espera)
                     collection_empresas(conn)
                 elif msg == "2":
