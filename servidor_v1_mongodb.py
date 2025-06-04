@@ -15,8 +15,8 @@ COLLECTION_1 = "empresas"
 COLLECTION_2 = "personajes"
 COLLECTION_3 = "Lenguajes"
 
-def COLLECTION_empresas():
-    conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+def COLLECTION_empresas(conn):
+    
     conn.send("Has seleccionado la coleccion de empresas.".encode())
     # Aquí iría la lógica para manejar la colección de empresas
     mgs = "¿Que quieres hacer? 1. Insertar 2. Buscar 3. Salir"
@@ -82,7 +82,7 @@ def start():
             if msg == "1":
                 print(f"Coleccion seleccionada: {COLLECTION_1}")
                 log_info(f"Coleccion seleccionada: {COLLECTION_1}")
-                COLLECTION_empresas()
+                COLLECTION_empresas(conn)
             elif msg == "2":
                 print(f"Coleccion seleccionada: {COLLECTION_2}")
                 log_info(f"Coleccion seleccionada: {COLLECTION_2}")
@@ -95,9 +95,5 @@ def start():
     except Exception as e:
         print (f"Se ha producido un error al iniciar el servidor: {e}")
         log_error(f"Error al iniciar el servidor: {e}")
-    
-
-
-
 
 start()

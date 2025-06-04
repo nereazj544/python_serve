@@ -1,3 +1,109 @@
 2025-06-04 14:07:13 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
 2025-06-04 14:07:13 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
 2025-06-04 14:07:17 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 51166)
+2025-06-04 14:11:20 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
+2025-06-04 14:11:20 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:11:22 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 51411)
+2025-06-04 14:12:53 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
+2025-06-04 14:12:53 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:12:58 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 51469)
+2025-06-04 14:13:29 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
+2025-06-04 14:13:29 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:13:30 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 51489)
+2025-06-04 14:13:31 - ERROR - [SERVIDOR ERROR]: Error al iniciar el servidor: [WinError 10054] Se ha forzado la interrupción de una conexión existente por el host remoto
+2025-06-04 14:13:42 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
+2025-06-04 14:13:42 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:13:47 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 51501)
+2025-06-04 14:28:19 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:28:40 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 52200)
+2025-06-04 14:28:44 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 14:28:44 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 14:28:44 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 14:28:52 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 14:36:04 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:36:06 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 52339)
+2025-06-04 14:36:08 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 14:36:08 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 14:36:08 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 14:36:13 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 14:37:35 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:37:58 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:38:01 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 52391)
+2025-06-04 14:38:07 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 14:38:07 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 14:38:07 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 14:44:06 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:44:06 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 52703)
+2025-06-04 14:44:10 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 14:44:10 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 14:44:10 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 14:44:24 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 14:44:34 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 14:49:39 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:49:40 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 52843)
+2025-06-04 14:49:42 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 14:49:42 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 14:49:47 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 14:49:55 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 14:50:45 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:50:56 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 52892)
+2025-06-04 14:50:58 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 14:50:58 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 14:51:03 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 14:51:08 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 14:53:53 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:53:58 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 52949)
+2025-06-04 14:54:00 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 14:54:00 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 14:54:05 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 14:54:37 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:54:40 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53044)
+2025-06-04 14:54:42 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 14:54:42 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 14:54:47 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 14:56:23 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:56:35 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 14:56:42 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53090)
+2025-06-04 14:56:44 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 14:56:49 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 14:56:49 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 14:56:56 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 15:03:20 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:03:28 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53320)
+2025-06-04 15:03:30 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:03:35 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:03:40 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:03:47 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 15:05:12 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:05:14 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53361)
+2025-06-04 15:05:15 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:05:20 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:05:25 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:05:50 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:05:53 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53385)
+2025-06-04 15:05:56 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:06:01 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:06:06 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:06:13 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 15:06:59 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:07:08 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53419)
+2025-06-04 15:07:10 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:07:15 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:07:20 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:07:41 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 15:08:17 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:08:18 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53456)
+2025-06-04 15:08:20 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:08:25 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:08:35 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:08:45 - INFO - [SERVIDOR INFO]: Insertar en la colección: empresas
+2025-06-04 15:09:35 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:09:36 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53589)
+2025-06-04 15:09:38 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:09:43 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:09:53 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:11:07 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:11:10 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53657)
+2025-06-04 15:11:12 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:11:17 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:11:27 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
