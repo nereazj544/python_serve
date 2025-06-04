@@ -36,6 +36,18 @@ def collection_empresas(conn: socket.socket):
             }
             collection.insert_one(data)
             conn.send("Empresa insertada correctamente.".encode())
+            log_info(f"Empresa insertada: {data}")
+            break
+        elif msg == "2":
+            collection = client[DB][COLLECTION_1]
+            conn.send("\nIngrese el NOMBRE de la empresa a buscar: ".encode())
+            nombre = conn.recv(1024).decode()
+            empresa = collection.find_one({"nombre": nombre})
+            if empresa:
+                conn.send(f"Empresa encontrada: {nombre} número de la empresa: {empresa['id']}".encode())
+            else:
+                conn.send("Empresa no encontrada.".encode())
+        return
 
 
 
@@ -60,9 +72,10 @@ def start_server():
                 time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
                 if msg == "1":
                     print(f"Coleccion seleccionada: {COLLECTION_1}")
-                    conn.send(f"Coleccion seleccionada: {COLLECTION_1}".encode())
+                    conn.send(f"Coleccion seleccionada: {COLLECTION_1}\n ENTER".encode())
+                    
                     log_info(f"Coleccion seleccionada: {COLLECTION_1}")
-                    conn.send("ENTER".encode())
+
                     time.sleep(tiempo_espera)
                     collection_empresas(conn)
                 elif msg == "2":

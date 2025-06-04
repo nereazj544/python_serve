@@ -127,3 +127,44 @@
 2025-06-04 15:20:26 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
 2025-06-04 15:20:31 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
 2025-06-04 15:20:41 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:22:33 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:22:44 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53943)
+2025-06-04 15:22:47 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:22:52 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:23:02 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:23:26 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:23:27 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 53971)
+2025-06-04 15:23:29 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:23:34 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:23:44 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:25:16 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:25:16 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 54108)
+2025-06-04 15:25:19 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:25:24 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:25:34 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:26:06 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 54123)
+2025-06-04 15:26:09 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:26:14 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:26:45 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:26:46 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 54144)
+2025-06-04 15:27:01 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:27:06 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:27:16 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:27:51 - INFO - [SERVIDOR INFO]: Empresa insertada: {'id': 11, 'nombre': 'Atari', '_id': ObjectId('684049d7f50f6933b4b2663a')}
+2025-06-04 15:28:15 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 54167)
+2025-06-04 15:29:04 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-04 15:29:19 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:29:20 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 54250)
+2025-06-04 15:29:22 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:29:27 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:29:37 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:29:49 - INFO - [SERVIDOR INFO]: Empresa insertada: {'id': 12, 'nombre': 'Nintendo', '_id': ObjectId('68404a4df8ce615545e8ac66')}
+2025-06-04 15:29:54 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 54260)
+2025-06-04 15:29:55 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:30:00 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:30:10 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
+2025-06-04 15:30:52 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-04 15:30:52 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 54279)
+2025-06-04 15:30:53 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-04 15:30:58 - INFO - [SERVIDOR INFO]: Coleccion seleccionada: empresas
+2025-06-04 15:31:08 - INFO - [SERVIDOR INFO]: Seleccionada la colección: empresas
