@@ -51,7 +51,7 @@ def collection_empresas(conn: socket.socket):
         elif msg == "3":
             conn.send('Saliendo...'.encode())
             log_info("Saliendo de la colección de empresas.")
-            start_server()  # Reinicia el servidor
+            break
 
 
 
