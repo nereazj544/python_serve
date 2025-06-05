@@ -13,6 +13,7 @@ create table personajes(
     id int auto_increment PRIMARY KEY,
     nombre VARCHAR(255) NOT Null,
     elemento VARCHAR(255) NOT Null,
+    genero VARCHAR(255) NOT NULL,
     rareza VARCHAR(10),
     juego_id int,
     foreign key (juego_id) references juegos(id)
@@ -30,22 +31,21 @@ insert INTO juegos (nombre, genero, empresa_id) values
 
 
 
-INSERT INTO personajes (nombre, elemento, rareza, juego_id) VALUES
-('Bennett', 'Pyro', '4', 1),
-('Kazuha', 'Anemo', '5', 1),
-('Arlecchino', 'Pyro', '5', 1),
-('Xiao', 'Anemo', '5', 1),
-('Jing Yan', 'Rayo', '5', 2),
-('Kafka', 'Rayo', '5', 2),
-('Gepard', 'Hielo', '5', 2),
-('Topaz y Conti', 'Fuego', '5', 2),
-('Jiyan', 'Aero', '5', 3),
-('Calcharo', 'Electro', '5', 3),
-('Lingyang', 'Glacio', '5', 3),
-('Encore', 'Fusion', '5', 3),
-('Arion', 'Aire', NULL, 4),
-('Mark', 'Montaña', NULL, 4),
-('Umei', 'Bosque', NULL, 4),
-('Sonny', 'Fuego', NULL, 4),
-('Lycaon', 'Hielo', '5', 5),
-('Lighter', 'Fuego', '5', 5);
+('Bennett', 'Pyro', 'Masculino', '4', 1),
+('Kazuha', 'Anemo', 'Masculino', '5', 1),
+('Arlecchino', 'Pyro', 'Femenino', '5', 1),
+('Xiao', 'Anemo', 'Masculino', '5', 1),
+('Jing Yan', 'Rayo', 'Masculino', '5', 2),
+('Kafka', 'Rayo', 'Femenino', '5', 2),
+('Gepard', 'Hielo', 'Masculino', '5', 2),
+('Topaz y Conti', 'Fuego', 'Femenino', '5', 2),
+('Jiyan', 'Aero', 'Masculino', '5', 3),
+('Calcharo', 'Electro', 'Masculino', '5', 3),
+('Lingyang', 'Glacio', 'Masculino', '5', 3),
+('Encore', 'Fusion', 'Femenino', '5', 3),
+('Arion', 'Aire', 'Masculino', NULL, 4),
+('Mark', 'Montaña','Masculino', NULL, 4),
+('Umei', 'Bosque', 'Masculino', NULL, 4),
+('Sonny', 'Fuego', 'Masculino', NULL, 4),
+('Lycaon', 'Hielo', 'Masculino', '5', 5),
+('Lighter', 'Fuego', 'Masculino','5' ,5);

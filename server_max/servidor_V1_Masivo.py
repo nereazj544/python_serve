@@ -71,14 +71,49 @@ def collection_MDB_1(conn:socket.socket): # Personajes
     "¿Que quieres hacer?\n"\
     "1. Insertar Personajes\n" \
     "2. Consultar Personajes\n" \
-    "3. Salir\n".encode())
+    "3. Volver a las opciones\n".encode())
     msg = conn.recv(1024).decode()
     log_info(f"Mensaje recibido: {msg}")
     time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
     log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MongoDB")
 
     if msg == "1":
-        
+        log_info("Seleccionada la opcion: Insertar Personajes")
+        conn.send("== INSERTAR PERSONAJES ==\n"\
+        "Introduce el NOMBRE del personaje: ".encode())
+        NOMBRE = conn.recv(1024).decode().capitalize()
+        log_info(f"Nombre del personaje recibido: {NOMBRE}")
+        conn.send("Introduce el ELEMENTO del personaje: ".encode())
+        ELEMENTO = conn.recv(1024).decode()
+        log_info(f"Elemento del personaje recibido: {ELEMENTO}")
+        conn.send("Introduce la RAREZA del personaje: ".encode())
+        RAREZA = conn.recv(1024).decode()
+        log_info(f"Rareza del personaje recibido: {RAREZA}")
+        conn.send("Introduce el ID del juego al que pertenece: ".encode())
+        ID_JUEGO = conn.recv(1024).decode()
+        log_info(f"ID del juego recibido: {ID_JUEGO}")
+
+        # INSERTAR DATOS EN MONGODB
+        collection_1 = client[DB_MONGO][COLLECTION_MONGO_1]
+        data ={
+            "nombre": NOMBRE,
+            "elemento": ELEMENTO,
+            "rareza": RAREZA,
+            "id_juego": ID_JUEGO
+        }
+
+        collection_1.insert_one(data)
+        log_info(f"Datos insertados en MongoDB: {data}")
+        conn.send("Personaje insertado correctamente.\nPARA CONTINUAR 'ENTER' ".encode())
+        collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+    elif msg == "3":
+        log_info("Seleccionada la opcion: Volver a las opciones")
+        conn.send("Volviendo a las opciones...\n PRESIONA ENTER PARA CONFIRMAR".encode())
+        time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+        log_debug(f"Esperar {tiempo_espera}s antes de volver a las opciones")
+        MongoDB(conn)
+
+
 
 
 

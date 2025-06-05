@@ -38,3 +38,71 @@
 2025-06-05 14:03:20 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
 2025-06-05 14:03:25 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59575)
 2025-06-05 14:03:35 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:28:27 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:28:27 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:28:33 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60447)
+2025-06-05 14:28:41 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:28:43 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:28:48 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:28:50 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:28:55 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Personajes
+2025-06-05 14:29:04 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: Aalto
+2025-06-05 14:29:09 - INFO - [SERVIDOR INFO]: Elemento del personaje recibido: Aero
+2025-06-05 14:29:11 - INFO - [SERVIDOR INFO]: Rareza del personaje recibido: 4
+2025-06-05 14:29:32 - INFO - [SERVIDOR INFO]: ID del juego recibido: 3
+2025-06-05 14:29:32 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'nombre': 'Aalto', 'elemento': 'Aero', 'rareza': '4', 'id_juego': '3', '_id': ObjectId('68418dac4918f46f95fa7642')}
+2025-06-05 14:29:46 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-05 14:30:30 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:30:30 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:30:40 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60515)
+2025-06-05 14:30:48 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:30:50 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:30:55 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:30:57 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:31:02 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Personajes
+2025-06-05 14:31:27 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: Mortefi
+2025-06-05 14:31:37 - INFO - [SERVIDOR INFO]: Elemento del personaje recibido: Fusion
+2025-06-05 14:31:39 - INFO - [SERVIDOR INFO]: Rareza del personaje recibido: 4
+2025-06-05 14:31:42 - INFO - [SERVIDOR INFO]: ID del juego recibido: 4
+2025-06-05 14:31:42 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'nombre': 'Mortefi', 'elemento': 'Fusion', 'rareza': '4', 'id_juego': '4', '_id': ObjectId('68418e2e1aafa2e80174eabe')}
+2025-06-05 14:31:48 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-05 14:32:39 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:32:39 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:32:44 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60565)
+2025-06-05 14:32:54 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:32:56 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:33:01 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:33:04 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 14:33:09 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones
+2025-06-05 14:34:26 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:34:26 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:34:41 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60613)
+2025-06-05 14:34:48 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:34:51 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:34:56 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:34:58 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 14:35:03 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones
+2025-06-05 14:35:31 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-05 14:35:38 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:35:38 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:35:45 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60654)
+2025-06-05 14:35:53 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:35:55 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:36:00 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:36:03 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 14:36:08 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones
+2025-06-05 14:36:44 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:36:44 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:36:50 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60693)
+2025-06-05 14:36:58 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:37:05 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:37:10 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:37:14 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:37:19 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Personajes
+2025-06-05 14:38:04 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: Zhongli
+2025-06-05 14:38:07 - INFO - [SERVIDOR INFO]: Elemento del personaje recibido: Geo
+2025-06-05 14:38:09 - INFO - [SERVIDOR INFO]: Rareza del personaje recibido: 5
+2025-06-05 14:38:11 - INFO - [SERVIDOR INFO]: ID del juego recibido: 1
+2025-06-05 14:38:11 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'nombre': 'Zhongli', 'elemento': 'Geo', 'rareza': '5', 'id_juego': '1', '_id': ObjectId('68418fb3d4d571dcbb761af1')}
+2025-06-05 14:38:14 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 14:38:19 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones
