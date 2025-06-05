@@ -21,10 +21,10 @@ create table personajes(
 insert INTO empresa (nombre) values ('Hoyoverse'), ('Kuro Game'), ('Level-5');
 
 insert INTO juegos (nombre, genero, empresa_id) values
-('Genshin Impact', 'gacha', 1),
-('Honkai Star Rail', 'gacha', 1),
-('Wuthering Waves', 'gacha', 2),
-('Inazuma Eleven', 'deporte', 3);
+('Genshin Impact', 'Gachas', 1),
+('Honkai Star Rail', 'Gachas', 1),
+('Wuthering Waves', 'Gachas', 2),
+('Inazuma Eleven', 'Deportes', 3);
 
 
 insert INTO personajes (nombre, juego_id) values
