@@ -214,3 +214,25 @@
 2025-06-05 16:23:11 - INFO - [SERVIDOR INFO]: Nombre de la empresa recibido: Electronic art
 2025-06-05 16:23:11 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'id': '5', 'nombre': 'Electronic art', '_id': ObjectId('6841a84f4992dacd8c50db8a')}
 2025-06-05 16:23:14 - INFO - [SERVIDOR INFO]: Mensaje recibido: Electronic Art
+2025-06-05 16:36:13 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:36:13 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:36:23 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 64132)
+2025-06-05 16:36:32 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 16:36:36 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-05 16:36:47 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:36:47 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:36:52 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 64140)
+2025-06-05 16:36:59 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-05 16:37:04 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:38:09 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:38:09 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:38:37 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:38:37 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:38:43 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 64294)
+2025-06-05 16:38:57 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-05 16:39:02 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:40:02 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:40:02 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:40:12 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 64341)
+2025-06-05 16:40:20 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-05 16:40:22 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1

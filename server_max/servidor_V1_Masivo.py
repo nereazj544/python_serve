@@ -59,11 +59,11 @@ db_conn = mysql.connector.connect(
     database=DB_MYSQL
 )
 
-
-
 # =================================================
 # TODO: CONSULTAS A MySQL
 def collection_MYSQL_1(conn:socket.socket): # Personajes
+    conn.send("ENTER")
+    msg = conn.recv(1024).decode()
     conn.send("== SELECCION COLECCION: PERSONAJES (MySQL) ==\n"\
     "¿Que quieres hacer?\n"\
     "1. Insertar Personajes\n" \
@@ -84,6 +84,22 @@ def collection_MYSQL_1(conn:socket.socket): # Personajes
         ELEMENTO = conn.recv(1024).decode()
         log_info(f"Elemento del personaje recibido: {ELEMENTO}")
         conn.send("Introduce la RAREZA del personaje:".encode())
+        RAREZA = conn.recv(1024).decode()
+        log_info(f"Rareza del personaje recibido: {RAREZA}")
+        conn.send("Introduce el ID del juego al que pertenece: ".encode())
+        JUEGO_ID = conn.recv(1024).decode()
+        log_info(f"ID del juego recibido: {JUEGO_ID}")
+
+        #? INSERTAR DATOS EN MySQL
+        cr = db_conn.cursor()
+        query = "INSETR INTO personajes (nombre, elemento, rareza, juego_id) VALUES (%s, %s, %s, %s)"
+        values = (NOMBRE, ELEMENTO, RAREZA, JUEGO_ID)
+        cr.execute(query, values)
+        db_conn.commit()
+        log_info(f"Datos insertados en MySQL: {values}")
+        conn.send("Personaje insertado correctamente.\nPARA CONTINUAR 'ENTER' ".encode())
+        collection_MYSQL_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+
 
 
 
