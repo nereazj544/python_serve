@@ -1,3 +1,13 @@
 2025-06-05 12:48:42 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
 2025-06-05 12:48:42 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
 2025-06-05 12:48:42 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
+2025-06-05 13:37:23 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 13:37:23 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 13:37:29 - INFO - [SERVIDOR INFO]: Esperar 5s
+2025-06-05 13:37:34 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 58725)
+2025-06-05 13:37:40 - INFO - [SERVIDOR INFO]: Esperar 5s
+2025-06-05 13:37:45 - INFO - [SERVIDOR INFO]: [Client] Opcion invalida
+2025-06-05 13:37:58 - INFO - [SERVIDOR INFO]: Esperar 5s
+2025-06-05 13:38:03 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 58735)
+2025-06-05 13:38:06 - INFO - [SERVIDOR INFO]: Esperar 5s
+2025-06-05 13:38:11 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
