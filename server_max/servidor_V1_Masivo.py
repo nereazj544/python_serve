@@ -109,7 +109,6 @@ def collection_MDB_1(conn:socket.socket): # Personajes
         conn.send("Personaje insertado correctamente.\nPARA CONTINUAR 'ENTER' ".encode())
         collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
 
-
     elif msg == "2": #? Consultar - Personajes
         conn.send("== CONSULTAR PERSONAJES ==\n"\
         "¿Que quieres hacer?\n"\
@@ -212,23 +211,53 @@ def collection_MDB_1(conn:socket.socket): # Personajes
         MongoDB(conn)
 
 
+def collection_MDB_2(conn:socket.socket): # Juegos
+    conn.send("== SELECCION COLECCION: JUEGOS ==\n"\
+    "¿Que quieres hacer?\n"\
+    "1. Insertar Juegos\n" \
+    "2. Consultar Juegos\n" \
+    "3. Volver a las opciones\n".encode())
+    msg = conn.recv(1024).decode()
+    log_info(f"Mensaje recibido: {msg}")
+    time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+    log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MongoDB")
 
+    collection_2 = client[DB_MONGO][COLLECTION_MONGO_2]
+    if msg == "1": #? Insertar - Juegos
+        log_info("Seleccionada la opcion: Insertar Juegos")
+        conn.send("== INSERTAR JUEGOS ==".encode())
+        conn.send("Introduce el NOMBRE del juego: ".encode())
+        NOMBRE = conn.recv(1024).decode().capitalize()
+        log_info(f"Nombre del juego recibido: {NOMBRE}")
+        conn.send("Introduce el GENERO del juego: ".encode())
+        GENERO = conn.recv(1024).decode().capitalize()
+        log_info(f"Género del juego recibido: {GENERO}")
+        conn.send("Introduce la ID de la EMPRESA del juego: ".encode())
+        ID_EMPRESA = conn.recv(1024).decode()
+        log_info(f"ID de la empresa del juego recibido: {ID_EMPRESA}")
+        
+        data ={
+            "nombre": NOMBRE,
+            "genero": GENERO,
+            "empresa_id": ID_EMPRESA
+        }
 
+        collection_2.insert_one(data)
+        conn.send("Juego insertado correctamente.\n".encode())
+        collection_MDB_2(conn)
 
+def collection_MDB_3(conn:socket.socket): # Empresa
+    conn.send("== SELECCION COLECCION: EMPRESAS ==\n"\
+    "¿Que quieres hacer?\n"\
+    "1. Insertar Empresas\n" \
+    "2. Consultar Empresas\n" \
+    "3. Volver a las opciones\n".encode())
+    msg = conn.recv(1024).decode()
+    log_info(f"Mensaje recibido: {msg}")
+    time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+    log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MongoDB")
 
-
-
-def collection_MDB_2(conn): # Juegos
-    raise NotImplementedError 
-def collection_MDB_3(conn): # Empresa
-    raise NotImplementedError
-
-
-
-
-
-
-
+    collection_3 = client[DB_MONGO][COLLECTION_MONGO_3]
 
 
 
@@ -248,7 +277,7 @@ def MongoDB(conn: socket.socket):
     "¿Con que coleccion quieres trabajar?\n"\
     "1. Personajes\n" \
     "2. Juegos\n" \
-    "3. Empresa\n".encode())
+    "3. Empresa (SI SE VA AÑADIR UN JUEGO, NECESITA SU EMPRESA)\n".encode())
     msg = conn.recv(1024).decode()
     log_info(f"Mensaje recibido: {msg}")
     time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
@@ -268,7 +297,15 @@ def MongoDB(conn: socket.socket):
 
 #TODO: MySQL
 def MySQL(conn: socket.socket):
-    pass
+    conn.send("== SELECCION MySQL ==\n"\
+    "¿Con que coleccion quieres trabajar?\n"\
+    "1. Personajes\n" \
+    "2. Juegos\n" \
+    "3. Empresa (SI SE VA AÑADIR UN JUEGO, NECESITA SU EMPRESA)\n".encode())
+    msg = conn.recv(1024).decode()
+    log_info(f"Mensaje recibido: {msg}")
+    time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+    log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MongoDB")
 
 
 
