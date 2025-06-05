@@ -1,0 +1,85 @@
+2025-06-05 11:20:36 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 11:20:58 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 54704)
+2025-06-05 11:21:03 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:21:03 - INFO - [SERVIDOR INFO]: Opción 1 seleccionada: Personajes
+2025-06-05 11:21:03 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:21:08 - INFO - package: mysql.connector.plugins
+2025-06-05 11:21:08 - INFO - plugin_name: caching_sha2_password
+2025-06-05 11:21:08 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-05 11:21:10 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:21:43 - INFO - [SERVIDOR INFO]: Personaje insertado: Terry
+2025-06-05 11:21:43 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:21:51 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 11:21:54 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:24:23 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 11:24:25 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 54845)
+2025-06-05 11:24:30 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:24:30 - INFO - [SERVIDOR INFO]: Opción 1 seleccionada: Personajes
+2025-06-05 11:24:30 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:24:35 - INFO - package: mysql.connector.plugins
+2025-06-05 11:24:35 - INFO - plugin_name: caching_sha2_password
+2025-06-05 11:24:35 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-05 11:24:43 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:28:10 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 11:28:16 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 55031)
+2025-06-05 11:28:21 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:28:21 - INFO - [SERVIDOR INFO]: Opción 1 seleccionada: Personajes
+2025-06-05 11:28:21 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:28:26 - INFO - package: mysql.connector.plugins
+2025-06-05 11:28:26 - INFO - plugin_name: caching_sha2_password
+2025-06-05 11:28:26 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-05 11:28:28 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 11:30:27 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 11:30:36 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 55121)
+2025-06-05 11:30:41 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:30:41 - INFO - [SERVIDOR INFO]: Opción 1 seleccionada: Personajes
+2025-06-05 11:30:41 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:30:46 - INFO - package: mysql.connector.plugins
+2025-06-05 11:30:46 - INFO - plugin_name: caching_sha2_password
+2025-06-05 11:30:46 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-05 11:30:53 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 11:32:11 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 11:32:18 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 55185)
+2025-06-05 11:32:31 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:32:31 - INFO - [SERVIDOR INFO]: Opción 1 seleccionada: Personajes
+2025-06-05 11:32:31 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:32:36 - INFO - package: mysql.connector.plugins
+2025-06-05 11:32:36 - INFO - plugin_name: caching_sha2_password
+2025-06-05 11:32:36 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-05 11:32:37 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 11:33:08 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 11:33:11 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 55201)
+2025-06-05 11:33:16 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:33:16 - INFO - [SERVIDOR INFO]: Opción 1 seleccionada: Personajes
+2025-06-05 11:33:16 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:33:21 - INFO - package: mysql.connector.plugins
+2025-06-05 11:33:21 - INFO - plugin_name: caching_sha2_password
+2025-06-05 11:33:21 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-05 11:33:23 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:34:16 - INFO - [SERVIDOR INFO]: Personaje Mortefi insertado correctamente.
+2025-06-05 11:34:16 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:34:30 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 11:37:48 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 11:37:51 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 55348)
+2025-06-05 11:37:56 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:37:56 - INFO - [SERVIDOR INFO]: Opción 1 seleccionada: Personajes
+2025-06-05 11:37:56 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:38:01 - INFO - package: mysql.connector.plugins
+2025-06-05 11:38:01 - INFO - plugin_name: caching_sha2_password
+2025-06-05 11:38:01 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-05 11:38:04 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 11:38:56 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 11:39:11 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 11:39:15 - INFO - [SERVIDOR INFO]: Conexión establecida desde ('127.0.0.1', 55397)
+2025-06-05 11:39:20 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 11:39:20 - INFO - [SERVIDOR INFO]: Opción 1 seleccionada: Personajes
+2025-06-05 11:39:20 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:39:25 - INFO - package: mysql.connector.plugins
+2025-06-05 11:39:25 - INFO - plugin_name: caching_sha2_password
+2025-06-05 11:39:25 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-05 11:39:27 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 11:39:31 - INFO - [SERVIDOR INFO]: Personaje encontrado: [('Terry', 'Inazuma Eleven')]
+2025-06-05 11:39:31 - INFO - [SERVIDOR INFO]: Personaje buscado: Terry
+2025-06-05 11:39:31 - INFO - [SERVIDOR INFO]: Seleccionada la tabla: Personajes
+2025-06-05 11:39:42 - INFO - [SERVIDOR INFO]: Mensaje recibido: 4
+2025-06-05 11:39:42 - INFO - [SERVIDOR INFO]: Saliendo del servidor...

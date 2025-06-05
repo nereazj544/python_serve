@@ -31,10 +31,11 @@ for resultado in resultados:
 # conn.commit()
 # print(f"Personaje {nombre} insertado correctamente.")
 
-nombre = input("Ingrese el nombre del personaje: ").capitalize()
-juego_id = int(input("Ingrese el ID del juego: "))
-sql = "INSERT INTO personajes (nombre, juego_id) VALUES (%s, %s)"
-val = (nombre, juego_id)
-cursor.execute(sql, val)
-conn.commit()
-print(f"Personaje {nombre} insertado correctamente.")
+# nombre = input("Ingrese el nombre del personaje: ").capitalize()
+# juego_id = int(input("Ingrese el ID del juego: "))
+# sql = "INSERT INTO personajes (nombre, juego_id) VALUES (%s, %s)"
+# val = (nombre, juego_id)
+# cursor.execute(sql, val)
+# conn.commit()
+# print(f"Personaje {nombre} insertado correctamente.")
+
