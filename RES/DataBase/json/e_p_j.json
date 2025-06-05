@@ -1,0 +1,158 @@
+{
+    "empresa": [
+        {
+            "id": 1,
+            "nombre": "Hoyoverse"
+        },
+        {
+            "id": 2,
+            "nombre": "Kuro Game"
+        },
+        {
+            "id": 3,
+            "nombre": "Level-5"
+        }
+    ],
+    "juegos": [
+        {
+            "id": 1,
+            "nombre": "Genshin Impact (GI)",
+            "genero": "Gachas",
+            "empresa_id": 1
+        },
+        {
+            "id": 2,
+            "nombre": "Honkai Star Rail (HSR)",
+            "genero": "Gachas",
+            "empresa_id": 1
+        },
+        {
+            "id": 3,
+            "nombre": "Wuthering Waves (WuWa)",
+            "genero": "Gachas",
+            "empresa_id": 2
+        },
+        {
+            "id": 4,
+            "nombre": "Inazuma Eleven (IE)",
+            "genero": "Deportes",
+            "empresa_id": 3
+        },
+        {
+            "id": 5,
+            "nombre": "Zenless Zone Zero (ZZZ)",
+            "genero": "Gachas",
+            "empresa_id": 1
+        }
+    ],
+    "personajes": [
+        {
+            "id": 1,
+            "nombre": "Bennett",
+            "elemento": "Pyro",
+            "juego_id": 1
+        },
+        {
+            "id": 2,
+            "nombre": "Kazuha",
+            "elemento": "Anemo",
+            "juego_id": 1
+        },
+        {
+            "id": 3,
+            "nombre": "Arlecchino",
+            "elemento": "Pyro",
+            "juego_id": 1
+        },
+        {
+            "id": 4,
+            "nombre": "Xiao",
+            "elemento": "Anemo",
+            "juego_id": 1
+        },
+        {
+            "id": 5,
+            "nombre": "Jing Yan",
+            "elemento": "Rayo",
+            "juego_id": 2
+        },
+        {
+            "id": 6,
+            "nombre": "Kafka",
+            "elemento": "Rayo",
+            "juego_id": 2
+        },
+        {
+            "id": 7,
+            "nombre": "Gepard",
+            "elemento": "Hielo",
+            "juego_id": 2
+        },
+        {
+            "id": 8,
+            "nombre": "Topaz y Conti",
+            "elemento": "Fuego",
+            "juego_id": 2
+        },
+        {
+            "id": 9,
+            "nombre": "Jiyan",
+            "elemento": "Aero",
+            "juego_id": 3
+        },
+        {
+            "id": 10,
+            "nombre": "Calcharo",
+            "elemento": "Electro",
+            "juego_id": 3
+        },
+        {
+            "id": 11,
+            "nombre": "Lingyang",
+            "elemento": "Glacio",
+            "juego_id": 3
+        },
+        {
+            "id": 12,
+            "nombre": "Encore",
+            "elemento": "Fusion",
+            "juego_id": 3
+        },
+        {
+            "id": 13,
+            "nombre": "Arion",
+            "elemento": "Aire",
+            "juego_id": 4
+        },
+        {
+            "id": 14,
+            "nombre": "Mark",
+            "elemento": "Montaña",
+            "juego_id": 4
+        },
+        {
+            "id": 15,
+            "nombre": "Umei",
+            "elemento": "Bosque",
+            "juego_id": 4
+        },
+        {
+            "id": 16,
+            "nombre": "Sonny",
+            "elemento": "Fuego",
+            "juego_id": 4
+        },
+        {
+            "id": 17,
+            "nombre": "Lycaon",
+            "elemento": "Hielo",
+            "juego_id": 5
+        },
+        {
+            "id": 18,
+            "nombre": "Lighter",
+            "elemento": "Fuego",
+            "juego_id": 5
+        }
+    ]
+}
