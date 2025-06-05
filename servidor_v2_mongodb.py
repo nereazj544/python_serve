@@ -74,11 +74,14 @@ def start_server():
                 print(f"Mensaje recibido: {msg}")
                 log_info(f"Mensaje recibido: {msg}")
                 time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+
+                #TODO: OPCIONES DE USO EN LA COLECCION
                 if msg == "1":
                     print(f"Coleccion seleccionada: {COLLECTION_1}")
                     log_info(f"Coleccion seleccionada: {COLLECTION_1}")
                     collection_animales(conn)
                     time.sleep(tiempo_espera)
+
                 elif msg == "2":
                     print("Saliendo del servidor...")
                     log_info("Saliendo del servidor...")
