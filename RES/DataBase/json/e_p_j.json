@@ -50,108 +50,126 @@
             "id": 1,
             "nombre": "Bennett",
             "elemento": "Pyro",
+            "rareza": "4",
             "juego_id": 1
         },
         {
             "id": 2,
             "nombre": "Kazuha",
             "elemento": "Anemo",
+            "rareza": "5",
             "juego_id": 1
         },
         {
             "id": 3,
             "nombre": "Arlecchino",
             "elemento": "Pyro",
+            "rareza": "5",
             "juego_id": 1
         },
         {
             "id": 4,
             "nombre": "Xiao",
             "elemento": "Anemo",
+            "rareza": "5",
             "juego_id": 1
         },
         {
             "id": 5,
             "nombre": "Jing Yan",
             "elemento": "Rayo",
+            "rareza": "5",
             "juego_id": 2
         },
         {
             "id": 6,
             "nombre": "Kafka",
             "elemento": "Rayo",
+            "rareza": "5",
             "juego_id": 2
         },
         {
             "id": 7,
             "nombre": "Gepard",
             "elemento": "Hielo",
+            "rareza": "5",
             "juego_id": 2
         },
         {
             "id": 8,
             "nombre": "Topaz y Conti",
             "elemento": "Fuego",
+            "rareza": "5",
             "juego_id": 2
         },
         {
             "id": 9,
             "nombre": "Jiyan",
             "elemento": "Aero",
+            "rareza": "5",
             "juego_id": 3
         },
         {
             "id": 10,
             "nombre": "Calcharo",
             "elemento": "Electro",
+            "rareza": "5",
             "juego_id": 3
         },
         {
             "id": 11,
             "nombre": "Lingyang",
             "elemento": "Glacio",
+            "rareza": "5",
             "juego_id": 3
         },
         {
             "id": 12,
             "nombre": "Encore",
             "elemento": "Fusion",
+            "rareza": "5",
             "juego_id": 3
         },
         {
             "id": 13,
             "nombre": "Arion",
             "elemento": "Aire",
+            "rareza": "-",
             "juego_id": 4
         },
         {
             "id": 14,
             "nombre": "Mark",
             "elemento": "Montaña",
+            "rareza": "-",
             "juego_id": 4
         },
         {
             "id": 15,
             "nombre": "Umei",
             "elemento": "Bosque",
+            "rareza": "-",
             "juego_id": 4
         },
         {
             "id": 16,
             "nombre": "Sonny",
             "elemento": "Fuego",
+            "rareza": "-",
             "juego_id": 4
         },
         {
             "id": 17,
             "nombre": "Lycaon",
             "elemento": "Hielo",
+            "rareza": "5",
             "juego_id": 5
         },
         {
             "id": 18,
             "nombre": "Lighter",
             "elemento": "Fuego",
+            "rareza": "5",
             "juego_id": 5
         }
     ]
