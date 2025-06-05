@@ -162,3 +162,13 @@
 2025-06-05 15:52:37 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
 2025-06-05 15:52:37 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
 2025-06-05 15:52:43 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 62690)
+2025-06-05 15:53:05 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 15:53:12 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:53:17 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 15:53:20 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:53:29 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:53:34 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar personaje por NOMBRE
+2025-06-05 15:53:38 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: Lycaon
+2025-06-05 15:53:38 - INFO - [SERVIDOR INFO]: Personaje encontrado: {'_id': ObjectId('68419114540ef947a33a5b92'), 'id': 17, 'nombre': 'Lycaon', 'elemento': 'Hielo', 'genero': 'Masculino', 'rareza': '5', 'juego_id': 5}
+2025-06-05 15:53:46 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 15:53:51 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones

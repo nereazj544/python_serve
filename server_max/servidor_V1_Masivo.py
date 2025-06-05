@@ -127,6 +127,9 @@ def collection_MDB_1(conn:socket.socket): # Personajes
             # TODO: Añadir la consulta a MongoDB
 
             collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+        
+        # TODO: CONSULTAS
+        
         elif msg == "2": #? Consultar personaje por NOMBRE
             log_info("Seleccionada la opcion: Consultar personaje por NOMBRE")
             conn.send("Introduce el NOMBRE del personaje a consultar: ".encode())
@@ -141,6 +144,21 @@ def collection_MDB_1(conn:socket.socket): # Personajes
                 conn.send("Personaje no encontrado.\nPARA CONTINUAR 'ENTER' ".encode())
                 log_warning(f"Personaje no encontrado: {NOMBRE}")
                 collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+        
+        
+        
+        # TODO: OTRAS CONSULTAS
+        
+        elif msg == "3": #? Otras consultas
+            log_info("Seleccionada la opcion: Otras consultas")
+            conn.send("== OTRAS CONSULTAS ==\n"\
+            "¿Que quieres hacer?\n"\
+            "1. Consultar personajes por ELEMENTO\n" \
+            "2. Consultar personajes por RAREZA\n" \
+            "3. Consultar personajes por ID_JUEGO\n" \
+            "4. Volver a las opciones\n".encode())
+            msg = conn.recv(1024).decode()
+
 
 
     elif msg == "3": #? Volver a las opciones de MongoDB
