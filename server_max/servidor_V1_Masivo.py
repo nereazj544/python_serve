@@ -26,3 +26,32 @@ from Logs import log_info, log_error, log_warning, log_debug, log_critical  # Pa
 # * ==========================================================
 
 
+# TODO: CONFIGURACIONES SERVIDOR Y BASE DE DATOS
+    #* SERVIDOR
+HOST = "localhost"
+PORT = 8080
+tiempo_espera = 5  # Tiempo de espera en segundos
+
+# TODO: PARAMETROS DE CONEXION A LA BASE DE DATOS
+
+    #* MONGODB
+DB_MONGO = "MaxServer"
+COLLECTION_MONGO_1 = "Personajes"
+COLLECTION_MONGO_2 = "Juegos"
+COLLECTION_MONGO_3 = "Empresa"
+
+client = MongoClient("mongodb://localhost:27017/")
+
+    #* MYSQL
+DB_MYSQL = "db_python"
+USER = 'test_pithon'
+PASSWORD = '321_atomica'
+TABLE_MYSQL_1 = "personajes"
+TABLE_MYSQL_2 = "juegos"
+TABLE_MYSQL_3 = "empresa"
+
+
+
+
+
+
