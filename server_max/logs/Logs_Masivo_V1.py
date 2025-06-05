@@ -1,7 +1,7 @@
 import logging
 
 def setup():
-    logging.basicConfig(filename='server_max.log',
+    logging.basicConfig(filename='server_max/logs/server_max.log',
                         level=logging.INFO,
                         format='%(asctime)s - %(levelname)s - %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')

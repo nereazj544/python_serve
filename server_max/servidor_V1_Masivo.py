@@ -20,7 +20,9 @@ from pymongo import MongoClient  # Para manejar la base de datos MongoDB
 import mysql.connector  # Para manejar la base de datos MySQL
 
     # ? LOGS 
-from Logs import log_info, log_error, log_warning, log_debug, log_critical  # Para manejar los logs
+
+from logs.Logs_Masivo_V1 import log_info, log_error, log_warning, log_debug, log_critical  
+# Para manejar los logs
 
 
 # * ==========================================================
@@ -50,8 +52,52 @@ TABLE_MYSQL_1 = "personajes"
 TABLE_MYSQL_2 = "juegos"
 TABLE_MYSQL_3 = "empresa"
 
+db_conn = mysql.connector.connect(
+    host=HOST,
+    user=USER,
+    password=PASSWORD,
+    database=DB_MYSQL
+)
+
+
+# =================================================
+
+# TODO: METODOS DE CONSULTAS A LA BASE DE DATOS ELEGIDA
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#TODO: SERVIDOR PRINCIPAL
+def start_server():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind((HOST, PORT)) # Configuracion del socket, puerto y host
+        log_info(f"Servidor iniciado en {HOST}:{PORT}")
+        s.listen(5)
+        log_info(f"Servidor escuchando en {HOST}:{PORT}")
+        print(f"Servidor escuchando en {HOST}:{PORT}")
+
+
+
+
+
+if __name__ == "__main__":
+    start_server()
+    log_info("Servidor iniciado correctamente.")
 
 
