@@ -50,7 +50,17 @@ def collection_animales(conn: socket.socket):
             else:
                 conn.send("Animal no encontrado.".encode())
             collection_animales(conn) # Reinicia la funcion para que se pueda hacer otra operacion
-
+        elif msg == "3":
+            collection = client[DB_name][COLLECTION_1]
+            conn.send("\nIngrese el NOMBRE del animal a BORRAR: ".encode())
+            nombre = conn.recv(1024).decode()
+            result = collection.delete_one({"nombre": nombre.capitalize()})
+            if result.deleted_count > 0:
+                conn.send(f"Animal {nombre} borrado correctamente.\nPARA CONTINUAR 'ENTER' ".encode())
+                log_info(f"Animal {nombre} borrado correctamente.")
+            else:
+                conn.send(f"Animal {nombre} no encontrado.\nPARA CONTINUAR 'ENTER' ".encode())
+                log_warning(f"Animal {nombre} no encontrado.")
             #TODO: Implementar la opcion de salir
 
 
