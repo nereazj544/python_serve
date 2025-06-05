@@ -60,13 +60,80 @@ db_conn = mysql.connector.connect(
 )
 
 
+
 # =================================================
+
+
+
+#TODO: CONSULTAS A MONGODB
+def collection_MDB_1(conn:socket.socket): # Personajes
+    conn.send("== SELECCION COLECCION: PERSONAJES ==\n"\
+    "¿Que quieres hacer?\n"\
+    "1. Insertar Personajes\n" \
+    "2. Consultar Personajes\n" \
+    "3. Salir\n".encode())
+    msg = conn.recv(1024).decode()
+    log_info(f"Mensaje recibido: {msg}")
+    time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+    log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MongoDB")
+
+    if msg == "1":
+        
+
+
+
+
+
+
+def collection_MDB_2(conn): # Juegos
+    raise NotImplementedError 
+def collection_MDB_3(conn): # Empresa
+    raise NotImplementedError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # TODO: METODOS DE CONSULTAS A LA BASE DE DATOS ELEGIDA
 
+#TODO: MONGODB
 def MongoDB(conn: socket.socket):
-    pass
+    conn.send("== SELECCION MONGODB ==\n"\
+    "¿Con que coleccion quieres trabajar?\n"\
+    "1. Personajes\n" \
+    "2. Juegos\n" \
+    "3. Empresa\n".encode())
+    msg = conn.recv(1024).decode()
+    log_info(f"Mensaje recibido: {msg}")
+    time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+    log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MongoDB")
 
+    if msg == "1":
+        log_info("Seleccionada la coleccion: Personajes")
+        collection_MDB_1(conn)
+    elif msg == "2":
+        log_info("Seleccionada la coleccion: Juegos")
+        collection_MDB_2(conn)
+    elif msg == "3":
+        log_info("Seleccionada la coleccion: Empresa")
+        collection_MDB_3(conn)
+
+
+
+#TODO: MySQL
 def MySQL(conn: socket.socket):
     pass
 
@@ -99,7 +166,7 @@ def start_server():
 
         while True:
             conn, addr = s.accept()
-            log_info(f"Esperar 5s")
+            log_debug(f"Esperar 5s")
             time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
             with conn:
                 log_info(f"Conexion establecida desde {addr}")
@@ -108,25 +175,22 @@ def start_server():
                 conn.send("Elige una opcion: 1. MongoDB 2. MySQL 3. Salir\nEscribe un numero: ".encode())
                 msg = conn.recv(1024).decode()
                 
-                log_info(f"Esperar 5s")
+                log_debug(f"Esperar 5s")
                 time.sleep(tiempo_espera)
 
                 if msg == "1":
                     print("[Client] Opcion 1 seleccionada: MongoDB")
                     log_info("[Client] Opcion 1 seleccionada: MongoDB")
-                    conn.send(f"Opcion MongoDB".encode())
                     MongoDB(conn)
 
                 elif msg == "2":
                     print("[Client] Opcion 2 seleccionada: MySQL")
                     log_info("[Client] Opcion 2 seleccionada: MySQL")
-                    conn.send(f"Opcion MySQL".encode())
                     MySQL(conn)
 
                 elif msg == "3":
                     print("[Client] Opcion 3 seleccionada: Salir")
                     log_info("[Client] Opcion 3 seleccionada: Salir")
-                    conn.send(f"Opcion Salir".encode())
                     conn.close()
                     break
 
@@ -134,6 +198,9 @@ def start_server():
                     print("[Client] Opcion invalida")
                     log_info("[Client] Opcion invalida")
                     conn.send(f"Opcion invalida".encode())
+                    break
+                
+
 
 if __name__ == "__main__":
     start_server()

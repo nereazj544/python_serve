@@ -11,3 +11,30 @@
 2025-06-05 13:38:03 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 58735)
 2025-06-05 13:38:06 - INFO - [SERVIDOR INFO]: Esperar 5s
 2025-06-05 13:38:11 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-05 13:58:40 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 13:58:40 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 13:58:45 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59380)
+2025-06-05 13:58:59 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:00:13 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:00:13 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:00:18 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59447)
+2025-06-05 14:00:28 - INFO - [SERVIDOR INFO]: [Client] Opcion invalida
+2025-06-05 14:00:28 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
+2025-06-05 14:00:59 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:00:59 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:01:04 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59479)
+2025-06-05 14:01:13 - INFO - [SERVIDOR INFO]: [Client] Opcion invalida
+2025-06-05 14:01:13 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
+2025-06-05 14:01:18 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:01:18 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:01:23 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59499)
+2025-06-05 14:01:29 - INFO - [SERVIDOR INFO]: [Client] Opcion invalida
+2025-06-05 14:01:47 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:01:47 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:01:54 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59517)
+2025-06-05 14:02:02 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:02:19 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-05 14:03:20 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:03:20 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:03:25 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59575)
+2025-06-05 14:03:35 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
