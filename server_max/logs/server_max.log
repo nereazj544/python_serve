@@ -193,3 +193,24 @@
 2025-06-05 16:04:25 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
 2025-06-05 16:04:30 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar personajes por ELEMENTO
 2025-06-05 16:04:33 - INFO - [SERVIDOR INFO]: Elemento recibido: Pyro
+2025-06-05 16:20:36 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:20:36 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:20:45 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 63673)
+2025-06-05 16:20:55 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 16:21:00 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 16:21:05 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Empresa
+2025-06-05 16:21:07 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:21:12 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Empresas
+2025-06-05 16:21:29 - INFO - [SERVIDOR INFO]: Nombre de la empresa recibido: Ubisoft
+2025-06-05 16:21:29 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'id': '4', 'nombre': 'Ubisoft', '_id': ObjectId('6841a7e9e9657411500c7337')}
+2025-06-05 16:22:22 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:22:22 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:22:34 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 63714)
+2025-06-05 16:22:45 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 16:22:51 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 16:22:56 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Empresa
+2025-06-05 16:22:59 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:23:04 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Empresas
+2025-06-05 16:23:11 - INFO - [SERVIDOR INFO]: Nombre de la empresa recibido: Electronic art
+2025-06-05 16:23:11 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'id': '5', 'nombre': 'Electronic art', '_id': ObjectId('6841a84f4992dacd8c50db8a')}
+2025-06-05 16:23:14 - INFO - [SERVIDOR INFO]: Mensaje recibido: Electronic Art

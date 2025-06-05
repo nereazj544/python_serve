@@ -98,6 +98,7 @@ def collection_MDB_1(conn:socket.socket): # Personajes
         # INSERTAR DATOS EN MONGODB
         
         data ={
+            "id": str(collection_1.count_documents({}) + 1),  # Genera un ID unico
             "nombre": NOMBRE,
             "elemento": ELEMENTO,
             "rareza": RAREZA,
@@ -237,6 +238,7 @@ def collection_MDB_2(conn:socket.socket): # Juegos
         log_info(f"ID de la empresa del juego recibido: {ID_EMPRESA}")
         
         data ={
+            "id": str(collection_2.count_documents({}) + 1),  # Genera un ID unico
             "nombre": NOMBRE,
             "genero": GENERO,
             "empresa_id": ID_EMPRESA
@@ -259,14 +261,19 @@ def collection_MDB_3(conn:socket.socket): # Empresa
 
     collection_3 = client[DB_MONGO][COLLECTION_MONGO_3]
 
-
-
-
-
-
-
-
-
+    if msg == "1": #? Insertar - Empresas
+        log_info("Seleccionada la opcion: Insertar Empresas")
+        conn.send("== INSERTAR EMPRESA ==\n Introduce el NOMBRE de la empresa:".encode())
+        NOMBRE = conn.recv(1024).decode().capitalize()
+        log_info(f"Nombre de la empresa recibido: {NOMBRE}")
+        data = {
+            "id": str(collection_3.count_documents({}) + 1),  # Genera un ID unico
+            "nombre": NOMBRE
+        }
+        collection_3.insert_one(data)
+        log_info(f"Datos insertados en MongoDB: {data}")
+        conn.send("Empresa insertada correctamente.".encode())
+        collection_MDB_3(conn)
 
 
 # TODO: METODOS DE CONSULTAS A LA BASE DE DATOS ELEGIDA
