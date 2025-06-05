@@ -77,7 +77,9 @@ def collection_MDB_1(conn:socket.socket): # Personajes
     time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
     log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MongoDB")
 
-    if msg == "1":
+    collection_1 = client[DB_MONGO][COLLECTION_MONGO_1]
+
+    if msg == "1": #? Insertar - Personajes
         log_info("Seleccionada la opcion: Insertar Personajes")
         conn.send("== INSERTAR PERSONAJES ==\n"\
         "Introduce el NOMBRE del personaje: ".encode())
@@ -94,7 +96,7 @@ def collection_MDB_1(conn:socket.socket): # Personajes
         log_info(f"ID del juego recibido: {ID_JUEGO}")
 
         # INSERTAR DATOS EN MONGODB
-        collection_1 = client[DB_MONGO][COLLECTION_MONGO_1]
+        
         data ={
             "nombre": NOMBRE,
             "elemento": ELEMENTO,
@@ -106,7 +108,42 @@ def collection_MDB_1(conn:socket.socket): # Personajes
         log_info(f"Datos insertados en MongoDB: {data}")
         conn.send("Personaje insertado correctamente.\nPARA CONTINUAR 'ENTER' ".encode())
         collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
-    elif msg == "3":
+
+
+    elif msg == "2": #? Consultar - Personajes
+        conn.send("== CONSULTAR PERSONAJES ==\n"\
+        "¿Que quieres hacer?\n"\
+        "1. Consultar todos los personajes\n" \
+        "2. Consultar personaje por NOMBRE\n" \
+        "3. Otras consultas\n" \
+        "4. Volver a las opciones\n".encode())
+        msg = conn.recv(1024).decode()
+        log_info(f"Mensaje recibido: {msg}")
+        time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+        log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MongoDB")
+        if msg == "1": #? Consultar todos los personajes
+            log_info("Seleccionada la opcion: Consultar todos los personajes")
+            
+            # TODO: Añadir la consulta a MongoDB
+
+            collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+        elif msg == "2": #? Consultar personaje por NOMBRE
+            log_info("Seleccionada la opcion: Consultar personaje por NOMBRE")
+            conn.send("Introduce el NOMBRE del personaje a consultar: ".encode())
+            NOMBRE = conn.recv(1024).decode().capitalize()
+            log_info(f"Nombre del personaje recibido: {NOMBRE}")
+            personaje = collection_1.find_one({"nombre": NOMBRE})
+            if personaje:
+                conn.send(f"Personaje encontrado: {personaje['nombre']}, Elemento: {personaje['elemento']}, Rareza: {personaje['rareza']}, ID Juego: {personaje['juego_id']}\nPARA CONTINUAR 'ENTER' ".encode())
+                log_info(f"Personaje encontrado: {personaje}")
+                collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+            else:
+                conn.send("Personaje no encontrado.\nPARA CONTINUAR 'ENTER' ".encode())
+                log_warning(f"Personaje no encontrado: {NOMBRE}")
+                collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+
+
+    elif msg == "3": #? Volver a las opciones de MongoDB
         log_info("Seleccionada la opcion: Volver a las opciones")
         conn.send("Volviendo a las opciones...\n PRESIONA ENTER PARA CONFIRMAR".encode())
         time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
