@@ -62,7 +62,38 @@ db_conn = mysql.connector.connect(
 
 
 # =================================================
+# TODO: CONSULTAS A MySQL
+def collection_MYSQL_1(conn:socket.socket): # Personajes
+    conn.send("== SELECCION COLECCION: PERSONAJES (MySQL) ==\n"\
+    "¿Que quieres hacer?\n"\
+    "1. Insertar Personajes\n" \
+    "2. Consultar Personajes\n" \
+    "3. Volver a las opciones\n".encode())
+    msg = conn.recv(1024).decode()
+    log_info(f"Mensaje recibido: {msg}")
+    time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+    log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MySQL")
 
+    if msg == "1": #? Insertar - Personajes
+        log_info("Seleccionada la opcion: Insertar Personajes")
+        conn.send("== INSERTAR PERSONAJES (MySQL) ==\n"\
+        "Introduce el NOMBRE del personaje: ".encode())
+        NOMBRE = conn.recv(1024).decode().capitalize()
+        log_info(f"Nombre del personaje recibido: {NOMBRE}")
+        conn.send("Introduce el ELEMENTO del personaje: ".encode())
+        ELEMENTO = conn.recv(1024).decode()
+        log_info(f"Elemento del personaje recibido: {ELEMENTO}")
+        conn.send("Introduce la RAREZA del personaje:".encode())
+
+
+
+def collection_MYSQL_2(conn:socket.socket): # Juegos
+    pass
+
+
+
+def collection_MYSQL_3(conn:socket.socket): # Empresa
+    pass
 
 
 #TODO: CONSULTAS A MONGODB
@@ -210,7 +241,6 @@ def collection_MDB_1(conn:socket.socket): # Personajes
         time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
         log_debug(f"Esperar {tiempo_espera}s antes de volver a las opciones")
         MongoDB(conn)
-
 
 def collection_MDB_2(conn:socket.socket): # Juegos
     conn.send("== SELECCION COLECCION: JUEGOS ==\n"\
