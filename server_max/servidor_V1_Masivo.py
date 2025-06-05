@@ -64,6 +64,11 @@ db_conn = mysql.connector.connect(
 
 # TODO: METODOS DE CONSULTAS A LA BASE DE DATOS ELEGIDA
 
+def MongoDB(conn: socket.socket):
+    pass
+
+def MySQL(conn: socket.socket):
+    pass
 
 
 
@@ -92,9 +97,43 @@ def start_server():
         log_info(f"Servidor escuchando en {HOST}:{PORT}")
         print(f"Servidor escuchando en {HOST}:{PORT}")
 
+        while True:
+            conn, addr = s.accept()
+            log_info(f"Esperar 5s")
+            time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+            with conn:
+                log_info(f"Conexion establecida desde {addr}")
+                print(f"Conexion establecida desde {addr}")
 
+                conn.send("Elige una opcion: 1. MongoDB 2. MySQL 3. Salir\nEscribe un numero: ".encode())
+                msg = conn.recv(1024).decode()
+                
+                log_info(f"Esperar 5s")
+                time.sleep(tiempo_espera)
 
+                if msg == "1":
+                    print("[Client] Opcion 1 seleccionada: MongoDB")
+                    log_info("[Client] Opcion 1 seleccionada: MongoDB")
+                    conn.send(f"Opcion MongoDB".encode())
+                    MongoDB(conn)
 
+                elif msg == "2":
+                    print("[Client] Opcion 2 seleccionada: MySQL")
+                    log_info("[Client] Opcion 2 seleccionada: MySQL")
+                    conn.send(f"Opcion MySQL".encode())
+                    MySQL(conn)
+
+                elif msg == "3":
+                    print("[Client] Opcion 3 seleccionada: Salir")
+                    log_info("[Client] Opcion 3 seleccionada: Salir")
+                    conn.send(f"Opcion Salir".encode())
+                    conn.close()
+                    break
+
+                else:
+                    print("[Client] Opcion invalida")
+                    log_info("[Client] Opcion invalida")
+                    conn.send(f"Opcion invalida".encode())
 
 if __name__ == "__main__":
     start_server()
