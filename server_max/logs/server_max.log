@@ -172,3 +172,24 @@
 2025-06-05 15:53:38 - INFO - [SERVIDOR INFO]: Personaje encontrado: {'_id': ObjectId('68419114540ef947a33a5b92'), 'id': 17, 'nombre': 'Lycaon', 'elemento': 'Hielo', 'genero': 'Masculino', 'rareza': '5', 'juego_id': 5}
 2025-06-05 15:53:46 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
 2025-06-05 15:53:51 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones
+2025-06-05 16:01:57 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:01:57 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:02:13 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 63083)
+2025-06-05 16:02:21 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 16:02:32 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:02:37 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 16:02:47 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:02:52 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Personajes
+2025-06-05 16:02:57 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: 
+2025-06-05 16:03:01 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:03:01 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:03:12 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 63117)
+2025-06-05 16:03:21 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 16:03:40 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:03:45 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 16:03:51 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 16:04:08 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 16:04:13 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Otras consultas
+2025-06-05 16:04:25 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:04:30 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar personajes por ELEMENTO
+2025-06-05 16:04:33 - INFO - [SERVIDOR INFO]: Elemento recibido: Pyro

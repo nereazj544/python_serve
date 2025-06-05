@@ -155,11 +155,54 @@ def collection_MDB_1(conn:socket.socket): # Personajes
             "¿Que quieres hacer?\n"\
             "1. Consultar personajes por ELEMENTO\n" \
             "2. Consultar personajes por RAREZA\n" \
-            "3. Consultar personajes por ID_JUEGO\n" \
+            "3. Consultar personajes por GENERO\n" \
             "4. Volver a las opciones\n".encode())
             msg = conn.recv(1024).decode()
+            log_info(f"Mensaje recibido: {msg}")	
+            time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+            log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MongoDB")
 
+            if msg == "1": # Consultar personajes por ELEMENTO
+                log_info("Seleccionada la opcion: Consultar personajes por ELEMENTO")
+                conn.send("Introduce el ELEMENTO a consultar:".encode())
+                ELEMENTO = conn.recv(1024).decode().capitalize()
+                log_info(f"Elemento recibido: {ELEMENTO}")
+                personajes = collection_1.find({"elemento": ELEMENTO})
+                if personajes:
+                    _list =[f"Elemento: {p['elemento']}, Nombre: {p['nombre']}, Rareza: {p['rareza']}" for p in personajes]
+                    conn.send("\n".join(_list).encode())
+                    collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+                else:
+                    conn.send("No se encontraron personajes con ese elemento.\n".encode())
+                    collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
 
+            elif msg == "2": #? Consultar personajes por RAREZA
+                log_info("Seleccionada la opcion: Consultar personajes por RAREZA")
+                conn.send("Introduce la RAREZA a consultar:".encode())
+                RAREZA = conn.recv(1024).decode().capitalize()
+                log_info(f"Rareza recibida: {RAREZA}")
+                personajes = collection_1.find({"rareza": RAREZA})
+                if personajes:
+                    _list =[f"Elemento: {p['elemento']}, Nombre: {p['nombre']}, Rareza: {p['rareza']}" for p in personajes]
+                    conn.send("\n".join(_list).encode())
+                    collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+                else:
+                    conn.send("No se encontraron personajes con esa rareza.\n".encode())
+                    collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+
+            elif msg == "3": #? Consultar personajes por GENERO
+                log_info("Seleccionada la opcion: Consultar personajes por GENERO")
+                conn.send("Introduce el GENERO a consultar:".encode())
+                GENERO = conn.recv(1024).decode().capitalize()
+                log_info(f"Género recibido: {GENERO}")
+                personajes = collection_1.find({"genero": GENERO})
+                if personajes:
+                    _list =[f"Elemento: {p['elemento']}, Nombre: {p['nombre']}, Rareza: {p['rareza']}" for p in personajes]
+                    conn.send("\n".join(_list).encode())
+                    collection_MDB_1(conn)
+                else:
+                    conn.send("No se encontraron personajes con ese género.\n".encode())
+                    collection_MDB_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
 
     elif msg == "3": #? Volver a las opciones de MongoDB
         log_info("Seleccionada la opcion: Volver a las opciones")
