@@ -185,7 +185,13 @@ def consulta_table4_mysql(conn: socket.socket):
 
     #? Visualizar
     elif msg == "2":
-        pass
+        log_info("[CLIENT] OPCION VER TODOS LOS PERSONAJES")
+        query = "SELECT * FROM personajes"
+        c = cursor.cursor()
+        c.execute(query)
+        personajes_list = "Lista de personajes:\n"
+        for list in c.fetchall():
+                juegos_list += f"ID: {list[0]} - NOMBRE: {list[1]}\n"
 
 
 
