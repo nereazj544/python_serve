@@ -75,31 +75,88 @@ def collection_MYSQL_1(conn:socket.socket): # Personajes
 
     if msg == "1": #? Insertar - Personajes
         log_info("Seleccionada la opcion: Insertar Personajes")
+        
         conn.send("== INSERTAR PERSONAJES (MySQL) ==\n"\
         "Introduce el NOMBRE del personaje: ".encode())
         NOMBRE = conn.recv(1024).decode().capitalize()
         log_info(f"Nombre del personaje recibido: {NOMBRE}")
+        
         conn.send("Introduce el ELEMENTO del personaje: ".encode())
         ELEMENTO = conn.recv(1024).decode()
         log_info(f"Elemento del personaje recibido: {ELEMENTO}")
+        
         conn.send("Introduce la RAREZA del personaje:".encode())
         RAREZA = conn.recv(1024).decode()
         log_info(f"Rareza del personaje recibido: {RAREZA}")
+        
+        conn.send("Introduce el GENERO del personaje: ".encode())
+        GENERO = conn.recv(1024).decode().capitalize()
+        log_info(f"Género del personaje recibido: {GENERO}")
+
         conn.send("Introduce el ID del juego al que pertenece: ".encode())
         JUEGO_ID = conn.recv(1024).decode()
         log_info(f"ID del juego recibido: {JUEGO_ID}")
 
         #? INSERTAR DATOS EN MySQL
         cr = db_conn.cursor()
-        query = "INSERT INTO personajes (nombre, elemento, rareza, juego_id) VALUES (%s, %s, %s, %s)"
-        values = (NOMBRE, ELEMENTO, RAREZA, JUEGO_ID)
+        query = "INSERT INTO personajes (nombre, elemento, genero, rareza, juego_id) VALUES (%s, %s, %s, %s, %s)"
+        values = (NOMBRE, ELEMENTO, GENERO, RAREZA,  JUEGO_ID)
         cr.execute(query, values)
         db_conn.commit()
         log_info(f"Datos insertados en MySQL: {values}")
         conn.send("Personaje insertado correctamente.\nPARA CONTINUAR 'ENTER' ".encode())
         collection_MYSQL_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
 
+    elif msg == "2": #? Consultar - Personajes
+        log_info("Seleccionada la opcion: Consultar Personajes")
+        conn.send("== CONSULTAR PERSONAJES (MySQL) ==\n"\
+        "¿Que quieres hacer?\n"\
+            "1. Consultar todos los personajes\n" \
+            "2. Consultar personaje por NOMBRE\n" \
+            "3. Otras consultas\n" \
+            "4. Volver a las opciones\n".encode())
+        msg = conn.recv(1024).decode()
+        log_info(f"Mensaje recibido: {msg}")
+        time.sleep(tiempo_espera)  # Espera de 5 segundos antes de continuar
+        log_debug(f"Esperar {tiempo_espera}s antes de continuar con la consulta a MySQL")
 
+        if msg == "1": #? Consultar todos los personajes
+            log_info("Seleccionada la opcion: Consultar todos los personajes")
+            conn.send("== CONSULTAR TODOS LOS PERSONAJES (MySQL) ==\n".encode())
+            cursor = db_conn.cursor()
+            cursor.execute(f"SELECT * FROM {TABLE_MYSQL_1}")
+            resultados = cursor.fetchall()
+            for fila in resultados:
+                conn.send(f"ID: {fila[0]}, Nombre: {fila[1]}, Elemento: {fila[2]}, Genero: {fila[3]}, Rareza: {fila[4]}, Juego ID: {fila[5]}\n".encode())
+            cursor.close()
+            conn.send("PARA CONTINUAR 'ENTER' ".encode())
+            collection_MYSQL_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+
+        elif msg == "2": #? Consultar personaje por NOMBRE
+            log_info("Seleccionada la opcion: Consultar personaje por NOMBRE")
+            conn.send("Introduce el NOMBRE del personaje a consultar: ".encode())
+            NOMBRE = conn.recv(1024).decode().capitalize()
+            log_info(f"Nombre del personaje recibido: {NOMBRE}")
+            cursor = db_conn.cursor()
+            cursor.execute(f"SELECT * FROM {TABLE_MYSQL_1} WHERE nombre = %s", (NOMBRE,))
+            fila = cursor.fetchone()
+            if fila:
+                conn.send(f"Personaje encontrado: ID: {fila[0]}, Nombre: {fila[1]}, Elemento: {fila[2]}, Genero: {fila[3]}, Rareza: {fila[4]}, Juego ID: {fila[5]}\nPARA CONTINUAR 'ENTER' ".encode())
+            else:
+                conn.send("Personaje no encontrado.\nPARA CONTINUAR 'ENTER' ".encode())
+            cursor.close()
+            collection_MYSQL_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+
+        elif msg == "3": #? Otras consultas
+            log_info("Seleccionada la opcion: Otras consultas")
+            conn.send("== OTRAS CONSULTAS (MySQL) ==\n".encode())
+            # TODO: Implementar otras consultas
+            conn.send("PARA CONTINUAR 'ENTER' ".encode())
+            collection_MYSQL_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
+
+    elif msg == "4": #? Volver a las opciones
+        log_info("Seleccionada la opcion: Volver a las opciones")
+        collection_MYSQL_1(conn)  # Reinicia la funcion para que se pueda hacer otra operacion
 
 
 def collection_MYSQL_2(conn:socket.socket): # Juegos

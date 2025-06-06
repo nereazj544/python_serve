@@ -179,7 +179,7 @@
             "nombre": "Lycaon",
             "elemento": "Hielo",
             "genero": "Masculino",
-            "rareza": "5",
+            "rareza": "S",
             "juego_id": 5
         },
         {
@@ -187,7 +187,7 @@
             "nombre": "Lighter",
             "elemento": "Fuego",
             "genero": "Masculino",
-            "rareza": "5",
+            "rareza": "S",
             "juego_id": 5
         }
     ]
