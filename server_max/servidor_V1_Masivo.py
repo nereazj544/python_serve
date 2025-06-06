@@ -122,7 +122,7 @@ def collection_MYSQL_1(conn:socket.socket): # Personajes
 
         if msg == "1": #? Consultar todos los personajes
             log_info("Seleccionada la opcion: Consultar todos los personajes")
-            conn.send("== CONSULTAR TODOS LOS PERSONAJES (MySQL) ==\n".encode())
+            conn.send("== CONSULTAR TODOS LOS PERSONAJES (MySQL) ==\n Enter para continuar".encode())
             cursor = db_conn.cursor()
             cursor.execute(f"SELECT * FROM {TABLE_MYSQL_1}")
             resultados = cursor.fetchall()
@@ -138,7 +138,7 @@ def collection_MYSQL_1(conn:socket.socket): # Personajes
             NOMBRE = conn.recv(1024).decode().capitalize()
             log_info(f"Nombre del personaje recibido: {NOMBRE}")
             cursor = db_conn.cursor()
-            cursor.execute(f"SELECT * FROM {TABLE_MYSQL_1} WHERE nombre = %s", (NOMBRE,))
+            cursor.execute(f"SELECT * FROM {TABLE_MYSQL_1} WHERE nombre = %s", (NOMBRE))
             fila = cursor.fetchone()
             if fila:
                 conn.send(f"Personaje encontrado: ID: {fila[0]}, Nombre: {fila[1]}, Elemento: {fila[2]}, Genero: {fila[3]}, Rareza: {fila[4]}, Juego ID: {fila[5]}\nPARA CONTINUAR 'ENTER' ".encode())

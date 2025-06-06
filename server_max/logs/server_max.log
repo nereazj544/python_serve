@@ -310,3 +310,13 @@
 2025-06-06 10:06:31 - INFO - [SERVIDOR INFO]: ID del juego recibido: 5
 2025-06-06 10:06:31 - INFO - [SERVIDOR INFO]: Datos insertados en MySQL: ('Ellen', 'Glacial', 'Femenino', 'S', '5')
 2025-06-06 10:30:47 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-06 10:39:17 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-06 10:39:17 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-06 10:39:25 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 53854)
+2025-06-06 10:39:35 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-06 10:39:40 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-06 10:39:45 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-06 10:39:50 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-06 10:39:55 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar Personajes
+2025-06-06 10:40:00 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-06 10:40:05 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar todos los personajes
