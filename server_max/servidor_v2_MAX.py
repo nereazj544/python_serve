@@ -66,7 +66,7 @@ def get_MySQL_conn():
 
 #? PERSONAJES
 def consulta_table4_mysql(conn: socket.socket):
-    get_MySQL_conn() # Conexión a la base de datos MySQL
+    cursor = get_MySQL_conn() # Conexión a la base de datos MySQL
     log_warning(f"== EN ESPERA AUTOMATICA DE 5s ==")
     time.sleep(tiempo_espera)
 
@@ -75,7 +75,7 @@ def consulta_table4_mysql(conn: socket.socket):
         "\n 2. Ver todos los personajes"\
         "\n 3. Otras busquedas"\
         "\n 4."\
-        .encode)
+        .encode())
     
     msg = conn.recv(1024).decode()
     
@@ -86,7 +86,73 @@ def consulta_table4_mysql(conn: socket.socket):
     if msg == "1":
         log_info("[CLIENT] OPCION INSERTAR PERSONAJE")
         
-        #? 
+        #? Insertar un personaje en la base de datos MySQL
+        conn.send("NOMBRE ".encode())
+        nombre = conn.recv(1024).decode()
+        log_info(f"Nombre recibido: {nombre}")
+
+        conn.send("ELEMENTO ".encode())
+        elemento = conn.recv(1024).decode()
+        log_info(f"Elemento recibido: {elemento}")
+
+        conn.send("GENERO".encode())
+        genero = conn.recv(1024).decode()
+        log_info(f"Género recibido: {genero}")
+
+        conn.send("RAREZA (SI EL PERSONAJE NO TIENE ENTER) ".encode())
+        rareza = conn.recv(1024).decode()
+        log_info(f"Rareza recibida: {rareza}")
+
+        conn.send("ARMA (SI EL PERSONAJE NO TIENE ENTER) ".encode())
+        arma = conn.recv(1024).decode()
+        log_info(f"Arma recibida: {arma}")
+
+        conn.send("FACCION".encode())
+        faccion = conn.recv(1024).decode()
+        log_info(f"Facción recibida: {faccion}")
+        
+        # ? PARA SACAR LOS IDES DE LOS JUEGOS ACTUALES
+        query = "select id, nombre from juegos"
+        c = cursor.cursor()
+        c.execute(query)
+        
+        # CODIGO QUE TENIA ANTES PARA MOSTRAR LOS JUEGOS
+        """
+        for x in c.fetchall():
+            conn.send(f"ID JUEGO LISTA:"\
+                    "(ENTER PARA MOSTRARLOS TODOS)"\
+                    f"ID: {x[0]} - NOMBRE: {x[1]}\n".encode())
+        """
+
+        #CODIGO MEJORADO PARA MOSTRAR LOS JUEGOS TODOS JUNTOS
+        juegos_list = "Lista de juegos disponibles:\n "
+        for list in c.fetchall():
+            juegos_list += f"ID: {list[0]} - NOMBRE: {list[1]}\n"
+
+        conn.send(f"{juegos_list} \nENTER PARA CONTINUAR".encode())
+        conn.send("Escribe el ID JUEGO".encode())
+        id_juego = conn.recv(1024).decode()
+        log_info(f"ID Juego recibido: {id_juego}")
+
+        # TODO: INSERTAR PERSONAJE EN LA BASE DE DATOS
+        query = "INSERT INTO personajes (nombre, elemento, genero, rareza, arma, faccion, juego_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        values = (nombre, elemento, genero, rareza, arma, faccion, id_juego)
+        c.execute(query, values)
+        cursor.commit()
+
+        log_info(f"Personaje {nombre} insertado correctamente en la base de datos MySQL.")
+        conn.send(f"Personaje {nombre} insertado correctamente en la base de datos MySQL.".encode())
+        consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
+    
+    elif msg == "2":
+        pass
+
+
+
+
+        
+
+
 
 
 
@@ -173,9 +239,9 @@ def consultas_MySQL(conn: socket.socket):
 
 def start_server():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind((HOST, PORT))
+        s.bind((Shost, Sport))
         s.listen(5)
-        log_info(f"Servidor iniciado en {HOST}:{PORT}")
+        log_info(f"Servidor iniciado en {Shost}:{Sport}")
 
         while True:
             conn, addr = s.accept()
@@ -212,9 +278,7 @@ def start_server():
 
 
 if __name__ == "__main__":
-    try:
-        start_server()
-    except Exception as e:
-        log_error(f"Error al iniciar el servidor: {e}")
-    finally:
-        log_info("Servidor detenido.")
+    start_server()
+    log_info("Servidor iniciado correctamente.")
+    log_warning("Servidor en espera de conexiones...")
+ 
