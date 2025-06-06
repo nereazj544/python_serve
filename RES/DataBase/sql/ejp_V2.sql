@@ -4,7 +4,7 @@ create table empresas(
     id int auto_increment PRIMARY KEY,
     nombre VARCHAR(255) not null,
     pais VARCHAR(255) not null
-)
+);
 
 create table juegos(
     id int auto_increment primary key,
@@ -25,15 +25,6 @@ create table personajes(
     faccion VARCHAR(255) NOT NULL,
     juego_id int,
     foreign key (juego_id) references juegos(id)
-);
-
-create table habilidades(
-    id int auto_increment PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL,
-    tipo VARCHAR(255) NOT NULL,
-    descripcion TEXT NOT NULL,
-    personaje_id int,
-    foreign key (personaje_id) references personajes(id)
 );
 
 create table plataformas(
@@ -112,4 +103,25 @@ insert into juego_plataformas (juego_id, plataforma_id) values
 (5, 4), -- Inazuma Eleven en Xbox Series X/S
 (5, 5), -- Inazuma Eleven en Nintendo Switch
 (5, 6); -- Inazuma Eleven en Nintendo Switch 2
+
+
+
+insert into personajes (nombre, elemento, genero, rareza, arma, faccion, juego_id) values
+('Bennett', 'Pyro', 'Masculino', '4', 'Espada', 'Mondstadt', 1),
+('Kazuha', 'Anemo', 'Masculino', '5', 'Espada', 'Inazuma', 1),
+('Arlecchino', 'Pyro', 'Femenino', '5', 'Lanza', 'Fatui', 1),
+('Xiao', 'Anemo', 'Masculino', '5', 'Lanza', 'Liyue', 1),
+('Jing Yan', 'Rayo', 'Masculino', '5', 'Mandoble', 'El Luofu de Xianzhou', 2),
+('Kafka', 'Rayo', 'Femenino', '5', 'Arma de fuego', 'Cazadores de Estelaron', 2),
+('Gepard', 'Hielo', 'Masculino', '5', 'Escudo de hielo', 'Guardia Crinargenta', 2),
+('Hugo', 'Glacial', 'Masculino', 'Rango S', 'Guadaña', 'Ruiseñor', 3),
+('Lycaon', 'Glacial', 'Masculino', 'Rango S', 'Puños y patadas', 'Servicios Domesticos Victoria', 3),
+('Seth', 'Electrico', 'Masculino', 'Rango A', 'Porra y escudo policial', 'Equipo de respuesta de la unidad de investigacion criminal', 3),
+('Brant', 'Fusion', 'Masculino', '5','Espada','Troupe Torpe', 4),
+('Zani', 'Espectro', 'Femenino', '5','Brazaletes','La familia Montelli', 4),
+('Aalto', 'Aero', 'Masculino', '4','Pistolas','Costa Negra', 4),
+('Arion', 'Aire', 'Masculino', NULL, NULL, 'Raimon', 5),
+('Mark', 'Montaña', 'Masculino', NULL, NULL, 'Raimon', 5),
+('Umei', 'Bosque', 'Masculino', NULL, NULL, 'South Cirrus', 5),
+('Sonny', 'Fuego', 'Masculino', NULL, NULL, 'Raimon', 5);
 
