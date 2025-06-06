@@ -183,7 +183,7 @@ def consulta_table4_mysql(conn: socket.socket):
             conn.send(f"Personaje {nombre} insertado correctamente en la base de datos MySQL.".encode())
             consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
 
-    
+    #? Visualizar
     elif msg == "2":
         pass
 
