@@ -22,7 +22,7 @@ from logs.Logs_Masivo_V2 import log_info, log_error, log_warning, log_debug, log
 #? Configuración del servidor
 Shost = "localhost"
 Sport = 8083
-tiempo_espera = 5  # Tiempo de espera en segundos para la conexión
+tiempo_espera = 2  # Tiempo de espera en segundos para la conexión
 
 
 #? Configuración de la base de datos MongoDB
@@ -86,63 +86,103 @@ def consulta_table4_mysql(conn: socket.socket):
     if msg == "1":
         log_info("[CLIENT] OPCION INSERTAR PERSONAJE")
         
-        #? Insertar un personaje en la base de datos MySQL
-        conn.send("NOMBRE ".encode())
-        nombre = conn.recv(1024).decode()
-        log_info(f"Nombre recibido: {nombre}")
+        conn.send("Tu personaje tiene arma y rareza? (S/N _ Y/N)".encode())
+        msg = conn.recv(1024).decode()
 
-        conn.send("ELEMENTO ".encode())
-        elemento = conn.recv(1024).decode()
-        log_info(f"Elemento recibido: {elemento}")
+        log_info(f"Mensaje recibido: {msg}")
+        time.sleep(tiempo_espera)
+        log_warning(f"== EN ESPERA AUTOMATICA DE {tiempo_espera}s ==")
 
-        conn.send("GENERO".encode())
-        genero = conn.recv(1024).decode()
-        log_info(f"Género recibido: {genero}")
-
-        conn.send("RAREZA (SI EL PERSONAJE NO TIENE ENTER) ".encode())
-        rareza = conn.recv(1024).decode()
-        log_info(f"Rareza recibida: {rareza}")
-
-        conn.send("ARMA (SI EL PERSONAJE NO TIENE ENTER) ".encode())
-        arma = conn.recv(1024).decode()
-        log_info(f"Arma recibida: {arma}")
-
-        conn.send("FACCION".encode())
-        faccion = conn.recv(1024).decode()
-        log_info(f"Facción recibida: {faccion}")
+        if msg.lower() == "s" or msg.lower() == "y" or msg.lower() == "si" or msg.lower() == "yes":
+            #? Insertar un personaje en la base de datos MySQL
+            conn.send("NOMBRE ".encode())
+            nombre = conn.recv(1024).decode()
+            log_info(f"Nombre recibido: {nombre}")
+    
+            conn.send("ELEMENTO ".encode())
+            elemento = conn.recv(1024).decode()
+            log_info(f"Elemento recibido: {elemento}")
+    
+            conn.send("GENERO".encode())
+            genero = conn.recv(1024).decode()
+            log_info(f"Género recibido: {genero}")
+    
+            conn.send("RAREZA (SI EL PERSONAJE NO TIENE ENTER) ".encode())
+            rareza = conn.recv(1024).decode()
+            log_info(f"Rareza recibida: {rareza}")
+    
+            conn.send("ARMA (SI EL PERSONAJE NO TIENE ENTER) ".encode())
+            arma = conn.recv(1024).decode()
+            log_info(f"Arma recibida: {arma}")
+    
+            conn.send("FACCION".encode())
+            faccion = conn.recv(1024).decode()
+            log_info(f"Facción recibida: {faccion}")
+            
+            # ? PARA SACAR LOS IDES DE LOS JUEGOS ACTUALES
+            query = "select id, nombre from juegos"
+            c = cursor.cursor()
+            c.execute(query)
+            juegos_list = "Lista de juegos disponibles:\n "
+            for list in c.fetchall():
+                juegos_list += f"ID: {list[0]} - NOMBRE: {list[1]}\n"
+    
+            conn.send(f"{juegos_list} \nENTER PARA CONTINUAR".encode())
+            conn.send("Escribe el ID JUEGO".encode())
+            id_juego = conn.recv(1024).decode()
+            log_info(f"ID Juego recibido: {id_juego}")
+    
+            # TODO: INSERTAR PERSONAJE EN LA BASE DE DATOS
+            query = "INSERT INTO personajes (nombre, elemento, genero, rareza, arma, faccion, juego_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+            values = (nombre, elemento, genero, rareza, arma, faccion, id_juego)
+            c.execute(query, values)
+            cursor.commit()
+    
+            log_info(f"Personaje {nombre} insertado correctamente en la base de datos MySQL.")
+            conn.send(f"Personaje {nombre} insertado correctamente en la base de datos MySQL.".encode())
+            consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
         
-        # ? PARA SACAR LOS IDES DE LOS JUEGOS ACTUALES
-        query = "select id, nombre from juegos"
-        c = cursor.cursor()
-        c.execute(query)
-        
-        # CODIGO QUE TENIA ANTES PARA MOSTRAR LOS JUEGOS
-        """
-        for x in c.fetchall():
-            conn.send(f"ID JUEGO LISTA:"\
-                    "(ENTER PARA MOSTRARLOS TODOS)"\
-                    f"ID: {x[0]} - NOMBRE: {x[1]}\n".encode())
-        """
+        elif msg.lower() == "n" or msg.lower() == "no":
+            #? Insertar un personaje en la base de datos MySQL
+            conn.send("NOMBRE ".encode())
+            nombre = conn.recv(1024).decode()
+            log_info(f"Nombre recibido: {nombre}")
 
-        #CODIGO MEJORADO PARA MOSTRAR LOS JUEGOS TODOS JUNTOS
-        juegos_list = "Lista de juegos disponibles:\n "
-        for list in c.fetchall():
-            juegos_list += f"ID: {list[0]} - NOMBRE: {list[1]}\n"
+            conn.send("ELEMENTO ".encode())
+            elemento = conn.recv(1024).decode()
+            log_info(f"Elemento recibido: {elemento}")
 
-        conn.send(f"{juegos_list} \nENTER PARA CONTINUAR".encode())
-        conn.send("Escribe el ID JUEGO".encode())
-        id_juego = conn.recv(1024).decode()
-        log_info(f"ID Juego recibido: {id_juego}")
+            conn.send("GENERO".encode())
+            genero = conn.recv(1024).decode()
+            log_info(f"Género recibido: {genero}")
 
-        # TODO: INSERTAR PERSONAJE EN LA BASE DE DATOS
-        query = "INSERT INTO personajes (nombre, elemento, genero, rareza, arma, faccion, juego_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        values = (nombre, elemento, genero, rareza, arma, faccion, id_juego)
-        c.execute(query, values)
-        cursor.commit()
+            conn.send("FACCION".encode())
+            faccion = conn.recv(1024).decode()
+            log_info(f"Facción recibida: {faccion}")
 
-        log_info(f"Personaje {nombre} insertado correctamente en la base de datos MySQL.")
-        conn.send(f"Personaje {nombre} insertado correctamente en la base de datos MySQL.".encode())
-        consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
+            # ? PARA SACAR LOS IDES DE LOS JUEGOS ACTUALES
+            query = "select id, nombre from juegos"
+            c = cursor.cursor()
+            c.execute(query)
+            juegos_list = "Lista de juegos disponibles:\n "
+            for list in c.fetchall():
+                juegos_list += f"ID: {list[0]} - NOMBRE: {list[1]}\n"
+
+            conn.send(f"{juegos_list} \nENTER PARA CONTINUAR".encode())
+            conn.send("Escribe el ID JUEGO".encode())
+            id_juego = conn.recv(1024).decode()
+            log_info(f"ID Juego recibido: {id_juego}")
+
+            # TODO: INSERTAR PERSONAJE EN LA BASE DE DATOS
+            query = "INSERT INTO personajes (nombre, elemento, genero, faccion, juego_id) VALUES (%s, %s, %s, %s, %s)"
+            values = (nombre, elemento, genero, faccion, id_juego)
+            c.execute(query, values)
+            cursor.commit()
+
+            log_info(f"Personaje {nombre} insertado correctamente en la base de datos MySQL.")
+            conn.send(f"Personaje {nombre} insertado correctamente en la base de datos MySQL.".encode())
+            consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
+
     
     elif msg == "2":
         pass
