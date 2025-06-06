@@ -57,11 +57,36 @@ def get_MySQL_conn():
         database = DB_MySQL
     )
 
-# TODO: =============== PETICIONES (TABLAS) ================
+# TODO: =============== PETICIONES (TABLAS_COLECCIONES) ================
+
+# TODO: =============== CONSULTAS MongoDB ================
 
 
+# TODO: =============== CONSULTAS MySQL ================
 
+#? PERSONAJES
+def consulta_table4_mysql(conn: socket.socket):
+    get_MySQL_conn() # Conexión a la base de datos MySQL
+    log_warning(f"== EN ESPERA AUTOMATICA DE 5s ==")
+    time.sleep(tiempo_espera)
 
+    conn.send("=============== CONSULTAS PERSONAJES MySQL ==============\n" \
+        "\n 1. Insertar personaje"\
+        "\n 2. Ver todos los personajes"\
+        "\n 3. Otras busquedas"\
+        "\n 4."\
+        .encode)
+    
+    msg = conn.recv(1024).decode()
+    
+    log_info(f"Mensaje recibido: {msg}")
+    time.sleep(tiempo_espera)
+    log_warning(f"== EN ESPERA AUTOMATICA DE {tiempo_espera}s ==")
+
+    if msg == "1":
+        log_info("[CLIENT] OPCION INSERTAR PERSONAJE")
+        
+        #? 
 
 
 
@@ -85,7 +110,7 @@ def consultas_MongoDB(conn: socket.socket):
 
         if msg == "1":
             log_info("[CLIENT] OPCION PERSONAJES")
-            collection_MDB_4(conn)
+            # collection_MDB_4(conn)
         elif msg == "2":
             log_info("[CLIENT] OPCION EMPRESAS")
             conn.send("SIN CONFIGURAR".encode())
@@ -123,8 +148,7 @@ def consultas_MySQL(conn: socket.socket):
 
         if msg == "1":
             log_info("[CLIENT] OPCION PERSONAJES")
-            conn.send("SIN CONFIGURAR".encode())
-            # consulta_table4_mysql(conn)
+            consulta_table4_mysql(conn)
         elif msg == "2":
             log_info("[CLIENT] OPCION EMPRESAS")
             conn.send("SIN CONFIGURAR".encode())
