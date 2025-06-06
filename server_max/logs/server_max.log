@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2025-06-05 12:48:42 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
 2025-06-05 12:48:42 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
 2025-06-05 12:48:42 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
@@ -236,3 +237,276 @@
 2025-06-05 16:40:12 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 64341)
 2025-06-05 16:40:20 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
 2025-06-05 16:40:22 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-06 09:22:24 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-06 09:22:24 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-06 09:23:05 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 52009)
+2025-06-06 09:23:14 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-06 09:23:23 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-06 09:24:16 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-06 09:24:16 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-06 09:24:26 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 52038)
+2025-06-06 09:24:35 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-06 09:24:47 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-06 09:25:09 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-06 09:25:09 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-06 09:25:35 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 52058)
+2025-06-06 09:25:57 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-06 09:26:00 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-06 09:28:14 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-06 09:28:14 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-06 09:28:21 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 52108)
+2025-06-06 09:28:35 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-06 09:28:46 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-06 09:28:51 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-06 09:32:01 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-06 09:32:01 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-06 09:32:11 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 52258)
+2025-06-06 09:32:20 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-06 09:32:26 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-06 09:32:31 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-06 09:32:36 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-06 09:32:41 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Personajes
+2025-06-06 09:33:10 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: Seth
+2025-06-06 09:33:20 - INFO - [SERVIDOR INFO]: Elemento del personaje recibido: Electricidad
+2025-06-06 09:33:22 - INFO - [SERVIDOR INFO]: Rareza del personaje recibido: 4
+2025-06-06 09:33:38 - INFO - [SERVIDOR INFO]: ID del juego recibido: 5
+=======
+2025-06-05 12:48:42 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 12:48:42 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 12:48:42 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
+2025-06-05 13:37:23 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 13:37:23 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 13:37:29 - INFO - [SERVIDOR INFO]: Esperar 5s
+2025-06-05 13:37:34 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 58725)
+2025-06-05 13:37:40 - INFO - [SERVIDOR INFO]: Esperar 5s
+2025-06-05 13:37:45 - INFO - [SERVIDOR INFO]: [Client] Opcion invalida
+2025-06-05 13:37:58 - INFO - [SERVIDOR INFO]: Esperar 5s
+2025-06-05 13:38:03 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 58735)
+2025-06-05 13:38:06 - INFO - [SERVIDOR INFO]: Esperar 5s
+2025-06-05 13:38:11 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-05 13:58:40 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 13:58:40 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 13:58:45 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59380)
+2025-06-05 13:58:59 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:00:13 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:00:13 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:00:18 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59447)
+2025-06-05 14:00:28 - INFO - [SERVIDOR INFO]: [Client] Opcion invalida
+2025-06-05 14:00:28 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
+2025-06-05 14:00:59 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:00:59 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:01:04 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59479)
+2025-06-05 14:01:13 - INFO - [SERVIDOR INFO]: [Client] Opcion invalida
+2025-06-05 14:01:13 - INFO - [SERVIDOR INFO]: Servidor iniciado correctamente.
+2025-06-05 14:01:18 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:01:18 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:01:23 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59499)
+2025-06-05 14:01:29 - INFO - [SERVIDOR INFO]: [Client] Opcion invalida
+2025-06-05 14:01:47 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:01:47 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:01:54 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59517)
+2025-06-05 14:02:02 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:02:19 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-05 14:03:20 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:03:20 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:03:25 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 59575)
+2025-06-05 14:03:35 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:28:27 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:28:27 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:28:33 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60447)
+2025-06-05 14:28:41 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:28:43 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:28:48 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:28:50 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:28:55 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Personajes
+2025-06-05 14:29:04 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: Aalto
+2025-06-05 14:29:09 - INFO - [SERVIDOR INFO]: Elemento del personaje recibido: Aero
+2025-06-05 14:29:11 - INFO - [SERVIDOR INFO]: Rareza del personaje recibido: 4
+2025-06-05 14:29:32 - INFO - [SERVIDOR INFO]: ID del juego recibido: 3
+2025-06-05 14:29:32 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'nombre': 'Aalto', 'elemento': 'Aero', 'rareza': '4', 'id_juego': '3', '_id': ObjectId('68418dac4918f46f95fa7642')}
+2025-06-05 14:29:46 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-05 14:30:30 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:30:30 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:30:40 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60515)
+2025-06-05 14:30:48 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:30:50 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:30:55 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:30:57 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:31:02 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Personajes
+2025-06-05 14:31:27 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: Mortefi
+2025-06-05 14:31:37 - INFO - [SERVIDOR INFO]: Elemento del personaje recibido: Fusion
+2025-06-05 14:31:39 - INFO - [SERVIDOR INFO]: Rareza del personaje recibido: 4
+2025-06-05 14:31:42 - INFO - [SERVIDOR INFO]: ID del juego recibido: 4
+2025-06-05 14:31:42 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'nombre': 'Mortefi', 'elemento': 'Fusion', 'rareza': '4', 'id_juego': '4', '_id': ObjectId('68418e2e1aafa2e80174eabe')}
+2025-06-05 14:31:48 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-05 14:32:39 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:32:39 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:32:44 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60565)
+2025-06-05 14:32:54 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:32:56 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:33:01 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:33:04 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 14:33:09 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones
+2025-06-05 14:34:26 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:34:26 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:34:41 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60613)
+2025-06-05 14:34:48 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:34:51 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:34:56 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:34:58 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 14:35:03 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones
+2025-06-05 14:35:31 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-05 14:35:38 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:35:38 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:35:45 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60654)
+2025-06-05 14:35:53 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:35:55 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:36:00 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:36:03 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 14:36:08 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones
+2025-06-05 14:36:44 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 14:36:44 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 14:36:50 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 60693)
+2025-06-05 14:36:58 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 14:37:05 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:37:10 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 14:37:14 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 14:37:19 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Personajes
+2025-06-05 14:38:04 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: Zhongli
+2025-06-05 14:38:07 - INFO - [SERVIDOR INFO]: Elemento del personaje recibido: Geo
+2025-06-05 14:38:09 - INFO - [SERVIDOR INFO]: Rareza del personaje recibido: 5
+2025-06-05 14:38:11 - INFO - [SERVIDOR INFO]: ID del juego recibido: 1
+2025-06-05 14:38:11 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'nombre': 'Zhongli', 'elemento': 'Geo', 'rareza': '5', 'id_juego': '1', '_id': ObjectId('68418fb3d4d571dcbb761af1')}
+2025-06-05 14:38:14 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 14:38:19 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones
+2025-06-05 15:43:00 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 15:43:00 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 15:43:07 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 62360)
+2025-06-05 15:43:14 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 15:43:17 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:43:22 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 15:43:31 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:43:39 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:43:44 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar todos los personajes
+2025-06-05 15:44:09 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 15:44:09 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 15:44:15 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 62427)
+2025-06-05 15:44:23 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 15:44:26 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:44:31 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 15:44:37 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:44:45 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:44:50 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar todos los personajes
+2025-06-05 15:46:20 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 15:46:20 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 15:46:26 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 62499)
+2025-06-05 15:46:33 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 15:46:34 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:46:39 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Juegos
+2025-06-05 15:46:43 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 15:46:43 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 15:46:51 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 62510)
+2025-06-05 15:47:00 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 15:47:01 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:47:06 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 15:47:08 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:47:18 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:47:23 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar todos los personajes
+2025-06-05 15:47:51 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 15:47:51 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 15:47:58 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 62536)
+2025-06-05 15:48:05 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 15:48:06 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:48:11 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 15:48:18 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:48:26 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:48:31 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar todos los personajes
+2025-06-05 15:51:31 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 15:51:31 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 15:51:37 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 62651)
+2025-06-05 15:51:44 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 15:51:47 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:51:52 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 15:51:54 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:52:02 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:52:07 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar personaje por NOMBRE
+2025-06-05 15:52:10 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: Terry
+2025-06-05 15:52:10 - WARNING - [SERVIDOR WARNING]: Personaje no encontrado: Terry
+2025-06-05 15:52:37 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 15:52:37 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 15:52:43 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 62690)
+2025-06-05 15:53:05 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 15:53:12 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 15:53:17 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 15:53:20 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:53:29 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 15:53:34 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar personaje por NOMBRE
+2025-06-05 15:53:38 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: Lycaon
+2025-06-05 15:53:38 - INFO - [SERVIDOR INFO]: Personaje encontrado: {'_id': ObjectId('68419114540ef947a33a5b92'), 'id': 17, 'nombre': 'Lycaon', 'elemento': 'Hielo', 'genero': 'Masculino', 'rareza': '5', 'juego_id': 5}
+2025-06-05 15:53:46 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 15:53:51 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Volver a las opciones
+2025-06-05 16:01:57 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:01:57 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:02:13 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 63083)
+2025-06-05 16:02:21 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 16:02:32 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:02:37 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 16:02:47 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:02:52 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Personajes
+2025-06-05 16:02:57 - INFO - [SERVIDOR INFO]: Nombre del personaje recibido: 
+2025-06-05 16:03:01 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:03:01 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:03:12 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 63117)
+2025-06-05 16:03:21 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 16:03:40 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:03:45 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Personajes
+2025-06-05 16:03:51 - INFO - [SERVIDOR INFO]: Mensaje recibido: 2
+2025-06-05 16:04:08 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 16:04:13 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Otras consultas
+2025-06-05 16:04:25 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:04:30 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Consultar personajes por ELEMENTO
+2025-06-05 16:04:33 - INFO - [SERVIDOR INFO]: Elemento recibido: Pyro
+2025-06-05 16:20:36 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:20:36 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:20:45 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 63673)
+2025-06-05 16:20:55 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 16:21:00 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 16:21:05 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Empresa
+2025-06-05 16:21:07 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:21:12 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Empresas
+2025-06-05 16:21:29 - INFO - [SERVIDOR INFO]: Nombre de la empresa recibido: Ubisoft
+2025-06-05 16:21:29 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'id': '4', 'nombre': 'Ubisoft', '_id': ObjectId('6841a7e9e9657411500c7337')}
+2025-06-05 16:22:22 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:22:22 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:22:34 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 63714)
+2025-06-05 16:22:45 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 16:22:51 - INFO - [SERVIDOR INFO]: Mensaje recibido: 3
+2025-06-05 16:22:56 - INFO - [SERVIDOR INFO]: Seleccionada la coleccion: Empresa
+2025-06-05 16:22:59 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:23:04 - INFO - [SERVIDOR INFO]: Seleccionada la opcion: Insertar Empresas
+2025-06-05 16:23:11 - INFO - [SERVIDOR INFO]: Nombre de la empresa recibido: Electronic art
+2025-06-05 16:23:11 - INFO - [SERVIDOR INFO]: Datos insertados en MongoDB: {'id': '5', 'nombre': 'Electronic art', '_id': ObjectId('6841a84f4992dacd8c50db8a')}
+2025-06-05 16:23:14 - INFO - [SERVIDOR INFO]: Mensaje recibido: Electronic Art
+2025-06-05 16:36:13 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:36:13 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:36:23 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 64132)
+2025-06-05 16:36:32 - INFO - [SERVIDOR INFO]: [Client] Opcion 1 seleccionada: MongoDB
+2025-06-05 16:36:36 - INFO - [SERVIDOR INFO]: Mensaje recibido: 
+2025-06-05 16:36:47 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:36:47 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:36:52 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 64140)
+2025-06-05 16:36:59 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-05 16:37:04 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:38:09 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:38:09 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:38:37 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:38:37 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:38:43 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 64294)
+2025-06-05 16:38:57 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-05 16:39:02 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+2025-06-05 16:40:02 - INFO - [SERVIDOR INFO]: Servidor iniciado en localhost:8080
+2025-06-05 16:40:02 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8080
+2025-06-05 16:40:12 - INFO - [SERVIDOR INFO]: Conexion establecida desde ('127.0.0.1', 64341)
+2025-06-05 16:40:20 - INFO - [SERVIDOR INFO]: [Client] Opcion 2 seleccionada: MySQL
+2025-06-05 16:40:22 - INFO - [SERVIDOR INFO]: Mensaje recibido: 1
+>>>>>>> 7a07b76de28ed36c6b9e953b8c194c5989fedf17
