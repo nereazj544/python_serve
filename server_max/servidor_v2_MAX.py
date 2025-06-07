@@ -68,6 +68,7 @@ def get_MySQL_conn():
 def consulta_table4_mysql(conn: socket.socket):
     cursor = get_MySQL_conn() # Conexión a la base de datos MySQL
     log_warning(f"== EN ESPERA AUTOMATICA DE 5s ==")
+    print("[TIME SLEEP] Esperando 5 segundos antes de continuar...")
     time.sleep(tiempo_espera)
 
     conn.send("=============== CONSULTAS PERSONAJES MySQL ==============\n" \
@@ -82,15 +83,18 @@ def consulta_table4_mysql(conn: socket.socket):
     log_info(f"Mensaje recibido: {msg}")
     time.sleep(tiempo_espera)
     log_warning(f"== EN ESPERA AUTOMATICA DE {tiempo_espera}s ==")
+    print("[TIME SLEEP] Esperando 5 segundos antes de continuar...")
 
     if msg == "1":
         log_info("[CLIENT] OPCION INSERTAR PERSONAJE")
+        print("[CLIENT] OPCION INSERTAR PERSONAJE")
         
         conn.send("Tu personaje tiene arma y rareza? (S/N _ Y/N)".encode())
         msg = conn.recv(1024).decode()
 
         log_info(f"Mensaje recibido: {msg}")
         time.sleep(tiempo_espera)
+        print("[TIME SLEEP] Esperando 5 segundos antes de continuar...")
         log_warning(f"== EN ESPERA AUTOMATICA DE {tiempo_espera}s ==")
 
         if msg.lower() == "s" or msg.lower() == "y" or msg.lower() == "si" or msg.lower() == "yes":
@@ -186,13 +190,16 @@ def consulta_table4_mysql(conn: socket.socket):
     #? Visualizar
     elif msg == "2":
         log_info("[CLIENT] OPCION VER TODOS LOS PERSONAJES")
-        query = "SELECT * FROM personajes"
+        print("[CLIENT] OPCION VER TODOS LOS PERSONAJES")
+        query = "SELECT j.nombre, p.* FROM personajes p INNER JOIN juegos j ON p.juego_id = j.id ORDER BY j.nombre ASC"
         c = cursor.cursor()
         c.execute(query)
         personajes_list = "Lista de personajes:\n"
         for list in c.fetchall():
-                personajes_list += f"ID: {list[0]} - NOMBRE: {list[1]}\n"
-        conn.send(f"{personajes_list} \nENTER PARA CONTINUAR".encode())
+                personajes_list += f"NOMBRE DEL JUEGO: {list[0]} - ID PERSONAJE: {list[1]} "\
+                f"- NOMBRE: {list[2]} - GENERO: {list[4]} - ELEMENTO: {list[3]} - RAREZA: {list[5]} - ARMA: {list[6]}"\
+                f"- FACCION: {list[7]}\n"
+        conn.send(f"{personajes_list} \nENTER PARA CONTINUAR\n".encode())
         log_info(f"Personajes listados correctamente en la base de datos MySQL.")
         consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
     
@@ -225,21 +232,27 @@ def consultas_MongoDB(conn: socket.socket):
         log_info(f"Mensaje recibido: {msg}")
         time.sleep(tiempo_espera)
         log_warning(f"== EN ESPERA AUTOMATICA DE {tiempo_espera}s ==")
+        print("[TIME SLEEP] Esperando 5 segundos antes de continuar...")
 
         if msg == "1":
             log_info("[CLIENT] OPCION PERSONAJES")
+            print("[CLIENT] OPCION PERSONAJES")
             # collection_MDB_4(conn)
         elif msg == "2":
             log_info("[CLIENT] OPCION EMPRESAS")
+            print("[CLIENT] OPCION EMPRESAS")
             conn.send("SIN CONFIGURAR".encode())
             # collection_MDB_1(conn)
         elif msg == "3":
             log_info("[CLIENT] OPCION JUEGOS")
+            print("[CLIENT] OPCION JUEGOS")
             conn.send("SIN CONFIGURAR".encode())
             # collection_MDB_2(conn)
         elif msg == "4":
             log_info("[CLIENT] OPCION SALIR")
-            conn.send("Saliendo de MongoDB...".encode())
+            print("[CLIENT] OPCION SALIR")
+            conn.send("Saliendo...".encode())
+            log_info("Saliendo...")
             conn.close()
         else: 
             log_error(f"Mensaje no reconocido: {msg}")
@@ -263,21 +276,27 @@ def consultas_MySQL(conn: socket.socket):
         log_info(f"Mensaje recibido: {msg}")
         time.sleep(tiempo_espera)
         log_warning(f"== EN ESPERA AUTOMATICA DE {tiempo_espera}s ==")
+        print("[TIME SLEEP] Esperando 5 segundos antes de continuar...")
 
         if msg == "1":
             log_info("[CLIENT] OPCION PERSONAJES")
+            print("[CLIENT] OPCION PERSONAJES")
             consulta_table4_mysql(conn)
         elif msg == "2":
             log_info("[CLIENT] OPCION EMPRESAS")
+            print("[CLIENT] OPCION EMPRESAS")
             conn.send("SIN CONFIGURAR".encode())
             # consulta_table1_mysql(conn)
         elif msg == "3":
             log_info("[CLIENT] OPCION JUEGOS")
+            print("[CLIENT] OPCION JUEGOS")
             conn.send("SIN CONFIGURAR".encode())
             # consulta_table2_mysql(conn)
         elif msg == "4":
             log_info("[CLIENT] OPCION SALIR")
-            conn.send("Saliendo de MongoDB...".encode())
+            print("[CLIENT] OPCION SALIR")
+            conn.send("Saliendo...".encode())
+            log_info("Saliendo...")
             conn.close()
         else: 
             log_error(f"Mensaje no reconocido: {msg}")
@@ -298,6 +317,7 @@ def start_server():
         while True:
             conn, addr = s.accept()
             log_warning(f"== EN ESPERA AUTOMATICA DE 5s ==")
+            print("[TIME SLEEP] Esperando 5 segundos antes de aceptar la conexión...")
             time.sleep(tiempo_espera)
             log_info(f"Conexión aceptada de {addr}")
 
@@ -316,10 +336,12 @@ def start_server():
                 
                 if msg == "1":
                     log_info("[CLIENT] OPCION MONNGODB")
+                    print("[CLIENT] OPCION MONGODB")
                     conn.send("SELECCION MONGODB, ENTER PARA CONTINUAR".encode())
                     consultas_MongoDB(conn)
                 elif msg == "2":
                     log_info("[CLIENT] OPCION MYSQL")
+                    print("[CLIENT] OPCION MYSQL")
                     conn.send("SELECCION MYSQL, ENTER PARA CONTINUAR".encode())
                     consultas_MySQL(conn)
                 else: 
@@ -328,9 +350,7 @@ def start_server():
                     continue
 
 
-
 if __name__ == "__main__":
     start_server()
     log_info("Servidor iniciado correctamente.")
     log_warning("Servidor en espera de conexiones...")
- 
