@@ -75,7 +75,7 @@ def consulta_table4_mysql(conn: socket.socket):
         "\n 1. Insertar personaje"\
         "\n 2. Ver todos los personajes"\
         "\n 3. Otras busquedas"\
-        "\n 4."\
+        "\n 4. Salir"\
         .encode())
     
     msg = conn.recv(1024).decode()
@@ -100,27 +100,27 @@ def consulta_table4_mysql(conn: socket.socket):
         if msg.lower() == "s" or msg.lower() == "y" or msg.lower() == "si" or msg.lower() == "yes":
             #? Insertar un personaje en la base de datos MySQL
             conn.send("NOMBRE ".encode())
-            nombre = conn.recv(1024).decode()
+            nombre = conn.recv(1024).decode().capitalize()
             log_info(f"Nombre recibido: {nombre}")
     
             conn.send("ELEMENTO ".encode())
-            elemento = conn.recv(1024).decode()
+            elemento = conn.recv(1024).decode().capitalize()
             log_info(f"Elemento recibido: {elemento}")
     
             conn.send("GENERO".encode())
-            genero = conn.recv(1024).decode()
+            genero = conn.recv(1024).decode().capitalize()
             log_info(f"Género recibido: {genero}")
     
             conn.send("RAREZA (SI EL PERSONAJE NO TIENE ENTER) ".encode())
-            rareza = conn.recv(1024).decode()
+            rareza = conn.recv(1024).decode().capitalize()
             log_info(f"Rareza recibida: {rareza}")
     
             conn.send("ARMA (SI EL PERSONAJE NO TIENE ENTER) ".encode())
-            arma = conn.recv(1024).decode()
+            arma = conn.recv(1024).decode().capitalize()
             log_info(f"Arma recibida: {arma}")
     
             conn.send("FACCION".encode())
-            faccion = conn.recv(1024).decode()
+            faccion = conn.recv(1024).decode().capitalize()
             log_info(f"Facción recibida: {faccion}")
             
             # ? PARA SACAR LOS IDES DE LOS JUEGOS ACTUALES
@@ -149,19 +149,19 @@ def consulta_table4_mysql(conn: socket.socket):
         elif msg.lower() == "n" or msg.lower() == "no":
             #? Insertar un personaje en la base de datos MySQL
             conn.send("NOMBRE ".encode())
-            nombre = conn.recv(1024).decode()
+            nombre = conn.recv(1024).decode().capitalize
             log_info(f"Nombre recibido: {nombre}")
 
             conn.send("ELEMENTO ".encode())
-            elemento = conn.recv(1024).decode()
+            elemento = conn.recv(1024).decode().capitalize()
             log_info(f"Elemento recibido: {elemento}")
 
             conn.send("GENERO".encode())
-            genero = conn.recv(1024).decode()
+            genero = conn.recv(1024).decode().capitalize()
             log_info(f"Género recibido: {genero}")
 
             conn.send("FACCION".encode())
-            faccion = conn.recv(1024).decode()
+            faccion = conn.recv(1024).decode().capitalize()
             log_info(f"Facción recibida: {faccion}")
 
             # ? PARA SACAR LOS IDES DE LOS JUEGOS ACTUALES
@@ -205,7 +205,140 @@ def consulta_table4_mysql(conn: socket.socket):
     
     #? Otras busquedas
     elif msg == "3":
-        pass
+        log_info("[CLIENT] OPCION OTRAS BUSQUEDAS")
+        print("[CLIENT] OPCION OTRAS BUSQUEDAS")
+        conn.send("=============== OTRAS BUSQUEDAS ==============\n" \
+            "\n 1. Buscar por nombre" \
+            "\n 2. Buscar por genero" \
+            "\n 3. Buscar por elemento" \
+            "\n 4. Buscar por rareza" \
+            "\n 5. Buscar por faccion" \
+            "\n 6. salir".encode())
+
+        msg = conn.recv(1024).decode()
+        log_info(f"Mensaje recibido: {msg}")
+
+        time.sleep(tiempo_espera)
+        log_warning(f"== EN ESPERA AUTOMATICA DE {tiempo_espera}s ==")
+        print("[TIME SLEEP] Esperando 5 segundos antes de continuar...")
+
+        if msg == "1": # ? Nombre personaje
+            log_info("[CLIENT] OPCION BUSCAR POR NOMBRE")
+            print("[CLIENT] OPCION BUSCAR POR NOMBRE")
+            
+            conn.send("NOMBRE DEL PERSONAJE".encode())
+            nombre = conn.recv(1024).decode().capitalize()
+
+            log_info(f"Nombre recibido: {nombre}")
+
+            query = "SELECT j.nombre, p.* FROM personajes p INNER JOIN juegos j ON p.juego_id = j.id WHERE p.nombre LIKE %s "
+            values = (f"%{nombre}%",)
+            c = cursor.cursor()
+            c.execute(query, values)
+            personajes_list = "Lista de personajes:\n"
+            for list in c.fetchall():
+                personajes_list += f"NOMBRE DEL JUEGO: {list[0]} - ID PERSONAJE: {list[1]} "\
+                f"- NOMBRE: {list[2]} - GENERO: {list[4]} - ELEMENTO: {list[3]} - RAREZA: {list[5]} - ARMA: {list[6]}"\
+                f"- FACCION: {list[7]}\n"
+            conn.send(f"{personajes_list} \nENTER PARA CONTINUAR\n".encode())
+            log_info(f"Personajes filtrados por nombre correctamente en la base de datos MySQL.")
+            consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
+
+        elif msg == "2": # ? Genero personaje
+            log_info("[CLIENT] OPCION BUSCAR POR GENERO")
+            print("[CLIENT] OPCION BUSCAR POR GENERO")
+            conn.send("GENERO DEL PERSONAJE".encode())
+            genero = conn.recv(1024).decode().capitalize()
+            log_info(f"Género recibido: {genero}")
+            query = "SELECT j.nombre, p.* FROM personajes p INNER JOIN juegos j ON p.juego_id = j.id WHERE p.genero LIKE %s "
+            values = (f"%{genero}%",)
+            c = cursor.cursor()
+            c.execute(query, values)
+            personajes_list = "Lista de personajes:\n"
+            for list in c.fetchall():
+                personajes_list += f"NOMBRE DEL JUEGO: {list[0]} - ID PERSONAJE: {list[1]} "\
+                f"- NOMBRE: {list[2]} - GENERO: {list[4]} - ELEMENTO: {list[3]} - RAREZA: {list[5]} - ARMA: {list[6]}"\
+                f"- FACCION: {list[7]}\n"
+            conn.send(f"{personajes_list} \nENTER PARA CONTINUAR\n".encode())
+            log_info(f"Personajes filtrados por género correctamente en la base de datos MySQL.")
+            consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
+        
+        elif msg == "3": # ? Elemento personaje
+            log_info("[CLIENT] OPCION BUSCAR POR ELEMENTO")
+            print("[CLIENT] OPCION BUSCAR POR ELEMENTO")
+            conn.send("ELEMENTO DEL PERSONAJE".encode())
+            elemento = conn.recv(1024).decode().capitalize()
+            log_info(f"Elemento recibido: {elemento}")
+            query = "SELECT j.nombre, p.* FROM personajes p INNER JOIN juegos j ON p.juego_id = j.id WHERE p.elemento LIKE %s "
+            values = (f"%{elemento}%",)
+            c = cursor.cursor()
+            c.execute(query, values)
+            personajes_list = "Lista de personajes:\n"
+            for list in c.fetchall():
+                personajes_list += f"NOMBRE DEL JUEGO: {list[0]} - ID PERSONAJE: {list[1]} "\
+                f"- NOMBRE: {list[2]} - GENERO: {list[4]} - ELEMENTO: {list[3]} - RAREZA: {list[5]} - ARMA: {list[6]}"\
+                f"- FACCION: {list[7]}\n"
+            conn.send(f"{personajes_list} \nENTER PARA CONTINUAR\n".encode())
+            log_info(f"Personajes filtrados por elemento correctamente en la base de datos MySQL.")
+            consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
+        elif msg == "4": # ? Rareza personaje
+            log_info("[CLIENT] OPCION BUSCAR POR RAREZA")
+            print("[CLIENT] OPCION BUSCAR POR RAREZA")
+            conn.send("RAREZA DEL PERSONAJE".encode())
+            rareza = conn.recv(1024).decode().capitalize()
+            log_info(f"Rareza recibida: {rareza}")
+            query = "SELECT j.nombre, p.* FROM personajes p INNER JOIN juegos j ON p.juego_id = j.id WHERE p.rareza LIKE %s "
+            values = (f"%{rareza}%",)
+            c = cursor.cursor()
+            c.execute(query, values)
+            personajes_list = "Lista de personajes:\n"
+            for list in c.fetchall():
+                personajes_list += f"NOMBRE DEL JUEGO: {list[0]} - ID PERSONAJE: {list[1]} "\
+                f"- NOMBRE: {list[2]} - GENERO: {list[4]} - ELEMENTO: {list[3]} - RAREZA: {list[5]} - ARMA: {list[6]}"\
+                f"- FACCION: {list[7]}\n"
+            conn.send(f"{personajes_list} \nENTER PARA CONTINUAR\n".encode())
+            log_info(f"Personajes filtrados por rareza correctamente en la base de datos MySQL.")
+            consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
+        elif msg == "5": # ? Faccion personaje
+            log_info("[CLIENT] OPCION BUSCAR POR FACCION")
+            print("[CLIENT] OPCION BUSCAR POR FACCION")
+            conn.send("FACCION DEL PERSONAJE".encode())
+            faccion = conn.recv(1024).decode().capitalize()
+            log_info(f"Facción recibida: {faccion}")
+            query = "SELECT j.nombre, p.* FROM personajes p INNER JOIN juegos j ON p.juego_id = j.id WHERE p.faccion LIKE %s "
+            values = (f"%{faccion}%",)
+            c = cursor.cursor()
+            c.execute(query, values)
+            personajes_list = "Lista de personajes:\n"
+            for list in c.fetchall():
+                personajes_list += f"NOMBRE DEL JUEGO: {list[0]} - ID PERSONAJE: {list[1]} "\
+                f"- NOMBRE: {list[2]} - GENERO: {list[4]} - ELEMENTO: {list[3]} - RAREZA: {list[5]} - ARMA: {list[6]}"\
+                f"- FACCION: {list[7]}\n"
+            conn.send(f"{personajes_list} \nENTER PARA CONTINUAR\n".encode())
+            log_info(f"Personajes filtrados por facción correctamente en la base de datos MySQL.")
+            consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
+        elif msg == "6": # ? Salir
+            log_info("[CLIENT] OPCION SALIR")
+            print("[CLIENT] OPCION SALIR")
+            conn.send("Saliendo...".encode())
+            log_info("Saliendo...")
+            conn.close()
+        else:
+            log_error(f"Mensaje no reconocido: {msg}")
+            conn.send("Opción no válida. Inténtalo de nuevo.".encode())
+            consulta_table4_mysql(conn)
+
+
+    elif msg == "4": # ? Salir
+        log_info("[CLIENT] OPCION SALIR")
+        print("[CLIENT] OPCION SALIR")
+        conn.send("Saliendo...".encode())
+        log_info("Saliendo...")
+        conn.close()
+    else:
+        log_error(f"Mensaje no reconocido: {msg}")
+        conn.send("Opción no válida. Inténtalo de nuevo.".encode())
+        consulta_table4_mysql(conn)
 
 
 
