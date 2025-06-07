@@ -191,8 +191,14 @@ def consulta_table4_mysql(conn: socket.socket):
         c.execute(query)
         personajes_list = "Lista de personajes:\n"
         for list in c.fetchall():
-                juegos_list += f"ID: {list[0]} - NOMBRE: {list[1]}\n"
-
+                personajes_list += f"ID: {list[0]} - NOMBRE: {list[1]}\n"
+        conn.send(f"{personajes_list} \nENTER PARA CONTINUAR".encode())
+        log_info(f"Personajes listados correctamente en la base de datos MySQL.")
+        consulta_table4_mysql(conn) #esto lo que provoca es que vuelva al menu de las opciones de la tabla de 'personajes'
+    
+    #? Otras busquedas
+    elif msg == "3":
+        pass
 
 
 
