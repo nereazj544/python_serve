@@ -342,8 +342,6 @@ def consulta_table4_mysql(conn: socket.socket):
 
 
 
-        
-
 
 
 
