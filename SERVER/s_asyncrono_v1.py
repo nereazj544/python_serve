@@ -56,59 +56,93 @@ def get_MySQL_conn():
 # TODO: =============== PETICIONES (TABLAS_COLECCIONES) ================
 
 # TODO: =============== CONSULTAS MongoDB ================
-async def collection_MDB_4(writer: asyncio.StreamWriter, reader: asyncio.StreamReader):
-    #? COLECCIONES A USAR
+async def collection_MDB_4(writer, reader):
     COL_J = CLIENT_MDB[COLLECTION_MONGO_2]
     COL_P = CLIENT_MDB[COLLECTION_MONGO_4]
+    while True:
+        menu = (
+            "Selecciona una opción:\n"
+            "1. Insertar\n"
+            "2. Consultar todos los elementos\n"
+            "3. Otro tipo de consulta\n"
+            "4. Salir\n"
+        )
+        writer.write(menu.encode())
+        await writer.drain()
+        msg = (await reader.read(1024)).decode().strip()
 
-    
-    writer.write("Selecciona una opción:\n1. Insertar \n2. Consultar todos los elementos  \n3.Otro tipo de consulta \n4.Salir".encode())
-    await writer.drain()
-    msg = await reader.read(1024)
-    
-    if msg == "1":
-        log_info(f"[CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION '{COLLECTION_MONGO_4}")
-        print(f"[CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION '{COLLECTION_MONGO_4}")
-        # TODO: CAMPOS QUE NO SON NULOS
-        writer.write("NOMBRE".encode())
-        await writer.drain()
-        nombre = await reader.read(1024)
-        nombre = nombre.capitalize()
-        writer.write("GENERO".encode())
-        await writer.drain()
-        genero = await reader.read(1024)
-        genero = genero.capitalize()
-        writer.write("FACCION".encode())
-        await writer.drain()
-        faccion = await reader.read(1024)
-        faccion = faccion.capitalize()
-        jg_list = "LISTA DE JUEGOS ACTUALES: \n"
-        for jg in COL_J.find():
-            jg_list += f"{jg['id']} - {jg['nombre']}\n"
-        writer.write(jg_list.encode())
-        await writer.drain()
-        writer.write("ID JUEGO".encode())
-        await writer.drain()
-        id = await reader.read(1024)
-        writer.write("OTROS CAMPOS (opcional) \n 1.Arma, elemento y rareza 2. Elemento solo 3. Arma solo".encode())
-        await writer.drain()
-        msg = await reader.read(1024)
-        
         if msg == "1":
-            writer.write("TIPO DE ARMA".encode())
+            #! --- Datos obligatorios ---
+            writer.write("NOMBRE: ".encode())
             await writer.drain()
-            arma = await reader.read(1024)
-            arma = arma.capitalize()
-            writer.write("ELEMENTO".encode())
+            nombre = (await reader.read(1024)).decode().strip().capitalize()
+
+            writer.write("GENERO: ".encode())
             await writer.drain()
-            elemento = await reader.read(1024)
-            elemento = elemento.capitalize()
-            
-            writer.write("RAREZA".encode())
+            genero = (await reader.read(1024)).decode().strip().capitalize()
+
+            writer.write("FACCION: ".encode())
             await writer.drain()
-            rareza = await reader.read(1024)
-            rareza = rareza.capitalize()
-            #? INSERTAR EN LA COLECCION
+            faccion = (await reader.read(1024)).decode().strip().capitalize()
+
+            #! --- Mostrar juegos disponibles ---
+            juegos = list(COL_J.find())
+            jg_list = "LISTA DE JUEGOS ACTUALES:\n"
+            for jg in juegos:
+                jg_list += f"{jg.get('id')} - {jg.get('nombre')}\n"
+            writer.write(jg_list.encode())
+            await writer.drain()
+
+            writer.write("ID JUEGO: ".encode())
+            await writer.drain()
+            id_juego = (await reader.read(1024)).decode().strip()
+            try:
+                id_juego = int(id_juego)
+            except ValueError:
+                writer.write("ID de juego inválido. Cancelando.\n".encode())
+                await writer.drain()
+                continue
+
+            # --- Menú de campos opcionales ---
+            opciones = (
+                "Indica campos extra:\n"
+                "1. Arma, elemento y rareza\n"
+                "2. Solo elemento\n"
+                "3. Solo arma\n"
+                "4. Ninguno (dejar en blanco)\n"
+
+            )
+            writer.write(opciones.encode())
+            await writer.drain()
+            opcion = (await reader.read(1024)).decode().strip()
+
+            arma = None
+            elemento = None
+            rareza = None
+
+            if opcion == "1":
+                writer.write("TIPO DE ARMA: ".encode())
+                await writer.drain()
+                arma = (await reader.read(1024)).decode().strip().capitalize()
+
+                writer.write("ELEMENTO: ".encode())
+                await writer.drain()
+                elemento = (await reader.read(1024)).decode().strip().capitalize()
+
+                writer.write("RAREZA (puede ser: 'rango S', 'Rango A', '4', '5', etc): ".encode())
+                await writer.drain()
+                rareza = (await reader.read(1024)).decode().strip().title()
+            elif opcion == "2":
+                writer.write("ELEMENTO: ".encode())
+                await writer.drain()
+                elemento = (await reader.read(1024)).decode().strip().capitalize()
+            elif opcion == "3":
+                writer.write("TIPO DE ARMA: ".encode())
+                await writer.drain()
+                arma = (await reader.read(1024)).decode().strip().capitalize()
+            # Si la opción es "4" o cualquier otra, se dejan los campos en None
+
+            # --- Montar documento y guardar ---
             data = {
                 "id": COL_P.count_documents({}) + 1,
                 "nombre": nombre,
@@ -117,43 +151,42 @@ async def collection_MDB_4(writer: asyncio.StreamWriter, reader: asyncio.StreamR
                 "arma": arma,
                 "rareza": rareza,
                 "faccion": faccion,
-                "id_juego": int(id)
+                "id_juego": id_juego
             }
-        
-        if msg == "2":
-            writer.write("ELEMENTO".encode())
-            await writer.drain()
-            elemento = await reader.read(1024)
-            elemento = elemento.capitalize()
-            #? INSERTAR EN LA COLECCION
-            data = {
-                "id": COL_P.count_documents({}) + 1,
-                "nombre": nombre,
-                "genero": genero,
-                "elemento": elemento,
-                "arma": None,
-                "rareza": None,
-                "faccion": faccion,
-                "id_juego": int(id)
-            }
-        if msg == "3":
-            writer.write("TIPO DE ARMA".encode())
-            await writer.drain()
-            arma = await reader.read(1024)
-            arma = arma.capitalize()
-            #? INSERTAR EN LA COLECCION
-            data = {
-                "id": COL_P.count_documents({}) + 1,
-                "nombre": nombre,
-                "genero": genero,
-                "elemento": None,
-                "arma": arma,
-                "rareza": None,
-                "faccion": faccion,
-                "id_juego": int(id)
-            }
+            try:
+                COL_P.insert_one(data)
+                writer.write("Personaje insertado correctamente en la colección.\\n".encode())
+                await writer.drain()
+                log_info(f"Insertado personaje: {data['nombre']} en MongoDB.")
+            except Exception as e:
+                writer.write(f"Error insertando personaje: {e}".encode())
+                await writer.drain()
+                log_error(f"Error insertando personaje: {e}")
 
+        elif msg == "2":
+            # Consultar todos los personajes
+            all_chars = list(COL_P.find())
+            if not all_chars:
+                writer.write("No hay personajes en la colección.\n".encode())
+            else:
+                lista = "=== PERSONAJES ===\n"
+                for char in all_chars:
+                    lista += f"ID: {char.get('id','')} | Nombre: {char.get('nombre','')} | Rareza: {char.get('rareza','-')} | Juego: {char.get('id_juego','')}\n"
+                writer.write(lista.encode())
+            await writer.drain()
 
+        elif msg == "3":
+            writer.write("Funcionalidad no implementada aún.\n".encode())
+            await writer.drain()
+
+        elif msg == "4":
+            writer.write("Saliendo del menú de personajes.\n".encode())
+            await writer.drain()
+            break
+
+        else:
+            writer.write("Opción no válida. Intenta de nuevo.\\n".encode())
+            await writer.drain()
 
 
 

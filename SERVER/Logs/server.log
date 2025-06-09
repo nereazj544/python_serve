@@ -213,3 +213,112 @@ ConnectionResetError: [WinError 64] El nombre de red especificado ya no está dis
 2025-06-09 14:00:54 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
 2025-06-09 14:01:00 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
 2025-06-09 14:01:07 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:06:31 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 14:06:34 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 65438)
+2025-06-09 14:06:39 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:06:43 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 14:06:53 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 14:07:00 - INFO - [SERVIDOR INFO]: [CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION 'Personajes
+2025-06-09 14:07:48 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:07:55 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 213, in client_communication_server
+    msg = await reader.read(1024)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-09 14:08:25 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 14:08:28 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 65485)
+2025-06-09 14:08:33 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:08:37 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 14:08:41 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 14:08:46 - INFO - [SERVIDOR INFO]: [CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION 'Personajes
+2025-06-09 14:09:40 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:09:41 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 215, in client_communication_server
+    msg = await reader.read(1024)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-09 14:11:06 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 14:11:08 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 49191)
+2025-06-09 14:11:13 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:11:16 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 14:11:22 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 14:11:24 - INFO - [SERVIDOR INFO]: [CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION 'Personajes
+2025-06-09 14:11:58 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:12:54 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 14:12:56 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 49247)
+2025-06-09 14:13:01 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:13:05 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 14:13:08 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 14:13:12 - INFO - [SERVIDOR INFO]: [CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION 'Personajes
+2025-06-09 14:14:09 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:14:20 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 216, in client_communication_server
+    msg = await reader.read(1024)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-09 14:16:49 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 49352)
+2025-06-09 14:16:54 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:17:21 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 14:17:24 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 14:17:27 - INFO - [SERVIDOR INFO]: [CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION 'Personajes
+2025-06-09 14:18:28 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
