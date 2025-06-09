@@ -301,7 +301,20 @@ async def collection_MDB_4(writer, reader):
 
 # TODO: =============== CONSULTAS MySQL ================
 
-
+async def collection_MDB_4(writer, reader):
+    conn = get_MySQL_conn()
+    cr = conn.cursor()
+    while True:
+        menu = (
+            "Selecciona una opción:\n"
+            "1. Insertar\n"
+            "2. Consultar todos los elementos\n"
+            "3. Otro tipo de consulta\n"
+            "4. Salir\n"
+        )
+        writer.write(menu.encode())
+        await writer.drain()
+        msg = (await reader.read(1024)).decode().strip()
 
 
 # TODO: =============== CONFIGURACION CONEXION BASES DE DATOS, SELECCION DE TABLAS ================
@@ -328,7 +341,25 @@ async def consultas_MDB(writer: asyncio.StreamWriter, reader: asyncio.StreamRead
         await collection_MDB_4(writer, reader)
 
 
+async def consultas_MySQL(writer: asyncio.StreamWriter, reader: asyncio.StreamReader):
+    writer.write("Consultar datos en MySQL, seleccionar la colección:\n1. Empresa\n2. Juegos\n3. Personajes(OPCION DISPONIBLE)\n4. Salir".encode())
+    await writer.drain()
+    
+    msg = await reader.read(1024)
+    if not msg:
+        log_warning("Cliente desconectado.")
+        print("Cliente desconectado.")
+        return
+    option = msg.decode().strip()
+    log_debug(f"Opción seleccionada: {option}")
+    print(f"Opción seleccionada: {option}")
 
+
+    if option == "3":
+        log_info("Consultando datos de la colección 'Personajes' en MySQL...")
+        writer.write("Consultando datos de la colección 'Personajes' en MySQL...\n".encode())
+        await writer.drain()
+        await collection_MDB_4(writer, reader)
 
 
 
@@ -368,7 +399,7 @@ async def client_communication_server (reader, writer):
             log_info("Consultando datos de MySQL...")
             writer.write("Consultando datos de MySQL...\n".encode())
             await writer.drain()
-            # consultas_MySQL(writer)
+            await consultas_MySQL(writer, reader)
         elif option == "4":
             log_info("Cerrando conexión con el cliente.")
             writer.write("Cerrando conexión con el cliente.\n".encode())
