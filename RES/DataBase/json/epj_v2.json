@@ -74,7 +74,7 @@
     { "id":15 ,"nombre": "Mark", "elemento": "Montaña", "genero": "Masculino", "rareza": null, "arma": null, "faccion": "Raimon", "juego_id": 5 },
     { "id":16 ,"nombre": "Umei", "elemento": "Bosque", "genero": "Masculino", "rareza": null, "arma": null, "faccion": "South Cirrus", "juego_id": 5 },
     { "id": 17,"nombre": "Sonny", "elemento": "Fuego", "genero": "Masculino", "rareza": null, "arma": null, "faccion": "Raimon", "juego_id": 5 },
-    { "id": 18,"nombre": "Link", "elemento": "varios", "genero": "Masculino", "rareza": null, "arma": "Espada maestra", "faccion": "Reino de Hyrule", "juego_id": 6 },
+    { "id": 18,"nombre": "Link", "elemento": null, "genero": "Masculino", "rareza": null, "arma": "Espada maestra", "faccion": "Reino de Hyrule", "juego_id": 6 },
     { "id": 19,"nombre": "Zelda", "elemento": "Luz", "genero": "Femenino", "rareza": null, "arma": "magia", "faccion": "Reino de Hyrule", "juego_id": 6 }
   ]
 }

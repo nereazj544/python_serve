@@ -18,8 +18,8 @@ create table juegos(
 create table personajes(
     id int auto_increment PRIMARY KEY,
     nombre VARCHAR(255) NOT Null,
-    elemento VARCHAR(255) NOT Null,
     genero VARCHAR(255) NOT NULL,
+    elemento VARCHAR(255),
     rareza VARCHAR(10),
     arma VARCHAR(255),
     faccion VARCHAR(255) NOT NULL,
@@ -46,7 +46,8 @@ create table juego_plataformas(
 insert INTO empresas (nombre, pais) values 
 ('Hoyoverse', 'China'), 
 ('Kuro Game', 'China'), 
-('Level-5', 'Japón');
+('Level-5', 'Japón'),
+('Nintendo', 'Japón');
 
 insert INTO plataformas (nombre) values 
 ('PC'), 
@@ -60,7 +61,9 @@ insert into juegos (nombre, genero, clasificacion_edad, empresa_id) values
 ('Honkai Star Rail (HSR)', 'Gachas', 'T', 1),
 ('Zenless Zone Zero (ZZZ)', 'Gachas', 'T', 1),
 ('Wuthering Waves (WuWa)', 'Gachas', 'T', 2),
-('Inazuma Eleven (IE)', 'Deportes', 'E10+', 3);
+('Inazuma Eleven (IE)', 'Deportes', 'E12', 3),
+('The Legend of Zelda: Tears of the Kingdom (TotK)', 'Aventura', 'E12', 4);
+
 
 
 insert into plataformas (nombre) values
@@ -102,26 +105,31 @@ insert into juego_plataformas (juego_id, plataforma_id) values
 (5, 3), -- Inazuma Eleven en PlayStation 5
 (5, 4), -- Inazuma Eleven en Xbox Series X/S
 (5, 5), -- Inazuma Eleven en Nintendo Switch
-(5, 6); -- Inazuma Eleven en Nintendo Switch 2
+(5, 6), -- Inazuma Eleven en Nintendo Switch 2
+(6, 5), -- The Legend of Zelda: Tears of the Kingdom en Nintendo Switch
+(6, 6); -- The Legend of Zelda: Tears of the Kingdom en Nintendo Switch 2
+ 
 
 
 
-insert into personajes (nombre, elemento, genero, rareza, arma, faccion, juego_id) values
-('Bennett', 'Pyro', 'Masculino', '4', 'Espada', 'Mondstadt', 1),
-('Kazuha', 'Anemo', 'Masculino', '5', 'Espada', 'Inazuma', 1),
-('Arlecchino', 'Pyro', 'Femenino', '5', 'Lanza', 'Fatui', 1),
-('Xiao', 'Anemo', 'Masculino', '5', 'Lanza', 'Liyue', 1),
-('Jing Yan', 'Rayo', 'Masculino', '5', 'Mandoble', 'El Luofu de Xianzhou', 2),
-('Kafka', 'Rayo', 'Femenino', '5', 'Arma de fuego', 'Cazadores de Estelaron', 2),
-('Gepard', 'Hielo', 'Masculino', '5', 'Escudo de hielo', 'Guardia Crinargenta', 2),
-('Hugo', 'Glacial', 'Masculino', 'Rango S', 'Guadaña', 'Ruiseñor', 3),
-('Lycaon', 'Glacial', 'Masculino', 'Rango S', 'Puños y patadas', 'Servicios Domesticos Victoria', 3),
-('Seth', 'Electrico', 'Masculino', 'Rango A', 'Porra y escudo policial', 'Equipo de respuesta de la unidad de investigacion criminal', 3),
-('Brant', 'Fusion', 'Masculino', '5','Espada','Troupe Torpe', 4),
-('Zani', 'Espectro', 'Femenino', '5','Brazaletes','La familia Montelli', 4),
-('Aalto', 'Aero', 'Masculino', '4','Pistolas','Costa Negra', 4),
-('Arion', 'Aire', 'Masculino', NULL, NULL, 'Raimon', 5),
-('Mark', 'Montaña', 'Masculino', NULL, NULL, 'Raimon', 5),
-('Umei', 'Bosque', 'Masculino', NULL, NULL, 'South Cirrus', 5),
-('Sonny', 'Fuego', 'Masculino', NULL, NULL, 'Raimon', 5);
+
+insert into personajes (nombre, genero, elemento, rareza, arma, faccion, juego_id) values
+('Bennett',  'Masculino','Pyro' ,'4', 'Espada', 'Mondstadt', 1),
+('Kazuha', 'Masculino', 'Anemo', 'Anemo','5', 'Espada', 'Inazuma', 1),
+('Arlecchino', 'Femenino', 'Pyro', '5', 'Lanza', 'Fatui', 1),
+('Xiao', 'Masculino', 'Anemo', '5', 'Lanza', 'Liyue', 1),
+('Jing Yan', 'Masculino', 'Rayo', '5', 'Mandoble', 'El Luofu de Xianzhou', 2),
+('Kafka', 'Femenino', 'Rayo', '5', 'Arma de fuego', 'Cazadores de Estelaron', 2),
+('Gepard', 'Masculino', 'Hielo', '5', 'Escudo de hielo', 'Guardia Crinargenta', 2),
+('Hugo', 'Masculino', 'Glacial', 'Rango S', 'Guadaña', 'Ruiseñor', 3),
+('Lycaon', 'Masculino', 'Glacial', 'Rango S', 'Puños y patadas', 'Servicios Domesticos Victoria', 3),
+('Seth', 'Masculino', 'Electrico', 'Rango A', 'Porra y escudo policial', 'Equipo de respuesta de la unidad de investigacion criminal', 3),
+('Brant', 'Masculino', 'Fusion', '5','Espada','Troupe Torpe', 4),
+('Zani', 'Femenino', 'Espectro', '5','Brazaletes','La familia Montelli', 4),
+('Aalto',  'Masculino','Aero', '4','Pistolas','Costa Negra', 4),
+('Arion',  'Masculino','Aire', NULL, NULL, 'Raimon', 5),
+('Mark', 'Masculino', 'Montaña', NULL, NULL, 'Raimon', 5),
+('Umei', 'Masculino', 'Bosque', NULL, NULL, 'South Cirrus', 5),
+('Sonny', 'Masculino', 'Fuego', NULL, NULL, 'Raimon', 5),
+('Link', 'Masculino', NULL, NULL, "Espada Maestra", 'Reino de Hyrule', 6);
 
