@@ -57,22 +57,105 @@ def get_MySQL_conn():
 
 # TODO: =============== CONSULTAS MongoDB ================
 async def collection_MDB_4(writer: asyncio.StreamWriter, reader: asyncio.StreamReader):
-    while True:
-        writer.write("Selecciona una opción:\n1. Insertar \n2. Consultar todos los elementos  \n3.Otro tipo de consulta \n4.Salir".encode())
+    #? COLECCIONES A USAR
+    COL_J = CLIENT_MDB[COLLECTION_MONGO_2]
+    COL_P = CLIENT_MDB[COLLECTION_MONGO_4]
+
+    
+    writer.write("Selecciona una opción:\n1. Insertar \n2. Consultar todos los elementos  \n3.Otro tipo de consulta \n4.Salir".encode())
+    await writer.drain()
+    msg = await reader.read(1024)
+    
+    if msg == "1":
+        log_info(f"[CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION '{COLLECTION_MONGO_4}")
+        print(f"[CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION '{COLLECTION_MONGO_4}")
+        # TODO: CAMPOS QUE NO SON NULOS
+        writer.write("NOMBRE".encode())
+        await writer.drain()
+        nombre = await reader.read(1024)
+        nombre = nombre.capitalize()
+        writer.write("GENERO".encode())
+        await writer.drain()
+        genero = await reader.read(1024)
+        genero = genero.capitalize()
+        writer.write("FACCION".encode())
+        await writer.drain()
+        faccion = await reader.read(1024)
+        faccion = faccion.capitalize()
+        jg_list = "LISTA DE JUEGOS ACTUALES: \n"
+        for jg in COL_J.find():
+            jg_list += f"{jg['id']} - {jg['nombre']}\n"
+        writer.write(jg_list.encode())
+        await writer.drain()
+        writer.write("ID JUEGO".encode())
+        await writer.drain()
+        id = await reader.read(1024)
+        writer.write("OTROS CAMPOS (opcional) \n 1.Arma, elemento y rareza 2. Elemento solo 3. Arma solo".encode())
         await writer.drain()
         msg = await reader.read(1024)
         
         if msg == "1":
-            log_info(f"[CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION '{COLLECTION_MONGO_4}")
-            print(f"[CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION '{COLLECTION_MONGO_4}")
-
-
-            # TODO: CAMPOS QUE NO SON NULOS
-            writer.write("NOMBRE".encode())
+            writer.write("TIPO DE ARMA".encode())
             await writer.drain()
-            msg = await reader.read(1024)
-
+            arma = await reader.read(1024)
+            arma = arma.capitalize()
+            writer.write("ELEMENTO".encode())
+            await writer.drain()
+            elemento = await reader.read(1024)
+            elemento = elemento.capitalize()
             
+            writer.write("RAREZA".encode())
+            await writer.drain()
+            rareza = await reader.read(1024)
+            rareza = rareza.capitalize()
+            #? INSERTAR EN LA COLECCION
+            data = {
+                "id": COL_P.count_documents({}) + 1,
+                "nombre": nombre,
+                "genero": genero,
+                "elemento": elemento,
+                "arma": arma,
+                "rareza": rareza,
+                "faccion": faccion,
+                "id_juego": int(id)
+            }
+        
+        if msg == "2":
+            writer.write("ELEMENTO".encode())
+            await writer.drain()
+            elemento = await reader.read(1024)
+            elemento = elemento.capitalize()
+            #? INSERTAR EN LA COLECCION
+            data = {
+                "id": COL_P.count_documents({}) + 1,
+                "nombre": nombre,
+                "genero": genero,
+                "elemento": elemento,
+                "arma": None,
+                "rareza": None,
+                "faccion": faccion,
+                "id_juego": int(id)
+            }
+        if msg == "3":
+            writer.write("TIPO DE ARMA".encode())
+            await writer.drain()
+            arma = await reader.read(1024)
+            arma = arma.capitalize()
+            #? INSERTAR EN LA COLECCION
+            data = {
+                "id": COL_P.count_documents({}) + 1,
+                "nombre": nombre,
+                "genero": genero,
+                "elemento": None,
+                "arma": arma,
+                "rareza": None,
+                "faccion": faccion,
+                "id_juego": int(id)
+            }
+
+
+
+
 
 
 # TODO: =============== CONSULTAS MySQL ================
