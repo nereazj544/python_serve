@@ -20,8 +20,8 @@ create table personajes(
     nombre VARCHAR(255) NOT Null,
     genero VARCHAR(255) NOT NULL,
     elemento VARCHAR(255),
-    rareza VARCHAR(10),
     arma VARCHAR(255),
+    rareza VARCHAR(10),
     faccion VARCHAR(255) NOT NULL,
     juego_id int,
     foreign key (juego_id) references juegos(id)
@@ -57,10 +57,10 @@ insert INTO plataformas (nombre) values
 ('Móviles');
 
 insert into juegos (nombre, genero, clasificacion_edad, empresa_id) values
-('Genshin Impact (GI)', 'Gachas', 'T', 1),
-('Honkai Star Rail (HSR)', 'Gachas', 'T', 1),
-('Zenless Zone Zero (ZZZ)', 'Gachas', 'T', 1),
-('Wuthering Waves (WuWa)', 'Gachas', 'T', 2),
+('Genshin Impact (GI)', 'Gachas', 'E12', 1),
+('Honkai Star Rail (HSR)', 'Gachas', 'E12', 1),
+('Zenless Zone Zero (ZZZ)', 'Gachas', 'E12', 1),
+('Wuthering Waves (WuWa)', 'Gachas', 'E12', 2),
 ('Inazuma Eleven (IE)', 'Deportes', 'E12', 3),
 ('The Legend of Zelda: Tears of the Kingdom (TotK)', 'Aventura', 'E12', 4);
 
