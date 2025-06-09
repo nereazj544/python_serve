@@ -57,8 +57,22 @@ def get_MySQL_conn():
 
 # TODO: =============== CONSULTAS MongoDB ================
 async def collection_MDB_4(writer: asyncio.StreamWriter, reader: asyncio.StreamReader):
-    pass
+    while True:
+        writer.write("Selecciona una opción:\n1. Insertar \n2. Consultar todos los elementos  \n3.Otro tipo de consulta \n4.Salir".encode())
+        await writer.drain()
+        msg = await reader.read(1024)
+        
+        if msg == "1":
+            log_info(f"[CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION '{COLLECTION_MONGO_4}")
+            print(f"[CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION '{COLLECTION_MONGO_4}")
 
+
+            # TODO: CAMPOS QUE NO SON NULOS
+            writer.write("NOMBRE".encode())
+            await writer.drain()
+            msg = await reader.read(1024)
+
+            
 
 
 # TODO: =============== CONSULTAS MySQL ================
@@ -70,7 +84,7 @@ async def collection_MDB_4(writer: asyncio.StreamWriter, reader: asyncio.StreamR
 
 
 async def consultas_MDB(writer: asyncio.StreamWriter, reader: asyncio.StreamReader):
-    writer.write("Consultar datos en MongoDB, seleccionar la colección:\n1. Empresa\n2. Juegos\n3. Personajes\n4. Salir".encode())
+    writer.write("Consultar datos en MongoDB, seleccionar la colección:\n1. Empresa\n2. Juegos\n3. Personajes(OPCION DISPONIBLE)\n4. Salir".encode())
     await writer.drain()
     
     msg = await reader.read(1024)
