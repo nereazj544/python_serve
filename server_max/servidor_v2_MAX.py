@@ -501,9 +501,6 @@ def consultas_MongoDB(conn: socket.socket):
             conn.send("Opción no válida. Inténtalo de nuevo.".encode())
             consultas_MongoDB(conn)
 
-
-
-
 #TODO: CONFIGURACION DE MySQL
 def consultas_MySQL(conn: socket.socket):
     while True:
