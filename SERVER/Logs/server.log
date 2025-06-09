@@ -322,3 +322,76 @@ ConnectionResetError: [WinError 64] El nombre de red especificado ya no está dis
 2025-06-09 14:17:24 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
 2025-06-09 14:17:27 - INFO - [SERVIDOR INFO]: [CLIENT - MONGODB] INSERTAR ELEMENTO EN LA COLECCION 'Personajes
 2025-06-09 14:18:28 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:31:17 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 14:31:20 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 50067)
+2025-06-09 14:31:25 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:31:32 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 14:31:46 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 14:32:26 - INFO - [SERVIDOR INFO]: Insertado personaje: Neuvillette en MongoDB.
+2025-06-09 14:34:11 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 14:34:16 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 50149)
+2025-06-09 14:34:21 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:34:29 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 14:34:37 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 14:34:59 - INFO - [SERVIDOR INFO]: Insertado personaje: Wise en MongoDB.
+2025-06-09 14:37:57 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 14:38:05 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 50279)
+2025-06-09 14:38:10 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:38:13 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 14:38:16 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 14:40:33 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 262, in client_communication_server
+    await consultas_MDB(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 224, in consultas_MDB
+    await collection_MDB_4(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 72, in collection_MDB_4
+    msg = (await reader.read(1024)).decode().strip()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-09 14:40:45 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 14:40:52 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 50366)
+2025-06-09 14:40:57 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 14:41:00 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 14:41:03 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 14:41:55 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 50405)
+2025-06-09 14:41:55 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 262, in client_communication_server
+    await consultas_MDB(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 224, in consultas_MDB
+    await collection_MDB_4(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 71, in collection_MDB_4
+    await writer.drain()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 386, in drain
+    await self._protocol._drain_helper()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 172, in _drain_helper
+    await waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 402, in _loop_writing
+    self._write_fut = self._loop._proactor.send(self._sock, data)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 543, in send
+    ov.WSASend(conn.fileno(), buf, flags)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionAbortedError: [WinError 10053] Se ha anulado una conexión establecida por el software en su equipo host
+2025-06-09 14:42:00 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==

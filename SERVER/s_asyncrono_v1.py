@@ -116,10 +116,6 @@ async def collection_MDB_4(writer, reader):
             await writer.drain()
             opcion = (await reader.read(1024)).decode().strip()
 
-            arma = None
-            elemento = None
-            rareza = None
-
             if opcion == "1":
                 writer.write("TIPO DE ARMA: ".encode())
                 await writer.drain()
@@ -140,7 +136,17 @@ async def collection_MDB_4(writer, reader):
                 writer.write("TIPO DE ARMA: ".encode())
                 await writer.drain()
                 arma = (await reader.read(1024)).decode().strip().capitalize()
-            # Si la opción es "4" o cualquier otra, se dejan los campos en None
+            elif opcion == "4":
+                writer.write("No se añadirá ningún campo extra.\n".encode())
+                await writer.drain()
+                arma = None
+                elemento = None
+                rareza = None
+            else:
+                writer.write("Opción no válida. Cancelando.\n".encode())
+                await writer.drain()
+                continue
+
 
             # --- Montar documento y guardar ---
             data = {
@@ -171,7 +177,7 @@ async def collection_MDB_4(writer, reader):
             else:
                 lista = "=== PERSONAJES ===\n"
                 for char in all_chars:
-                    lista += f"ID: {char.get('id','')} | Nombre: {char.get('nombre','')} | Rareza: {char.get('rareza','-')} | Juego: {char.get('id_juego','')}\n"
+                    lista += f"ID: {char.get('id','')} | Nombre: {char.get('nombre','')} | Rareza: {char.get('rareza','-')} | Arma: {char.get('arma','-')} | Elemento: {char.get('elemento','-')} | Facción: {char.get('faccion','-')}\n"
                 writer.write(lista.encode())
             await writer.drain()
 
@@ -237,7 +243,6 @@ async def client_communication_server (reader, writer):
     while True:
         await asyncio.sleep(5)
         log_warning("== ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==")
-        writer.write("En espera".encode())
         await writer.drain()
         writer.write("ELIGE UNA OPCIÓN:\n1. Consultar datos de MongoDB\n2. Consultar datos de MySQL\n4. Salir".encode())
         await writer.drain()
