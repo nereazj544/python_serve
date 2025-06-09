@@ -16,3 +16,16 @@ collection_personajes = db[COLLECTION_MONGO_2]
 r = collection_personajes.find()
 for document in r:
     print(f"ID: {document['id']} - Nombre: {document['nombre']}")
+
+
+data ={
+    "id": 1,
+    "nombre": "Link",
+    "Elemento": "Varios",
+    "Genero": "Masculino",
+    "Arma": 'Espada Maestra',
+    "Faccion": "Hyrule",
+    "juego_id": 4
+}
+
+collection_personajes.insert_one(data)

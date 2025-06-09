@@ -121,9 +121,39 @@ def collection_MDB_4(conn: socket.socket): #? Personajes
             jg_list += f"ID: {doc['id']} - NOMBRE: {doc['nombre']}\n"
 
         conn.send(f"{jg_list}\n ENTER PARA SEGUIR".encode())
+        
         conn.send("ID DEL JUEGO".encode())
+        id_j = conn.recv(1024).decode()
+        log_info(f"ID Juego recibido: {id_j}")
 
+        data = {
+            "id": COL_Per.count_documents({}) + 1,  # Generar un ID único
+            "nombre": nombre,
+            "elemento": elemento, 
+            "genero": genero,
+            "rareza": rareza,
+            "arma": arma,
+            "faccion": faccion,
+            "juego_id": int(id_j)  # Convertir a entero
+        }
 
+        COL_Per.insert_one(data)
+        conn.send(f"Personaje {nombre} insertado correctamente en la base de datos MongoDB.".encode())
+        log_info(f"Personaje {nombre} insertado correctamente en la base de datos MongoDB.\n")
+
+    if msg == "2":
+        log_info("[CLIENT] OPCION VER TODOS LOS PERSONAJES")
+        print("[CLIENT] OPCION VER TODOS LOS PERSONAJES")
+        conn.send("\nENTER PARA CONTINUAR\n".encode())
+        personajes_list = "Lista de personajes:\n"
+        R = COL_Per.find()
+        
+        for doc in R:
+            personajes_list += f"ID: {doc['id'] } -  NOMBRE: {doc['nombre']} - GENERO: {doc['genero']} - "\
+                f"ELEMENTO: {doc['elemento']} - RAREZA: {doc['rareza']} - ARMA: {doc['arma']} - FACCION: {doc['faccion']}\n"
+
+        conn.send(f"{personajes_list} ".encode())
+        log_info(f"Personajes listados correctamente en la base de datos MongoDB.")
 
 
 
