@@ -679,3 +679,61 @@ ConnectionResetError: [WinError 64] El nombre de red especificado ya no está dis
 2025-06-09 15:44:30 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
 2025-06-09 15:44:33 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
 2025-06-09 15:44:37 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 16:18:00 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 16:18:12 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 53968)
+2025-06-09 16:18:17 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 16:18:24 - INFO - [SERVIDOR INFO]: Consultando datos de MySQL...
+2025-06-09 16:18:29 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MySQL...
+2025-06-09 16:18:30 - INFO - package: mysql.connector.plugins
+2025-06-09 16:18:30 - INFO - plugin_name: caching_sha2_password
+2025-06-09 16:18:30 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-09 16:19:07 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1128 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 500, in client_communication_server
+    await consultas_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 460, in consultas_MySQL
+    await collection_MDB_4(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 401, in collection_MDB_4
+    cr.execute(query, values)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%s, %s, %s, %s, %s, %s, %s)' at line 1
+2025-06-09 16:21:26 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54031)
+2025-06-09 16:21:31 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 16:21:33 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54037)
+2025-06-09 16:21:38 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 16:21:40 - INFO - [SERVIDOR INFO]: Consultando datos de MySQL...
+2025-06-09 16:21:42 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MySQL...
+2025-06-09 16:21:42 - INFO - package: mysql.connector.plugins
+2025-06-09 16:21:42 - INFO - plugin_name: caching_sha2_password
+2025-06-09 16:21:42 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-09 16:21:58 - INFO - [SERVIDOR INFO]: Insertado personaje: Wise en MySQL.

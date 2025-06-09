@@ -388,15 +388,16 @@ async def collection_MDB_4(writer, reader):
                 continue
 
             # TODO --- GUARDAR DATOS EN LA BASE DE DATOS ---
-            values = {
-                "nombre": nombre,
-                "genero": genero,
-                "elemento": elemento,
-                "arma": arma,
-                "rareza": rareza,
-                "faccion": faccion,
-                "juego_id": id_juego
-            }
+
+            values = (
+                nombre,
+                genero,
+                elemento,
+                arma,
+                rareza,
+                faccion,
+                id_juego
+            )
             query = f"INSERT INTO {TABLE_MySQL_4} (nombre, genero, elemento, arma, rareza, faccion, juego_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
             cr.execute(query, values)
             conn.commit()
