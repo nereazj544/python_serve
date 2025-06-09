@@ -182,7 +182,17 @@ async def collection_MDB_4(writer, reader):
             await writer.drain()
 
         elif msg == "3":
-            writer.write("Funcionalidad no implementada aún.\n".encode())
+            menu = (
+                "Selecciona el tipo de consulta:\n"
+                "1. Buscar por ID\n"
+                "2. Buscar por nombre\n"
+                "3. Buscar por género\n"
+                "4. Buscar por elemento\n"
+                "5. Buscar por arma\n"
+                "6. Buscar por rareza\n"
+                "7. Volver al menú principal\n"
+            )
+            writer.write(menu.encode())
             await writer.drain()
 
         elif msg == "4":
@@ -217,6 +227,8 @@ async def consultas_MDB(writer: asyncio.StreamWriter, reader: asyncio.StreamRead
     option = msg.decode().strip()
     log_debug(f"Opción seleccionada: {option}")
     print(f"Opción seleccionada: {option}")
+
+
     if option == "3":
         log_info("Consultando datos de la colección 'Personajes' en MongoDB...")
         writer.write("Consultando datos de la colección 'Personajes' en MongoDB...\n".encode())
