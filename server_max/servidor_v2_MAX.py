@@ -29,6 +29,8 @@ tiempo_espera = 2  # Tiempo de espera en segundos para la conexión
 
 MONGO_URI = MongoClient("mongodb://localhost:27017/")
 DB_MONGO = "Max_2"
+CLIENT_MDB = MONGO_URI[DB_MONGO]
+
 COLLECTION_MONGO_1= "Empresa"
 COLLECTION_MONGO_2 = "Juegos"
 COLLECTION_MONGO_3 = "Juegos_plataformas"
@@ -60,6 +62,69 @@ def get_MySQL_conn():
 # TODO: =============== PETICIONES (TABLAS_COLECCIONES) ================
 
 # TODO: =============== CONSULTAS MongoDB ================
+def collection_MDB_4(conn: socket.socket): #? Personajes
+    COL_Per = CLIENT_MDB[COLLECTION_MONGO_4]
+    COL_Jue = CLIENT_MDB[COLLECTION_MONGO_2]
+
+
+    log_warning(f"== EN ESPERA AUTOMATICA DE 5s ==")
+    print("[TIME SLEEP] Esperando 5 segundos antes de continuar...")
+    time.sleep(tiempo_espera)
+
+    conn.send("=============== CONSULTAS PERSONAJES MySQL ==============\n" \
+        "\n 1. Insertar personaje"\
+        "\n 2. Ver todos los personajes"\
+        "\n 3. Otras busquedas"\
+        "\n 4. Salir"\
+        .encode())
+    
+    msg = conn.recv(1024).decode()
+    
+    log_info(f"Mensaje recibido: {msg}")
+    time.sleep(tiempo_espera)
+    log_warning(f"== EN ESPERA AUTOMATICA DE {tiempo_espera}s ==")
+    print("[TIME SLEEP] Esperando 5 segundos antes de continuar...")
+
+    if msg == "1":
+        log_info("[CLIENT] OPCION INSERTAR PERSONAJE")
+        print("[CLIENT] OPCION INSERTAR PERSONAJE")
+        
+        conn.send("NOMBRE".encode())
+        nombre = conn.recv(1024).decode().capitalize()
+        log_info(f"Nombre recibido: {nombre}")
+        
+        conn.send("ELEMENTO".encode())
+        elemento = conn.recv(1024).decode().capitalize()
+        log_info(f"Elemento recibido: {elemento}")
+        
+        conn.send("GENERO".encode())
+        genero = conn.recv(1024).decode().capitalize()
+        log_info(f"Género recibido: {genero}")
+
+        conn.send("RAREZA (SI EL PERSONAJE NO TIENE INTRODUCE: '-')".encode())
+        rareza = conn.recv(1024).decode().capitalize()
+        log_info(f"Rareza recibida: {rareza}")
+
+        conn.send("ARMA (SI EL PERSONAJE NO TIENE INTRODUCE: '-')".encode())
+        arma = conn.recv(1024).decode().capitalize()
+        log_info(f"Arma recibida: {arma}")
+
+        conn.send("FACCION".encode())
+        faccion = conn.recv(1024).decode().capitalize()
+        log_info(f"Facción recibida: {faccion}")
+
+        # ! SACAR LOS IDES DE LOS JUEGOS ACTUALES
+
+        jg_list = "Lista de juegos disponibles:\n"
+        R = COL_Jue.find()
+        for doc in R:
+            jg_list += f"ID: {doc['id']} - NOMBRE: {doc['nombre']}\n"
+
+        conn.send(f"{jg_list}\n ENTER PARA SEGUIR".encode())
+        conn.send("ID DEL JUEGO".encode())
+
+
+
 
 
 # TODO: =============== CONSULTAS MySQL ================
@@ -111,11 +176,11 @@ def consulta_table4_mysql(conn: socket.socket):
             genero = conn.recv(1024).decode().capitalize()
             log_info(f"Género recibido: {genero}")
     
-            conn.send("RAREZA (SI EL PERSONAJE NO TIENE ENTER) ".encode())
+            conn.send("RAREZA".encode())
             rareza = conn.recv(1024).decode().capitalize()
             log_info(f"Rareza recibida: {rareza}")
     
-            conn.send("ARMA (SI EL PERSONAJE NO TIENE ENTER) ".encode())
+            conn.send("ARMA".encode())
             arma = conn.recv(1024).decode().capitalize()
             log_info(f"Arma recibida: {arma}")
     
@@ -368,7 +433,7 @@ def consultas_MongoDB(conn: socket.socket):
         if msg == "1":
             log_info("[CLIENT] OPCION PERSONAJES")
             print("[CLIENT] OPCION PERSONAJES")
-            # collection_MDB_4(conn)
+            collection_MDB_4(conn)
         elif msg == "2":
             log_info("[CLIENT] OPCION EMPRESAS")
             print("[CLIENT] OPCION EMPRESAS")
