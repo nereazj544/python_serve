@@ -194,6 +194,17 @@ async def collection_MDB_4(writer, reader):
             )
             writer.write(menu.encode())
             await writer.drain()
+            msg = (await reader.read(1024)).decode().strip()
+
+            if msg == "1":
+                writer.write("ID PERSONAJE: ".encode())
+                await writer.drain()
+                id_personaje = (await reader.read(1024)).decode().strip()
+                col = COL_P.find_one({"id": int(id_personaje)})
+                if col:
+                    writer.write(f"Personaje encontrado: {col.get('nombre', 'Desconocido')} | ID: {col.get('id', 'Desconocido')} | Rareza: {col.get('rareza', 'Desconocida')} | Arma: {col.get('arma', 'Desconocida')} | Elemento: {col.get('elemento', 'Desconocido')} | Facción: {col.get('faccion', 'Desconocida')}\n".encode())
+                else:
+                    writer.write("No se encontró ningún personaje con ese ID.\n".encode())
 
         elif msg == "4":
             writer.write("Saliendo del menú de personajes.\n".encode())
