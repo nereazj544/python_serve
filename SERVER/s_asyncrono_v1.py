@@ -237,7 +237,7 @@ async def client_communication_server (reader, writer):
     addr = writer.get_extra_info('peername')
     log_info(f"Conexión desde {addr}")
     print(f"Conexión desde {addr}")
-    writer.write("CONEXIÓN ESTABLECIDA CORRECTAMENTE CON EL SERVIDOR.".encode())
+    writer.write("CONEXIÓN ESTABLECIDA CORRECTAMENTE CON EL SERVIDOR.\n ENTER PARA CONTINUAR".encode())
     await writer.drain()
 
     while True:
