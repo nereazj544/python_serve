@@ -70,7 +70,7 @@ async def collection_MDB_4(writer: asyncio.StreamWriter, reader: asyncio.StreamR
 
 
 async def consultas_MDB(writer: asyncio.StreamWriter, reader: asyncio.StreamReader):
-    writer.write("Consultar datos en MongoDB, seleccionar la colección:\n1. Empresa\n2. Juegos\n3. Juegos_plataformas\n4. Personajes\n5. Salir".encode())
+    writer.write("Consultar datos en MongoDB, seleccionar la colección:\n1. Empresa\n2. Juegos\n3. Personajes\n4. Salir".encode())
     await writer.drain()
     
     msg = await reader.read(1024)
@@ -81,7 +81,7 @@ async def consultas_MDB(writer: asyncio.StreamWriter, reader: asyncio.StreamRead
     option = msg.decode().strip()
     log_debug(f"Opción seleccionada: {option}")
     print(f"Opción seleccionada: {option}")
-    if option == "4":
+    if option == "3":
         log_info("Consultando datos de la colección 'Personajes' en MongoDB...")
         writer.write("Consultando datos de la colección 'Personajes' en MongoDB...\n".encode())
         await writer.drain()
