@@ -224,9 +224,18 @@ async def collection_MDB_4(writer, reader):
                     lista = f"Personajes encontrados con el genero {genero_personaje}:\n"
                     for c in col:
                         lista += f"ID: {c.get('id', 'Desconocido')} | Nombre: {c.get('nombre', 'Desconocido')} | Rareza: {c.get('rareza', 'Desconocida')} | Arma: {c.get('arma', 'Desconocida')} | Elemento: {c.get('elemento', 'Desconocido')} | Facción: {c.get('faccion', 'Desconocida')}\n"
-                    writer.write(lista.encode())
+                    writer.write(f"{lista}".encode())
+                    lista = COL_P.count_documents({"genero": genero_personaje})
+                    writer.write(f"Total de personajes encontrados con el genero {genero_personaje}: {lista}\n".encode())
+
                 else:
                     writer.write("No se encontró ningún personaje con ese género.\n".encode())
+
+
+
+
+
+
 
 
         elif msg == "4":
