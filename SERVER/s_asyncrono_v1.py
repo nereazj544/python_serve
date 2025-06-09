@@ -284,9 +284,6 @@ async def collection_MDB_4(writer, reader):
                 await writer.drain()
                 break
 
-
-
-
         elif msg == "4":
             writer.write("Saliendo del menú de personajes.\n".encode())
             await writer.drain()
@@ -315,6 +312,107 @@ async def collection_MDB_4(writer, reader):
         writer.write(menu.encode())
         await writer.drain()
         msg = (await reader.read(1024)).decode().strip()
+
+        if msg == "1":
+            # --- DATOS OBLIGATORIOS --
+            writer.write("NOMBRE: ".encode())
+            await writer.drain()
+            nombre = (await reader.read(1024)).decode().strip().capitalize()
+            
+            writer.write("GENERO: ".encode())
+            await writer.drain()
+            genero = (await reader.read(1024)).decode().strip().capitalize()
+
+            writer.write("FACCION: ".encode())
+            await writer.drain()
+            faccion = (await reader.read(1024)).decode().strip().capitalize()
+
+            # --- MOSTRAR JUEGOS DISPONIBLES ---
+            cr.execute(f"SELECT id, nombre FROM {TABLE_MySQL_2}")
+            juegos = cr.fetchall()
+            jg_list = "LISTA DE JUEGOS ACTUALES:\n"
+            for jg in juegos:
+                jg_list += f"{jg[0]} - {jg[1]}\n"
+            writer.write(jg_list.encode())
+            await writer.drain()
+
+            writer.write("ID JUEGO: ".encode())
+            await writer.drain()
+            id_juego = (await reader.read(1024)).decode().strip()
+
+            try:
+                id_juego = int(id_juego)
+            except ValueError:
+                writer.write("ID de juego inválido. Cancelando.\n".encode())
+                await writer.drain()
+                continue
+
+            # --- MENÚ DE CAMPOS OPCIONALES ---
+            opcionales = (
+                "Indica campos extra:\n"
+                "1. Arma, elemento y rareza\n"
+                "2. Solo elemento\n"
+                "3. Solo arma\n"
+                "4. Ninguno (dejar en blanco)\n")
+            writer.write(opcionales.encode())
+            await writer.drain()
+            opcion = (await reader.read(1024)).decode().strip()
+
+            if opcion == "1":
+                writer.write("TIPO DE ARMA: ".encode())
+                await writer.drain()
+                arma = (await reader.read(1024)).decode().strip().capitalize()
+
+                writer.write("ELEMENTO: ".encode())
+                await writer.drain()
+                elemento = (await reader.read(1024)).decode().strip().capitalize()
+
+                writer.write("RAREZA (puede ser: 'rango S', 'Rango A', '4', '5', etc): ".encode())
+                await writer.drain()
+                rareza = (await reader.read(1024)).decode().strip().title()
+            elif opcion == "2":
+                writer.write("ELEMENTO".encode())
+                await writer.drain()
+                elemento = (await reader.read(1024)).decode().strip().capitalize()
+            elif opcion == "3":
+                writer.write("TIPO DE ARMA: ".encode())
+                await writer.drain()
+                arma = (await reader.read(1024)).decode().strip().capitalize()
+            elif opcion == "4":
+                elemento = None
+                arma = None
+                rareza = None
+            else:
+                writer.write("Opción no válida. Cancelando.\n".encode())
+                await writer.drain()
+                continue
+
+            # TODO --- GUARDAR DATOS EN LA BASE DE DATOS ---
+            values = {
+                "nombre": nombre,
+                "genero": genero,
+                "elemento": elemento,
+                "arma": arma,
+                "rareza": rareza,
+                "faccion": faccion,
+                "juego_id": id_juego
+            }
+            query = f"INSERT INTO {TABLE_MySQL_4} (nombre, genero, elemento, arma, rareza, faccion, juego_id) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+            cr.execute(query, values)
+            conn.commit()
+
+            writer.write("Personaje insertado correctamente en la colección.\n".encode())
+            await writer.drain()
+            log_info(f"Insertado personaje: {nombre} en MySQL.")
+
+        elif msg == "2":
+            pass
+
+
+
+
+
+
 
 
 # TODO: =============== CONFIGURACION CONEXION BASES DE DATOS, SELECCION DE TABLAS ================
