@@ -231,6 +231,22 @@ async def collection_MDB_4(writer, reader):
                 else:
                     writer.write("No se encontró ningún personaje con ese género.\n".encode())
 
+            elif msg == "4":
+                writer.write("ELEMENTO PERSONAJE ".encode())
+                await writer.drain()
+                elemento = (await reader.read(1024)).decode().strip().capitalize()
+                col = COL_P.find({"elemento": elemento})
+                if col:
+                    lista = f"Personajes encontrados con el elemento {elemento}:\n"
+                    for c in col:
+                        lista += f"ID: {c.get('id', 'Desconocido')} | Nombre: {c.get('nombre', 'Desconocido')} | Rareza: {c.get('rareza', 'Desconocida')} | Arma: {c.get('arma', 'Desconocida')} | Elemento: {c.get('elemento', 'Desconocido')} | Facción: {c.get('faccion', 'Desconocida')}\n"
+                    writer.write(f"{lista}".encode())
+                    lista = COL_P.count_documents({"elemento": elemento})
+                    writer.write(f"Total de personajes encontrados con el elemento {elemento}: {lista}\n".encode())
+
+                else:
+                    writer.write("No se encontró ningún personaje con ese elemento.\n".encode())
+
 
 
 

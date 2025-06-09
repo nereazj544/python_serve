@@ -535,3 +535,110 @@ Traceback (most recent call last):
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
     raise ConnectionResetError(*exc.args)
 ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-09 15:32:25 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 15:32:33 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 52425)
+2025-06-09 15:32:38 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 15:32:41 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 15:32:44 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 15:32:52 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1124 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 331, in client_communication_server
+    await consultas_MDB(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 294, in consultas_MDB
+    await collection_MDB_4(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 237, in collection_MDB_4
+    col = COL_P.find({"elemento": elemento})
+                                  ^^^^^^^^
+UnboundLocalError: cannot access local variable 'elemento' where it is not associated with a value
+2025-06-09 15:32:55 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 52430)
+2025-06-09 15:33:00 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 15:33:17 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 15:33:28 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 15:33:55 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1112 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 331, in client_communication_server
+    await consultas_MDB(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 294, in consultas_MDB
+    await collection_MDB_4(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 237, in collection_MDB_4
+    col = COL_P.find({"elemento": elemento})
+                                  ^^^^^^^^
+UnboundLocalError: cannot access local variable 'elemento' where it is not associated with a value
+2025-06-09 15:34:01 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 52452)
+2025-06-09 15:34:06 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 15:35:32 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 15:35:35 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 15:35:42 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=764 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 331, in client_communication_server
+    await consultas_MDB(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 294, in consultas_MDB
+    await collection_MDB_4(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 237, in collection_MDB_4
+    col = COL_P.find({"elemento": elemento})
+                                  ^^^^^^^^
+UnboundLocalError: cannot access local variable 'elemento' where it is not associated with a value
+2025-06-09 15:35:45 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 52506)
+2025-06-09 15:35:50 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 15:35:55 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 319, in client_communication_server
+    msg = await reader.read(1024)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-09 15:37:46 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-09 15:37:51 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 52584)
+2025-06-09 15:37:56 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-09 15:38:03 - INFO - [SERVIDOR INFO]: Consultando datos de MongoDB...
+2025-06-09 15:38:09 - INFO - [SERVIDOR INFO]: Consultando datos de la colección 'Personajes' en MongoDB...
+2025-06-09 15:39:01 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 332, in client_communication_server
+    await consultas_MDB(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 295, in consultas_MDB
+    await collection_MDB_4(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\SERVER\s_asyncrono_v1.py", line 72, in collection_MDB_4
+    msg = (await reader.read(1024)).decode().strip()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
