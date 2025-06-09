@@ -155,7 +155,23 @@ def collection_MDB_4(conn: socket.socket): #? Personajes
         conn.send(f"{personajes_list} ".encode())
         log_info(f"Personajes listados correctamente en la base de datos MongoDB.")
 
+    if msg == "3":
+        log_info("[CLIENT] OPCION OTRAS BUSQUEDAS")
+        print("[CLIENT] OPCION OTRAS BUSQUEDAS")
+        conn.send("\nENTER PARA CONTINUAR\n".encode())
+        conn.send("BUSQUEDA POR NOMBRE".encode())
+        busqueda_nombre = conn.recv(1024).decode().capitalize()
+        log_info(f"Busqueda por nombre recibida: {busqueda_nombre}")
 
+        personajes_list = "Resultados de la búsqueda:\n"
+        R = COL_Per.find({"nombre": busqueda_nombre})
+
+        for doc in R:
+            personajes_list += f"ID: {doc['id'] } -  NOMBRE: {doc['nombre']} - GENERO: {doc['genero']} - "\
+                f"ELEMENTO: {doc['elemento']} - RAREZA: {doc['rareza']} - ARMA: {doc['arma']} - FACCION: {doc['faccion']}\n"
+
+        conn.send(f"{personajes_list} ".encode())
+        log_info(f"Personajes encontrados por nombre en la base de datos MongoDB.")
 
 # TODO: =============== CONSULTAS MySQL ================
 
