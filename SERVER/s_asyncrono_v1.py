@@ -51,10 +51,13 @@ def get_MySQL_conn():
     )
 
 
+
+
 # TODO: =============== PETICIONES (TABLAS_COLECCIONES) ================
 
 # TODO: =============== CONSULTAS MongoDB ================
-
+async def collection_MDB_4(writer: asyncio.StreamWriter, reader: asyncio.StreamReader):
+    pass
 
 
 
@@ -66,7 +69,23 @@ def get_MySQL_conn():
 # TODO: =============== CONFIGURACION CONEXION BASES DE DATOS, SELECCION DE TABLAS ================
 
 
-
+async def consultas_MDB(writer: asyncio.StreamWriter, reader: asyncio.StreamReader):
+    writer.write("Consultar datos en MongoDB, seleccionar la colección:\n1. Empresa\n2. Juegos\n3. Juegos_plataformas\n4. Personajes\n5. Salir".encode())
+    await writer.drain()
+    
+    msg = await reader.read(1024)
+    if not msg:
+        log_warning("Cliente desconectado.")
+        print("Cliente desconectado.")
+        return
+    option = msg.decode().strip()
+    log_debug(f"Opción seleccionada: {option}")
+    print(f"Opción seleccionada: {option}")
+    if option == "4":
+        log_info("Consultando datos de la colección 'Personajes' en MongoDB...")
+        writer.write("Consultando datos de la colección 'Personajes' en MongoDB...\n".encode())
+        await writer.drain()
+        await collection_MDB_4(writer, reader)
 
 
 
@@ -86,11 +105,40 @@ async def client_communication_server (reader, writer):
     await writer.drain()
 
     while True:
-        writer.write("En espera".encode())
-        await writer.drain()
         await asyncio.sleep(5)
         log_warning("== ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==")
+        writer.write("En espera".encode())
+        await writer.drain()
+        writer.write("ELIGE UNA OPCIÓN:\n1. Consultar datos de MongoDB\n2. Consultar datos de MySQL\n3. Salir".encode())
+        await writer.drain()
+        msg = await reader.read(1024)
+        if not msg:
+            log_warning("Cliente desconectado.")
+            print("Cliente desconectado.")
+            break
+        option = msg.decode().strip()
+        log_debug(f"Opción seleccionada: {option}")
+        print(f"Opción seleccionada: {option}")
+        if option == "1":
+            log_info("Consultando datos de MongoDB...")
+            writer.write("Consultando datos de MongoDB...\n".encode())
+            await writer.drain()
+            await consultas_MDB(writer, reader)
 
+        elif option == "2":
+            log_info("Consultando datos de MySQL...")
+            writer.write("Consultando datos de MySQL...\n".encode())
+            await writer.drain()
+            # consultas_MySQL(writer)
+        elif option == "3":
+            log_info("Cerrando conexión con el cliente.")
+            writer.write("Cerrando conexión con el cliente.\n".encode())
+            await writer.drain()
+            break
+        else:
+            log_warning("Opción no válida, por favor intente nuevamente.")
+            writer.write("Opción no válida, por favor intente nuevamente.\n".encode())
+        await writer.drain()
 
 
 async def main():
