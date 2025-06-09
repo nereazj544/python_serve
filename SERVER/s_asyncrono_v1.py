@@ -215,6 +215,19 @@ async def collection_MDB_4(writer, reader):
                 else:
                     writer.write("No se encontró ningún personaje con ese nombre.\n".encode())
             
+            elif msg == "3":
+                writer.write("GÉNERO PERSONAJE: ".encode())
+                await writer.drain()
+                genero_personaje = (await reader.read(1024)).decode().strip().capitalize()
+                col = COL_P.find({"genero": genero_personaje})
+                if col:
+                    lista = f"Personajes encontrados con el genero {genero_personaje}:\n"
+                    for c in col:
+                        lista += f"ID: {c.get('id', 'Desconocido')} | Nombre: {c.get('nombre', 'Desconocido')} | Rareza: {c.get('rareza', 'Desconocida')} | Arma: {c.get('arma', 'Desconocida')} | Elemento: {c.get('elemento', 'Desconocido')} | Facción: {c.get('faccion', 'Desconocida')}\n"
+                    writer.write(lista.encode())
+                else:
+                    writer.write("No se encontró ningún personaje con ese género.\n".encode())
+
 
         elif msg == "4":
             writer.write("Saliendo del menú de personajes.\n".encode())
