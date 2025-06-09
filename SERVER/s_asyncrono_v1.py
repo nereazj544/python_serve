@@ -109,7 +109,7 @@ async def client_communication_server (reader, writer):
         log_warning("== ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==")
         writer.write("En espera".encode())
         await writer.drain()
-        writer.write("ELIGE UNA OPCIÓN:\n1. Consultar datos de MongoDB\n2. Consultar datos de MySQL\n3. Salir".encode())
+        writer.write("ELIGE UNA OPCIÓN:\n1. Consultar datos de MongoDB\n2. Consultar datos de MySQL\n4. Salir".encode())
         await writer.drain()
         msg = await reader.read(1024)
         if not msg:
@@ -130,7 +130,7 @@ async def client_communication_server (reader, writer):
             writer.write("Consultando datos de MySQL...\n".encode())
             await writer.drain()
             # consultas_MySQL(writer)
-        elif option == "3":
+        elif option == "4":
             log_info("Cerrando conexión con el cliente.")
             writer.write("Cerrando conexión con el cliente.\n".encode())
             await writer.drain()
