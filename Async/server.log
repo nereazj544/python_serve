@@ -1254,3 +1254,48 @@ AttributeError: 'bytes' object has no attribute 'encode'. Did you mean: 'decode'
 2025-06-11 14:35:58 - INFO - [SERVIDOR INFO]: Telefono recibido: 92823owe23289
 2025-06-11 14:36:07 - INFO - [SERVIDOR INFO]: Email recibido: tavivito@uuu.com
 2025-06-11 14:36:07 - INFO - [SERVIDOR INFO]: Teleoperador aether Tabivito insertado correctamente en la base de datos.
+2025-06-11 14:38:10 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 401, in server_on
+    print(f"Conexión desde {addr}")
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 139, in tecnico_MySQL
+    crs.execute(query, values)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 116, in add_tecnico
+    await writer.drain()
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 353, in teleoperador_MySQL
+    except ValueError:
+               ^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 14:38:25 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 14:38:26 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 62397)
+2025-06-11 14:38:31 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 14:39:22 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 14:39:24 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 62418)
+2025-06-11 14:39:29 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 14:40:14 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 14:40:21 - INFO - package: mysql.connector.plugins
+2025-06-11 14:40:21 - INFO - plugin_name: caching_sha2_password
+2025-06-11 14:40:21 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 14:40:25 - INFO - [SERVIDOR INFO]: Tecnico recibido: 5
+2025-06-11 14:40:25 - INFO - [SERVIDOR INFO]: Tecnico con ID 5 eliminado correctamente de la base de datos.

@@ -80,69 +80,103 @@ async def delete_tecnico(writer, reader):
     conn = get_MySQL_conn()  # pilla la conexion a la base de datos
     crs = conn.cursor()  # cursor para ejecutar las consultas
     while True:
-        crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_8}")
+        crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_3}")
         ubicaciones = crs.fetchall()
-        tele_list = "Selecciona un teleoperador por su ID: \n"
+        tele_list = "Selecciona un tecnico por su ID: \n"
         
         for ub in ubicaciones:
             tele_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
         writer.write(tele_list.encode())
         await writer.drain()
 
-        writer.write("El ID del teleoperador que quiere borrar".encode())
+        writer.write("El ID del tecnico que quiere borrar".encode())
         await writer.drain()
         tele_id = (await reader.read(1024)).decode().strip()
-        log_info(f"Teleoperador recibido: {tele_id}")
+        log_info(f"Tecnico recibido: {tele_id}")
 
         try:
             tele_id = int(tele_id)  # Asegurarse de que el ID es un entero
         except ValueError:
-            log_error("ID de teleoperador no válido")
-            writer.write("ID de teleoperador no válido. Inténtalo de nuevo.\n".encode())
+            log_error("ID de tecnico no válido")
+            writer.write("ID de tecnico no válido. Inténtalo de nuevo.\n".encode())
             await writer.drain()
             continue
 
-        # ELIMINAR TELEOPERADOR DE LA BASE DE DATOS
-        query = f"DELETE FROM {TABLE_MySQL_8} WHERE id = %s"
+        # ELIMINAR TECNICO DE LA BASE DE DATOS
+        query = f"DELETE FROM {TABLE_MySQL_3} WHERE id = %s"
         crs.execute(query, (tele_id,))
         conn.commit()
-        log_info(f"Teleoperador con ID {tele_id} eliminado correctamente de la base de datos.")
+        log_info(f"Tecnico con ID {tele_id} eliminado correctamente de la base de datos.")
+        await tecnico_MySQL(writer, reader)  # Volver al menú de tecnico
 
 async def add_tecnico(writer, reader):
     conn = get_MySQL_conn() # pilla la conexion a la base de datos
     crs = conn.cursor() # cursor para ejecutar las consultas
     while True:
-        writer.write("Nombre del teleoperador".encode())
+        writer.write("Nombre del tecnico".encode())
         await writer.drain()
         nombre = (await reader.read(1024)).decode().strip().capitalize()
         log_info(f"Nombre recibido: {nombre}")
 
-        writer.write("Apellido del teleoperador".encode())
+        writer.write("Apellido del tecnico".encode())
         await writer.drain()
         apellido = (await reader.read(1024)).decode().strip().capitalize()
         log_info(f"Apellido recibido: {apellido}")
 
-        writer.write("Telefono del teleoperador".encode())
+        writer.write("Telefono del tecnico".encode())
         await writer.drain()
         telefono = (await reader.read(1024)).decode().strip().capitalize()
         log_info(f"Telefono recibido: {telefono}")
 
-        writer.write("Email del teleoperador".encode())
+        writer.write("Email del tecnico".encode())
         await writer.drain()
         email = (await reader.read(1024)).decode().strip()
         log_info(f"Email recibido: {email}")
 
 
-        # INSERTAR TELEOPERADOR EN LA BASE DE DATOS
+        # INSERTAR TECNICO EN LA BASE DE DATOS
         values = (nombre, apellido, telefono, email)
         query = f"INSERT INTO {TABLE_MySQL_3} (nombre, apellido, telefono, email) VALUES (%s, %s, %s, %s)"
         crs.execute(query, values)
         conn.commit()  # Confirmar los cambios en la base de datos
 
-        log_info(f"Teleoperador {nombre} {apellido} insertado correctamente en la base de datos.")
-        writer.write(f"Teleoperador {nombre} {apellido} insertado correctamente.\n".encode())
-        await writer.drain()  
-        await teleoperador_MySQL(writer, reader)  # Volver al menú de teleoperador
+        log_info(f"Tecnico {nombre} {apellido} insertado correctamente en la base de datos.")
+        writer.write(f"Tecnico {nombre} {apellido} insertado correctamente.\n".encode())
+        await writer.drain()
+        writer.write("¿Desea añadir una zona al tecnico? (s/n)".encode())
+        await writer.drain()
+        respuesta = (await reader.read(1024)).decode().strip().lower()
+        log_info(f"Respuesta recibida: {respuesta}")
+
+        if respuesta == "si":
+            log_info("Añadiendo zona al tecnico...")
+            writer.write("Selecciona una zona por su ID: \n".encode())
+            await writer.drain()
+            crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_5}")
+            zonas = crs.fetchall()
+            zona_list = ""
+            
+            for zona in zonas:
+                zona_list += f"ID: {zona[0]}, Nombre: {zona[1]}\n"
+            writer.write(zona_list.encode())
+            await writer.drain()
+            writer.write("El ID de la zona que quiere añadir".encode())
+            await writer.drain()
+            
+            zona_id = (await reader.read(1024)).decode().strip()
+            log_info(f"Zona recibida: {zona_id}")
+            
+            writer.write("Selecciona un tencico por su ID: \n".encode())
+
+
+        else:
+            writer.write("No se ha añadido ninguna zona al tecnico.\n".encode())
+            await writer.drain()
+            await tecnico_MySQL(writer, reader)  # Volver al menú de tecnico
+
+
+
+        await tecnico_MySQL(writer, reader)  # Volver al menú de tecnico
 
 
 
