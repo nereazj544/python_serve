@@ -41,6 +41,26 @@ async def add_incidencia(writer, reader):
     conn = get_MySQL_conn()  # pilla la conexion a la base de datos
     crs = conn.cursor()  # cursor para ejecutar las consultas
 
+    while True:
+        crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_3}")
+        ubicaciones = crs.fetchall()
+        tele_list = "Selecciona un ID del tecnico: \n"
+        
+        for ub in ubicaciones:
+            tele_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
+        writer.write(tele_list.encode())
+        await writer.drain()
+
+        writer.write("El ID del tecnico que quiere añadir".encode())
+        await writer.drain()
+        tecnico_id = (await reader.read(1024)).decode().strip()
+        log_info(f"Tecnico recibido: {tecnico_id}")
+
+
+
+
+#TODO: IMPLEMENTAR AÑADIR INCIDENCIA    
+
 async def consult_incidencias(writer, reader):
     pass
 
