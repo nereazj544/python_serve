@@ -33,6 +33,8 @@ def get_MySQL_conn():
 
 
 #TODO: =============== TECNICO (MySQL) ================
+async def consult_tecnicos_incidencias(writer, reader):
+    pass
 
 async def consult_tecnicos(writer, reader):
     pass
@@ -74,6 +76,8 @@ async def tecnico_MySQL(writer, reader):
         await delete_tecnico(writer, reader)
     elif message == "4":
         await consult_tecnicos_horarios(writer, reader)
+    elif message == "5":
+        await consult_tecnicos_incidencias(writer, reader)
 
 
 
