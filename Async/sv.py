@@ -38,7 +38,8 @@ async def update_incidencia(writer, reader):
     pass
 
 async def add_incidencia(writer, reader):
-    pass
+    conn = get_MySQL_conn()  # pilla la conexion a la base de datos
+    crs = conn.cursor()  # cursor para ejecutar las consultas
 
 async def consult_incidencias(writer, reader):
     pass
@@ -117,7 +118,7 @@ async def add_horario_tecnico(writer, reader):
 
         
 
-
+#TODO: IMPLETMENTAR CONSULTA DE TECNICOS E INCIDENCIAS
 async def consult_tecnicos_incidencias(writer, reader):
     pass
 
