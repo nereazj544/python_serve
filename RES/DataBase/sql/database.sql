@@ -72,18 +72,6 @@ CREATE TABLE tecnico_zona (
     FOREIGN KEY (zona_id) REFERENCES zona(id)
 );
 
--- BITÁCORA DE MOVIMIENTOS DE TERMINAL
-CREATE TABLE terminal_movimiento (
-   id int auto_increment PRIMARY KEY,
-    terminal_id INTEGER NOT NULL,
-    ubicacion_origen INTEGER,
-    ubicacion_destino INTEGER NOT NULL,
-    fecha_movimiento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (terminal_id) REFERENCES terminal(id),
-    FOREIGN KEY (ubicacion_origen) REFERENCES ubicacion(id),
-    FOREIGN KEY (ubicacion_destino) REFERENCES ubicacion(id)
-);
-
 -- ZONAS
 INSERT INTO zona (nombre) VALUES
   ('Teyvat'),
@@ -159,3 +147,23 @@ INSERT INTO terminal_movimiento (terminal_id, ubicacion_origen, ubicacion_destin
   (4,3,4,'2025-06-05 14:00:00'),  -- De Castillo Hyrule a Bosque Kokiri
   (6,5,6,'2025-06-07 10:00:00'),  -- De Ciudad Plateada a Pueblo Paleta
   (8,7,8,'2025-06-08 09:00:00');  -- De Comisaría a Hospital
+
+CREATE TABLE inventario (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    descripcion TEXT,
+    estado TEXT NOT NULL,
+    cantidad INTEGER NOT NULL,
+    tecnico_id INTEGER NOT NULL,
+    fecha_asignacion DATE,
+    FOREIGN KEY (tecnico_id) REFERENCES tecnico(id)
+);
+
+INSERT INTO inventario (nombre, descripcion, estado, cantidad, tecnico_id, fecha_asignacion) VALUES
+  ('Multímetro', 'Herramienta para medición eléctrica', 'En uso', 2, 1, '2025-06-01'),               -- Bennett
+  ('Portátil Asus', 'Equipo portátil para diagnósticos', 'Disponible', 1, 2, '2025-06-03'),           -- Link
+  ('Cables de red', 'Cat6, 2 metros', 'Disponible', 5, 3, '2025-05-28'),                              -- Misty
+  ('Destornillador estrella', 'Tamaño mediano', 'En uso', 3, 1, '2025-06-01'),                        -- Bennett
+  ('Tablet Lenovo', 'Tablet para registros de campo', 'Averiada', 1, 4, '2025-06-05'),                -- Jill
+  ('Guantes aislantes', 'Uso en instalaciones eléctricas', 'Disponible', 4, 2, '2025-06-04'),         -- Link
+  ('Linterna LED', 'Alta potencia, recargable', 'En uso', 2, 4, '2025-06-07');                        -- Jill

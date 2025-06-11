@@ -1,0 +1,358 @@
+{
+    "zona": [
+        {
+            "id": 1,
+            "nombre": "Teyvat"
+        },
+        {
+            "id": 2,
+            "nombre": "Hyrule"
+        },
+        {
+            "id": 3,
+            "nombre": "Kanto"
+        },
+        {
+            "id": 4,
+            "nombre": "Raccoon City"
+        }
+    ],
+    "ubicacion": [
+        {
+            "id": 1,
+            "nombre": "Mondstadt",
+            "zona_id": 1
+        },
+        {
+            "id": 2,
+            "nombre": "Liyue",
+            "zona_id": 1
+        },
+        {
+            "id": 3,
+            "nombre": "Castillo Hyrule",
+            "zona_id": 2
+        },
+        {
+            "id": 4,
+            "nombre": "Bosque Kokiri",
+            "zona_id": 2
+        },
+        {
+            "id": 5,
+            "nombre": "Ciudad Plateada",
+            "zona_id": 3
+        },
+        {
+            "id": 6,
+            "nombre": "Pueblo Paleta",
+            "zona_id": 3
+        },
+        {
+            "id": 7,
+            "nombre": "Comisaría de Policía",
+            "zona_id": 4
+        },
+        {
+            "id": 8,
+            "nombre": "Hospital",
+            "zona_id": 4
+        }
+    ],
+    "tecnico": [
+        {
+            "id": 1,
+            "nombre": "Bennett",
+            "apellido": "Adventurer",
+            "telefono": "123456789",
+            "email": "bennett@teyvat.com"
+        },
+        {
+            "id": 2,
+            "nombre": "Link",
+            "apellido": "Hero",
+            "telefono": "555000111",
+            "email": "link@hyrule.com"
+        },
+        {
+            "id": 3,
+            "nombre": "Misty",
+            "apellido": "Waterflower",
+            "telefono": "987654321",
+            "email": "misty@kanto.com"
+        },
+        {
+            "id": 4,
+            "nombre": "Jill",
+            "apellido": "Valentine",
+            "telefono": "666222111",
+            "email": "jill@racoon.com"
+        }
+    ],
+    "teleoperador": [
+        {
+            "id": 1,
+            "nombre": "Aiden",
+            "apellido": "Stone",
+            "telefono": "700900800",
+            "email": "aiden@teyvat.com",
+            "ubicacion_id": 1
+        },
+        {
+            "id": 2,
+            "nombre": "Paimon",
+            "apellido": "Navigator",
+            "telefono": "123123123",
+            "email": "paimon@teyvat.com",
+            "ubicacion_id": 2
+        },
+        {
+            "id": 3,
+            "nombre": "Zelda",
+            "apellido": "Princess",
+            "telefono": "321321321",
+            "email": "zelda@hyrule.com",
+            "ubicacion_id": 3
+        },
+        {
+            "id": 4,
+            "nombre": "Saria",
+            "apellido": "Forest",
+            "telefono": "456456456",
+            "email": "saria@hyrule.com",
+            "ubicacion_id": 4
+        },
+        {
+            "id": 5,
+            "nombre": "Ash",
+            "apellido": "Ketchum",
+            "telefono": "999111888",
+            "email": "ash@kanto.com",
+            "ubicacion_id": 5
+        },
+        {
+            "id": 6,
+            "nombre": "Nurse",
+            "apellido": "Joy",
+            "telefono": "444555666",
+            "email": "joy@kanto.com",
+            "ubicacion_id": 6
+        },
+        {
+            "id": 7,
+            "nombre": "Leon",
+            "apellido": "Kennedy",
+            "telefono": "333222111",
+            "email": "leon@racoon.com",
+            "ubicacion_id": 7
+        },
+        {
+            "id": 8,
+            "nombre": "Claire",
+            "apellido": "Redfield",
+            "telefono": "777888999",
+            "email": "claire@racoon.com",
+            "ubicacion_id": 8
+        }
+    ],
+    "terminal": [
+        {
+            "id": 1,
+            "estado": "Operativo",
+            "ubicacion_id": 1
+        },
+        {
+            "id": 2,
+            "estado": "En Reparación",
+            "ubicacion_id": 2
+        },
+        {
+            "id": 3,
+            "estado": "Operativo",
+            "ubicacion_id": 3
+        },
+        {
+            "id": 4,
+            "estado": "Averiado",
+            "ubicacion_id": 4
+        },
+        {
+            "id": 5,
+            "estado": "Operativo",
+            "ubicacion_id": 5
+        },
+        {
+            "id": 6,
+            "estado": "Averiado",
+            "ubicacion_id": 6
+        },
+        {
+            "id": 7,
+            "estado": "Operativo",
+            "ubicacion_id": 7
+        },
+        {
+            "id": 8,
+            "estado": "En Reparación",
+            "ubicacion_id": 8
+        }
+    ],
+    "terminal_estado_historial": [
+        {
+            "id": 1,
+            "terminal_id": 1,
+            "estado_anterior": null,
+            "estado_nuevo": "Operativo",
+            "fecha_cambio": "2025-06-01T10:00:00"
+        },
+        {
+            "id": 2,
+            "terminal_id": 2,
+            "estado_anterior": "Operativo",
+            "estado_nuevo": "En Reparación",
+            "fecha_cambio": "2025-06-02T12:30:00"
+        },
+        {
+            "id": 3,
+            "terminal_id": 4,
+            "estado_anterior": "Operativo",
+            "estado_nuevo": "Averiado",
+            "fecha_cambio": "2025-06-05T15:00:00"
+        },
+        {
+            "id": 4,
+            "terminal_id": 6,
+            "estado_anterior": "Operativo",
+            "estado_nuevo": "Averiado",
+            "fecha_cambio": "2025-06-07T11:45:00"
+        },
+        {
+            "id": 5,
+            "terminal_id": 8,
+            "estado_anterior": "Averiado",
+            "estado_nuevo": "En Reparación",
+            "fecha_cambio": "2025-06-08T09:25:00"
+        }
+    ],
+    "incidencia": [
+        {
+            "id": 1,
+            "terminal_id": 2,
+            "descripcion": "Pantalla en negro tras actualización.",
+            "fecha_reportada": "2025-06-02T12:35:00",
+            "solucionada": true,
+            "fecha_solucion": "2025-06-03T10:00:00",
+            "tecnico_id": 1
+        },
+        {
+            "id": 2,
+            "terminal_id": 4,
+            "descripcion": "No responde el teclado.",
+            "fecha_reportada": "2025-06-05T15:10:00",
+            "solucionada": false,
+            "fecha_solucion": null,
+            "tecnico_id": 2
+        },
+        {
+            "id": 3,
+            "terminal_id": 6,
+            "descripcion": "Problema de red intermitente.",
+            "fecha_reportada": "2025-06-07T12:00:00",
+            "solucionada": true,
+            "fecha_solucion": "2025-06-07T16:00:00",
+            "tecnico_id": 3
+        },
+        {
+            "id": 4,
+            "terminal_id": 8,
+            "descripcion": "Bloqueo del sistema.",
+            "fecha_reportada": "2025-06-08T09:30:00",
+            "solucionada": false,
+            "fecha_solucion": null,
+            "tecnico_id": 4
+        }
+    ],
+    "tecnico_zona": [
+        {
+            "tecnico_id": 1,
+            "zona_id": 1
+        },
+        {
+            "tecnico_id": 2,
+            "zona_id": 2
+        },
+        {
+            "tecnico_id": 3,
+            "zona_id": 3
+        },
+        {
+            "tecnico_id": 4,
+            "zona_id": 4
+        }
+    ],
+    "inventario": [
+        {
+            "id": 1,
+            "nombre": "Multímetro",
+            "descripcion": "Herramienta para medición eléctrica",
+            "estado": "En uso",
+            "cantidad": 2,
+            "tecnico_id": 1,
+            "fecha_asignacion": "2025-06-01"
+        },
+        {
+            "id": 2,
+            "nombre": "Portátil Asus",
+            "descripcion": "Equipo portátil para diagnósticos",
+            "estado": "Disponible",
+            "cantidad": 1,
+            "tecnico_id": 2,
+            "fecha_asignacion": "2025-06-03"
+        },
+        {
+            "id": 3,
+            "nombre": "Cables de red",
+            "descripcion": "Cat6, 2 metros",
+            "estado": "Disponible",
+            "cantidad": 5,
+            "tecnico_id": 3,
+            "fecha_asignacion": "2025-05-28"
+        },
+        {
+            "id": 4,
+            "nombre": "Destornillador estrella",
+            "descripcion": "Tamaño mediano",
+            "estado": "En uso",
+            "cantidad": 3,
+            "tecnico_id": 1,
+            "fecha_asignacion": "2025-06-01"
+        },
+        {
+            "id": 5,
+            "nombre": "Tablet Lenovo",
+            "descripcion": "Tablet para registros de campo",
+            "estado": "Averiada",
+            "cantidad": 1,
+            "tecnico_id": 4,
+            "fecha_asignacion": "2025-06-05"
+        },
+        {
+            "id": 6,
+            "nombre": "Guantes aislantes",
+            "descripcion": "Uso en instalaciones eléctricas",
+            "estado": "Disponible",
+            "cantidad": 4,
+            "tecnico_id": 2,
+            "fecha_asignacion": "2025-06-04"
+        },
+        {
+            "id": 7,
+            "nombre": "Linterna LED",
+            "descripcion": "Alta potencia, recargable",
+            "estado": "En uso",
+            "cantidad": 2,
+            "tecnico_id": 4,
+            "fecha_asignacion": "2025-06-07"
+        }
+    ]
+}
