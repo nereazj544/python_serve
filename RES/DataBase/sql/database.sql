@@ -167,3 +167,31 @@ INSERT INTO inventario (nombre, descripcion, estado, cantidad, tecnico_id, fecha
   ('Tablet Lenovo', 'Tablet para registros de campo', 'Averiada', 1, 4, '2025-06-05'),                -- Jill
   ('Guantes aislantes', 'Uso en instalaciones eléctricas', 'Disponible', 4, 2, '2025-06-04'),         -- Link
   ('Linterna LED', 'Alta potencia, recargable', 'En uso', 2, 4, '2025-06-07');                        -- Jill
+
+CREATE TABLE turno (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    hora_inicio TIME NOT NULL,
+    hora_fin TIME NOT NULL,
+    tecnico_id INT NULL,
+    teleoperador_id INT NULL,
+    descripcion VARCHAR(255),
+    FOREIGN KEY (tecnico_id) REFERENCES tecnico(id),
+    FOREIGN KEY (teleoperador_id) REFERENCES teleoperador(id),
+    CHECK (
+        (tecnico_id IS NOT NULL AND teleoperador_id IS NULL)
+        OR
+        (tecnico_id IS NULL AND teleoperador_id IS NOT NULL)
+    )
+);
+
+-- Turnos asignados a TÉCNICOS
+INSERT INTO turno (fecha, hora_inicio, hora_fin, tecnico_id, teleoperador_id, descripcion) VALUES
+('2025-06-10', '08:00:00', '16:00:00', 1, NULL, 'Turno técnico Bennett - mantenimiento general'),
+('2025-06-10', '16:00:00', '23:59:59', 2, NULL, 'Turno técnico Link - soporte nocturno');
+
+-- Turnos asignados a TELEOPERADORES
+INSERT INTO turno (fecha, hora_inicio, hora_fin, tecnico_id, teleoperador_id, descripcion) VALUES
+('2025-06-10', '08:00:00', '14:00:00', NULL, 1, 'Turno teleoperador Aiden - mañana'),
+('2025-06-10', '14:00:00', '20:00:00', NULL, 2, 'Turno teleoperador Paimon - tarde'),
+('2025-06-10', '20:00:00', '02:00:00', NULL, 3, 'Turno teleoperador Zelda - noche');

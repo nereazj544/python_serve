@@ -24,7 +24,7 @@ COLLECTION_MONGO_6 = "Ubicacion"
 COLLECTION_MONGO_7 = "Tecnico_zona"
 COLLECTION_MONGO_8 = "Teleoperador"
 COLLECTION_MONGO_9 = "Terminal_estado_historial"
-COLLECTION_MONGO_10 = "Turnos"
+COLLECTION_MONGO_10 = "Turno"
 
 # ? MySQL
 DB_MySQL = "pithon"
@@ -41,7 +41,7 @@ TABLE_MySQL_6 = "Ubicacion"
 TABLE_MySQL_7 = "Tecnico_zona"
 TABLE_MySQL_8 = "Teleoperador"
 TABLE_MySQL_9 = "Terminal_estado_historial"
-TABLE_MySQL_10 = "Turnos"
+TABLE_MySQL_10 = "Turno"
 
 
 # TODO =============== CONEXIONES_MySQL ================
@@ -64,6 +64,39 @@ def get_MySQL_conn():
 async def add_teleoperador(writer, reader):
     conn = get_MySQL_conn() # pilla la conexion a la base de datos
     crs = conn.cursor() # cursor para ejecutar las consultas
+
+    while True:
+        writer.write("Nombre del teleoperador".encode())
+        await writer.drain()
+        msg = (await reader.read(1024)).decode().strip()
+        log_info(f"Nombre recibido: {msg}")
+
+        writer.write("Apellido del teleoperador".encode())
+        await writer.drain()
+        msg = (await reader.read(1024)).decode().strip().capitalize()
+        log_info(f"Apellido recibido: {msg}")
+
+        writer.write("Telefono del teleoperador".encode())
+        await writer.drain()
+        msg = (await reader.read(1024)).decode().strip().capitalize()
+        log_info(f"Telefono recibido: {msg}")
+
+        writer.write("Email del teleoperador".encode())
+        await writer.drain()
+        msg = (await reader.read(1024)).decode().strip()
+        log_info(f"Email recibido: {msg}")
+
+        writer.write("Ubicacion del teleoperador".encode())
+        await writer.drain()
+        msg = (await reader.read(1024)).decode().strip()
+        log_info(f"Ubicacion recibida: {msg}")
+
+        
+
+
+
+
+
 
 
 # TODO: =============== CONFIGURACION CONEXION BASES DE DATOS, SELECCION DE TABLAS ================
