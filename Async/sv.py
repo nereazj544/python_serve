@@ -67,11 +67,21 @@ async def add_teleoperador(writer, reader):
             ub_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
         writer.write(ub_list.encode())
         await writer.drain()
-
-        writer.write("ID de la ubicación seleccionada".encode())
+        writer.write("El ID de la ubicacion que quiere añadir, se encuentra en la lista anterior(s/n).\n".encode())
         await writer.drain()
-        ub_id = (await reader.read(1024)).decode().strip()
-        log_info(f"Ubicacion recibida: {ub_id}")
+        if res == "s".upper() or res == "y".lower():
+            writer.write("ID de la ubicación seleccionada".encode())
+            await writer.drain()
+            ub_id = (await reader.read(1024)).decode().strip()
+            log_info(f"Ubicacion recibida: {ub_id}")
+            await writer.drain()
+        elif res == "n".upper() or res == "n".lower():
+            log_info("No existe esa ubicacion.")
+            writer.write("No se ha seleccionado una ubicación. Inténtalo de nuevo.\n".encode())
+            await writer.drain()
+            continue
+
+       
 
         try:
             ub_id = int(ub_id)  # Asegurarse de que el ID es un entero
