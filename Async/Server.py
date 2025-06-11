@@ -13,7 +13,7 @@ Sport = 8083
 # ? MongoDB
 
 M_URL = "mongodb://localhost:27017/"
-M_DB = ""
+M_DB = "tech_multiverso"
 
 COLLECTION_MONGO_1 = "Terminal"
 COLLECTION_MONGO_2 = "Incidencia"
