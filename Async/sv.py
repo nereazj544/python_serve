@@ -62,7 +62,7 @@ async def add_horario_teleoperador(writer, reader):
     
         writer.write("Introduce la semana del teleoperador (formato: Semana [numero] de [mes])".encode())
         await writer.drain()
-        semana = (await reader.read(1024)).decode().strip()
+        semana = (await reader.read(1024)).decode().strip().capitalize()
         log_info(f"Semana recibida: {semana}")
 
 
@@ -78,8 +78,8 @@ async def add_horario_teleoperador(writer, reader):
         log_info(f"Fin de jornada recibido: {fin_jornada}")
 
         # INSERTAR HORARIO DEL TELEOPERADOR EN LA BASE DE DATOS
-        values = (semana, inicio_jornada, fin_jornada, tele_id)
         query = f"INSERT INTO {TABLE_MySQL_10} (semana, inicio_jornada, fin_jornada, teleoperador_id) VALUES (%s, %s, %s, %s)"
+        values = (semana, inicio_jornada, fin_jornada, tele_id)
         crs.execute(query, values)
         conn.commit()
         log_info(f"Horario del teleoperador con ID {tele_id} insertado correctamente en la base de datos.")

@@ -429,3 +429,105 @@ ConnectionResetError: [WinError 64] El nombre de red especificado ya no está dis
 2025-06-11 12:26:34 - INFO - [SERVIDOR INFO]: Email recibido: l
 2025-06-11 12:26:40 - INFO - [SERVIDOR INFO]: Ubicacion recibida: 7
 2025-06-11 12:26:40 - INFO - [SERVIDOR INFO]: Teleoperador l L insertado correctamente en la base de datos.
+2025-06-11 12:48:25 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 12:48:30 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 59898)
+2025-06-11 12:48:35 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 12:48:38 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 12:48:43 - INFO - package: mysql.connector.plugins
+2025-06-11 12:48:43 - INFO - plugin_name: caching_sha2_password
+2025-06-11 12:48:43 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 12:48:59 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 6
+2025-06-11 12:49:15 - INFO - [SERVIDOR INFO]: Semana recibida: semana 5 de septiembre
+2025-06-11 12:49:34 - INFO - [SERVIDOR INFO]: Inicio de jornada recibido: 05:00:00
+2025-06-11 12:49:43 - INFO - [SERVIDOR INFO]: Fin de jornada recibido: 13:00:00
+2025-06-11 12:49:43 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1092 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 238, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 182, in teleoperador_MySQL
+    await add_horario_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 83, in add_horario_teleoperador
+    crs.execute(query, values)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'inicio_jornada' in 'field list'
+2025-06-11 12:53:10 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 12:53:10 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 60008)
+2025-06-11 12:53:15 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 12:53:19 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 12:53:26 - INFO - package: mysql.connector.plugins
+2025-06-11 12:53:26 - INFO - plugin_name: caching_sha2_password
+2025-06-11 12:53:26 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 12:53:38 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 3
+2025-06-11 12:53:49 - INFO - [SERVIDOR INFO]: Semana recibida: Semana 5 de septiembre
+2025-06-11 12:53:57 - INFO - [SERVIDOR INFO]: Inicio de jornada recibido: 09:30:00
+2025-06-11 12:54:07 - INFO - [SERVIDOR INFO]: Fin de jornada recibido: 17:30:00
+2025-06-11 12:54:07 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1088 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 241, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 185, in teleoperador_MySQL
+    await add_horario_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 83, in add_horario_teleoperador
+    crs.execute(query, values)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'inicio_jornada' in 'field list'
