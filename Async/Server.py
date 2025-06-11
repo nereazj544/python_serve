@@ -68,34 +68,56 @@ async def add_teleoperador(writer, reader):
     while True:
         writer.write("Nombre del teleoperador".encode())
         await writer.drain()
-        msg = (await reader.read(1024)).decode().strip()
-        log_info(f"Nombre recibido: {msg}")
+        nombre = (await reader.read(1024)).decode().strip()
+        log_info(f"Nombre recibido: {nombre}")
 
         writer.write("Apellido del teleoperador".encode())
         await writer.drain()
-        msg = (await reader.read(1024)).decode().strip().capitalize()
-        log_info(f"Apellido recibido: {msg}")
+        apellido = (await reader.read(1024)).decode().strip().capitalize()
+        log_info(f"Apellido recibido: {apellido}")
 
         writer.write("Telefono del teleoperador".encode())
         await writer.drain()
-        msg = (await reader.read(1024)).decode().strip().capitalize()
-        log_info(f"Telefono recibido: {msg}")
+        telefono = (await reader.read(1024)).decode().strip().capitalize()
+        log_info(f"Telefono recibido: {telefono}")
 
         writer.write("Email del teleoperador".encode())
         await writer.drain()
-        msg = (await reader.read(1024)).decode().strip()
-        log_info(f"Email recibido: {msg}")
+        email = (await reader.read(1024)).decode().strip()
+        log_info(f"Email recibido: {email}")
 
-        writer.write("Ubicacion del teleoperador".encode())
+        # MOSTRAR UBICACIONES DISPONIBLES
+        crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_6}")
+        ubicaciones = crs.fetchall()
+        ub_list = "Selecciona una ubicación por su ID y nombre: \n"
+        for ub in ubicaciones:
+            ub_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
+        writer.write(ub_list.encode())
         await writer.drain()
-        msg = (await reader.read(1024)).decode().strip()
-        log_info(f"Ubicacion recibida: {msg}")
 
-        
+        writer.write("ID de la ubicación seleccionada".encode())
+        await writer.drain()
+        ub_id = (await reader.read(1024)).decode().strip()
+        log_info(f"Ubicacion recibida: {ub_id}")
 
+        try:
+            ub_id = int(ub_id)  # Asegurarse de que el ID es un entero
+        except ValueError:
+            log_error("ID de ubicación no válido")
+            writer.write("ID de ubicación no válido. Inténtalo de nuevo.\n".encode())
+            await writer.drain()
+            continue
 
+        # INSERTAR TELEOPERADOR EN LA BASE DE DATOS
+        values = (nombre, apellido, telefono, email, ub_id)
+        query = f"INSERT INTO {TABLE_MySQL_8} (nombre, apellido, telefono, email, ubicacion_id) VALUES (%s, %s, %s, %s, %s)"
+        crs.execute(query, values)
+        conn.commit()  # Confirmar los cambios en la base de datos
 
-
+        log_info(f"Teleoperador {nombre} {apellido} insertado correctamente en la base de datos.")
+        writer.write(f"Teleoperador {nombre} {apellido} insertado correctamente.\n".encode())
+        await writer.drain()
+        Mysql_tele(writer, reader)  # Volver al menú de teleoperador
 
 
 
@@ -114,17 +136,17 @@ async def Mysql_tele(writer, reader):
     message = data.decode().strip()
     log_debug(f"Mensaje recibido: {message}")
     if message == "1":
-        add_teleoperador(writer, reader)
+        await add_teleoperador(writer, reader)
     elif message == "2":
-        # update_teleoperador(writer, reader)
+        # await update_teleoperador(writer, reader)
         pass
     elif message == "3":
-        # delete_teleoperador(writer, reader)
+        # await delete_teleoperador(writer, reader)
         pass
     elif message == "4":
-        # consult_teleoperadores(writer, reader)
+        # await consult_teleoperadores(writer, reader)
         pass
-    
+
 
 
 async def MongoDB_tele(writer, reader):
@@ -181,12 +203,11 @@ async def server(reader, writer):
     await writer.drain()
 
     while True:
-        await asyncio.sleep(0.1)
-        log_warning("== ESPERA AUTOMÁTICA DE O.1 SEGUNDOS ==")
+        await asyncio.sleep(5)
+        log_warning("== ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==")
         writer.write("ELIGE LA OPCION DESEADA: \n 1. TELEOPERADOR \n 2. TECNICO \n 3. SALIR \n".encode())
         await writer.drain()
-        data = await reader.readline()
-        message = data.decode().strip()
+        message = (await reader.readline()).decode().strip()
         log_debug(f"Mensaje recibido: {message}")
         print(f"Mensaje recibido: {message}")
 
@@ -208,12 +229,12 @@ async def server(reader, writer):
                     log_info("Seleccionado: Opción 1")
                     writer.write("Has seleccionado la opción 1. \n".encode())
                     await writer.drain()
-                    Mysql_tele(writer, reader)
+                    await Mysql_tele(writer, reader)
                 elif message == "2": # MongoDB
                     log_info("Seleccionado: Opción 2")
                     writer.write("Has seleccionado la opción 2. \n".encode())
                     await writer.drain()
-                    MongoDB_tele(writer, reader)
+                    await MongoDB_tele(writer, reader)
                 else:
                     log_warning("Opción no válida seleccionada por TELEOPERADOR")
                     writer.write("OPCIÓN NO VÁLIDA. INTENTE DE NUEVO.\n".encode())
@@ -241,12 +262,12 @@ async def server(reader, writer):
                     log_info("Seleccionado: Opción 1")
                     writer.write("Has seleccionado la opción 1. \n".encode())
                     await writer.drain()
-                    Mysql_tec(writer, reader)
+                    await Mysql_tec(writer, reader)
                 elif message == "2": # MongoDB
                     log_info("Seleccionado: Opción 2")
                     writer.write("Has seleccionado la opción 2. \n".encode())
                     await writer.drain()
-                    MongoDB_tec(writer, reader)
+                    await MongoDB_tec(writer, reader)
                 else:
                     log_warning("Opción no válida seleccionada por TECNICO")
                     writer.write("OPCIÓN NO VÁLIDA. INTENTE DE NUEVO.\n".encode())
@@ -256,3 +277,27 @@ async def server(reader, writer):
                 log_error("Contraseña incorrecta para TECNICO")
                 writer.write("CONTRASEÑA INCORRECTA. INTENTE DE NUEVO.\n".encode())
                 await writer.drain()
+
+
+async def main():
+    try:
+        s = await asyncio.start_server(
+            server, Shost, Sport
+        )
+        log_info(f"Servidor escuchando en {Shost}:{Sport}")
+        print(f"Servidor escuchando en {Shost}:{Sport}")
+        async with s:
+            await s.serve_forever()
+    except Exception as e:
+        log_error(f"Error al iniciar el servidor: {e}")
+        print(f"Error al iniciar el servidor: {e}")
+    except KeyboardInterrupt:
+        log_warning("Servidor detenido por el usuario.")
+        print("Servidor detenido por el usuario.")
+    finally:
+        log_critical("Servidor cerrado.")
+        print("Servidor cerrado.")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
