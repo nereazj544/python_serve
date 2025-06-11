@@ -60,12 +60,22 @@ async def add_horario_teleoperador(writer, reader):
             await writer.drain()
             continue
     
-        writer.write("Introduce la semana del teleoperador")
-
+        writer.write("Introduce la semana del teleoperador (formato: Semana [numero] de [mes])".encode())
+        await writer.drain()
+        semana = (await reader.read(1024)).decode().strip()
+        log_info(f"Semana recibida: {semana}")
 
 
         writer.write("Introduce el horario de INICIO DE JORNADA del teleoperador (formato: HH:MM-HH:MM)".encode())
+        await writer.drain()
+        inicio_jornada = (await reader.read(1024)).decode().strip()
+        log_info(f"Inicio de jornada recibido: {inicio_jornada}")
+
+
         writer.write("Introduce el horario de FIN DE JORNADA del teleoperador (formato: HH:MM-HH:MM)".encode())
+        
+
+
 
 
 
