@@ -416,3 +416,16 @@ Traceback (most recent call last):
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
     raise ConnectionResetError(*exc.args)
 ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 12:26:18 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 12:26:18 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 59374)
+2025-06-11 12:26:24 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 12:26:26 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 12:26:29 - INFO - package: mysql.connector.plugins
+2025-06-11 12:26:29 - INFO - plugin_name: caching_sha2_password
+2025-06-11 12:26:29 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 12:26:31 - INFO - [SERVIDOR INFO]: Nombre recibido: l
+2025-06-11 12:26:32 - INFO - [SERVIDOR INFO]: Apellido recibido: L
+2025-06-11 12:26:32 - INFO - [SERVIDOR INFO]: Telefono recibido: L
+2025-06-11 12:26:34 - INFO - [SERVIDOR INFO]: Email recibido: l
+2025-06-11 12:26:40 - INFO - [SERVIDOR INFO]: Ubicacion recibida: 7
+2025-06-11 12:26:40 - INFO - [SERVIDOR INFO]: Teleoperador l L insertado correctamente en la base de datos.

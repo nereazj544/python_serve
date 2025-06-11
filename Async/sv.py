@@ -37,22 +37,35 @@ def get_MySQL_conn():
 async def add_horario_teleoperador(writer, reader):
     conn = get_MySQL_conn() # pilla la conexion a la base de datos
     crs = conn.cursor() # cursor para ejecutar las consultas
+    while True:
+        crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_8}")
+        ubicaciones = crs.fetchall()
+        tele_list = "Selecciona una ubicación por su ID y nombre: \n"
+        
+        for ub in ubicaciones:
+            tele_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
+        writer.write(tele_list.encode())
+        await writer.drain()
+
+        writer.write("El ID del teleoperador que quiere añadir".encode())
+        await writer.drain()
+        tele_id = (await reader.read(1024)).decode().strip()
+        log_info(f"Teleoperador recibido: {tele_id}")
+
+        try:
+            tele_id = int(tele_id)  # Asegurarse de que el ID es un entero
+        except ValueError:
+            log_error("ID de teleoperador no válido")
+            writer.write("ID de teleoperador no válido. Inténtalo de nuevo.\n".encode())
+            await writer.drain()
+            continue
     
+        writer.write("Introduce la semana del teleoperador")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+        writer.write("Introduce el horario de INICIO DE JORNADA del teleoperador (formato: HH:MM-HH:MM)".encode())
+        writer.write("Introduce el horario de FIN DE JORNADA del teleoperador (formato: HH:MM-HH:MM)".encode())
 
 
 
