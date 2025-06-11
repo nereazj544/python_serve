@@ -1299,3 +1299,172 @@ ConnectionResetError: [WinError 64] El nombre de red especificado ya no está dis
 2025-06-11 14:40:21 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
 2025-06-11 14:40:25 - INFO - [SERVIDOR INFO]: Tecnico recibido: 5
 2025-06-11 14:40:25 - INFO - [SERVIDOR INFO]: Tecnico con ID 5 eliminado correctamente de la base de datos.
+2025-06-11 14:53:49 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 430, in server_on
+    # TODO: ============== SERVIDOR ==============
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 172, in tecnico_MySQL
+    else:
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 94, in delete_tecnico
+    tele_id = (await reader.read(1024)).decode().strip()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 15:01:25 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 15:01:26 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 62874)
+2025-06-11 15:01:31 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:01:33 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 15:01:44 - INFO - package: mysql.connector.plugins
+2025-06-11 15:01:44 - INFO - plugin_name: caching_sha2_password
+2025-06-11 15:01:44 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 15:01:44 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1088 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 490, in server_on
+    await tecnico_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 234, in tecnico_MySQL
+    await consult_tecnicos_horarios(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 90, in consult_tecnicos_horarios
+    crs.execute(query)
+    ~~~~~~~~~~~^^^^^^^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 't.ubicacion_id' in 'on clause'
+2025-06-11 15:10:12 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 63027)
+2025-06-11 15:10:17 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:10:20 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 15:10:27 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1096 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 490, in server_on
+    writer.write("Consultando datos de Incidencias...\n".encode())
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 234, in tecnico_MySQL
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 90, in consult_tecnicos_horarios
+    writer.write("No hay tecnicos registrados.\n".encode())
+    ^^^^^^^^^^^^^^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 't.ubicacion_id' in 'on clause'
+2025-06-11 15:10:44 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 63054)
+2025-06-11 15:10:49 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:14:32 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 15:14:34 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 63117)
+2025-06-11 15:14:39 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:14:43 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 15:14:49 - INFO - package: mysql.connector.plugins
+2025-06-11 15:14:49 - INFO - plugin_name: caching_sha2_password
+2025-06-11 15:14:49 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 15:15:35 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\.py", line 402, in server_on
+    await tecnico_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\.py", line 189, in tecnico_MySQL
+    await consult_tecnicos_horarios(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\.py", line 85, in consult_tecnicos_horarios
+    await tecnico_MySQL(writer, reader)  # Volver al menú de tecnico
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\.py", line 180, in tecnico_MySQL
+    message = (await reader.read(1024)).decode().strip()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 15:15:38 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 63135)
+2025-06-11 15:15:43 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:15:47 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 15:15:48 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 63140)
+2025-06-11 15:15:53 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:15:56 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 15:16:01 - INFO - package: mysql.connector.plugins
+2025-06-11 15:16:01 - INFO - plugin_name: caching_sha2_password
+2025-06-11 15:16:01 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
