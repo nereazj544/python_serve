@@ -43,7 +43,6 @@ async def update_incidencia(writer, reader):
 
 async def add_incidencia(writer, reader):
     conn = get_MySQL_conn()  # pilla la conexion a la base de datos
-   
 
     with conn.cursor() as crs, conn.cursor() as insertar, conn.cursor() as crs_2:
         while True:
@@ -60,8 +59,6 @@ async def add_incidencia(writer, reader):
             await writer.drain()
             tecnico_id = (await reader.read(1024)).decode().strip()
             log_info(f"Tecnico recibido: {tecnico_id}")
-
-
 
             crs_2.execute(f"select * from  ubicacion u inner join terminal tr on u.id = tr.ubicacion_id where tr.estado like '%averiado%'")
             ubicaciones = crs_2.fetchall()
