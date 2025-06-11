@@ -56,6 +56,8 @@ def get_MySQL_conn():
 
 
 
+
+
 # TODO: =============== PETICIONES (TABLAS_COLECCIONES) ================
 
 
@@ -63,8 +65,22 @@ def get_MySQL_conn():
 
 
 
+#TODO TELEOPERADOR
+def Mysql_tele(writer, reader):
+    raise NotImplementedError
 
 
+def MongoDB_tele(writer, reader):
+    raise NotImplementedError
+
+
+
+#TODO TECNICO
+def Mysql_tec(writer, reader):
+    raise NotImplementedError
+
+def MongoDB_tec(writer, reader):
+    raise NotImplementedError
 
 
 
@@ -123,6 +139,7 @@ async def server(reader, writer):
             await writer.drain()
             password = (await reader.readline()).decode().strip()
             log_debug(f"Contraseña recibida: {password}")
+            
             if password == "leo-perador._.2025":
                 log_info("Contraseña correcta para TELEOPERADOR")
                 writer.write("CONTRASEÑA CORRECTA. BIENVENIDO TELEOPERADOR.\n Escribe un numero: 1 o 2".encode())
@@ -134,12 +151,12 @@ async def server(reader, writer):
                     log_info("Seleccionado: Opción 1")
                     writer.write("Has seleccionado la opción 1. \n".encode())
                     await writer.drain()
-                    # Aquí puedes agregar la lógica para la opción 1
+                    Mysql_tele(writer, reader)
                 elif message == "2": # MongoDB
                     log_info("Seleccionado: Opción 2")
                     writer.write("Has seleccionado la opción 2. \n".encode())
                     await writer.drain()
-                    # Aquí puedes agregar la lógica para la opción 2
+                    MongoDB_tele(writer, reader)
                 else:
                     log_warning("Opción no válida seleccionada por TELEOPERADOR")
                     writer.write("OPCIÓN NO VÁLIDA. INTENTE DE NUEVO.\n".encode())
@@ -147,5 +164,38 @@ async def server(reader, writer):
                 
             else:
                 log_error("Contraseña incorrecta para TELEOPERADOR")
+                writer.write("CONTRASEÑA INCORRECTA. INTENTE DE NUEVO.\n".encode())
+                await writer.drain()
+        elif message == "2":
+            log_info("Seleccionado: TECNICO")
+            writer.write("TECNICO SELECCIONADO. \n ESCRIBA CONTRASEÑA: ".encode())
+            await writer.drain()
+            password = (await reader.readline()).decode().strip()
+            log_debug(f"Contraseña recibida: {password}")
+
+            if password == "Genio-tecnico._.2025":
+                log_info("Contraseña correcta para TECNICO")
+                writer.write("CONTRASEÑA CORRECTA. BIENVENIDO TECNICO.\n Escribe un numero: 1 o 2".encode())
+                await writer.drain()
+                data = await reader.readline()
+                message = data.decode().strip()
+                log_debug(f"Mensaje recibido: {message}")
+                if message == "1": # MySQL
+                    log_info("Seleccionado: Opción 1")
+                    writer.write("Has seleccionado la opción 1. \n".encode())
+                    await writer.drain()
+                    Mysql_tec(writer, reader)
+                elif message == "2": # MongoDB
+                    log_info("Seleccionado: Opción 2")
+                    writer.write("Has seleccionado la opción 2. \n".encode())
+                    await writer.drain()
+                    MongoDB_tec(writer, reader)
+                else:
+                    log_warning("Opción no válida seleccionada por TECNICO")
+                    writer.write("OPCIÓN NO VÁLIDA. INTENTE DE NUEVO.\n".encode())
+                    await writer.drain()
+                
+            else:
+                log_error("Contraseña incorrecta para TECNICO")
                 writer.write("CONTRASEÑA INCORRECTA. INTENTE DE NUEVO.\n".encode())
                 await writer.drain()
