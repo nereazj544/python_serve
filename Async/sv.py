@@ -66,6 +66,57 @@ async def incidencias_MySQL(writer, reader):
 
 #TODO: =============== TECNICO (MySQL) ================
 
+async def add_horario_tecnico(writer, reader):
+    conn = get_MySQL_conn()  # pilla la conexion a la base de datos
+    crs = conn.cursor()  # cursor para ejecutar las consultas
+    while True:
+        crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_3}")
+        ubicaciones = crs.fetchall()
+        tele_list = "Selecciona un ID del tecnico: \n"
+        
+        for ub in ubicaciones:
+            tele_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
+        writer.write(tele_list.encode())
+        await writer.drain()
+
+        writer.write("El ID del tecnico que quiere añadir".encode())
+        await writer.drain()
+        tecnico_id = (await reader.read(1024)).decode().strip()
+        log_info(f"Tecnico recibido: {tecnico_id}")
+
+        writer.write("Semana del horario".encode())
+        await writer.drain()
+        semana = (await reader.read(1024)).decode().strip()
+        log_info(f"Semana recibida: {semana}")
+
+        writer.write("Hora de inicio".encode())
+        await writer.drain()
+        hora_inicio = (await reader.read(1024)).decode().strip()
+        log_info(f"Hora de inicio recibida: {hora_inicio}")
+
+        writer.write("Hora de fin".encode())
+        await writer.drain()
+        hora_fin = (await reader.read(1024)).decode().strip()
+        log_info(f"Hora de fin recibida: {hora_fin}")
+
+        writer.write("Descripción del turno".encode())
+        await writer.drain()
+        descripcion = (await reader.read(1024)).decode().strip()
+        log_info(f"Descripción recibida: {descripcion}")
+
+        # INSERTAR HORARIO EN LA BASE DE DATOS
+        teleoperador_id = None  # Asignar None si no se usa teleoperador_id
+        values = (tecnico_id, semana, hora_inicio, hora_fin, descripcion, teleoperador_id)
+        query = f"INSERT INTO {TABLE_MySQL_10} (tecnico_id, semana, hora_inicio, hora_fin, descripcion, teleoperador_id) VALUES (%s, %s, %s, %s, %s, %s)"
+        crs.execute(query, values)
+        conn.commit()  # Confirmar los cambios en la base de datos
+        log_info(f"Horario para tecnico {tecnico_id} insertado correctamente en la base de datos.")
+        writer.write(f"Horario para tecnico {tecnico_id} insertado correctamente.\n".encode())
+        await writer.drain()
+        await tecnico_MySQL(writer, reader)  # Volver al menú de tecnico
+
+        
+
 
 async def consult_tecnicos_incidencias(writer, reader):
     pass
@@ -89,12 +140,14 @@ async def consult_tecnicos_horarios(writer, reader):
         response = "Tecnicos y sus horarios:\n"
         for row in results:
             response += f"ID: {row[0]} | Nombre: {row[1]} {row[2]} | Teléfono: {row[3]} |  "\
-                        f"Ubicación: {row[5]} | Semana: {row[6]} | Inicio: {row[7]} | Fin: {row[8]} | Descripción: {row[9]}\n"
+                        f"Ubicación: {row[4]} | Semana: {row[5]} | Inicio: {row[6]} | Fin: {row[7]} | Descripción: {row[8]}\n"
         writer.write(response.encode())
         await writer.drain()
+        
+        
 
-        writer.write("Presiona ENTER para continuar.".encode())
-        await writer.drain()
+        await asyncio.sleep(5)  # Espera de 5 segundos antes de volver al menú
+        log_warning("== ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==")
         await tecnico_MySQL(writer, reader)  # Volver al menú de tecnico
 
 async def delete_tecnico(writer, reader):
@@ -207,7 +260,9 @@ async def tecnico_MySQL(writer, reader):
     "1. Insertar un nuevo técnico \n"\
     "2. Consultar técnicos y sus horarios \n"\
     "3. Eliminar un técnico \n"\
-    "4. Consultar técnicos y sus incidencias")
+    "4. Consultar técnicos y sus incidencias" \
+    "5. Insertar un nuevo horario de técnico \n"\
+    )
     writer.write(menu.encode())
     await writer.drain()
     
@@ -221,6 +276,8 @@ async def tecnico_MySQL(writer, reader):
         await delete_tecnico(writer, reader)
     elif message == "4":
         await consult_tecnicos_incidencias(writer, reader)
+    elif message == "5":
+        await add_horario_tecnico(writer, reader)
 
 
 

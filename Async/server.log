@@ -1468,3 +1468,126 @@ ConnectionResetError: [WinError 64] El nombre de red especificado ya no está dis
 2025-06-11 15:16:01 - INFO - package: mysql.connector.plugins
 2025-06-11 15:16:01 - INFO - plugin_name: caching_sha2_password
 2025-06-11 15:16:01 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 15:28:55 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 15:29:02 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 63504)
+2025-06-11 15:29:07 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:29:12 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 15:29:14 - INFO - package: mysql.connector.plugins
+2025-06-11 15:29:14 - INFO - plugin_name: caching_sha2_password
+2025-06-11 15:29:14 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 15:29:14 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1088 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 477, in server_on
+    await tecnico_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 219, in tecnico_MySQL
+    await consult_tecnicos_horarios(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 92, in consult_tecnicos_horarios
+    f"Ubicación: {row[5]} | Semana: {row[6]} | Inicio: {row[7]} | Fin: {row[8]} | Descripción: {row[9]}\n"
+                                                                                                ~~~^^^
+IndexError: tuple index out of range
+2025-06-11 15:30:02 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 15:30:06 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 63522)
+2025-06-11 15:30:11 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:30:13 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 15:30:18 - INFO - package: mysql.connector.plugins
+2025-06-11 15:30:18 - INFO - plugin_name: caching_sha2_password
+2025-06-11 15:30:18 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 15:30:18 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1088 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 477, in server_on
+    await tecnico_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 219, in tecnico_MySQL
+    await consult_tecnicos_horarios(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 92, in consult_tecnicos_horarios
+    f"Ubicación: {row[5]} | Semana: {row[6]} | Inicio: {row[7]} | Fin: {row[8]} | Descripción: {row[9]}\n"
+                                                                                                ~~~^^^
+IndexError: tuple index out of range
+2025-06-11 15:30:53 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 15:30:53 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 63542)
+2025-06-11 15:30:58 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:31:01 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 15:31:06 - INFO - package: mysql.connector.plugins
+2025-06-11 15:31:06 - INFO - plugin_name: caching_sha2_password
+2025-06-11 15:31:06 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 15:31:16 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 477, in server_on
+    await tecnico_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 219, in tecnico_MySQL
+    await consult_tecnicos_horarios(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 98, in consult_tecnicos_horarios
+    await tecnico_MySQL(writer, reader)  # Volver al menú de tecnico
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 214, in tecnico_MySQL
+    message = (await reader.read(1024)).decode().strip()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 15:31:37 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 15:31:37 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 63562)
+2025-06-11 15:31:42 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:31:45 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 15:31:48 - INFO - package: mysql.connector.plugins
+2025-06-11 15:31:48 - INFO - plugin_name: caching_sha2_password
+2025-06-11 15:31:48 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 15:31:48 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:31:56 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 480, in server_on
+    await tecnico_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 222, in tecnico_MySQL
+    await consult_tecnicos_horarios(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 101, in consult_tecnicos_horarios
+    await tecnico_MySQL(writer, reader)  # Volver al menú de tecnico
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 217, in tecnico_MySQL
+    message = (await reader.read(1024)).decode().strip()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 15:32:22 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 15:32:23 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 63638)
+2025-06-11 15:32:28 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 15:32:29 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 15:32:33 - INFO - package: mysql.connector.plugins
+2025-06-11 15:32:33 - INFO - plugin_name: caching_sha2_password
+2025-06-11 15:32:33 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 15:32:38 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
