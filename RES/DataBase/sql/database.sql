@@ -88,7 +88,8 @@ INSERT INTO ubicacion (nombre, zona_id) VALUES
   ('Ciudad Plateada', 3), -- Kanto
   ('Pueblo Paleta', 3),   -- Kanto
   ('Comisaría de Policía', 4), -- Raccoon City
-  ('Hospital', 4);         -- Raccoon City
+  ('Hospital', 4),         -- Raccoon City
+  ('Inazuma', 1); -- Teyvat
 
 -- TECNICOS
 INSERT INTO tecnico (nombre, apellido, telefono, email) VALUES

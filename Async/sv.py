@@ -34,7 +34,7 @@ def get_MySQL_conn():
 
 
 # TODO: =============== TELEOPERADOR (MySQL) ================
-async def add_teleoperador(writer: asyncio.StreamWriter, reader: asyncio.StreamReader):
+async def add_teleoperador(writer, reader):
     conn = get_MySQL_conn() # pilla la conexion a la base de datos
     crs = conn.cursor() # cursor para ejecutar las consultas
 
@@ -90,7 +90,7 @@ async def add_teleoperador(writer: asyncio.StreamWriter, reader: asyncio.StreamR
         log_info(f"Teleoperador {nombre} {apellido} insertado correctamente en la base de datos.")
         writer.write(f"Teleoperador {nombre} {apellido} insertado correctamente.\n".encode())
         await writer.drain()
-        teleoperador_MySQL(writer, reader)  # Volver al menú de teleoperador
+        await teleoperador_MySQL(writer, reader)  # Volver al menú de teleoperador
 
 
 

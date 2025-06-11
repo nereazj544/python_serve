@@ -321,3 +321,98 @@ Traceback (most recent call last):
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
     raise ConnectionResetError(*exc.args)
 ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 12:00:17 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 12:00:17 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 58906)
+2025-06-11 12:00:22 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 12:00:36 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 12:00:41 - INFO - package: mysql.connector.plugins
+2025-06-11 12:00:41 - INFO - plugin_name: caching_sha2_password
+2025-06-11 12:00:41 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 12:00:44 - INFO - [SERVIDOR INFO]: Nombre recibido: Ei
+2025-06-11 12:00:52 - INFO - [SERVIDOR INFO]: Apellido recibido: Eternidad
+2025-06-11 12:00:57 - INFO - [SERVIDOR INFO]: Telefono recibido: 764796707898
+2025-06-11 12:01:06 - INFO - [SERVIDOR INFO]: Email recibido: ei@inazuma.com
+2025-06-11 12:01:13 - INFO - [SERVIDOR INFO]: Ubicacion recibida: 17
+2025-06-11 12:01:14 - INFO - [SERVIDOR INFO]: Teleoperador Ei Eternidad insertado correctamente en la base de datos.
+2025-06-11 12:01:23 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 171, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 112, in teleoperador_MySQL
+    await add_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 44, in add_teleoperador
+    nombre = (await reader.read(1024)).decode().strip()
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 12:05:28 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 12:05:28 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 58979)
+2025-06-11 12:05:33 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 12:05:37 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 12:05:40 - INFO - package: mysql.connector.plugins
+2025-06-11 12:05:40 - INFO - plugin_name: caching_sha2_password
+2025-06-11 12:05:40 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 12:05:45 - INFO - [SERVIDOR INFO]: Nombre recibido: Kiara
+2025-06-11 12:05:48 - INFO - [SERVIDOR INFO]: Apellido recibido: Gata
+2025-06-11 12:05:51 - INFO - [SERVIDOR INFO]: Telefono recibido: 3123nya
+2025-06-11 12:06:00 - INFO - [SERVIDOR INFO]: Email recibido: nya@inazuma.com
+2025-06-11 12:06:04 - INFO - [SERVIDOR INFO]: Ubicacion recibida: 17
+2025-06-11 12:06:04 - INFO - [SERVIDOR INFO]: Teleoperador Kiara Gata insertado correctamente en la base de datos.
+2025-06-11 12:07:33 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 12:07:33 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 59046)
+2025-06-11 12:07:38 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 12:07:46 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 12:07:48 - INFO - package: mysql.connector.plugins
+2025-06-11 12:07:48 - INFO - plugin_name: caching_sha2_password
+2025-06-11 12:07:48 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 12:08:26 - INFO - [SERVIDOR INFO]: Nombre recibido: No se
+2025-06-11 12:08:29 - INFO - [SERVIDOR INFO]: Apellido recibido: Ni idea
+2025-06-11 12:08:34 - INFO - [SERVIDOR INFO]: Telefono recibido: Niideadadi9732
+2025-06-11 12:08:41 - INFO - [SERVIDOR INFO]: Email recibido: ni@idea.com
+2025-06-11 12:09:15 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 171, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 112, in teleoperador_MySQL
+    await add_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 73, in add_teleoperador
+    ub_id = (await reader.read(1024)).decode().strip()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
