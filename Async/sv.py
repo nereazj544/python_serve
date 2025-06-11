@@ -32,6 +32,50 @@ def get_MySQL_conn():
     )
 
 
+#TODO: =============== TECNICO (MySQL) ================
+
+async def consult_tecnicos(writer, reader):
+    pass
+
+async def consult_tecnicos_horarios(writer, reader):
+    pass
+
+async def delete_tecnico(writer, reader):
+    pass
+
+async def add_tecnico(writer, reader):
+    pass
+
+
+
+
+
+
+
+
+async def tecnico_MySQL(writer, reader):
+    menu = ("Has seleccionado la opción de TECNICO con MySQL. Selecciona la consulta que quieras hacer: "\
+    "\n"\
+    "1. Insertar un nuevo técnico \n"\
+    "2. Consultar técnicos y sus zonas \n"\
+    "3. Eliminar un técnico \n"\
+    "4. Consultar técnicos y sus horarios \n")
+    writer.write(menu.encode())
+    await writer.drain()
+    
+    message = (await reader.read(1024)).decode().strip()
+    log_debug(f"Mensaje recibido: {message}")
+    if message == "1":
+        await add_tecnico(writer, reader)
+    elif message == "2":
+        await consult_tecnicos(writer, reader)
+    elif message == "3":
+        await delete_tecnico(writer, reader)
+    elif message == "4":
+        await consult_tecnicos_horarios(writer, reader)
+
+
+
 
 # TODO: =============== TELEOPERADOR (MySQL) ================
 
