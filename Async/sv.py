@@ -65,6 +65,8 @@ async def incidencias_MySQL(writer, reader):
 
 
 #TODO: =============== TECNICO (MySQL) ================
+
+
 async def consult_tecnicos_incidencias(writer, reader):
     pass
 
@@ -78,7 +80,40 @@ async def delete_tecnico(writer, reader):
     pass
 
 async def add_tecnico(writer, reader):
-    pass
+    conn = get_MySQL_conn() # pilla la conexion a la base de datos
+    crs = conn.cursor() # cursor para ejecutar las consultas
+    while True:
+        writer.write("Nombre del teleoperador".encode())
+        await writer.drain()
+        nombre = (await reader.read(1024)).decode().strip()
+        log_info(f"Nombre recibido: {nombre}")
+
+        writer.write("Apellido del teleoperador".encode())
+        await writer.drain()
+        apellido = (await reader.read(1024)).decode().strip().capitalize()
+        log_info(f"Apellido recibido: {apellido}")
+
+        writer.write("Telefono del teleoperador".encode())
+        await writer.drain()
+        telefono = (await reader.read(1024)).decode().strip().capitalize()
+        log_info(f"Telefono recibido: {telefono}")
+
+        writer.write("Email del teleoperador".encode())
+        await writer.drain()
+        email = (await reader.read(1024)).decode().strip()
+        log_info(f"Email recibido: {email}")
+
+
+        # INSERTAR TELEOPERADOR EN LA BASE DE DATOS
+        values = (nombre, apellido, telefono, email)
+        query = f"INSERT INTO {TABLE_MySQL_3} (nombre, apellido, telefono, email) VALUES (%s, %s, %s, %s)"
+        crs.execute(query, values)
+        conn.commit()  # Confirmar los cambios en la base de datos
+
+        log_info(f"Teleoperador {nombre} {apellido} insertado correctamente en la base de datos.")
+        writer.write(f"Teleoperador {nombre} {apellido} insertado correctamente.\n".encode())
+        await writer.drain()  
+        await teleoperador_MySQL(writer, reader)  # Volver al menú de teleoperador
 
 
 
