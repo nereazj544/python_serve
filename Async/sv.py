@@ -70,8 +70,7 @@ async def incidencias_MySQL(writer, reader):
 async def consult_tecnicos_incidencias(writer, reader):
     pass
 
-async def consult_tecnicos(writer, reader):
-    pass
+
 
 async def consult_tecnicos_horarios(writer, reader):
     conn = get_MySQL_conn()  # pilla la conexion a la base de datos
@@ -206,10 +205,9 @@ async def tecnico_MySQL(writer, reader):
     menu = ("Has seleccionado la opción de TECNICO con MySQL. Selecciona la consulta que quieras hacer: "\
     "\n"\
     "1. Insertar un nuevo técnico \n"\
-    "2. Consultar técnicos y sus zonas \n"\
+    "2. Consultar técnicos y sus horarios \n"\
     "3. Eliminar un técnico \n"\
-    "4. Consultar técnicos y sus horarios \n"\
-    "5. Consultar técnicos y sus incidencias")
+    "4. Consultar técnicos y sus incidencias")
     writer.write(menu.encode())
     await writer.drain()
     
@@ -218,12 +216,10 @@ async def tecnico_MySQL(writer, reader):
     if message == "1":
         await add_tecnico(writer, reader)
     elif message == "2":
-        await consult_tecnicos(writer, reader)
+        await consult_tecnicos_horarios(writer, reader)
     elif message == "3":
         await delete_tecnico(writer, reader)
     elif message == "4":
-        await consult_tecnicos_horarios(writer, reader)
-    elif message == "5":
         await consult_tecnicos_incidencias(writer, reader)
 
 
