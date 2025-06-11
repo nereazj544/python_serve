@@ -60,26 +60,50 @@ def get_MySQL_conn():
 
 # TODO: =============== PETICIONES (TABLAS_COLECCIONES) ================
 
+# TODO: =============== TELEOPERADOR (MySQL) ================
+async def add_teleoperador(writer, reader):
+    conn = get_MySQL_conn() # pilla la conexion a la base de datos
+    crs = conn.cursor() # cursor para ejecutar las consultas
+
 
 # TODO: =============== CONFIGURACION CONEXION BASES DE DATOS, SELECCION DE TABLAS ================
 
-
-
 #TODO TELEOPERADOR
-def Mysql_tele(writer, reader):
-    raise NotImplementedError
+async def Mysql_tele(writer, reader):
+    writer("Has seleccionado la opción de TELEOPERADOR con MySQL. Selecciona la consulta que quieras hacer: "\
+        "\n"\
+        "1. Insertar un nuevo teleoperador \n"\
+        "2. Actualizar un teleoperador existente \n"\
+        "3. Eliminar un teleoperador \n"\
+        "4. Consultar teleoperadores y sus horarios \n".encode())
+    await writer.drain()
+    data = await reader.readline()
+    message = data.decode().strip()
+    log_debug(f"Mensaje recibido: {message}")
+    if message == "1":
+        add_teleoperador(writer, reader)
+    elif message == "2":
+        # update_teleoperador(writer, reader)
+        pass
+    elif message == "3":
+        # delete_teleoperador(writer, reader)
+        pass
+    elif message == "4":
+        # consult_teleoperadores(writer, reader)
+        pass
+    
 
 
-def MongoDB_tele(writer, reader):
+async def MongoDB_tele(writer, reader):
     raise NotImplementedError
 
 
 
 #TODO TECNICO
-def Mysql_tec(writer, reader):
+async def Mysql_tec(writer, reader):
     raise NotImplementedError
 
-def MongoDB_tec(writer, reader):
+async def MongoDB_tec(writer, reader):
     raise NotImplementedError
 
 
