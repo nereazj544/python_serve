@@ -32,6 +32,38 @@ def get_MySQL_conn():
     )
 
 
+#TODO: =============== INCIDENCIAS (MySQL) ================
+
+async def update_incidencia(writer, reader):
+    pass
+
+async def add_incidencia(writer, reader):
+    pass
+
+async def consult_incidencias(writer, reader):
+    pass
+
+
+async def incidencias_MySQL(writer, reader):
+    menu = ("Has seleccionado la opción de INCIDENCIAS con MySQL. Selecciona la consulta que quieras hacer: "\
+    "\n"\
+    "1. Consultar incidencias \n"\
+    "2. Añadir incidencia \n"\
+    "3. Actualizar incidencia \n".encode())
+    writer.write(menu.encode())
+    await writer.drain()
+    
+    message = (await reader.read(1024)).decode().strip()
+    log_debug(f"Mensaje recibido: {message}")
+    if message == "1":
+        await consult_incidencias(writer, reader)
+    elif message == "2":
+        await add_incidencia(writer, reader)
+    elif message == "3":
+        await update_incidencia(writer, reader)
+
+
+
 #TODO: =============== TECNICO (MySQL) ================
 async def consult_tecnicos_incidencias(writer, reader):
     pass
