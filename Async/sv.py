@@ -66,15 +66,27 @@ async def add_horario_teleoperador(writer, reader):
         log_info(f"Semana recibida: {semana}")
 
 
-        writer.write("Introduce el horario de INICIO DE JORNADA del teleoperador (formato: HH:MM-HH:MM)".encode())
+        writer.write("Introduce el horario de INICIO DE JORNADA del teleoperador (formato: HH:MM:SS)".encode())
         await writer.drain()
         inicio_jornada = (await reader.read(1024)).decode().strip()
         log_info(f"Inicio de jornada recibido: {inicio_jornada}")
 
 
-        writer.write("Introduce el horario de FIN DE JORNADA del teleoperador (formato: HH:MM-HH:MM)".encode())
-        
+        writer.write("Introduce el horario de FIN DE JORNADA del teleoperador (formato: HH:MM:SS)".encode())
+        await writer.drain()
+        fin_jornada = (await reader.read(1024)).decode().strip()
+        log_info(f"Fin de jornada recibido: {fin_jornada}")
 
+        # INSERTAR HORARIO DEL TELEOPERADOR EN LA BASE DE DATOS
+        values = (semana, inicio_jornada, fin_jornada, tele_id)
+        query = f"INSERT INTO {TABLE_MySQL_10} (semana, inicio_jornada, fin_jornada, teleoperador_id) VALUES (%s, %s, %s, %s)"
+        crs.execute(query, values)
+        conn.commit()
+        log_info(f"Horario del teleoperador con ID {tele_id} insertado correctamente en la base de datos.")
+        writer.write(f"Horario del teleoperador con ID {tele_id} insertado correctamente.\n".encode())
+
+        await writer.drain()
+        await teleoperador_MySQL(writer, reader)  # Volver al menú de teleoperador
 
 
 
