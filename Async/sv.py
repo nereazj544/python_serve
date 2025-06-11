@@ -77,7 +77,36 @@ async def consult_tecnicos_horarios(writer, reader):
     pass
 
 async def delete_tecnico(writer, reader):
-    pass
+    conn = get_MySQL_conn()  # pilla la conexion a la base de datos
+    crs = conn.cursor()  # cursor para ejecutar las consultas
+    while True:
+        crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_8}")
+        ubicaciones = crs.fetchall()
+        tele_list = "Selecciona un teleoperador por su ID: \n"
+        
+        for ub in ubicaciones:
+            tele_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
+        writer.write(tele_list.encode())
+        await writer.drain()
+
+        writer.write("El ID del teleoperador que quiere borrar".encode())
+        await writer.drain()
+        tele_id = (await reader.read(1024)).decode().strip()
+        log_info(f"Teleoperador recibido: {tele_id}")
+
+        try:
+            tele_id = int(tele_id)  # Asegurarse de que el ID es un entero
+        except ValueError:
+            log_error("ID de teleoperador no válido")
+            writer.write("ID de teleoperador no válido. Inténtalo de nuevo.\n".encode())
+            await writer.drain()
+            continue
+
+        # ELIMINAR TELEOPERADOR DE LA BASE DE DATOS
+        query = f"DELETE FROM {TABLE_MySQL_8} WHERE id = %s"
+        crs.execute(query, (tele_id,))
+        conn.commit()
+        log_info(f"Teleoperador con ID {tele_id} eliminado correctamente de la base de datos.")
 
 async def add_tecnico(writer, reader):
     conn = get_MySQL_conn() # pilla la conexion a la base de datos
@@ -85,7 +114,7 @@ async def add_tecnico(writer, reader):
     while True:
         writer.write("Nombre del teleoperador".encode())
         await writer.drain()
-        nombre = (await reader.read(1024)).decode().strip()
+        nombre = (await reader.read(1024)).decode().strip().capitalize()
         log_info(f"Nombre recibido: {nombre}")
 
         writer.write("Apellido del teleoperador".encode())
@@ -129,7 +158,7 @@ async def tecnico_MySQL(writer, reader):
     "2. Consultar técnicos y sus zonas \n"\
     "3. Eliminar un técnico \n"\
     "4. Consultar técnicos y sus horarios \n"\
-    "5. Consultar técnicos y sus incidencias \n".encode())
+    "5. Consultar técnicos y sus incidencias")
     writer.write(menu.encode())
     await writer.drain()
     
@@ -387,6 +416,7 @@ async def server_on(reader, writer):
         option = msg.decode().strip()
         log_debug(f"Opción seleccionada: {option}")
         print(f"Opción seleccionada: {option}")
+        
         if option == "1":
             log_info("Consultando datos de teleoperador...")
             writer.write("Consultando datos de teleoperador...\n".encode())

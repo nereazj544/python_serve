@@ -1194,3 +1194,63 @@ Traceback (most recent call last):
     writer.write(menu.encode())
                  ^^^^^^^^^^^
 AttributeError: 'bytes' object has no attribute 'encode'. Did you mean: 'decode'?
+2025-06-11 14:31:57 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 14:31:57 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 62221)
+2025-06-11 14:32:02 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 14:32:04 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 14:32:09 - INFO - package: mysql.connector.plugins
+2025-06-11 14:32:09 - INFO - plugin_name: caching_sha2_password
+2025-06-11 14:32:09 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 14:32:15 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 394, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 356, in teleoperador_MySQL
+    await add_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 292, in add_teleoperador
+    nombre = (await reader.read(1024)).decode().strip()
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 14:32:18 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 62286)
+2025-06-11 14:32:23 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 14:33:27 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 14:33:27 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1096 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 400, in server_on
+    await tecnico_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 133, in tecnico_MySQL
+    writer.write(menu.encode())
+                 ^^^^^^^^^^^
+AttributeError: 'bytes' object has no attribute 'encode'. Did you mean: 'decode'?
+2025-06-11 14:35:26 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 14:35:26 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 62342)
+2025-06-11 14:35:31 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 14:35:34 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 14:35:39 - INFO - package: mysql.connector.plugins
+2025-06-11 14:35:39 - INFO - plugin_name: caching_sha2_password
+2025-06-11 14:35:39 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 14:35:46 - INFO - [SERVIDOR INFO]: Nombre recibido: aether
+2025-06-11 14:35:55 - INFO - [SERVIDOR INFO]: Apellido recibido: Tabivito
+2025-06-11 14:35:58 - INFO - [SERVIDOR INFO]: Telefono recibido: 92823owe23289
+2025-06-11 14:36:07 - INFO - [SERVIDOR INFO]: Email recibido: tavivito@uuu.com
+2025-06-11 14:36:07 - INFO - [SERVIDOR INFO]: Teleoperador aether Tabivito insertado correctamente en la base de datos.
