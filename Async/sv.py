@@ -67,22 +67,10 @@ async def add_teleoperador(writer, reader):
             ub_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
         writer.write(ub_list.encode())
         await writer.drain()
-        writer.write("El ID de la ubicacion que quiere añadir, se encuentra en la lista anterior(s/n).\n".encode())
+        writer.write("El ID de la ubicacion que quiere añadir".encode())
         await writer.drain()
-        if res == "s".upper() or res == "y".lower():
-            writer.write("ID de la ubicación seleccionada".encode())
-            await writer.drain()
-            ub_id = (await reader.read(1024)).decode().strip()
-            log_info(f"Ubicacion recibida: {ub_id}")
-            await writer.drain()
-        elif res == "n".upper() or res == "n".lower():
-            log_info("No existe esa ubicacion.")
-            writer.write("No se ha seleccionado una ubicación. Inténtalo de nuevo.\n".encode())
-            await writer.drain()
-            continue
-
-       
-
+        ub_id = (await reader.read(1024)).decode().strip()
+        log_info(f"Ubicacion recibida: {ub_id}")
         try:
             ub_id = int(ub_id)  # Asegurarse de que el ID es un entero
         except ValueError:
@@ -99,14 +87,14 @@ async def add_teleoperador(writer, reader):
 
         log_info(f"Teleoperador {nombre} {apellido} insertado correctamente en la base de datos.")
         writer.write(f"Teleoperador {nombre} {apellido} insertado correctamente.\n".encode())
-        await writer.drain()
+        await writer.drain()  
         await teleoperador_MySQL(writer, reader)  # Volver al menú de teleoperador
 
 
 
 
 
-async def teleoperador_MySQL(writer: asyncio.StreamWriter, reader: asyncio.StreamReader):
+async def teleoperador_MySQL(writer, reader):
         menu = ("Has seleccionado la opción de TELEOPERADOR con MySQL. Selecciona la consulta que quieras hacer: "\
         "\n"\
         "1. Insertar un nuevo teleoperador \n"\
