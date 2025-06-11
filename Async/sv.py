@@ -34,6 +34,44 @@ def get_MySQL_conn():
 
 
 # TODO: =============== TELEOPERADOR (MySQL) ================
+async def add_horario_teleoperador(writer, reader):
+    conn = get_MySQL_conn() # pilla la conexion a la base de datos
+    crs = conn.cursor() # cursor para ejecutar las consultas
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 async def add_teleoperador(writer, reader):
     conn = get_MySQL_conn() # pilla la conexion a la base de datos
     crs = conn.cursor() # cursor para ejecutar las consultas
@@ -98,7 +136,7 @@ async def teleoperador_MySQL(writer, reader):
         menu = ("Has seleccionado la opción de TELEOPERADOR con MySQL. Selecciona la consulta que quieras hacer: "\
         "\n"\
         "1. Insertar un nuevo teleoperador \n"\
-        "2. Actualizar un teleoperador existente \n"\
+        "2. Insertar el horario del teleoperador \n"\
         "3. Eliminar un teleoperador \n"\
         "4. Consultar teleoperadores y sus horarios \n")
         writer.write(menu.encode())
@@ -109,8 +147,7 @@ async def teleoperador_MySQL(writer, reader):
         if message == "1":
             await add_teleoperador(writer, reader)
         elif message == "2":
-            # await update_teleoperador(writer, reader)
-            pass
+            await add_horario_teleoperador(writer, reader)
         elif message == "3":
             # await delete_teleoperador(writer, reader)
             pass
