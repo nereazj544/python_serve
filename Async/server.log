@@ -248,3 +248,76 @@ Traceback (most recent call last):
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
     raise ConnectionResetError(*exc.args)
 ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 11:51:06 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 11:51:11 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 58694)
+2025-06-11 11:51:16 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 11:51:20 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 11:51:20 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1088 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 170, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 100, in teleoperador_MySQL
+    writer("Has seleccionado la opción de TELEOPERADOR con MySQL. Selecciona la consulta que quieras hacer: "\
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    "\n"\
+    ^^^^^
+    ...<2 lines>...
+    "3. Eliminar un teleoperador \n"\
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    "4. Consultar teleoperadores y sus horarios \n".encode())
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'StreamWriter' object is not callable
+2025-06-11 11:53:13 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 11:53:16 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 58746)
+2025-06-11 11:53:21 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 11:53:23 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 11:53:23 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1088 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 171, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 106, in teleoperador_MySQL
+    writer.write(menu.endcode())
+                 ^^^^^^^^^^^^
+AttributeError: 'bytes' object has no attribute 'endcode'
+2025-06-11 11:54:35 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 11:54:36 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 58776)
+2025-06-11 11:54:41 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 11:54:44 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 11:54:47 - INFO - package: mysql.connector.plugins
+2025-06-11 11:54:47 - INFO - plugin_name: caching_sha2_password
+2025-06-11 11:54:47 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 11:55:13 - INFO - [SERVIDOR INFO]: Nombre recibido: Rina
+2025-06-11 11:55:20 - INFO - [SERVIDOR INFO]: Apellido recibido: Psicopata
+2025-06-11 11:55:24 - INFO - [SERVIDOR INFO]: Telefono recibido: 09876545678932
+2025-06-11 11:55:31 - INFO - [SERVIDOR INFO]: Email recibido: rina@zzz.com
+2025-06-11 11:55:41 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 171, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 112, in teleoperador_MySQL
+    await add_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 73, in add_teleoperador
+    ub_id = (await reader.read(1024)).decode().strip()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
