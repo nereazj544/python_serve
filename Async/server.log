@@ -1168,3 +1168,29 @@ Traceback (most recent call last):
     writer.write(menu.encode())
                  ^^^^^^^^^^^
 AttributeError: 'bytes' object has no attribute 'encode'. Did you mean: 'decode'?
+2025-06-11 14:22:36 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 14:22:37 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 62072)
+2025-06-11 14:22:42 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 14:22:45 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 14:22:45 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1196 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 399, in server_on
+    await tecnico_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 132, in tecnico_MySQL
+    writer.write(menu.encode())
+                 ^^^^^^^^^^^
+AttributeError: 'bytes' object has no attribute 'encode'. Did you mean: 'decode'?
+2025-06-11 14:29:27 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 14:29:29 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 62168)
+2025-06-11 14:29:34 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 14:29:37 - INFO - [SERVIDOR INFO]: Consultando datos de Tecnicos...
+2025-06-11 14:29:37 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1092 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 400, in server_on
+    await tecnico_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 133, in tecnico_MySQL
+    writer.write(menu.encode())
+                 ^^^^^^^^^^^
+AttributeError: 'bytes' object has no attribute 'encode'. Did you mean: 'decode'?
