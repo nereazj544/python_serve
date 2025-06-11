@@ -35,26 +35,68 @@ def get_MySQL_conn():
 #TODO: =============== INCIDENCIAS (MySQL) ================
 
 async def update_incidencia(writer, reader):
+    """UPDATE nombre_tabla
+    SET columna1 = nuevo_valor1, columna2 = nuevo_valor2, ...
+    WHERE condicion;"""
+
     pass
 
 async def add_incidencia(writer, reader):
     conn = get_MySQL_conn()  # pilla la conexion a la base de datos
-    crs = conn.cursor()  # cursor para ejecutar las consultas
+   
 
-    while True:
-        crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_3}")
-        ubicaciones = crs.fetchall()
-        tele_list = "Selecciona un ID del tecnico: \n"
+    with conn.cursor() as crs, conn.cursor() as insertar, conn.cursor() as crs_2:
+        while True:
+            crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_3}")
+            ubicaciones = crs.fetchall()
+            tele_list = "Selecciona un ID del tecnico: \n"
         
-        for ub in ubicaciones:
-            tele_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
-        writer.write(tele_list.encode())
-        await writer.drain()
+            for ub in ubicaciones:
+                tele_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
+            writer.write(tele_list.encode())
+            await writer.drain()
 
-        writer.write("El ID del tecnico que quiere añadir".encode())
-        await writer.drain()
-        tecnico_id = (await reader.read(1024)).decode().strip()
-        log_info(f"Tecnico recibido: {tecnico_id}")
+            writer.write("El ID del tecnico que quiere añadir".encode())
+            await writer.drain()
+            tecnico_id = (await reader.read(1024)).decode().strip()
+            log_info(f"Tecnico recibido: {tecnico_id}")
+
+
+
+            crs_2.execute(f"select * from  ubicacion u inner join terminal tr on u.id = tr.ubicacion_id where tr.estado like '%averiado%'")
+            ubicaciones = crs_2.fetchall()
+            terminal_list = "Selecciona un ID del terminal: \n"
+
+            for ub in ubicaciones:
+                terminal_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
+            writer.write(terminal_list.encode())
+            await writer.drain()
+
+            writer.write("El ID del terminal que quiere añadir".encode())
+            await writer.drain()
+            terminal_id = (await reader.read(1024)).decode().strip()
+            log_info(f"Terminal recibido: {terminal_id}")
+
+            writer.write("Descripción de la incidencia".encode())
+            await writer.drain()
+            descripcion = (await reader.read(1024)).decode().strip()
+            log_info(f"Descripción recibida: {descripcion}")
+
+            writer.write("Fecha y hora de la incidencia (formato: YYYY-MM-DD HH:MM:SS)".encode())
+            await writer.drain()
+            fecha_hora = (await reader.read(1024)).decode().strip()
+            log_info(f"Fecha y hora recibida: {fecha_hora}")
+
+            # INSERTAR INCIDENCIA EN LA BASE DE DATOS
+            values = (terminal_id, descripcion, fecha_hora, False, None, tecnico_id)
+            query = f"INSERT INTO {TABLE_MySQL_2} (terminal_id, descripcion, fecha_reportada, solucionada, fecha_solucion, tecnico_id) VALUES (%s, %s, %s, %s, %s, %s)"
+            insertar.execute(query, values)
+            conn.commit()  # Confirmar los cambios en la base de datos
+            log_info(f"Incidencia para tecnico {tecnico_id} y terminal {terminal_id} insertada correctamente en la base de datos.")
+            writer.write(f"Incidencia para tecnico {tecnico_id} y terminal {terminal_id} insertada correctamente.\n".encode())
+            await writer.drain()
+            await incidencias_MySQL(writer, reader)  # Volver al menú de incidencias
+
 
 
 
@@ -70,7 +112,7 @@ async def incidencias_MySQL(writer, reader):
     "\n"\
     "1. Consultar incidencias \n"\
     "2. Añadir incidencia \n"\
-    "3. Actualizar incidencia \n".encode())
+    "3. Actualizar incidencia \n")
     writer.write(menu.encode())
     await writer.drain()
     
