@@ -531,3 +531,627 @@ Traceback (most recent call last):
   File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
     raise get_exception(packet)
 mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'inicio_jornada' in 'field list'
+2025-06-11 13:21:58 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 13:22:04 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 60454)
+2025-06-11 13:22:09 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 13:22:10 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 13:22:13 - INFO - package: mysql.connector.plugins
+2025-06-11 13:22:13 - INFO - plugin_name: caching_sha2_password
+2025-06-11 13:22:13 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 13:22:20 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 4
+2025-06-11 13:22:44 - INFO - [SERVIDOR INFO]: Semana recibida: Semana 5 de junio
+2025-06-11 13:22:52 - INFO - [SERVIDOR INFO]: Inicio de jornada recibido: 09:00:00
+2025-06-11 13:22:58 - INFO - [SERVIDOR INFO]: Fin de jornada recibido: 17:00:00
+2025-06-11 13:22:58 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1096 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 242, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 186, in teleoperador_MySQL
+    await add_horario_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 84, in add_horario_teleoperador
+    crs.execute(query, values)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'inicio_jornada' in 'field list'
+2025-06-11 13:24:29 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 13:25:49 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 60498)
+2025-06-11 13:25:54 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 13:25:57 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 13:26:02 - INFO - package: mysql.connector.plugins
+2025-06-11 13:26:02 - INFO - plugin_name: caching_sha2_password
+2025-06-11 13:26:02 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 13:26:07 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 4
+2025-06-11 13:26:20 - INFO - [SERVIDOR INFO]: Semana recibida: Semana 5 de junio
+2025-06-11 13:26:27 - INFO - [SERVIDOR INFO]: Inicio de jornada recibido: 09:00:00
+2025-06-11 13:26:33 - INFO - [SERVIDOR INFO]: Fin de jornada recibido: 16:00:00
+2025-06-11 13:26:37 - INFO - [SERVIDOR INFO]: Descripción recibida: des
+2025-06-11 13:26:37 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1088 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 249, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 193, in teleoperador_MySQL
+    await add_horario_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 91, in add_horario_teleoperador
+    crs.execute(query, values)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 394, in execute
+    raise ProgrammingError(
+        "Not all parameters were used in the SQL statement"
+    )
+mysql.connector.errors.ProgrammingError: Not all parameters were used in the SQL statement
+2025-06-11 13:27:09 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 13:27:12 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 60518)
+2025-06-11 13:27:17 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 13:28:15 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 13:28:31 - INFO - package: mysql.connector.plugins
+2025-06-11 13:28:31 - INFO - plugin_name: caching_sha2_password
+2025-06-11 13:28:31 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 13:28:34 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 1
+2025-06-11 13:28:37 - INFO - [SERVIDOR INFO]: Semana recibida: Semana 5 de junio
+2025-06-11 13:28:42 - INFO - [SERVIDOR INFO]: Inicio de jornada recibido: 09:00:00
+2025-06-11 13:28:45 - INFO - [SERVIDOR INFO]: Fin de jornada recibido: 16:00:00
+2025-06-11 13:28:49 - INFO - [SERVIDOR INFO]: Descripción recibida: des
+2025-06-11 13:28:49 - INFO - [SERVIDOR INFO]: Horario del teleoperador con ID 1 insertado correctamente en la base de datos.
+2025-06-11 13:36:00 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 13:36:02 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 60660)
+2025-06-11 13:36:07 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 13:36:10 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 13:36:18 - INFO - package: mysql.connector.plugins
+2025-06-11 13:36:18 - INFO - plugin_name: caching_sha2_password
+2025-06-11 13:36:18 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 13:36:22 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 9
+2025-06-11 13:36:22 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1084 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 261, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 217, in teleoperador_MySQL
+    await delete_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 70, in delete_teleoperador
+    crs.execute(query, (tele_id))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 398, in execute
+    raise ProgrammingError(
+    ...<2 lines>...
+    )
+mysql.connector.errors.ProgrammingError: Could not process parameters: int(9), it must be of type list, tuple or dict
+2025-06-11 13:43:22 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 13:43:27 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 60928)
+2025-06-11 13:43:32 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 13:43:34 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 13:43:39 - INFO - package: mysql.connector.plugins
+2025-06-11 13:43:39 - INFO - plugin_name: caching_sha2_password
+2025-06-11 13:43:39 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-11 13:43:42 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 9
+2025-06-11 13:43:42 - INFO - [SERVIDOR INFO]: Teleoperador con ID 9 eliminado correctamente de la base de datos.
+2025-06-11 13:43:52 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 9
+2025-06-11 13:43:52 - INFO - [SERVIDOR INFO]: Teleoperador con ID 9 eliminado correctamente de la base de datos.
+2025-06-11 13:44:05 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 261, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 217, in teleoperador_MySQL
+    await delete_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 57, in delete_teleoperador
+    tele_id = (await reader.read(1024)).decode().strip()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-11 13:44:21 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 60938)
+2025-06-11 13:44:26 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 13:44:32 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - INFO - [SERVIDOR INFO]: Teleoperador recibido: 
+2025-06-11 13:44:44 - ERROR - [SERVIDOR ERROR]: ID de teleoperador no válido
+2025-06-11 13:44:44 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 261, in server_on
+    await teleoperador_MySQL(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 217, in teleoperador_MySQL
+    await delete_teleoperador(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 53, in delete_teleoperador
+    await writer.drain()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 386, in drain
+    await self._protocol._drain_helper()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 172, in _drain_helper
+    await waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 402, in _loop_writing
+    self._write_fut = self._loop._proactor.send(self._sock, data)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 543, in send
+    ov.WSASend(conn.fileno(), buf, flags)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionAbortedError: [WinError 10053] Se ha anulado una conexión establecida por el software en su equipo host
+2025-06-11 13:45:38 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-11 13:45:43 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 60964)
+2025-06-11 13:45:48 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-11 13:45:49 - INFO - [SERVIDOR INFO]: Consultando datos de teleoperador...
+2025-06-11 13:45:53 - INFO - package: mysql.connector.plugins
+2025-06-11 13:45:53 - INFO - plugin_name: caching_sha2_password
+2025-06-11 13:45:53 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin

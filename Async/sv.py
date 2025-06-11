@@ -34,6 +34,75 @@ def get_MySQL_conn():
 
 
 # TODO: =============== TELEOPERADOR (MySQL) ================
+
+async def consult_teleoperadores(writer, reader):
+    conn = get_MySQL_conn()  # pilla la conexion a la base de datos
+    crs = conn.cursor()  # cursor para ejecutar las consultas
+    while True:
+        writer.write("Consultando teleoperadores y sus horarios...\n".encode())
+        await writer.drain()
+
+        # CONSULTAR TELEOPERADORES Y SUS HORARIOS
+        query = f"""
+        SELECT t.id, t.nombre, t.apellido, t.telefono, t.email, u.nombre AS ubicacion, h.semana, h.hora_inicio, h.hora_fin, h.descripcion
+        FROM {TABLE_MySQL_8} AS t
+        JOIN {TABLE_MySQL_6} AS u ON t.ubicacion_id = u.id
+        LEFT JOIN {TABLE_MySQL_10} AS h ON t.id = h.teleoperador_id
+        """
+        crs.execute(query)
+        results = crs.fetchall()
+
+        if not results:
+            writer.write("No hay teleoperadores registrados.\n".encode())
+            await writer.drain()
+            continue
+
+        response = "Teleoperadores y sus horarios:\n"
+        for row in results:
+            response += f"ID: {row[0]}, Nombre: {row[1]} {row[2]}, Teléfono: {row[3]}, Email: {row[4]}, "\
+                        f"Ubicación: {row[5]}, Semana: {row[6]}, Inicio: {row[7]}, Fin: {row[8]}, Descripción: {row[9]}\n"
+        
+        writer.write(response.encode())
+        await writer.drain()
+        
+        writer.write("Presiona ENTER para continuar.".encode())
+        await writer.drain()
+        await teleoperador_MySQL(writer, reader)  # Volver al menú de teleoperador
+        
+
+async def delete_teleoperador(writer, reader):
+    conn = get_MySQL_conn()  # pilla la conexion a la base de datos
+    crs = conn.cursor()  # cursor para ejecutar las consultas
+    while True:
+        crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_8}")
+        ubicaciones = crs.fetchall()
+        tele_list = "Selecciona un teleoperador por su ID: \n"
+        
+        for ub in ubicaciones:
+            tele_list += f"ID: {ub[0]}, Nombre: {ub[1]}\n"
+        writer.write(tele_list.encode())
+        await writer.drain()
+
+        writer.write("El ID del teleoperador que quiere borrar".encode())
+        await writer.drain()
+        tele_id = (await reader.read(1024)).decode().strip()
+        log_info(f"Teleoperador recibido: {tele_id}")
+
+        try:
+            tele_id = int(tele_id)  # Asegurarse de que el ID es un entero
+        except ValueError:
+            log_error("ID de teleoperador no válido")
+            writer.write("ID de teleoperador no válido. Inténtalo de nuevo.\n".encode())
+            await writer.drain()
+            continue
+
+        # ELIMINAR TELEOPERADOR DE LA BASE DE DATOS
+        query = f"DELETE FROM {TABLE_MySQL_8} WHERE id = %s"
+        crs.execute(query, (tele_id,))
+        conn.commit()
+        log_info(f"Teleoperador con ID {tele_id} eliminado correctamente de la base de datos.")
+
+
 async def add_horario_teleoperador(writer, reader):
     conn = get_MySQL_conn() # pilla la conexion a la base de datos
     crs = conn.cursor() # cursor para ejecutar las consultas
@@ -77,9 +146,17 @@ async def add_horario_teleoperador(writer, reader):
         fin_jornada = (await reader.read(1024)).decode().strip()
         log_info(f"Fin de jornada recibido: {fin_jornada}")
 
+        writer.write("Introduce una descripción del horario del teleoperador".encode())
+        await writer.drain()
+        descripcion = (await reader.read(1024)).decode().strip()
+        log_info(f"Descripción recibida: {descripcion}")
+        
+
         # INSERTAR HORARIO DEL TELEOPERADOR EN LA BASE DE DATOS
-        query = f"INSERT INTO {TABLE_MySQL_10} (semana, inicio_jornada, fin_jornada, teleoperador_id) VALUES (%s, %s, %s, %s)"
-        values = (semana, inicio_jornada, fin_jornada, tele_id)
+        tecnico_id = None
+        query = f"INSERT INTO {TABLE_MySQL_10} (semana, hora_inicio, hora_fin, tecnico_id, teleoperador_id, descripcion)"\
+        "VALUES (%s, %s, %s, %s, %s, %s)"
+        values = (semana, inicio_jornada, fin_jornada, tele_id, tecnico_id, descripcion)
         crs.execute(query, values)
         conn.commit()
         log_info(f"Horario del teleoperador con ID {tele_id} insertado correctamente en la base de datos.")
@@ -87,24 +164,6 @@ async def add_horario_teleoperador(writer, reader):
 
         await writer.drain()
         await teleoperador_MySQL(writer, reader)  # Volver al menú de teleoperador
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 async def add_teleoperador(writer, reader):
@@ -165,8 +224,6 @@ async def add_teleoperador(writer, reader):
 
 
 
-
-
 async def teleoperador_MySQL(writer, reader):
         menu = ("Has seleccionado la opción de TELEOPERADOR con MySQL. Selecciona la consulta que quieras hacer: "\
         "\n"\
@@ -184,30 +241,9 @@ async def teleoperador_MySQL(writer, reader):
         elif message == "2":
             await add_horario_teleoperador(writer, reader)
         elif message == "3":
-            # await delete_teleoperador(writer, reader)
-            pass
+            await delete_teleoperador(writer, reader)
         elif message == "4":
-            # await consult_teleoperadores(writer, reader)
-            pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            await consult_teleoperadores(writer, reader)
 
 
 
