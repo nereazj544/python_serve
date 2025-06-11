@@ -59,7 +59,8 @@ async def tecnico_MySQL(writer, reader):
     "1. Insertar un nuevo técnico \n"\
     "2. Consultar técnicos y sus zonas \n"\
     "3. Eliminar un técnico \n"\
-    "4. Consultar técnicos y sus horarios \n")
+    "4. Consultar técnicos y sus horarios \n"\
+    "5. Consultar técnicos y sus incidencias \n".encode())
     writer.write(menu.encode())
     await writer.drain()
     
