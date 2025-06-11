@@ -297,6 +297,7 @@ async def teleoperador_MySQL(writer, reader):
 
 
 
+# TODO: ============== SERVIDOR ==============
 
 async def server_on(reader, writer):  
     addr = writer.get_extra_info('peername')
@@ -309,7 +310,7 @@ async def server_on(reader, writer):
         await asyncio.sleep(5)
         log_warning("== ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==")
         await writer.drain()
-        writer.write("ELIGE UNA OPCIÓN:\n1. Teleoperador\n2. Tecnico\n4. Salir".encode())
+        writer.write("ELIGE UNA OPCIÓN:\n1. Teleoperador\n2. Tecnico\n3. Incidencias\n4. Salir".encode())
         await writer.drain()
         msg = await reader.read(1024)
         if not msg:
@@ -330,6 +331,12 @@ async def server_on(reader, writer):
             writer.write("Consultando datos de Tecnicos...\n".encode())
             await writer.drain()
             await tecnico_MySQL(writer, reader)
+
+        elif option == "3":
+            log_info("Consultando datos de Incidencias...")
+            writer.write("Consultando datos de Incidencias...\n".encode())
+            await writer.drain()
+            await incidencias_MySQL(writer, reader)  # Placeholder para la función de incidencias
         elif option == "4":
             log_info("Cerrando conexión con el cliente.")
             writer.write("Cerrando conexión con el cliente.\n".encode())
