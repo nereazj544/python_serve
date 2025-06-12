@@ -1,0 +1,29 @@
+*{
+    margin: 0; padding: 0;
+}
+
+h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+}
+
+table{
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+thead{
+    background-color: cadetblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+td, th{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}

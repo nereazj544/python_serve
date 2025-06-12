@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "nombre": "León",
+        "especie": "Felino"
+    },
+    {
+        "id": 2,
+        "nombre": "Tigre",
+        "especie": "Felino"
+    },
+    {
+        "id": 3,
+        "nombre": "Elefante",
+        "especie": "Mamífero"
+    },
+    {
+        "id": 4,
+        "nombre": "Cocodrilo",
+        "especie": "Reptil"
+    },
+    {
+        "id": 5,
+        "nombre": "Águila",
+        "especie": "Ave"
+    },
+    {
+        "id": 6,
+        "nombre": "Pingüino",
+        "especie": "Ave"
+    },
+    {
+        "id": 7,
+        "nombre": "Serpiente",
+        "especie": "Reptil"
+    },
+    {
+        "id": 8,
+        "nombre": "Rinoceronte",
+        "especie": "Mamífero"
+    },
+    {
+        "id": 9,
+        "nombre": "Jirafa",
+        "especie": "Mamífero"
+    },
+    {
+        "id": 10,
+        "nombre": "Cebra",
+        "especie": "Mamífero"
+    }
+]

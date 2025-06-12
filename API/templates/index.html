@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Lista de Animales</h1>
-    <ul>
-        {% for item in items %}
-            <li>{{ item.nombre }} - {{ item.especie }}</li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Especie</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.especie }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="add_animal">
+        <h2>Agregar Animal</h2>
+        <form action="/add" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="especie" placeholder="Especie" required>
+            <button type="submit">Agregar</button>
+        </form>
+    </div>
+
+
 </body>
 </html>

@@ -9,7 +9,7 @@ app = Flask(__name__)
 # configuracion con la base de datos MongoDB
 client = MongoClient('mongodb://localhost:27017/')
 db = client['ZOO']
-collection = db['animales']
+collection = db['ANIMALES']
 
 
 @app.route('/')
