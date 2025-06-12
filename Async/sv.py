@@ -174,6 +174,13 @@ async def consult_incidencias(writer, reader):
 
     await writer.drain()
     incidencias = crs.fetchall()
+    for inc in incidencias:
+        response = (
+            f"Nombre Terminal: {inc[0]} | Estado Terminal: {inc[1]} | Ubicación: {inc[2]} | "
+            f"Zona: {inc[3]} | Fecha Reportada: {inc[4]} | Descripción: {inc[5]} | Técnico: {inc[6]}\n"
+        )
+        writer.write(response.encode())
+        await writer.drain()
     if not incidencias:
         writer.write("No hay incidencias pendientes de actualización.\n".encode())
         await writer.drain()
