@@ -33,13 +33,13 @@ def add_item():
         return jsonify({'status': 'error', 'message': '¡Todos los campos son obligatorios!'}), 400
     
 @app.route('/delete', methods=['POST'])
-def delete_item(item_id):
-    result = collection.delete_one({'id': int(item_id)})
-    if result.deleted_count > 0:
-        return jsonify({'status': 'success', 'message': '¡Elemento eliminado exitosamente!'})
-    else:
-        return jsonify({'status': 'error', 'message': '¡Elemento no encontrado!'}), 404
-
+def delete_item():
+    try:
+            item_id = int(request.form.get('id'))
+            result = collection.delete_one({'id': item_id})
+    except:
+            result = None
+        # Siempre refresca la página, puedes añadir mensajes con flash si lo deseas
 
 if __name__ == '__main__':
     app.run(debug=True)
