@@ -32,6 +32,13 @@ def get_MySQL_conn():
 
 #TODO: =============== INCIDENCIAS (MySQL) ================
 
+async def update_terminales_estado(writer, reader):
+    conn = get_MySQL_conn()
+    crs = conn.cursor()
+
+    
+
+
 async def update_incidencia(writer, reader):
     conn = get_MySQL_conn()
     crs = conn.cursor()
@@ -41,11 +48,8 @@ async def update_incidencia(writer, reader):
         crs.execute(
             "SELECT i.id, ter.nombre, ter.estado, u.nombre, z.nombre, i.fecha_reportada, i.descripcion, tec.nombre "
             "FROM terminal ter "
-            "INNER JOIN ubicacion u ON ter.ubicacion_id = u.id "
-            "INNER JOIN zona z ON z.id = u.zona_id "
-            "INNER JOIN incidencia i ON i.terminal_id = ter.id "
-            "INNER JOIN tecnico tec ON i.tecnico_id = tec.id "
-            "WHERE ter.estado LIKE '%averiado%' AND i.fecha_solucion IS NULL AND i.solucionada IS FALSE"
+            "INNER JOIN ubicacion u ON ter.ubicacion_id = u.id INNER JOIN zona z ON z.id = u.zona_id INNER JOIN incidencia i ON i.terminal_id = ter.id INNER JOIN tecnico tec ON i.tecnico_id = tec.id "
+            f"WHERE (ter.estado LIKE '%averiado%' or ter.estado LIKE '%en reparación%') AND i.fecha_solucion IS NULL AND i.solucionada IS FALSE"
         )
         await writer.drain()
         incidencias = crs.fetchall()
@@ -75,7 +79,7 @@ async def update_incidencia(writer, reader):
         solucionada_input = (await reader.read(1024)).decode().strip().lower()
         solucionada = 1 if solucionada_input == "si" else 0
 
-        # Fecha de solución si está solucionada
+        # Fecha de solución si está solucionada 
         fecha_solucion = None
         if solucionada:
             writer.write("Introduce la fecha de solución (YYYY-MM-DD HH:MM:SS): ".encode())
@@ -207,6 +211,8 @@ async def incidencias_MySQL(writer, reader):
         await add_incidencia(writer, reader)
     elif message == "3":
         await update_incidencia(writer, reader)
+    elif message == "4":
+        await update_terminales_estado(writer, reader)
 
 
 
