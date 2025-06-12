@@ -46,7 +46,20 @@ def delete_item():
                 return jsonify({'status': 'error', 'message': '¡Elemento no encontrado!'}), 404
     except:
             return jsonify({'status': 'error', 'message': '¡Error al eliminar el elemento!'}), 500
-        # Siempre refresca la página, puedes añadir mensajes con flash si lo deseas
+
+
+@app.route('/filter', methods=['POST'])
+def filter_items():
+    species = request.form.get('especie')
+    if species:
+        items = list(collection.find({'especie': species}))
+        for item in items:
+            item['_id'] = str(item['_id'])
+        return render_template('index.html', items=items)
+    else:
+        return jsonify({'status': 'error', 'message': '¡Especie no válida!'}), 400
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
