@@ -20,8 +20,6 @@ TABLE_MySQL_10 = "Turno"
 
 
 
-
-
 # TODO =============== CONEXIONES_MySQL ================
 def get_MySQL_conn():
     return mysql.connector.connect(
@@ -35,14 +33,19 @@ def get_MySQL_conn():
 #TODO: =============== INCIDENCIAS (MySQL) ================
 
 async def update_incidencia(writer, reader):
-    """UPDATE nombre_tabla
-    SET columna1 = nuevo_valor1, columna2 = nuevo_valor2, ...
-    WHERE condicion;"""
+    # UPDATE nombre_tabla
+    # SET columna1 = nuevo_valor1, columna2 = nuevo_valor2, ...
+    # WHERE condicion;
     conn = get_MySQL_conn()
     crs = conn.cursor()
 
     while True:
-        crs.execute(f"select ter.nombre , ter.estado, u.nombre  , z.nombre, i.fecha_reportada , i.descripcion ,   from terminal ter inner join ubicacion u on ter.ubicacion_id = u.id inner join zona z on z.id = u.zona_id inner join incidencia i on i.terminal_id = ter.id where ter.estado like '%averiado%' and i.fecha_solucion is NULL and i.solucionada is false")
+        crs.execute(f"select ter.nombre , ter.estado, u.nombre, z.nombre, i.fecha_reportada, i.descripcion, tec.nombre "\
+        "from terminal ter inner join ubicacion u on ter.ubicacion_id = u.id"\
+        " inner join zona z on z.id = u.zona_id"\
+        "inner join incidencia i on i.terminal_id = ter.id"\
+        "inner join tecnico tec on i.tecnico_id = tec.id "\
+        "where ter.estado like '%averiado%' and i.fecha_solucion is NULL and i.solucionada is false")
 
         await writer.drain()
         incidencias = crs.fetchall()
@@ -52,16 +55,14 @@ async def update_incidencia(writer, reader):
             return
         response = "Incidencias pendientes de actualización:\n"
         for row in incidencias:
-            response += f"ID: {row[0]}, Terminal: {row[1]}, Descripción: {row[2]}, Fecha Reportada: {row[3]}, "\
-                        f"Solucionada: {row[4]}, Fecha Solución: {row[5]}, Técnico ID: {row[6]}, "\
-                        f"Ubicación: {row[8]}, Zona: {row[9]}\n"
+            response += f"Nombre Terminal: {row[0]} | Estado Terminal: {row[1]} | Ubicación: {row[2]} | Zona: {row[3]} | Fecha Reportada: {row[4]} | Descripción: {row[5]} | Técnico: {row[6]}\n"
         writer.write(response.encode())
         await writer.drain()
         writer.write("Selecciona el ID de la incidencia que quieres actualizar: ".encode())
         await writer.drain()
         incidencia_id = (await reader.read(1024)).decode().strip()
         log_info(f"ID de incidencia recibido: {incidencia_id}")
-        
+
 
 
 async def add_incidencia(writer, reader):
@@ -69,6 +70,15 @@ async def add_incidencia(writer, reader):
 
     with conn.cursor() as crs, conn.cursor() as insertar, conn.cursor() as crs_2:
         while True:
+            crs.execute(f"SELECT ter.id, ter.nombre, ter.estado, i.descripcion, i.fecha_reportada, tec.nombre  FROM terminal ter LEFT JOIN incidencia i ON i.terminal_id = ter.id LEFT JOIN tecnico tec ON tec.id = i.tecnico_id WHERE ter.estado = 'Operativo' OR i.id IS NOT NULL ORDER BY ter.nombre;")
+
+            terminales = crs.fetchall()
+            ter_list = "Selecciona un terminal por su ID: \n"
+            for ter in terminales:
+                ter_list += f"ID TERMINAL: {ter[0]} | NOMBRE TERMINAL: {ter[1]} | ESTADO: {ter[2]} | DESCRIPCIÓN: {ter[3]} | FECHA REPORTADA: {ter[4]} | TÉCNICO ASIGNADO: {ter[5]}\n"
+            writer.write(ter_list.encode())
+            await writer.drain()
+
             crs.execute(f"SELECT id, nombre FROM {TABLE_MySQL_3}")
             ubicaciones = crs.fetchall()
             tele_list = "Selecciona un ID del tecnico: \n"
@@ -124,7 +134,18 @@ async def add_incidencia(writer, reader):
 #TODO: IMPLEMENTAR AÑADIR INCIDENCIA    
 
 async def consult_incidencias(writer, reader):
-    pass
+    conn = get_MySQL_conn()
+    crs = conn.cursor()
+
+    crs.execute(f"select ter.nombre , ter.estado, u.nombre, z.nombre, i.fecha_reportada, i.descripcion, tec.nombre from terminal ter inner join ubicacion u on ter.ubicacion_id = u.id inner join zona z on z.id = u.zona_id inner join incidencia i on i.terminal_id = ter.id inner join tecnico tec on i.tecnico_id = tec.id where ter.estado like '%averiado%' and i.fecha_solucion is NULL and i.solucionada is false")
+
+    await writer.drain()
+    incidencias = crs.fetchall()
+    if not incidencias:
+        writer.write("No hay incidencias pendientes de actualización.\n".encode())
+        await writer.drain()
+        return
+    await incidencias_MySQL(writer, reader)  # Volver al menú de incidencias
 
 
 async def incidencias_MySQL(writer, reader):
