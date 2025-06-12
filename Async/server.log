@@ -2672,3 +2672,63 @@ Traceback (most recent call last):
   File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
     raise get_exception(packet)
 mysql.connector.errors.DatabaseError: 1366 (HY000): Incorrect integer value: '' for column 'terminal_id' at row 1
+2025-06-12 22:14:44 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-12 22:14:45 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 49983)
+2025-06-12 22:14:50 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-12 22:15:03 - INFO - [SERVIDOR INFO]: Consultando datos de Incidencias...
+2025-06-12 22:15:11 - INFO - package: mysql.connector.plugins
+2025-06-12 22:15:11 - INFO - plugin_name: caching_sha2_password
+2025-06-12 22:15:11 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-12 22:15:11 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1092 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 753, in server_on
+    await incidencias_MySQL(writer, reader)  # Placeholder para la función de incidencias
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 255, in incidencias_MySQL
+    await update_terminales_estado(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 43, in update_terminales_estado
+    response = f"ID Terminal: {ter[0]} | Nombre Terminal: {ter[1]} | Estado: {ter[2]} | Ubicación: {ter[4]}\n"
+                                                                                                    ~~~^^^
+IndexError: tuple index out of range
+2025-06-12 22:18:14 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-12 22:18:18 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 65341)
+2025-06-12 22:18:23 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-12 22:18:27 - INFO - [SERVIDOR INFO]: Consultando datos de Incidencias...
+2025-06-12 22:18:31 - INFO - package: mysql.connector.plugins
+2025-06-12 22:18:31 - INFO - plugin_name: caching_sha2_password
+2025-06-12 22:18:31 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-12 22:19:33 - INFO - [SERVIDOR INFO]: Respuesta recibida: n
+2025-06-12 22:19:49 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 753, in server_on
+    await incidencias_MySQL(writer, reader)  # Placeholder para la función de incidencias
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 255, in incidencias_MySQL
+    await update_terminales_estado(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 78, in update_terminales_estado
+    await incidencias_MySQL(writer, reader)  # Volver al menú de incidencias
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 246, in incidencias_MySQL
+    message = (await reader.read(1024)).decode().strip()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible

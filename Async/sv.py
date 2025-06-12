@@ -36,11 +36,11 @@ async def update_terminales_estado(writer, reader):
     conn = get_MySQL_conn()
     crs = conn.cursor()
     while True:
-        crs.execute("SELECT * FROM terminal")
+        crs.execute("SELECT ter.id, ter.nombre, ter.estado, u.nombre  FROM pithon.terminal ter inner join pithon.ubicacion u on ter.ubicacion_id = u.id")
         await writer.drain()
         terminales = crs.fetchall()
         for ter in terminales:
-            response = f"ID: {ter[0]} | Nombre: {ter[1]} | Estado: {ter[2]} | Ubicación ID: {ter[3]}\n"
+            response = f"ID Terminal: {ter[0]} | Nombre Terminal: {ter[1]} | Estado: {ter[2]} | Ubicación: {ter[3]}\n"
             writer.write(response.encode())
             await writer.drain()
         menu=("¿Quieres actualizar el estado de alguna terminal? (s/n)")
@@ -71,7 +71,7 @@ async def update_terminales_estado(writer, reader):
 
             writer.write(f"Estado de la terminal {terminal_id} actualizado correctamente.\n".encode())
             await writer.drain()
-            add_incidencia(writer, reader)
+            await add_incidencia(writer, reader)
         else:
             writer.write("No se ha actualizado ninguna terminal.\n".encode())
             await writer.drain()
