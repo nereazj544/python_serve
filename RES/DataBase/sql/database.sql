@@ -14,8 +14,9 @@ CREATE TABLE ubicacion (
 
 -- TERMINALES
 CREATE TABLE terminal (
-   id int auto_increment PRIMARY KEY,
+    id int auto_increment PRIMARY KEY,
     estado TEXT NOT NULL,
+    nombre TEXT NOT NULL,
     ubicacion_id INTEGER NOT NULL,
     FOREIGN KEY (ubicacion_id) REFERENCES ubicacion(id)
 );
@@ -31,7 +32,7 @@ CREATE TABLE tecnico (
 
 -- TELEOPERADORES
 CREATE TABLE teleoperador (
-   id int auto_increment PRIMARY KEY,
+    id int auto_increment PRIMARY KEY,
     nombre TEXT NOT NULL,
     apellido TEXT NOT NULL,
     telefono TEXT NOT NULL,
@@ -42,7 +43,7 @@ CREATE TABLE teleoperador (
 
 -- HISTORIAL DE ESTADOS DE TERMINALES
 CREATE TABLE terminal_estado_historial (
-   id int auto_increment PRIMARY KEY,
+    id int auto_increment PRIMARY KEY,
     terminal_id INTEGER NOT NULL,
     estado_anterior TEXT,
     estado_nuevo TEXT NOT NULL,
@@ -110,15 +111,15 @@ INSERT INTO teleoperador (nombre, apellido, telefono, email, ubicacion_id) VALUE
   ('Claire', 'Redfield', '777888999', 'claire@racoon.com', 8); -- Hospital
 
 -- TERMINALES
-INSERT INTO terminal (estado, ubicacion_id) VALUES
-  ('Operativo', 1),
-  ('En Reparación', 2),
-  ('Operativo', 3),
-  ('Averiado', 4),
-  ('Operativo', 5),
-  ('Averiado', 6),
-  ('Operativo', 7),
-  ('En Reparación', 8);
+INSERT INTO terminal (estado, nombre, ubicacion_id) VALUES
+  ('Operativo', 'Cordillera Tianheng 1', 1),
+  ('En Reparación', 'Terminal 2', 2),
+  ('Operativo', 'Terminal 3', 3),
+  ('Averiado', 'Hyrule 1', 4),
+  ('Operativo', 'Terminal 5', 5),
+  ('Averiado', 'Hyrule 2', 6),
+  ('Operativo', 'Terminal 7', 7),
+  ('En Reparación', 'Terminal 8', 8);
 
 -- HISTORIAL DE ESTADOS
 INSERT INTO terminal_estado_historial (terminal_id, estado_anterior, estado_nuevo, fecha_cambio) VALUES
@@ -142,15 +143,9 @@ INSERT INTO tecnico_zona (tecnico_id, zona_id) VALUES
   (3,3),  -- Misty en Kanto
   (4,4);  -- Jill en Raccoon City
 
--- BITÁCORA DE MOVIMIENTOS DE TERMINAL
-INSERT INTO terminal_movimiento (terminal_id, ubicacion_origen, ubicacion_destino, fecha_movimiento) VALUES
-  (2,1,2,'2025-06-02 08:10:00'),  -- De Mondstadt a Liyue
-  (4,3,4,'2025-06-05 14:00:00'),  -- De Castillo Hyrule a Bosque Kokiri
-  (6,5,6,'2025-06-07 10:00:00'),  -- De Ciudad Plateada a Pueblo Paleta
-  (8,7,8,'2025-06-08 09:00:00');  -- De Comisaría a Hospital
 
 CREATE TABLE inventario (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id int auto_increment PRIMARY KEY,
     nombre TEXT NOT NULL,
     descripcion TEXT,
     estado TEXT NOT NULL,
@@ -196,3 +191,12 @@ INSERT INTO turno (fecha, hora_inicio, hora_fin, tecnico_id, teleoperador_id, de
 ('2025-06-10', '08:00:00', '14:00:00', NULL, 1, 'Turno teleoperador Aiden - mañana'),
 ('2025-06-10', '14:00:00', '20:00:00', NULL, 2, 'Turno teleoperador Paimon - tarde'),
 ('2025-06-10', '20:00:00', '02:00:00', NULL, 3, 'Turno teleoperador Zelda - noche');
+
+UPDATE terminal SET nombre = 'Mondstadt Principal'   WHERE id = 1;
+UPDATE terminal SET nombre = 'Liyue Portátil'        WHERE id = 2;
+UPDATE terminal SET nombre = 'Castillo Central'      WHERE id = 3;
+UPDATE terminal SET nombre = 'Kokiri Forest'         WHERE id = 4;
+UPDATE terminal SET nombre = 'Plateada Ext'          WHERE id = 5;
+UPDATE terminal SET nombre = 'Paleta Backup'         WHERE id = 6;
+UPDATE terminal SET nombre = 'Comisaría Dpto.1'      WHERE id = 7;
+UPDATE terminal SET nombre = 'Hospital Central'      WHERE id = 8;

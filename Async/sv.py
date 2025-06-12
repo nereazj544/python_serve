@@ -42,7 +42,7 @@ async def update_incidencia(writer, reader):
     crs = conn.cursor()
 
     while True:
-        crs.execute(f"SELECT * FROM incidencia i INNER JOIN terminal tr ON i.terminal_id = tr.id INNER JOIN ubicacion u ON tr.ubicacion_id = u.id  INNER JOIN zona z on z.id = u.zona_id WHERE tr.estado LIKE '%averiado%' AND i.fecha_solucion IS NULL ORDER BY i.fecha_reportada ASC")
+        crs.execute(f"select ter.nombre , ter.estado, u.nombre  , z.nombre, i.fecha_reportada , i.descripcion ,   from terminal ter inner join ubicacion u on ter.ubicacion_id = u.id inner join zona z on z.id = u.zona_id inner join incidencia i on i.terminal_id = ter.id where ter.estado like '%averiado%' and i.fecha_solucion is NULL and i.solucionada is false")
 
         await writer.drain()
         incidencias = crs.fetchall()
