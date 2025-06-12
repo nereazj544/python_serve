@@ -33,35 +33,71 @@ def get_MySQL_conn():
 #TODO: =============== INCIDENCIAS (MySQL) ================
 
 async def update_incidencia(writer, reader):
-    # UPDATE nombre_tabla
-    # SET columna1 = nuevo_valor1, columna2 = nuevo_valor2, ...
-    # WHERE condicion;
     conn = get_MySQL_conn()
     crs = conn.cursor()
 
+    # Mostrar incidencias pendientes
     while True:
-        crs.execute(f"select ter.nombre , ter.estado, u.nombre, z.nombre, i.fecha_reportada, i.descripcion, tec.nombre "\
-        "from terminal ter inner join ubicacion u on ter.ubicacion_id = u.id"\
-        " inner join zona z on z.id = u.zona_id"\
-        "inner join incidencia i on i.terminal_id = ter.id"\
-        "inner join tecnico tec on i.tecnico_id = tec.id "\
-        "where ter.estado like '%averiado%' and i.fecha_solucion is NULL and i.solucionada is false")
-
+        crs.execute(
+            "SELECT i.id, ter.nombre, ter.estado, u.nombre, z.nombre, i.fecha_reportada, i.descripcion, tec.nombre "
+            "FROM terminal ter "
+            "INNER JOIN ubicacion u ON ter.ubicacion_id = u.id "
+            "INNER JOIN zona z ON z.id = u.zona_id "
+            "INNER JOIN incidencia i ON i.terminal_id = ter.id "
+            "INNER JOIN tecnico tec ON i.tecnico_id = tec.id "
+            "WHERE ter.estado LIKE '%averiado%' AND i.fecha_solucion IS NULL AND i.solucionada IS FALSE"
+        )
         await writer.drain()
         incidencias = crs.fetchall()
+
         if not incidencias:
             writer.write("No hay incidencias pendientes de actualización.\n".encode())
             await writer.drain()
             return
+
         response = "Incidencias pendientes de actualización:\n"
         for row in incidencias:
-            response += f"Nombre Terminal: {row[0]} | Estado Terminal: {row[1]} | Ubicación: {row[2]} | Zona: {row[3]} | Fecha Reportada: {row[4]} | Descripción: {row[5]} | Técnico: {row[6]}\n"
+            response += (
+                f"ID: {row[0]} | Nombre Terminal: {row[1]} | Estado Terminal: {row[2]} | Ubicación: {row[3]} | "
+                f"Zona: {row[4]} | Fecha Reportada: {row[5]} | Descripción: {row[6]} | Técnico: {row[7]}\n"
+            )
         writer.write(response.encode())
         await writer.drain()
+
         writer.write("Selecciona el ID de la incidencia que quieres actualizar: ".encode())
         await writer.drain()
         incidencia_id = (await reader.read(1024)).decode().strip()
         log_info(f"ID de incidencia recibido: {incidencia_id}")
+
+        # Pedir el nuevo estado solucionada
+        writer.write("¿La incidencia está solucionada? (si/no): ".encode())
+        await writer.drain()
+        solucionada_input = (await reader.read(1024)).decode().strip().lower()
+        solucionada = 1 if solucionada_input == "si" else 0
+
+        # Fecha de solución si está solucionada
+        fecha_solucion = None
+        if solucionada:
+            writer.write("Introduce la fecha de solución (YYYY-MM-DD HH:MM:SS): ".encode())
+            await writer.drain()
+            fecha_solucion = (await reader.read(1024)).decode().strip()
+            log_info(f"Fecha de solución recibida: {fecha_solucion}")
+
+        # UPDATE incidencia
+        crs.execute(
+            f"UPDATE {TABLE_MySQL_2} SET solucionada = %s, fecha_solucion = %s WHERE id = %s",
+            (solucionada, fecha_solucion, incidencia_id)
+        )
+        conn.commit()
+        log_info(f"Incidencia {incidencia_id} actualizada correctamente.")
+
+        writer.write(f"Incidencia {incidencia_id} actualizada correctamente.\\n".encode())
+        await writer.drain()
+        # Salimos del bucle tras una actualización
+        break
+
+    await incidencias_MySQL(writer, reader)
+
 
 
 
@@ -220,9 +256,30 @@ async def add_horario_tecnico(writer, reader):
 
         
 
-#TODO: IMPLETMENTAR CONSULTA DE TECNICOS E INCIDENCIAS
 async def consult_tecnicos_incidencias(writer, reader):
-    pass
+    conn = get_MySQL_conn()
+    crs = conn.cursor()
+    query = (
+        "SELECT t.id, t.nombre, t.apellido, COUNT(i.id) as total_incidencias "
+        f"FROM {TABLE_MySQL_3} t "
+        f"LEFT JOIN {TABLE_MySQL_2} i ON t.id = i.tecnico_id "
+        "GROUP BY t.id, t.nombre, t.apellido "
+        "ORDER BY t.id"
+    )
+    crs.execute(query)
+    tecnicos = crs.fetchall()
+    if not tecnicos:
+        writer.write("No hay técnicos con incidencias registradas.\\n".encode())
+        await writer.drain()
+        return
+    response = "Listado de técnicos y nº de incidencias asignadas:\\n"
+    for row in tecnicos:
+        response += f"ID: {row[0]} | Nombre: {row[1]} {row[2]} | Incidencias: {row[3]}\\n"
+    writer.write(response.encode())
+    await writer.drain()
+    # Vuelve al menú principal de técnicos
+    await tecnico_MySQL(writer, reader)
+
 
 
 
