@@ -2503,3 +2503,172 @@ mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your
 2025-06-12 15:15:39 - INFO - [SERVIDOR INFO]: ID de incidencia recibido: 4
 2025-06-12 15:15:58 - INFO - [SERVIDOR INFO]: Fecha de solución recibida: 2025-07-12 09:00:03
 2025-06-12 15:15:58 - INFO - [SERVIDOR INFO]: Incidencia 4 actualizada correctamente.
+2025-06-12 16:50:39 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-12 16:50:39 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 61307)
+2025-06-12 16:50:44 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-12 16:50:50 - INFO - [SERVIDOR INFO]: Consultando datos de Incidencias...
+2025-06-12 16:50:55 - INFO - package: mysql.connector.plugins
+2025-06-12 16:50:55 - INFO - plugin_name: caching_sha2_password
+2025-06-12 16:50:55 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-12 16:50:55 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1088 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 749, in server_on
+    await incidencias_MySQL(writer, reader)  # Placeholder para la función de incidencias
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 251, in incidencias_MySQL
+    await update_terminales_estado(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 39, in update_terminales_estado
+    crs.execute()
+    ~~~~~~~~~~~^^
+TypeError: MySQLCursor.execute() missing 1 required positional argument: 'operation'
+2025-06-12 16:51:51 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-12 16:51:51 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 61354)
+2025-06-12 16:51:56 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-12 16:51:59 - INFO - [SERVIDOR INFO]: Consultando datos de Incidencias...
+2025-06-12 16:52:04 - INFO - package: mysql.connector.plugins
+2025-06-12 16:52:04 - INFO - plugin_name: caching_sha2_password
+2025-06-12 16:52:04 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-12 16:52:11 - INFO - [SERVIDOR INFO]: Respuesta recibida: s
+2025-06-12 16:52:21 - INFO - [SERVIDOR INFO]: ID de terminal recibido: 5
+2025-06-12 16:52:27 - INFO - [SERVIDOR INFO]: Nuevo estado recibido: En reparacion
+2025-06-12 16:52:39 - INFO - [SERVIDOR INFO]: Respuesta recibida: n
+2025-06-12 16:53:03 - INFO - [SERVIDOR INFO]: Tecnico recibido: 
+2025-06-12 16:53:03 - INFO - [SERVIDOR INFO]: Terminal recibido: 
+2025-06-12 16:53:03 - INFO - [SERVIDOR INFO]: Descripción recibida: 
+2025-06-12 16:53:03 - INFO - [SERVIDOR INFO]: Fecha y hora recibida: 
+2025-06-12 16:53:03 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closing fd=1084>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 753, in server_on
+    await incidencias_MySQL(writer, reader)  # Placeholder para la función de incidencias
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 255, in incidencias_MySQL
+    await update_terminales_estado(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 78, in update_terminales_estado
+    await incidencias_MySQL(writer, reader)  # Volver al menú de incidencias
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 251, in incidencias_MySQL
+    await add_incidencia(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 203, in add_incidencia
+    insertar.execute(query, values)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.DatabaseError: 1366 (HY000): Incorrect integer value: '' for column 'terminal_id' at row 1
+2025-06-12 16:54:36 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-12 16:54:36 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 61403)
+2025-06-12 16:54:41 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-12 16:54:46 - INFO - [SERVIDOR INFO]: Consultando datos de Incidencias...
+2025-06-12 16:54:51 - INFO - package: mysql.connector.plugins
+2025-06-12 16:54:51 - INFO - plugin_name: caching_sha2_password
+2025-06-12 16:54:51 - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-06-12 16:54:55 - INFO - [SERVIDOR INFO]: Respuesta recibida: s
+2025-06-12 16:55:00 - INFO - [SERVIDOR INFO]: ID de terminal recibido: 7
+2025-06-12 16:55:06 - INFO - [SERVIDOR INFO]: Nuevo estado recibido: Averiado
+2025-06-12 16:55:13 - INFO - [SERVIDOR INFO]: Respuesta recibida: s
+2025-06-12 16:55:27 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 753, in server_on
+    await incidencias_MySQL(writer, reader)  # Placeholder para la función de incidencias
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 255, in incidencias_MySQL
+    await update_terminales_estado(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 56, in update_terminales_estado
+    terminal_id = (await reader.read(1024)).decode().strip()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-12 16:55:30 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 61420)
+2025-06-12 16:55:35 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-12 16:55:37 - INFO - [SERVIDOR INFO]: Consultando datos de Incidencias...
+2025-06-12 16:56:32 - INFO - [SERVIDOR INFO]: Tecnico recibido: 
+2025-06-12 16:56:32 - INFO - [SERVIDOR INFO]: Terminal recibido: 
+2025-06-12 16:56:32 - INFO - [SERVIDOR INFO]: Descripción recibida: 
+2025-06-12 16:56:32 - INFO - [SERVIDOR INFO]: Fecha y hora recibida: 
+2025-06-12 16:56:32 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closing fd=1096>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 753, in server_on
+    await incidencias_MySQL(writer, reader)  # Placeholder para la función de incidencias
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 251, in incidencias_MySQL
+    await add_incidencia(writer, reader)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\Async\sv.py", line 203, in add_incidencia
+    insertar.execute(query, values)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\cursor.py", line 418, in execute
+    self._connection.cmd_query(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._stmt_partition["mappable_stmt"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        read_timeout=self._read_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        write_timeout=self._write_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 984, in cmd_query
+    result = self._handle_result(
+        self._send_cmd(
+    ...<6 lines>...
+        write_timeout,
+    )
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 89, in handle_cnx_method
+    raise err
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\_decorating.py", line 85, in handle_cnx_method
+    return cnx_method(cnx, *args, **kwargs)
+  File "C:\Users\nzjha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\mysql\connector\connection.py", line 745, in _handle_result
+    raise get_exception(packet)
+mysql.connector.errors.DatabaseError: 1366 (HY000): Incorrect integer value: '' for column 'terminal_id' at row 1
