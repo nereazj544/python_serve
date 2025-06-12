@@ -128,9 +128,6 @@ async def add_incidencia(writer, reader):
             await incidencias_MySQL(writer, reader)  # Volver al menú de incidencias
 
 
-
-
-
 #TODO: IMPLEMENTAR AÑADIR INCIDENCIA    
 
 async def consult_incidencias(writer, reader):
@@ -153,7 +150,9 @@ async def incidencias_MySQL(writer, reader):
     "\n"\
     "1. Consultar incidencias \n"\
     "2. Añadir incidencia \n"\
-    "3. Actualizar incidencia \n")
+    "3. Actualizar incidencia \n"\
+    "4. Actualizar estado de terminales \n"\
+        "")
     writer.write(menu.encode())
     await writer.drain()
     
