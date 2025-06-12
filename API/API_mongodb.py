@@ -1,4 +1,3 @@
-import flask 
 from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 
@@ -36,9 +35,17 @@ def add_item():
 def delete_item():
     try:
             item_id = int(request.form.get('id'))
+            if not item_id:
+                return jsonify({'status': 'error', 'message': '¡ID no válido!'}), 400
+            
+            item_id = int(item_id)
             result = collection.delete_one({'id': item_id})
+            if result.deleted_count > 0:
+                return jsonify({'status': 'success', 'message': '¡Elemento eliminado exitosamente!'})
+            else:
+                return jsonify({'status': 'error', 'message': '¡Elemento no encontrado!'}), 404
     except:
-            result = None
+            return jsonify({'status': 'error', 'message': '¡Error al eliminar el elemento!'}), 500
         # Siempre refresca la página, puedes añadir mensajes con flash si lo deseas
 
 if __name__ == '__main__':
