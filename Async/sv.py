@@ -77,9 +77,9 @@ async def update_incidencia(writer, reader):
         writer.write("¿La incidencia está solucionada? (si/no): ".encode())
         await writer.drain()
         solucionada_input = (await reader.read(1024)).decode().strip().lower()
-        solucionada = 1 if solucionada_input == "si" else 0
+        solucionada = 1 if solucionada_input == "s" else 0
 
-        # Fecha de solución si está solucionada 
+        # Fecha de solución si está solucionada
         fecha_solucion = None
         if solucionada:
             writer.write("Introduce la fecha de solución (YYYY-MM-DD HH:MM:SS): ".encode())
@@ -87,13 +87,16 @@ async def update_incidencia(writer, reader):
             fecha_solucion = (await reader.read(1024)).decode().strip()
             log_info(f"Fecha de solución recibida: {fecha_solucion}")
 
-        # UPDATE incidencia
-        crs.execute(
-            f"UPDATE {TABLE_MySQL_2} SET solucionada = %s, fecha_solucion = %s WHERE id = %s",
-            (solucionada, fecha_solucion, incidencia_id)
-        )
-        conn.commit()
-        log_info(f"Incidencia {incidencia_id} actualizada correctamente.")
+            # UPDATE incidencia
+            crs.execute(
+                f"UPDATE {TABLE_MySQL_2} SET solucionada = %s, fecha_solucion = %s WHERE id = %s and UPPER(terminal_id) IN (SELECT UPPER(id) FROM terminal WHERE estado = 'Operativo')",
+                (solucionada, fecha_solucion, incidencia_id)
+            )
+
+            conn.commit()
+            crs.execute(f"UPDATE {TABLE_MySQL_1} SET estado = 'Operativo' WHERE id = (SELECT terminal_id FROM {TABLE_MySQL_2} WHERE id = %s)", (incidencia_id,))
+            log_info(f"Incidencia {incidencia_id} actualizada correctamente.")
+            conn.commit()  # Confirmar los cambios en la base de datos
 
         writer.write(f"Incidencia {incidencia_id} actualizada correctamente.\\n".encode())
         await writer.drain()
