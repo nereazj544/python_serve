@@ -38,8 +38,31 @@ async def update_incidencia(writer, reader):
     """UPDATE nombre_tabla
     SET columna1 = nuevo_valor1, columna2 = nuevo_valor2, ...
     WHERE condicion;"""
+    conn = get_MySQL_conn()
+    crs = conn.cursor()
 
-    pass
+    while True:
+        crs.execute(f"SELECT * FROM incidencia i INNER JOIN terminal tr ON i.terminal_id = tr.id INNER JOIN ubicacion u ON tr.ubicacion_id = u.id  INNER JOIN zona z on z.id = u.zona_id WHERE tr.estado LIKE '%averiado%' AND i.fecha_solucion IS NULL ORDER BY i.fecha_reportada ASC")
+
+        await writer.drain()
+        incidencias = crs.fetchall()
+        if not incidencias:
+            writer.write("No hay incidencias pendientes de actualización.\n".encode())
+            await writer.drain()
+            return
+        response = "Incidencias pendientes de actualización:\n"
+        for row in incidencias:
+            response += f"ID: {row[0]}, Terminal: {row[1]}, Descripción: {row[2]}, Fecha Reportada: {row[3]}, "\
+                        f"Solucionada: {row[4]}, Fecha Solución: {row[5]}, Técnico ID: {row[6]}, "\
+                        f"Ubicación: {row[8]}, Zona: {row[9]}\n"
+        writer.write(response.encode())
+        await writer.drain()
+        writer.write("Selecciona el ID de la incidencia que quieres actualizar: ".encode())
+        await writer.drain()
+        incidencia_id = (await reader.read(1024)).decode().strip()
+        log_info(f"ID de incidencia recibido: {incidencia_id}")
+        
+
 
 async def add_incidencia(writer, reader):
     conn = get_MySQL_conn()  # pilla la conexion a la base de datos
