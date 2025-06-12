@@ -35,8 +35,44 @@ def get_MySQL_conn():
 async def update_terminales_estado(writer, reader):
     conn = get_MySQL_conn()
     crs = conn.cursor()
+    while True:
+        crs.execute()
+        await writer.drain()
+        terminales = crs.fetchall()
+        menu=("¿Quieres actualizar el estado de alguna terminal? (s/n)")
+        writer.write(menu.encode())
+        await writer.drain()
 
-    
+        respuesta = (await reader.read(1024)).decode().strip().lower()
+        log_info(f"Respuesta recibida: {respuesta}")
+
+        if respuesta == "s":
+            writer.write("Selecciona el ID de la terminal que quieres actualizar: ".encode())
+            await writer.drain()
+            terminal_id = (await reader.read(1024)).decode().strip()
+            log_info(f"ID de terminal recibido: {terminal_id}")
+
+            # Pedir el nuevo estado
+            writer.write("Introduce el nuevo estado de la terminal: ".encode())
+            await writer.drain()
+            nuevo_estado = (await reader.read(1024)).decode().strip()
+            log_info(f"Nuevo estado recibido: {nuevo_estado}")
+
+            # UPDATE terminal
+            crs.execute(
+                f"UPDATE {TABLE_MySQL_1} SET estado = %s WHERE id = %s",
+                (nuevo_estado, terminal_id)
+            )
+            conn.commit()
+
+            writer.write(f"Estado de la terminal {terminal_id} actualizado correctamente.\n".encode())
+            await writer.drain()
+            update_incidencia(writer, reader)
+        else:
+            writer.write("No se ha actualizado ninguna terminal.\n".encode())
+            await writer.drain()
+            await incidencias_MySQL(writer, reader)  # Volver al menú de incidencias
+
 
 
 async def update_incidencia(writer, reader):
@@ -94,9 +130,6 @@ async def update_incidencia(writer, reader):
             )
 
             conn.commit()
-            crs.execute(f"UPDATE {TABLE_MySQL_1} SET estado = 'Operativo' WHERE id = (SELECT terminal_id FROM {TABLE_MySQL_2} WHERE id = %s)", (incidencia_id,))
-            log_info(f"Incidencia {incidencia_id} actualizada correctamente.")
-            conn.commit()  # Confirmar los cambios en la base de datos
 
         writer.write(f"Incidencia {incidencia_id} actualizada correctamente.\\n".encode())
         await writer.drain()
