@@ -77,6 +77,8 @@ def filter_items():
         return render_template('index.html', items=items)
     else:
         return jsonify({'status': 'error', 'message': '¡ENTORNO NO VALIDO!'}), 400
+    
+
 
 
 
