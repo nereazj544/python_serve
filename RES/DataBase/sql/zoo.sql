@@ -14,8 +14,10 @@ CREATE TABLE recintos (
 CREATE TABLE numero_recinto (
     id INT AUTO_INCREMENT PRIMARY KEY,
     numero INT,
+    animal_id int,
     recinto_id INT,
-    FOREIGN KEY (recinto_id) REFERENCES recintos(id)
+    FOREIGN KEY (recinto_id) REFERENCES recintos(id),
+    foreign key (animal_id) references animales(id)
 );
 
 CREATE TABLE cuidador (
@@ -36,9 +38,9 @@ INSERT INTO recintos (nombre, ubicacion, capacidad) VALUES
 ('Recinto de Felinos', 'Zona Norte', 5),
 ('Recinto de Reptiles', 'Zona Sur', 3);
 
-INSERT INTO numero_recinto (numero, recinto_id) VALUES
-(1, 1),
-(2, 2);
+INSERT INTO numero_recinto (numero, animal_id, recinto_id) VALUES
+(1, 1, 1),
+(2, 2, 2);
 
 INSERT INTO cuidador (nombre, numero_recinto_id) VALUES
 ('Rita', 1),

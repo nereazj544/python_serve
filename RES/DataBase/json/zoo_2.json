@@ -1,0 +1,22 @@
+{
+    "animales":[
+        {"id": 1, "nombre": "León", "especie": "Felino"},
+        {"id": 2, "nombre": "Tigre", "especie": "Felino"},
+        {"id": 3, "nombre": "Pantera", "especie": "Felino"},
+        {"id": 4, "nombre": "Cocodrilo", "especie": "Reptil"}
+    ],
+    "cuidador":[
+        {"id": 1, "nombre": "Rita", "numero_recinto": 1},
+        {"id": 2, "nombre": "Carlos", "numero_recinto": 2}
+    ],
+    "recinto":[
+        {"id": 1, "nombre": "Recinto de Felinos", "ubicacion": "Zona Norte","capacidad": 10},
+        {"id": 2, "nombre": "Recinto de Reptiles","ubicacion": "Zona Sur", "capacidad": 5}
+    ],
+    "numero_recinto":[
+        {"id": 1, "numero_recinto": 1, "animal_id": 1},
+        {"id": 2, "numero_recinto": 1, "animal_id": 2}
+    ]
+
+
+}
