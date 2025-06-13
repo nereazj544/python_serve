@@ -221,13 +221,13 @@ async def animales_mysql(reader, writer):
                         await writer.drain()
                         continue
                     log_debug(f"ID del animal: {animal_id}")
-    
+
                     writer.write("Introduce el ID del recinto donde se ubicará el animal: ".encode())
                     await writer.drain()
                     data = await reader.read(1024)
                     recinto_id = data.decode().strip()
                     log_info(f"ID del recinto: {recinto_id}")
-    
+
                     query = "INSERT INTO numero_recinto (animal_id, recinto_id) VALUES (%s, %s)"
                     await cursor.execute(query, (animal_id, recinto_id))
                     await conn.commit()
@@ -236,12 +236,6 @@ async def animales_mysql(reader, writer):
                     writer.write(f"Animal {animal_id} asignado al recinto {recinto_id} correctamente.\n".encode())
                     await writer.drain()
 
-
-
-
-
-
-                
             except Exception as e:
                 log_error(f"Error al insertar el animal: {e}")
                 print(f"Error al insertar el animal: {e}")
