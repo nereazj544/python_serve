@@ -77,8 +77,14 @@ def filter_items():
 
 @app.route('/ficha/<int:item_id>')
 def ficha(item_id):
-    return render_template('ficha.html', item_id=item_id)
-
+    item = collection.find_one({'id': item_id})
+    if not item:
+        return jsonify({'status': 'error', 'message': '¡ID NO ENCONTRADO!'}), 404
+    item['_id'] = str(item['_id'])
+    result = collection.find_one({'id': item_id})
+    if not result:
+        return jsonify({'status': 'error', 'message': '¡ID NO ENCONTRADO!'}), 404
+    return render_template('ficha.html', item=result)
 
 
 
