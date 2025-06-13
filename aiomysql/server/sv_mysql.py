@@ -13,18 +13,19 @@ MySQL_PASSWORD = '321_ytrewq'
 MySQL_DB = 'zoo'
 
 async def connect():
-    conn = await aiomysql.connect(
+    pool = await aiomysql.create_pool(
         host=MySQL_HOST,
         user=MySQL_USER,
         password=MySQL_PASSWORD,
         db=MySQL_DB
     )
-    return conn
+    return pool
 
 
 async def animales_mysql(reader, writer):
-    conn = await connect()
-    cursor = await conn.cursor()
+    pool = await connect()
+    async with pool.acquire() as conn:
+        cursor = await conn.cursor()
 
     log_info("Conexión establecida con la base de datos MySQL para Animales.")
     print("Conexión establecida con la base de datos MySQL para Animales.")
@@ -250,60 +251,6 @@ async def animales_mysql(reader, writer):
             await cursor.close()
             await writer.drain()
             break
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # TODO: ============== SERVIDOR ==============
