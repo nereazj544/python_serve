@@ -37,7 +37,8 @@ async def animales_mysql(reader, writer):
     while True:
         menu = ("1. Ver todos los animales\n"
         "2. Filtar animales por especie\n"
-        "3. salir")
+        "3. Insertar un nuevo animal\n"
+        "4. Salir")
         writer.write(menu.encode())
         await writer.drain()
         data = await reader.read(1024)
@@ -80,12 +81,74 @@ async def animales_mysql(reader, writer):
                 writer.write(lista_especie.encode())
             await writer.drain()
             await server_on(reader, writer)  # Volver al menú principal
+        elif msg == '3':
+            log_info("Opción Insertar un nuevo animal seleccionada.")
+            print("Opción Insertar un nuevo animal seleccionada.")
+            writer.write("Has seleccionado la opción Insertar un nuevo animal.\n".encode())
+            await writer.drain()
+            writer.write("Introduce el nombre del animal: ".encode())
+            await writer.drain()
+            data = await reader.read(1024)
+            nombre = data.decode().strip()
+            if not nombre:
+                log_warning("Nombre no válido.")
+                print("Nombre no válido.")
+                writer.write("Nombre no válido.\n".encode())
+                await writer.drain()
+                continue
+            log_debug(f"Nombre del animal: {nombre}")
 
-def recintos_mysql(reader, writer):
-    pass
+            writer.write("Introduce la especie del animal: ".encode())
+            await writer.drain()
+            data = await reader.read(1024)
+            especie = data.decode().strip()
+            if not especie:
+                log_warning("Especie no válida.")
+                print("Especie no válida.")
+                writer.write("Especie no válida.\n".encode())
+                await writer.drain()
+                continue
+            log_debug(f"Especie del animal: {especie}")
 
-def cuidador_mysql(reader, writer):
-    pass
+            try:
+                await cursor.execute("INSERT INTO animales (nombre, especie) VALUES (%s, %s)", (nombre, especie))
+                await conn.commit()
+                log_info(f"Animal {nombre} de especie {especie} insertado correctamente.")
+                print(f"Animal {nombre} de especie {especie} insertado correctamente.")
+                writer.write(f"Animal {nombre} de especie {especie} insertado correctamente.\n".encode())
+
+                
+            except Exception as e:
+                log_error(f"Error al insertar el animal: {e}")
+                print(f"Error al insertar el animal: {e}")
+                writer.write(f"Error al insertar el animal: {e}\n".encode())
+        
+        
+        elif msg == '4':
+            log_info("Opción Salir seleccionada.")
+            print("Opción Salir seleccionada.")
+            writer.write("Saliendo del módulo de Animales...\n".encode())
+            conn.close()
+            await cursor.close()
+            await writer.drain()
+            break
+
+
+
+
+async def recintos_mysql(reader, writer):
+    log_info("Conexión establecida con la base de datos MySQL para Recintos.")
+    print("Conexión establecida con la base de datos MySQL para Recintos.")
+    writer.write("Conexión establecida con la base de datos MySQL para Recintos.\n".encode())
+    await writer.drain()
+    while True:
+        menu = ("1. Ver todos los recintos\n"
+        "2. Filtrar recintos por nombre\n"
+        "3. salir")
+        writer.write(menu.encode())
+        await writer.drain()
+        data = await reader.read(1024)
+        msg = data.decode().strip()
 
 
 
@@ -93,7 +156,11 @@ def cuidador_mysql(reader, writer):
 
 
 
-
+async def cuidador_mysql(reader, writer):
+    log_info("Conexión establecida con la base de datos MySQL para Cuidadores.")
+    print("Conexión establecida con la base de datos MySQL para Cuidadores.")
+    writer.write("Conexión establecida con la base de datos MySQL para Cuidadores.\n".encode())
+    await writer.drain()
 
 
 
