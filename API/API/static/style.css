@@ -52,7 +52,6 @@ td, th{
     font-family: 'Courier New', Courier, monospace;
 }
 
-
 /* TODO: FORMULARIO */
 
 form{
@@ -92,7 +91,6 @@ form{
     
     
 }
-
 
 .add_animal button, .delet_animal button, .filter_animal button{
     padding: 10px 20px;
