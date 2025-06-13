@@ -79,7 +79,7 @@ form{
 
 .opcion_2{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-items: center;
     gap: 20px;
     padding: 2em 2em;
@@ -91,6 +91,8 @@ form{
     width: 200px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    
+    
 }
 
 

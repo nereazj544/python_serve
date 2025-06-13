@@ -27,6 +27,12 @@ def add_animal():
     nombre = request.form.get('nombre').capitalize()
     entorno = request.form.get('entorno').capitalize()
     tipo_reproduccion = request.form.get('tipo_reproduccion').capitalize()
+    habitat = request.form.get('habitat').capitalize()
+    velocidad = request.form.get('velocidad')
+    alimentacio = request.form.get('alimentacion').capitalize()
+    habitat = request.form.get('habitat').capitalize()
+    informacion_basica = request.form.get('informacion_basica')
+
     img_url = request.form.get('img_url')
     if nombre and entorno and tipo_reproduccion:
         collection.insert_one({
@@ -34,6 +40,10 @@ def add_animal():
             'nombre': nombre,
             'entorno': entorno,
             'tipo_reproduccion': tipo_reproduccion,
+            'habitat': habitat,
+            'velocidad': velocidad,
+            'alimentacion': alimentacio,
+            'informacion_basica': informacion_basica,
             'img_url': img_url
         })        
         return jsonify({'status': 'succes', 'message': '¡Animal agregado exitosamente!'})
