@@ -1,0 +1,130 @@
+2025-06-13 11:20:28 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8888
+2025-06-13 11:21:05 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8888
+2025-06-13 11:21:56 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-13 11:21:58 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54117)
+2025-06-13 11:22:03 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:22:05 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 11:22:05 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 11:22:05 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1092 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]> write=<_OverlappedFuture finished result=65>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 181, in server_on
+    await animales_mysql(reader, writer)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 43, in animales_mysql
+    msg = await reader.read(1024).decode().strip()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'decode'
+2025-06-13 11:22:08 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54124)
+2025-06-13 11:22:13 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:22:17 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 11:22:17 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 11:22:17 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1072 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]> write=<_OverlappedFuture finished result=65>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 181, in server_on
+    await animales_mysql(reader, writer)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 43, in animales_mysql
+    msg = await reader.read(1024).decode().strip()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'decode'
+2025-06-13 11:22:28 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54136)
+2025-06-13 11:22:33 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:23:21 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-13 11:23:26 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54177)
+2025-06-13 11:23:31 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:23:40 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 11:23:40 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 11:23:40 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1088 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]> write=<_OverlappedFuture finished result=65>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 176, in server_on
+    await animales_mysql(reader, writer)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 43, in animales_mysql
+    msg = await reader.read(1024).decode().strip()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'decode'
+2025-06-13 11:23:49 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54197)
+2025-06-13 11:23:54 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:23:56 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 11:23:56 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 11:23:56 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1096 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]> write=<_OverlappedFuture finished result=65>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 176, in server_on
+    await animales_mysql(reader, writer)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 43, in animales_mysql
+    msg = await reader.read(1024).decode().strip()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'decode'
+2025-06-13 11:24:00 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54204)
+2025-06-13 11:24:05 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:24:08 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 11:24:08 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 11:24:08 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport fd=1104 read=<_OverlappedFuture pending cb=[_ProactorReadPipeTransport._loop_reading()]> write=<_OverlappedFuture finished result=65>>
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 176, in server_on
+    await animales_mysql(reader, writer)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 43, in animales_mysql
+    msg = await reader.read(1024).decode().strip()
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'decode'
+2025-06-13 11:24:10 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54208)
+2025-06-13 11:24:15 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:25:08 - WARNING - [SERVIDOR WARNING]: Cliente desconectado.
+2025-06-13 11:27:52 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-13 11:27:56 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54323)
+2025-06-13 11:28:01 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:29:08 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 11:29:08 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 11:29:10 - INFO - [SERVIDOR INFO]: Opción Ver todos los animales seleccionada.
+2025-06-13 11:29:17 - INFO - [SERVIDOR INFO]: Opción Filtrar animales por especie seleccionada.
+2025-06-13 11:30:41 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-13 11:30:43 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54426)
+2025-06-13 11:30:48 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:30:50 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 11:30:50 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 11:30:53 - INFO - [SERVIDOR INFO]: Opción Filtrar animales por especie seleccionada.
+2025-06-13 11:37:25 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-13 11:37:26 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54671)
+2025-06-13 11:37:31 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:37:34 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 11:37:34 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 11:37:36 - INFO - [SERVIDOR INFO]: Opción Filtrar animales por especie seleccionada.
+2025-06-13 11:37:45 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 54671)
+2025-06-13 11:37:50 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 11:37:59 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 11:37:59 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 11:38:01 - INFO - [SERVIDOR INFO]: Opción Ver todos los animales seleccionada.
+2025-06-13 11:38:08 - ERROR - Unhandled exception in client_connected_cb
+transport: <_ProactorSocketTransport closed>
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 64] El nombre de red especificado ya no está disponible
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 182, in server_on
+    await animales_mysql(reader, writer)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 82, in animales_mysql
+    await server_on(reader, writer)  # Volver al menú principal
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 182, in server_on
+    await animales_mysql(reader, writer)
+  File "c:\Users\nzjha\Desktop\Clon_Github\python_serve\aiomysql\server\sv_mysql.py", line 43, in animales_mysql
+    data = await reader.read(1024)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
