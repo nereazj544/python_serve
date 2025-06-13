@@ -55,7 +55,22 @@ def delete_animal():
     except:
         return jsonify({'status': 'error', 'message': '¡ERROR AL ELIMINAR EL ELEMNTO!'})
 
-
+@app.route('/filter', methods=['POST'])
+def filter_items():
+    entorno = request.form.get('entorno')
+    tipo_reproduccion = request.form.get('tipo_reproduccion')
+    if entorno:
+        items = list(collection.find({'entorno': entorno}))
+        for item in items:
+            item['_id'] = str(item['_id'])
+        return render_template('index.html', items=items)
+    elif tipo_reproduccion:
+        items = list(collection.find({'tipo_reproduccion': tipo_reproduccion}))
+        for item in items:
+            item['_id'] = str(item['_id'])
+        return render_template('index.html', items=items)
+    else:
+        return jsonify({'status': 'error', 'message': '¡ENTORNO O TIPO DE REPRODUCCION NO VALIDO!'}), 400
 
 
 

@@ -1,13 +1,13 @@
 [
-    { "id": 1, "nombre": "León",        "entorno": "terrestre",   "tipo_reproduccion": "mamífero" },
-    { "id": 2, "nombre": "Tigre",       "entorno": "terrestre",   "tipo_reproduccion": "mamífero" },
-    { "id": 3, "nombre": "Elefante",    "entorno": "terrestre",   "tipo_reproduccion": "mamífero" },
-    { "id": 4, "nombre": "Cocodrilo",   "entorno": "acuático",    "tipo_reproduccion": "ovíparo"  },
-    { "id": 5, "nombre": "Águila",      "entorno": "aéreo",       "tipo_reproduccion": "ovíparo"  },
-    { "id": 6, "nombre": "Pingüino",    "entorno": "acuático",    "tipo_reproduccion": "ovíparo"  },
-    { "id": 7, "nombre": "Serpiente",   "entorno": "terrestre",   "tipo_reproduccion": "ovíparo"  },
-    { "id": 8, "nombre": "Rinoceronte", "entorno": "terrestre",   "tipo_reproduccion": "mamífero" },
-    { "id": 9, "nombre": "Jirafa",      "entorno": "terrestre",   "tipo_reproduccion": "mamífero" },
-    { "id": 10, "nombre": "Cebra",      "entorno": "terrestre",   "tipo_reproduccion": "mamífero" },
-    { "id": 11, "nombre": "Caballo",    "entorno": "terrestre",   "tipo_reproduccion": "mamífero" }
+    { "id": 1, "nombre": "Leon",        "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
+    { "id": 2, "nombre": "Tigre",       "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
+    { "id": 3, "nombre": "Elefante",    "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
+    { "id": 4, "nombre": "Cocodrilo",   "entorno": "Acuatico",    "tipo_reproduccion": "Oviparo"  },
+    { "id": 5, "nombre": "Aguila",      "entorno": "Aereo",       "tipo_reproduccion": "Oviparo"  },
+    { "id": 6, "nombre": "Pingüino",    "entorno": "Acuatico",    "tipo_reproduccion": "Oviparo"  },
+    { "id": 7, "nombre": "Serpiente",   "entorno": "Terreste",   "tipo_reproduccion": "Oviparo"  },
+    { "id": 8, "nombre": "Rinoceronte", "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
+    { "id": 9, "nombre": "Jirafa",      "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
+    { "id": 10, "nombre": "Cebra",      "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
+    { "id": 11, "nombre": "Caballo",    "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" }
 ]
