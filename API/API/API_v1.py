@@ -6,10 +6,6 @@ client = MongoClient('mongodb://localhost:27017/')
 db = client['zoo3']
 collection = db['animales']
 
-
-
-
-
 app = Flask(__name__)
 
 # TODO : ======= RUTAS DE LA APLICACION =======
