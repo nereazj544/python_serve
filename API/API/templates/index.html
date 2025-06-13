@@ -8,13 +8,14 @@
 </head>
 <body>
     <ul class="opciones">
-        <li><a href="/add">Agregar Animal</a></li>
-        <li><a href="/delete">Eliminar Animal</a></li>
-        <li><a href="/filter">Filtrar Animales</a></li>
+        <li><a href="#view">Ver informacion</a></li>
+        <li><a href="#add">Agregar Animal</a></li>
+        <li><a href="#delete">Eliminar Animal</a></li>
+        <li><a href="#filter">Filtrar Animales</a></li>
     </ul>
 
     <h1>Lista de Animales</h1>
-    <table>
+    <table id="view">
         <thead>
             <tr>
                 <th>ID</th>
@@ -33,7 +34,17 @@
         </tbody>
     </table>
 
-    
+
+    <div class="separador"></div>
+
+    <div id="add">
+        <h2>Agregar Animal</h2>
+        <form action="/add" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="especie" placeholder="Especie" required>
+            <button type="submit">Agregar</button>
+        </form>
+    </div>
 
 </body>
 </html>

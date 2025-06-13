@@ -22,6 +22,12 @@ h1{
     text-align: center;
 }
 
+.separador{
+    width: 100%;
+    height: 2px;
+    margin: 20px 0;
+}
+
 /* TODO: TABLA */
 
 table{
