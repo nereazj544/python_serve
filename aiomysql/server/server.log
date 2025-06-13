@@ -167,3 +167,22 @@ Traceback (most recent call last):
   File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.1008.0_x64__qbz5n2kfra8p0\Lib\asyncio\windows_events.py", line 467, in finish_socket_func
     raise ConnectionResetError(*exc.args)
 ConnectionResetError: [WinError 64] El nombre de red especificado ya no está disponible
+2025-06-13 12:29:37 - INFO - [SERVIDOR INFO]: Servidor escuchando en localhost:8083
+2025-06-13 12:29:37 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 56427)
+2025-06-13 12:29:42 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 12:29:45 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 12:29:45 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 12:29:54 - INFO - [SERVIDOR INFO]: Opción Ver todos los animales seleccionada.
+2025-06-13 12:30:02 - INFO - [SERVIDOR INFO]: Opción Filtrar animales por especie seleccionada.
+2025-06-13 12:30:10 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 56427)
+2025-06-13 12:30:15 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==
+2025-06-13 12:30:18 - INFO - [SERVIDOR INFO]: Opción Teleoperador seleccionada.
+2025-06-13 12:30:18 - INFO - [SERVIDOR INFO]: Conexión establecida con la base de datos MySQL para Animales.
+2025-06-13 12:30:22 - INFO - [SERVIDOR INFO]: Opción Insertar un nuevo animal seleccionada.
+2025-06-13 12:31:07 - INFO - [SERVIDOR INFO]: Animal gato Montes de especie felino insertado correctamente.
+2025-06-13 12:31:20 - INFO - [SERVIDOR INFO]: Respuesta afirmativa
+2025-06-13 12:31:27 - INFO - [SERVIDOR INFO]: ID del recinto: 1
+2025-06-13 12:31:27 - INFO - [SERVIDOR INFO]: Animal 6 asignado al recinto 1 correctamente.
+2025-06-13 12:31:34 - INFO - [SERVIDOR INFO]: Opción Filtrar animales por especie seleccionada.
+2025-06-13 12:31:40 - INFO - [SERVIDOR INFO]: Conexión desde ('127.0.0.1', 56427)
+2025-06-13 12:31:45 - WARNING - [SERVIDOR WARNING]: == ESPERA AUTOMÁTICA DE 5 SEGUNDOS ==

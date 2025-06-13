@@ -12,12 +12,15 @@ MySQL_USER = 'api_python'
 MySQL_PASSWORD = '321_ytrewq'
 MySQL_DB = 'zoo'
 
+loop = asyncio.get_event_loop()
+
 async def connect():
     pool = await aiomysql.create_pool(
         host=MySQL_HOST,
         user=MySQL_USER,
         password=MySQL_PASSWORD,
-        db=MySQL_DB
+        db=MySQL_DB,
+        loop=loop
     )
     return pool
 

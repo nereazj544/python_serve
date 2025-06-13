@@ -1,10 +1,11 @@
-from flask import Flask, jsonify, request, render_template
-
+from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 
 # TODO: ======= CONFIGURACION DE LA BASE DE DATOS =======
 client = MongoClient('mongodb://localhost:27017/')
-db = client
+db = client['ZOO']
+collection = db['ANIMALES']
+
 
 
 
@@ -13,7 +14,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    items = list(collection.find())
+    for item in items:
+        item['_id'] = str(item['_id'])
+    return render_template('index.html', items=items)
 
 
 
