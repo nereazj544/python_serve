@@ -1,0 +1,14 @@
+:root{
+    --color1: #daf2c25a;
+    --color2: #023859;
+    --color3: #07D9B2;
+    --color4: #04D99D;
+    --color5: #F2DC6B;
+}
+
+*{
+    margin: 0; padding: 0;
+    list-style: none;
+    text-decoration: none;
+    
+}

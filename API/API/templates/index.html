@@ -27,8 +27,11 @@
         <tbody>
             {% for item in items %}
                 <tr>
-                    <td>{{ item.id }}</td>
-                    <td class="animal-nombre">{{ item.nombre }}
+                    <td>
+                        <a href="{{ url_for('ficha', item_id=item.id) }}">{{ item.id }}</a>
+                    </td>
+                    <td class="animal-nombre">
+                        <a href="{{ url_for('ficha', item_id=item.id) }}">{{ item.nombre }}</a>
                         {% if item.img_url %}
                         <span class="img-view">
                             <img src="{{item.img_url}}" alt="imagen animal: {{item.nombre}}" srcset="">

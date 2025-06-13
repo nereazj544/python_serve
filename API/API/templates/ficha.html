@@ -7,6 +7,36 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style_ficha.css') }}">
 </head>
 <body>
-    
+        <h1>Lista de Animales</h1>
+    <table id="view">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Entorno</th>
+                <th>Tipo de reproduccion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('ficha', item_id=item.id) }}">{{ item.id }}</a>
+                    </td>
+                    <td class="animal-nombre">
+                        <a href="{{ url_for('ficha', item_id=item.id) }}">{{ item.nombre }}</a>
+                        {% if item.img_url %}
+                        <span class="img-view">
+                            <img src="{{item.img_url}}" alt="imagen animal: {{item.nombre}}" srcset="">
+                        </span>
+                        {% endif %}
+                    </td>
+                    <td>{{ item.entorno }}</td>
+                    <td>{{ item.tipo_reproduccion }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 </body>
 </html>
