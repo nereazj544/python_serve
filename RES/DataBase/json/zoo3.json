@@ -1,13 +1,13 @@
 [
-    { "id": 1, "nombre": "Leon",        "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
-    { "id": 2, "nombre": "Tigre",       "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
-    { "id": 3, "nombre": "Elefante",    "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
-    { "id": 4, "nombre": "Cocodrilo",   "entorno": "Acuatico",    "tipo_reproduccion": "Oviparo"  },
-    { "id": 5, "nombre": "Aguila",      "entorno": "Aereo",       "tipo_reproduccion": "Oviparo"  },
-    { "id": 6, "nombre": "Pingüino",    "entorno": "Acuatico",    "tipo_reproduccion": "Oviparo"  },
-    { "id": 7, "nombre": "Serpiente",   "entorno": "Terreste",   "tipo_reproduccion": "Oviparo"  },
-    { "id": 8, "nombre": "Rinoceronte", "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
-    { "id": 9, "nombre": "Jirafa",      "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
-    { "id": 10, "nombre": "Cebra",      "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" },
-    { "id": 11, "nombre": "Caballo",    "entorno": "Terreste",   "tipo_reproduccion": "Mamifero" }
+    { "id": 1, "nombre": "Leon",        "entorno": "Terreste",   "tipo_reproduccion": "Mamifero", "img_url": "https://images.pexels.com/photos/1912176/pexels-photo-1912176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+    { "id": 2, "nombre": "Tigre",       "entorno": "Terreste",   "tipo_reproduccion": "Mamifero", "img_url": "https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+    { "id": 3, "nombre": "Elefante",    "entorno": "Terreste",   "tipo_reproduccion": "Mamifero", "img_url": "https://images.pexels.com/photos/1054666/pexels-photo-1054666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+    { "id": 4, "nombre": "Cocodrilo",   "entorno": "Acuatico",    "tipo_reproduccion": "Oviparo", "img_url": "https://images.pexels.com/photos/32509621/pexels-photo-32509621/free-photo-of-cocodrilo-camuflado-en-la-superficie-del-agua.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"  },
+    { "id": 5, "nombre": "Aguila",      "entorno": "Aereo",       "tipo_reproduccion": "Oviparo", "img_url": "https://images.pexels.com/photos/32543266/pexels-photo-32543266/free-photo-of-aguila-majestuosa-posada-en-un-bosque-soleado.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"  },
+    { "id": 6, "nombre": "Pingüino",    "entorno": "Acuatico",    "tipo_reproduccion": "Oviparo", "img_url": "https://images.pexels.com/photos/32489229/pexels-photo-32489229/free-photo-of-grupo-de-pinguinos-de-humboldt-en-un-afloramiento-rocoso.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"  },
+    { "id": 7, "nombre": "Oso Pardo",   "entorno": "Terreste",    "tipo_reproduccion": "Mamifero", "img_url": "https://images.pexels.com/photos/162340/bear-bavarian-bear-wild-brown-bear-162340.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+    { "id": 8, "nombre": "Rinoceronte", "entorno": "Terreste",   "tipo_reproduccion": "Mamifero", "img_url": "https://images.pexels.com/photos/677974/pexels-photo-677974.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+    { "id": 9, "nombre": "Jirafa",      "entorno": "Terreste",   "tipo_reproduccion": "Mamifero", "img_url": "https://images.pexels.com/photos/1319515/pexels-photo-1319515.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+    { "id": 10, "nombre": "Cebra",      "entorno": "Terreste",   "tipo_reproduccion": "Mamifero", "img_url": "https://images.pexels.com/photos/1524628/pexels-photo-1524628.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+    { "id": 11, "nombre": "Caballo",    "entorno": "Terreste",   "tipo_reproduccion": "Mamifero", "img_url": "https://images.pexels.com/photos/1996333/pexels-photo-1996333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" }
 ]

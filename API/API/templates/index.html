@@ -28,7 +28,13 @@
             {% for item in items %}
                 <tr>
                     <td>{{ item.id }}</td>
-                    <td>{{ item.nombre }}</td>
+                    <td class="animal-nombre">{{ item.nombre }}
+                        {% if item.img_url %}
+                        <span class="img-view">
+                            <img src="{{item.img_url}}" alt="imagen animal: {{item.nombre}}" srcset="">
+                        </span>
+                        {% endif %}
+                    </td>
                     <td>{{ item.entorno }}</td>
                     <td>{{ item.tipo_reproduccion }}</td>
                 </tr>
@@ -47,6 +53,7 @@
                 <input type="text" name="nombre" placeholder="Nombre" required>
                 <input type="text" name="entorno" placeholder="Entorno" required>
                 <input type="text" name="tipo_reproduccion" placeholder="Tipo de reproduccion" required>
+                <input type="url" name="img_url" placeholder="Img Url" required>
                 <button type="submit">Agregar</button>
         </form>
     </div>
@@ -61,7 +68,7 @@
         <div id="filter" class="filter_animal">
             <h2>Filtrar Animales</h2>
             <form action="/filter" method="POST">
-                <input type="text" name="entorno" placeholder="Filtar por: reproduccion o entorno" required>
+                <input type="text" name="entorno" placeholder="Filtar por: entorno o reproduccion" required>
                 <button type="submit">Filtrar</button>
             </form>
         </div>
