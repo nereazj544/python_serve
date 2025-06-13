@@ -75,9 +75,9 @@ def filter_items():
         return jsonify({'status': 'error', 'message': '¡ENTORNO NO VALIDO!'}), 400
 
 
-
-
-
+@app.route('/ficha/<int:item_id>')
+def ficha(item_id):
+    return render_template('ficha.html', item_id=item_id)
 
 
 
