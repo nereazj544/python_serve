@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha de Animal</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style_ficha.css') }}">
 </head>
-<body>
-        <h1>Lista de Animales</h1>
-    <table id="view">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Entorno</th>
-                <th>Tipo de reproduccion</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in items %}
-                <tr>
-                    <td>
-                        <a href="{{ url_for('ficha', item_id=item.id) }}">{{ item.id }}</a>
-                    </td>
-                    <td class="animal-nombre">
-                        <a href="{{ url_for('ficha', item_id=item.id) }}">{{ item.nombre }}</a>
-                        {% if item.img_url %}
-                        <span class="img-view">
-                            <img src="{{item.img_url}}" alt="imagen animal: {{item.nombre}}" srcset="">
-                        </span>
-                        {% endif %}
-                    </td>
-                    <td>{{ item.entorno }}</td>
-                    <td>{{ item.tipo_reproduccion }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 
+<body>
+    <ul class="opciones">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/api/animal_view">Ver API</a></li>
+    </ul>
+    <h1>Informacion animal: {{ item.nombre }}</h1>
+    <div class="info-animal">
+
+
+
+        <table id="view">
+
+
+            <tr>
+                <th>Nombre</th>
+                <td>{{ item.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Entorno</th>
+                <td>{{ item.entorno }}</td>
+            </tr>
+            <tr>
+                <th>Tipo de <br> reproduccion</th>
+                <td>{{ item.tipo_reproduccion }}</td>
+            </tr>
+            <tr>
+                <th>Habitat</th>
+                <td>{{ item.habitat }}</td>
+            </tr>
+            <tr>
+                <th>Velocidad</th>
+                <td>{{ item.velocidad }}</td>
+            </tr>
+            <tr>
+                <th>Alimentacion</th>
+                <td>{{ item.alimentacion }}</td>
+            </tr>
+
+
+        </table>
+
+
+        <div class="imagen">
+            {% if item.img_url %}
+            <img src="{{ item.img_url }}" alt="Imagen de {{ item.nombre }}" class="animal-img">
+            {% else %}
+            <p>No hay imagen disponible</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="separador"></div>
+
+
+    <h2>Informacion basica del animal: {{ item.nombre }}</h2>
+    <div class="info-animal">
+        <p>{{ item.informacion_basica }}</p>
+    </div>
 </body>
+
 </html>

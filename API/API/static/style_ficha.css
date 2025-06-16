@@ -1,4 +1,4 @@
-:root{
+:root {
     --color1: #daf2c25a;
     --color2: #023859;
     --color3: #07D9B2;
@@ -6,9 +6,89 @@
     --color5: #F2DC6B;
 }
 
-*{
-    margin: 0; padding: 0;
+* {
+    margin: 0;
+    padding: 0;
     list-style: none;
     text-decoration: none;
-    
+
+}
+
+.opciones{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    gap: 20px;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: var(--color2);
+    text-decoration: underline;
+}
+
+body {
+    background-color: var(--color1);
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+
+    font-size: 2.5em;
+}
+
+h1,
+h2 {
+    margin-top: 2%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+td{
+    /* border: 1px solid var(--color4); */
+    padding: 8px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+    text-align: justify;
+}
+
+.info-animal {
+    margin: 20px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* centrado vertical */
+    justify-content: center;
+    /* centrado horizontal (opcional) */
+    gap: 40px;
+    /* espacio entre la tabla y la imagen */
+}
+
+.imagen {
+    margin: 0;
+    /* Elimina el margin de la imagen para evitar separación extra */
+    display: flex;
+    align-items: center;
+    /* asegura que la imagen esté centrada verticalmente */
+}
+
+.animal-img {
+    max-width: 350px;
+    /* O el tamaño que mejor se vea */
+    height: auto;
+    border-radius: 12px;
+    /* Opcional: solo estética */
 }

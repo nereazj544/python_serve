@@ -90,5 +90,15 @@ def ficha(item_id):
 
 
 
+# TODO: == VIEW API ==
+@app.route('/api/animal_view')
+def animal_view():
+    items = list(collection.find())
+    for item in items:
+        item['_id'] = str(item['_id'])
+    return jsonify(items)
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
