@@ -7,6 +7,7 @@ from pymongo import MongoClient
 client = MongoClient('mongodb://localhost:27017/')
 db = client['ns']
 collection = db['terminales']
+collection_historial = db['history']
 
 app = Flask(__name__)
 swagger = Swagger(app)  # Inicializar Swagger para la documentacion de la API
