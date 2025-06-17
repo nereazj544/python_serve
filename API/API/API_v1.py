@@ -14,10 +14,6 @@ app = Flask(__name__)
 swagger = Swagger(app)  # Inicializar Swagger para la documentacion de la API
 
 
-
-
-
-
 # TODO : ======= RUTAS DE LA APLICACION =======
 @app.route('/')
 def home(): # ? Ruta principa
@@ -29,6 +25,17 @@ def home(): # ? Ruta principa
             description: "Lista de animales"
         500:
             description: "Error al obtener los datos de la base de datos"
+    tags:
+        - Animales
+    summary: "Obtener todos los animales"
+    description: "Esta ruta obtiene todos los animales de la base de datos."
+    produces:
+        - application/json
+    
+    
+    
+
+
     """
 
     items = list(collection.find())
@@ -44,6 +51,9 @@ def add_animal():
     """
     Ruta para agregar un nuevo animal a la base de datos
     ---
+    tags:
+        - Animales
+    summary: "Agregar un nuevo animal"
     parameters:
         - name: nombre
           in: formData

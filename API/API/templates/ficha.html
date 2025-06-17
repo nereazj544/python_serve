@@ -66,6 +66,21 @@
     <div class="info-animal">
         <p>{{ item.informacion_basica }}</p>
     </div>
+
+    <div class="separador"></div>
+
+    <h2>Galeria de imagenes de: {{ item.nombre }}</h2>
+    <p>Desliza para ver las imagenes</p>
+
+    <div class="slider">
+        {% if item.galeria %}
+        {% for img in item.galeria %}
+            <img src="{{ img }}" alt="Galeria de {{ item.nombre }}" class="carousel__slide">
+        {% endfor %}
+        {% else %}
+        <p>No hay galeria disponible</p>
+        {% endif %}
+    </div>
 </body>
 
 </html>
