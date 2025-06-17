@@ -1,9 +1,7 @@
 from flask import Flask, render_template, request, jsonify
-
-from flasgger import Swagger # Swagger para documentacion de la API
-
-
+from flasgger import Swagger  # Swagger para documentacion de la API
 from pymongo import MongoClient
+
 
 # TODO: ======= CONFIGURACION DE LA BASE DE DATOS =======
 client = MongoClient('mongodb://localhost:27017/')
@@ -155,7 +153,7 @@ def filter_items():
         return jsonify({'status': 'error', 'message': '¡ENTORNO NO VALIDO!'}), 400
 
 
-@app.route('/ficha/<int:item_id>')
+@app.route('/ficha/int:item_id')
 def ficha(item_id):
     item = collection.find_one({'id': item_id})
     if not item:
@@ -177,32 +175,29 @@ def animal_view():
     Ejemplo de respuesta:
     ---
     tags:
-    - View API
+      - View API
     summary: "Obtener todos los animales en formato JSON"
     responses:
       200:
         description: Lista de animales en formato JSON
-            content:
-                application/json: 
-                examples:
-                [
-                {
-                    "id": 1, 
-                    "nombre": "Leon", 
-                    "informacion_basica": "El leon es conocido como el rey de la selva, vive en manadas y es uno de los grandes depredadores de Africa", 
-                    "entorno": "Terreste", 
-                    "tipo_reproduccion": "Mamifero",
-                    "habitat": "Sabana africana", 
-                    "velocidad": "80 km/h", 
-                    "alimentacion": "Carnivoro", 
-                    "img_url": "https://images.pexels.com/photos/1912176/pexels-photo-1912176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", 
-                    "galeria": ["https://images.pexels.com/photos/32551859/pexels-photo-32551859.jpeg",
-                    "https://images.pexels.com/photos/68421/pexels-photo-68421.jpeg",
-                    "https://images.pexels.com/photos/40803/lion-animal-predator-big-cat-40803.jpeg",
-                    "https://images.pexels.com/photos/107506/pexels-photo-107506.jpeg",
-                    "https://images.pexels.com/photos/162206/lioness-animal-predator-cat-162206.jpeg"]
-                },
-                ]
+        content:
+          application/json:
+            example:
+              - id: 1
+                nombre: Leon
+                informacion_basica: El leon es conocido como el rey de la selva, vive en manadas y es uno de los grandes depredadores de Africa
+                entorno: Terrestre
+                tipo_reproduccion: Mamifero
+                habitat: Sabana africana
+                velocidad: 80 km/h
+                alimentacion: Carnivoro
+                img_url: <https://images.pexels.com/photos/1912176/pexels-photo-1912176.jpeg>
+                galeria:
+                  - <https://images.pexels.com/photos/32551859/pexels-photo-32551859.jpeg>
+                  - <https://images.pexels.com/photos/68421/pexels-photo-68421.jpeg>
+                  - <https://images.pexels.com/photos/40803/lion-animal-predator-big-cat-40803.jpeg>
+                  - <https://images.pexels.com/photos/107506/pexels-photo-107506.jpeg>
+                  - <https://images.pexels.com/photos/162206/lioness-animal-predator-cat-162206.jpeg>
     """
     items = list(collection.find())
     for item in items:
