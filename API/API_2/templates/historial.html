@@ -16,54 +16,52 @@
     </ul>
     <div class="separador"></div>
 
-    <h1>Informacion animal: {{ item.nombre }}</h1>
+    <h1>Informacion terminal: {{ item.nombre }}</h1>
     <div class="info-animal">
 
 
 
         <table>
-            
-                
-            
-            
-                {% for item in items %}
-                <tr>
-                    <td>ID</td>
-                    <td>
-
-                        {{ item.id }}
-                        
-                    </td>
-                    <td class="animal-nombre">
-
-
-                        {{ item.nombre }}
-
-                        {% if item.ubicacion_url %}
-                        <span class="img-view">
-                            <img src="{{item.ubicacion_url}}" alt="imagen zona: {{item.zona}}" srcset="">
-                        </span>
-                        {% endif %}
-                    </td>
-                    <td class="animal-nombre">
-                        {{ item.zona }}
-                        {% if item.ubicacion_url %}
-                        <span class="img-view">
-                            <img src="{{item.ubicacion_url}}" alt="imagen zona: {{item.zona}}" srcset="">
-                        </span>
-                        {% endif %}
-                    </td>
-
-                    <td>{{ item.ubicacion }}</td>
-                    <td>{{ item.estado }}</td>
-                    <td>{{item.modelo}}</td>
-                    <td>{{item.fecha_instalacion}}</td>
-                    <td>{{item.fecha_mantenimiento}}</td>
-                    <td>{{item.proximo_mantenimiento}}</td>
-                    <td>{{item.tecnico}}</td>
-
-                </tr>
-                {% endfor %}
+            <tr>
+                <th>ID</th>
+                <td>{{ item.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ item.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Zona</th>
+                <td>{{ item.zona }}</td>
+            </tr>
+            <tr>
+                <th>Ubicacion</th>
+                <td>{{ item.ubicacion }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ item.estado }}</td>
+            </tr>
+            <tr>
+                <th>Modelo</th>
+                <td>{{ item.modelo }}</td>
+            </tr>
+            <tr>
+                <th>Fecha Instalacion</th>
+                <td>{{ item.fecha_instalacion }}</td>
+            </tr>
+            <tr>
+                <th>Fecha Mantenimiento</th>
+                <td>{{ item.fecha_mantenimiento }}</td>
+            </tr>
+            <tr>
+                <th>Proximo Mantenimiento</th>
+                <td>{{ item.proximo_mantenimiento }}</td>
+            </tr>
+            <tr>
+                <th>Tecnico Asignado</th>
+                <td>{{ item.tecnico_asignado }}</td>
+            </tr>
             
         </table>
 
