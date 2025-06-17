@@ -1,4 +1,8 @@
 from flask import Flask, render_template, request, jsonify
+
+from flasgger import Swagger # Swagger para documentacion de la API
+
+
 from pymongo import MongoClient
 
 # TODO: ======= CONFIGURACION DE LA BASE DE DATOS =======
@@ -7,6 +11,7 @@ db = client['zoo3']
 collection = db['animales']
 
 app = Flask(__name__)
+swagger = Swagger(app)  # Inicializar Swagger para la documentacion de la API
 
 # TODO : ======= RUTAS DE LA APLICACION =======
 @app.route('/')
