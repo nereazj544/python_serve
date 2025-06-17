@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial de incidencias</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style_history.css') }}">
 </head>
+
 <body>
     <ul class="opciones">
         <li><a href="/">Inicio</a></li>
@@ -13,5 +15,69 @@
         <li><a href="/apidocs">API Docs</a></li>
     </ul>
     <div class="separador"></div>
+
+    <h1>Informacion animal: {{ item.nombre }}</h1>
+    <div class="info-animal">
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Zona</th>
+                    <th>Ubicacion</th>
+                    <th>Estado</th>
+                    <th>Modelo</th>
+                    <th>Fecha Instalacion</th>
+                    <th>Fecha Mantenimeinto</th>
+                    <th>Proximo Mantenimeinto</th>
+                    <th>Tecnico asignado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>
+
+                    <td>ID</td>
+                    {{ item.id }}
+
+                    </td>
+                    <td class="animal-nombre">
+
+
+                        {{ item.nombre }}
+
+                        {% if item.ubicacion_url %}
+                        <span class="img-view">
+                            <img src="{{item.ubicacion_url}}" alt="imagen zona: {{item.zona}}" srcset="">
+                        </span>
+                        {% endif %}
+                    </td>
+                    <td class="animal-nombre">
+                        {{ item.zona }}
+                        {% if item.ubicacion_url %}
+                        <span class="img-view">
+                            <img src="{{item.ubicacion_url}}" alt="imagen zona: {{item.zona}}" srcset="">
+                        </span>
+                        {% endif %}
+                    </td>
+
+                    <td>{{ item.ubicacion }}</td>
+                    <td>{{ item.estado }}</td>
+                    <td>{{item.modelo}}</td>
+                    <td>{{item.fecha_instalacion}}</td>
+                    <td>{{item.fecha_mantenimiento}}</td>
+                    <td>{{item.proximo_mantenimiento}}</td>
+                    <td>{{item.tecnico}}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
 </body>
+
 </html>

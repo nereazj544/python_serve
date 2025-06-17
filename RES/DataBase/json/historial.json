@@ -13,5 +13,80 @@
                 "descripcion": "Mantenimiento preventivo realizado"
             }
         ]
+    },
+    {
+        "id": 2,
+        "terminal_id": 2,
+        "estado_actual": "inactivo",
+        "reparaciones": [
+            {
+                "fecha": "2023-10-01",
+                "descripcion": "Instalación inicial del terminal"
+            },
+            {
+                "fecha": "2024-02-11",
+                "descripcion": "Incidencia de energía; terminal apagada hasta revisión"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "terminal_id": 3,
+        "estado_actual": "mantenimiento",
+        "reparaciones": [
+            {
+                "fecha": "2023-10-01",
+                "descripcion": "Instalación inicial del terminal"
+            },
+            {
+                "fecha": "2025-06-14",
+                "descripcion": "Reporte de fallo en conectores"
+            },
+            {
+                "fecha": "2025-06-15",
+                "descripcion": "Revisión y cambio de conectores"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "terminal_id": 4,
+        "estado_actual": "activo",
+        "reparaciones": [
+            {
+                "fecha": "2023-10-01",
+                "descripcion": "Instalación inicial del terminal"
+            },
+            {
+                "fecha": "2023-10-15",
+                "descripcion": "Mantenimiento preventivo realizado"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "terminal_id": 5,
+        "estado_actual": "activo",
+        "reparaciones": [
+            {
+                "fecha": "2023-12-03",
+                "descripcion": "Instalación inicial del terminal"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "terminal_id": 6,
+        "estado_actual": "reparación",
+        "reparaciones": [
+            {
+                "fecha": "2024-01-16",
+                "descripcion": "Sustitución de pantalla táctil"
+            },
+            {
+                "fecha": "2024-03-08",
+                "descripcion": "Actualización de firmware"
+            }
+        ]
     }
 ]
