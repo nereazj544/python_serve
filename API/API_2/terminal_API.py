@@ -121,7 +121,44 @@ def filter_items():
     else:
         return jsonify({'status': 'error', 'message': '¡ENTORNO NO VALIDO!'}), 400
 
+@app.route('/update', methods=['POST'])
+def update():
+    try:
+        item_id = request.form.get('id')
+        if not item_id:
+            return jsonify({'status': 'error', 'message': 'ID requerido'}), 400
+        item_id = int(item_id)
 
+        update_fields = {}
+        if request.form.get('estado'):
+            update_fields['estado'] = request.form.get('estado').capitalize()
+        if request.form.get('fecha_reporte'):
+            update_fields['fecha_reporte'] = request.form.get('fecha_reporte')
+
+        if not update_fields:
+            return jsonify({'status': 'error', 'message': 'No hay campos para actualizar'}), 400
+
+        result = collection.update_one({'id': item_id}, {'$set': update_fields})
+
+        # Historial
+        descripcion = request.form.get('descripcion') or ''
+        if descripcion or request.form.get('fecha_reporte'):
+            entry = {
+                'fecha': request.form.get('fecha_reporte') or '',
+                'descripcion': descripcion or '-'
+            }
+            collection_historial.update_one(
+                {'terminal_id': item_id},
+                {'$push': {'reparaciones': entry}, '$setOnInsert': {'estado_actual': update_fields.get('estado',''), 'terminal_id': item_id}},
+                upsert=True
+            )
+
+        if result.modified_count > 0:
+            return jsonify({'status': 'success', 'message': 'Terminal actualizada correctamente'})
+        else:
+            return jsonify({'status': 'error', 'message': 'No se ha actualizado ningún campo (¿ID válido?)'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)}), 500
 
 @app.route('/historial/<int:item_id>')
 def historial(item_id):
