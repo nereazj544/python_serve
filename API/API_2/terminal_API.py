@@ -146,12 +146,19 @@ def historial(item_id):
         404:
             description: "Terminal no encontrado"
     """
+   # Buscar datos de la terminal
     item = collection.find_one({'id': item_id})
-    if item:
+    # Buscar el historial correspondiente
+    historial = collection_historial.find_one({'terminal_id': item_id})
+    # Convertir ObjectId a str si es necesario
+    if item and '_id' in item:
         item['_id'] = str(item['_id'])
-        return render_template('historial.html', item=item)
-    else:
-        return jsonify({'status': 'error', 'message': '¡Terminal no encontrado!'}), 404
+    if historial and '_id' in historial:
+        historial['_id'] = str(historial['_id'])
+    if not item:
+        return jsonify({'status': 'error', 'message': '¡Terminal no encontrada!'}), 404
+    # Renderizar la plantilla pasando ambos objetos
+    return render_template('historial.html', item=item, historial=historial)
 
 
 
