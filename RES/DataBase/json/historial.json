@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "terminal_id": 1,
+        "estado_actual": "activo",
+        "reparaciones": [
+            {
+                "fecha": "2023-10-01",
+                "descripcion": "Instalación inicial del terminal"
+            },
+            {
+                "fecha": "2023-10-15",
+                "descripcion": "Mantenimiento preventivo realizado"
+            }
+        ]
+    }
+]
