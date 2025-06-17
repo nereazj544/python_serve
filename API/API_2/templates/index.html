@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <ul class="opciones">
+        <li><a href="/api/animal_view">Ver API</a></li>
+        <li><a href="/apidocs">API Docs</a></li>
+        <li><a href="#add">Agregar Animal</a></li>
+        <li><a href="#delete">Eliminar Animal</a></li>
+        <li><a href="#filter">Filtrar Animales</a></li>
+    </ul>
+
+    <h1>Lista de Animales</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Entorno</th>
+                <th>Tipo de reproduccion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('ficha', item_id=item.id) }}">{{ item.id }}</a>
+                    </td>
+                    <td class="animal-nombre">
+                        <a href="{{ url_for('ficha', item_id=item.id) }}">{{ item.nombre }}</a>
+                        {% if item.img_url %}
+                        <span class="img-view">
+                            <img src="{{item.img_url}}" alt="imagen animal: {{item.nombre}}" srcset="">
+                        </span>
+                        {% endif %}
+                    </td>
+                    <td>{{ item.entorno }}</td>
+                    <td>{{ item.tipo_reproduccion }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div class="separador"></div>
+
+    <div class="opcion_2">
+        <div id="add" class="add_animal">
+            <h2>Agregar Animal</h2>
+            <form action="/add" method="POST" >
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" name="entorno" placeholder="Entorno" required>
+                <input type="text" name="tipo_reproduccion" placeholder="Tipo de reproduccion" required>
+                <input type="text" name="habitat" placeholder="Habitat" required>
+                <input type="text" name="velocidad" placeholder="Velocidad" required>
+                <input type="text" name="alimentacion" placeholder="Alimentacion" required>
+                <input type="text" name="informacion_basica" placeholder="Informacion Basica" required>
+                <input type="url" name="img_url" placeholder="Img Url" required>
+                <button type="submit">Agregar</button>
+        </form>
+    </div>
+        <div id="delete" class="delet_animal">
+            <h2>Eliminar Animal</h2>
+            <form action="/delete" method="POST">
+                <input type="number" name="id" placeholder="ID del animal a eliminar" required>
+                <button type="submit">Eliminar</button>
+            </form>
+        </div>
+
+        <div id="filter" class="filter_animal">
+            <h2>Filtrar Animales</h2>
+            <form action="/filter" method="POST">
+                <input type="text" name="entorno" placeholder="Filtar por: entorno o reproduccion" required>
+                <button type="submit">Filtrar</button>
+            </form>
+        </div>
+</div>
+
+</body>
+</html>
