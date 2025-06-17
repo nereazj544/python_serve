@@ -9,6 +9,7 @@ db = client['ns']
 collection = db['terminales']
 collection_historial = db['history']
 
+# TODO : ======= RUTAS DE LA APLICACION =======
 app = Flask(__name__)
 swagger = Swagger(app)  # Inicializar Swagger para la documentacion de la API
 
