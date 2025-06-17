@@ -121,6 +121,36 @@ def filter_items():
 
 
 
+@app.route('/historial/<int:item_id>')
+def historial(item_id):
+    """
+    RUTA PARA MOSTRAR EL HISTORIAL DE UN TERMINAL ESPECIFICO
+
+    ---
+
+    tags:
+        - Terminales View
+
+    parameters:
+         - name: item_id
+           in: path
+           type: integer
+           required: true
+           description: "ID del terminal para mostrar su historial"
+
+    responses:
+        200:
+            description: "Historial del terminal"
+        404:
+            description: "Terminal no encontrado"
+    """
+    item = collection.find_one({'id': item_id})
+    if item:
+        item['_id'] = str(item['_id'])
+        return render_template('historial.html', item=item)
+    else:
+        return jsonify({'status': 'error', 'message': '¡Terminal no encontrado!'}), 404
+
 
 
 
