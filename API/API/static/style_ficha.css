@@ -97,7 +97,7 @@ p {
 .slider{
     aspect-ratio: 10/16;
     position: relative;
-    width: 300px;
+    width: 50%;
     display: flex;
     overflow: scroll;
     align-items: center;
