@@ -22,27 +22,17 @@
 
 
         <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Zona</th>
-                    <th>Ubicacion</th>
-                    <th>Estado</th>
-                    <th>Modelo</th>
-                    <th>Fecha Instalacion</th>
-                    <th>Fecha Mantenimeinto</th>
-                    <th>Proximo Mantenimeinto</th>
-                    <th>Tecnico asignado</th>
-                </tr>
-            </thead>
-            <tbody>
+            
+                
+            
+            
                 {% for item in items %}
                 <tr>
+                    <td>ID</td>
                     <td>
 
-                    <td>ID</td>
-                    {{ item.id }}
-
+                        {{ item.id }}
+                        
                     </td>
                     <td class="animal-nombre">
 
@@ -74,7 +64,7 @@
 
                 </tr>
                 {% endfor %}
-            </tbody>
+            
         </table>
 
 
