@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "68515d40753768a732b824ec"
+  },
+  "id": 1,
+  "estado": "Activo",
+  "nombre": "Hospital 1",
+  "zona": "New North",
+  "ubicacion": "Sala 1, estacion sur: Hospital 1",
+  "ubicacion_url": "https://images.pexels.com/photos/668298/pexels-photo-668298.jpeg",
+  "modelo": "Modelo 13th",
+  "fecha_instalacion": "2023-10-01",
+  "fecha_mantenimiento": "2023-10-15",
+  "fecha_reporte": "",
+  "ultima_revision": "2023-10-20",
+  "proximo_mantenimiento": "2024-01-15",
+  "tecnico": "Juan Perez"
+},
+{
+  "_id": {
+    "$oid": "68515d40753768a732b824ed"
+  },
+  "id": 2,
+  "estado": "Inactivo",
+  "zona": "New North",
+  "nombre": "Hospital 2",
+  "ubicacion": "Sala 2, estacion norte: Hospital 2",
+  "ubicacion_url": "https://images.pexels.com/photos/1692693/pexels-photo-1692693.jpeg",
+  "modelo": "Modelo 13th",
+  "fecha_instalacion": "2023-10-01",
+  "fecha_mantenimiento": "2023-10-15",
+  "fecha_reporte": "",
+  "ultima_revision": "2023-10-20",
+  "proximo_mantenimiento": "2024-01-15",
+  "tecnico": "Juan Perez"
+},
+{
+  "_id": {
+    "$oid": "68515d40753768a732b824ee"
+  },
+  "id": 3,
+  "estado": "Mantenimiento",
+  "zona": "New Elmswood",
+  "nombre": "Golf 1",
+  "ubicacion": "Sala 1, estacion sur: Club de Golf 1",
+  "ubicacion_url": "https://images.pexels.com/photos/6573872/pexels-photo-6573872.jpeg",
+  "modelo": "Modelo 90th",
+  "fecha_instalacion": "2023-10-01",
+  "fecha_mantenimiento": "2025-06-15",
+  "fecha_reporte": "2025-06-14",
+  "ultima_revision": "2025-06-15",
+  "proximo_mantenimiento": "2024-01-15",
+  "tecnico": "Alec Johnson"
+},
+{
+  "_id": {
+    "$oid": "6851676c753768a732b824f1"
+  },
+  "id": 4,
+  "estado": "Activo",
+  "zona": "New Elmswood",
+  "nombre": "Golf 2",
+  "ubicacion": "Sala 2, estacion norte: Club de Golf 2",
+  "ubicacion_url": "https://images.pexels.com/photos/1308799/pexels-photo-1308799.jpeg",
+  "modelo": "Modelo 90th",
+  "fecha_instalacion": "2023-10-01",
+  "fecha_mantenimiento": "2023-10-15",
+  "fecha_reporte": "",
+  "ultima_revision": "2023-10-15",
+  "proximo_mantenimiento": "2024-01-15",
+  "tecnico": "Alec Johnson"
+},
+{
+  "_id": {
+    "$oid": "6851689627bf90d0e43f682c"
+  },
+  "id": 5,
+  "estado": "Activo",
+  "zona": "New center",
+  "nombre": "Universidad 1_center",
+  "ubicacion": "Sala 1_1, estacion este: universidad cuantica",
+  "ubicacion_url": "https://images.pexels.com/photos/32570519/pexels-photo-32570519.jpeg",
+  "modelo": "Modelo 12th",
+  "fecha_instalacion": "2020-01-16",
+  "fecha_mantenimiento": "2025-06-01",
+  "fecha_reporte": "2025-06-15",
+  "ultima_revision": "2025-06-01",
+  "proximo_mantenimiento": "2025-07-31",
+  "tecnico": "Kenny"
+}]
