@@ -173,6 +173,37 @@ def ficha(item_id):
 # TODO: == VIEW API ==
 @app.route('/api/animal_view')
 def animal_view():
+    """
+    Ejemplo de respuesta:
+    ---
+    tags:
+    - View API
+    summary: "Obtener todos los animales en formato JSON"
+    responses:
+      200:
+        description: Lista de animales en formato JSON
+            content:
+                application/json: 
+                examples:
+                [
+                {
+                    "id": 1, 
+                    "nombre": "Leon", 
+                    "informacion_basica": "El leon es conocido como el rey de la selva, vive en manadas y es uno de los grandes depredadores de Africa", 
+                    "entorno": "Terreste", 
+                    "tipo_reproduccion": "Mamifero",
+                    "habitat": "Sabana africana", 
+                    "velocidad": "80 km/h", 
+                    "alimentacion": "Carnivoro", 
+                    "img_url": "https://images.pexels.com/photos/1912176/pexels-photo-1912176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", 
+                    "galeria": ["https://images.pexels.com/photos/32551859/pexels-photo-32551859.jpeg",
+                    "https://images.pexels.com/photos/68421/pexels-photo-68421.jpeg",
+                    "https://images.pexels.com/photos/40803/lion-animal-predator-big-cat-40803.jpeg",
+                    "https://images.pexels.com/photos/107506/pexels-photo-107506.jpeg",
+                    "https://images.pexels.com/photos/162206/lioness-animal-predator-cat-162206.jpeg"]
+                },
+                ]
+    """
     items = list(collection.find())
     for item in items:
         item['_id'] = str(item['_id'])
