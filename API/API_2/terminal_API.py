@@ -11,3 +11,34 @@ collection = db['terminales']
 app = Flask(__name__)
 swagger = Swagger(app)  # Inicializar Swagger para la documentacion de la API
 
+@app.route('/')
+def home():
+    items = list(collection.find())
+    for item in items:
+        item['_id'] = str(item['_id'])
+    return render_template('index.html', items=items)
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

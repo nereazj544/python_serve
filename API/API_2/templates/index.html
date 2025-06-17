@@ -8,39 +8,40 @@
 </head>
 <body>
     <ul class="opciones">
-        <li><a href="/api/animal_view">Ver API</a></li>
+        <li><a href="/api/terminal_view">Ver API</a></li>
         <li><a href="/apidocs">API Docs</a></li>
-        <li><a href="#add">Agregar Animal</a></li>
-        <li><a href="#delete">Eliminar Animal</a></li>
-        <li><a href="#filter">Filtrar Animales</a></li>
+        <li><a href="#add">Agregar Terminal</a></li>
+        <li><a href="#delete">Eliminar Terminal</a></li>
+        <li><a href="#filter">Filtrar Terminales</a></li>
+        <li><a href="#update">Actualizar Terminal</a></li>
     </ul>
 
-    <h1>Lista de Animales</h1>
+    <h1>Lista de Terminales</h1>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Entorno</th>
-                <th>Tipo de reproduccion</th>
+                <th>Zona</th>
+                <th>Ubicacion</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             {% for item in items %}
                 <tr>
                     <td>
-                        <a href="{{ url_for('ficha', item_id=item.id) }}">{{ item.id }}</a>
+                        {{ item.id }}
                     </td>
                     <td class="animal-nombre">
-                        <a href="{{ url_for('ficha', item_id=item.id) }}">{{ item.nombre }}</a>
-                        {% if item.img_url %}
+                        {{ item.zona }}
+                        {% if item.ubicacion_url %}
                         <span class="img-view">
-                            <img src="{{item.img_url}}" alt="imagen animal: {{item.nombre}}" srcset="">
+                            <img src="{{item.ubicacion_url}}" alt="imagen zona: {{item.zona}}" srcset="">
                         </span>
                         {% endif %}
                     </td>
-                    <td>{{ item.entorno }}</td>
-                    <td>{{ item.tipo_reproduccion }}</td>
+                    <td>{{ item.ubicacion }}</td>
+                    <td>{{ item.estado }}</td>
                 </tr>
             {% endfor %}
         </tbody>
