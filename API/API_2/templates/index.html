@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <ul class="opciones">
         <li><a href="/api/terminal_view">Ver API</a></li>
@@ -27,28 +29,33 @@
                 <th>Modelo</th>
                 <th>Fecha Instalacion</th>
                 <th>Fecha Mantenimeinto</th>
-                <th>Fecha Ultima Revision</th>
                 <th>Proximo Mantenimeinto</th>
                 <th>Tecnico asignado</th>
             </tr>
         </thead>
         <tbody>
             {% for item in items %}
-                <tr>
-                    <td>
-                        {{ item.id }}
-                    </td>
-                    <td class="animal-nombre">
-                        {{ item.zona }}
-                        {% if item.ubicacion_url %}
-                        <span class="img-view">
-                            <img src="{{item.ubicacion_url}}" alt="imagen zona: {{item.zona}}" srcset="">
-                        </span>
-                        {% endif %}
-                    </td>
-                    <td>{{ item.ubicacion }}</td>
-                    <td>{{ item.estado }}</td>
-                </tr>
+            <tr>
+                <td>
+                    {{ item.id }}
+                </td>
+                <td class="animal-nombre">
+                    {{ item.zona }}
+                    {% if item.ubicacion_url %}
+                    <span class="img-view">
+                        <img src="{{item.ubicacion_url}}" alt="imagen zona: {{item.zona}}" srcset="">
+                    </span>
+                    {% endif %}
+                </td>
+                <td>{{ item.ubicacion }}</td>
+                <td>{{ item.estado }}</td>
+                <td>{{item.modelo}}</td>
+                <td>{{item.fecha_instalacion}}</td>
+                <td>{{item.fecha_mantenimiento}}</td>
+                <td>{{item.proximo_mantenimiento}}</td>
+                <td>{{item.tecnico}}</td>
+
+            </tr>
             {% endfor %}
         </tbody>
     </table>
@@ -59,7 +66,7 @@
     <div class="opcion_2">
         <div id="add" class="add_animal">
             <h2>Agregar Animal</h2>
-            <form action="/add" method="POST" >
+            <form action="/add" method="POST">
                 <input type="text" name="nombre" placeholder="Nombre" required>
                 <input type="text" name="entorno" placeholder="Entorno" required>
                 <input type="text" name="tipo_reproduccion" placeholder="Tipo de reproduccion" required>
@@ -69,8 +76,8 @@
                 <input type="text" name="informacion_basica" placeholder="Informacion Basica" required>
                 <input type="url" name="img_url" placeholder="Img Url" required>
                 <button type="submit">Agregar</button>
-        </form>
-    </div>
+            </form>
+        </div>
         <div id="delete" class="delet_animal">
             <h2>Eliminar Animal</h2>
             <form action="/delete" method="POST">
@@ -86,7 +93,8 @@
                 <button type="submit">Filtrar</button>
             </form>
         </div>
-</div>
+    </div>
 
 </body>
+
 </html>

@@ -25,6 +25,9 @@ def home():
 
 
 
+# @app.route('/apidocs')
+# def api_doc():
+#     return render_template('openapi.yaml')
 
 
 
@@ -32,8 +35,12 @@ def home():
 
 
 
-
-
+@app.route('/api/terminal_view')
+def terminal_view():
+    items = list(collection.find())
+    for item in items:
+        item['_id'] = str(item['_id'])
+    return jsonify(items)
 
 
 
