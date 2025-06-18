@@ -63,9 +63,39 @@ def add():
     ---
     tags:
         - Terminales Add
+
+    parameters:
+        - name: nombre
+          in: formData
+          type: string
+          required: true
+          description: "Nombre del terminal"
+        - name: zona
+          in: formData
+          type: string
+          required: true
+          description: "Zona del terminal"
+        - name: estado
+          in: formData
+          type: string
+          required: true
+          description: "Estado del terminal (operativa, mantenimiento, inactiva)"
+        - name: ubicacion
+          in: formData
+          type: string
+          required: true
+          description: "Ubicación del terminal"
+        - name: ubicacion_url
+          in: formData
+          type: string
+          required: true
+          description: "URL de la ubicación del terminal"
+        - name: modelo
+          in: formData
+          type: string
+          required: true
+          description: "Modelo del terminal"
     """
-
-
 
     nombre = request.form.get('nombre').capitalize()
     zona = request.form.get('zona').capitalize()
