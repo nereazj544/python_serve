@@ -466,6 +466,16 @@ def inventario(item_id):
     return render_template('tec_inventario.html', item=item, inventario=inventario)
 
 
+@app.route('/update_tecnico', methods=['POST'])
+def tecnico_update():
+    """
+    RUTA PARA ACTUALIZAR UN TECNICO
+    ---
+    tags:
+        - Tecnicos
+    """
+    pass
+
 
 if __name__ == '__main__':
     app.run(debug=True)

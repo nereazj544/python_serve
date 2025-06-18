@@ -24,9 +24,11 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                <th>ID: Tecnico</th>
+                <th>ID: Inventario</th>
                 <th>Nombre</th>
                 <th>Zona</th>
+
             </tr>
         </thead>
         <tbody>
@@ -36,9 +38,12 @@
                     <a href="/tecnico_view/{{ tecnico.id }}">{{ tecnico.id }}</a>
                 </td>
                 <td>
-                    <a href="/tecnico_view/{{tecnico.id}}"> {{ tecnico.nombre }}</a>
-                   
+                    {{ tecnico.id }}
+                </td>
 
+                
+                <td>
+                    <a href="/tecnico_view/{{tecnico.id}}"> {{ tecnico.nombre }}</a>
                 </td>
                 <td>{{ tecnico.zona }}</td>
             </tr>
@@ -74,7 +79,18 @@
                 <button type="submit">Filtrar</button>
             </form>
         </div>
-
+        
+        <div class="update">
+            <h2>Actualizar Inventario</h2>
+            <form action="/update_tecnico" method="POST">
+                
+                <input type="number" name="id" placeholder="ID de técnico (inventario)" required>
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="number" name="cantidad" placeholder="Cantidad" required>
+                <button type="submit">Actualizar</button>
+            </form>
+            
+        </div>
 
     </div>
 
