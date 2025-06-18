@@ -343,8 +343,8 @@ def add_tecnico():
           required: true
           description: "Zona del tecnico"
     """
-    nombre = request.form.get('nombre')
-    zona = request.form.get('zona')
+    nombre = request.form.get('nombre').capitalize()
+    zona = request.form.get('zona').capitalize()
     
 
     if nombre and zona:
@@ -352,7 +352,6 @@ def add_tecnico():
             'id': collection_tecnico.count_documents({}) + 1,
             'nombre': nombre,
             'zona': zona
-            
         })
         return jsonify({'status': 'success', 'message': 'Tecnico agregado exitosamente'})
     else:
