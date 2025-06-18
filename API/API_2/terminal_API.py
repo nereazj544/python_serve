@@ -480,8 +480,8 @@ def tecnico_view():
                             type: string
                         email:
                             type: string
-        200:
-            description: "Lista de tecnicos"
+        300:
+            description: "Lista de inventarios de los tecnicos"
             schema:
                 type: array
                 items:
@@ -490,10 +490,6 @@ def tecnico_view():
                         id:
                             type: integer
                         tecnico_id:
-                            type: integer
-                        nombre:
-                            type: string
-                        cantidad:
                             type: integer
                         inventario:
                             type: array
