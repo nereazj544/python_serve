@@ -378,6 +378,8 @@ def add_tecnico():
     """
     nombre = request.form.get('nombre').capitalize()
     zona = request.form.get('zona').capitalize()
+    telefono = request.form.get('telefono')
+    email = request.form.get('email')
     
     
 
@@ -385,7 +387,9 @@ def add_tecnico():
         collection_tecnico.insert_one({
             'id': collection_tecnico.count_documents({}) + 1,
             'nombre': nombre,
-            'zona': zona
+            'zona': zona,
+            'telefono': telefono,
+            'email': email
         })
 
         collection_tec_inventario.insert_one({
