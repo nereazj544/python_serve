@@ -347,12 +347,19 @@ def add_tecnico():
     nombre = request.form.get('nombre').capitalize()
     zona = request.form.get('zona').capitalize()
     
+    
 
     if nombre and zona:
         collection_tecnico.insert_one({
             'id': collection_tecnico.count_documents({}) + 1,
             'nombre': nombre,
             'zona': zona
+        })
+
+        collection_tec_inventario.insert_one({
+            'id': collection_tec_inventario.count_documents({}) + 1,
+            'tecnico_id': collection_tecnico.count_documents({}),
+            'inventario': []
         })
         return jsonify({'status': 'success', 'message': 'Tecnico agregado exitosamente'})
     else:
@@ -420,7 +427,24 @@ def tecnico_view():
     summary: "Obtener todos los tecnicos"
     tags:
         - Tecnicos
-
+    responses:
+        200:
+            description: "Lista de tecnicos"
+            schema:
+                type: array
+                items:
+                    type: object
+                    properties:
+                        id:
+                            type: integer
+                        nombre:
+                            type: string
+                        zona:
+                            type: string
+                        telefono:
+                            type: string
+                        email:
+                            type: string
     """
     items = list(collection_tecnico.find())
     for item in items:
@@ -448,6 +472,28 @@ def inventario(item_id):
     responses:
         200:
             description: "Historial del terminal"
+            responses:
+            schema:
+                type: array
+                items:
+                    type: object
+                    properties:
+                        id:
+                            type: integer
+                        tecnico_id:
+                            type: integer
+                        inventario:
+                            type: array
+                            items:
+                                type: object
+                                properties:
+                                    id:
+                                        type: integer
+                                    nombre:
+                                        type: string
+                                    cantidad:
+                                        type: integer
+
         404:
             description: "Terminal no encontrado"
     """
@@ -469,12 +515,49 @@ def inventario(item_id):
 @app.route('/update_tecnico', methods=['POST'])
 def tecnico_update():
     """
-    RUTA PARA ACTUALIZAR UN TECNICO
+    RUTA PARA ACTUALIZAR EL INVENTARIO DE UN TECNICO
     ---
     tags:
         - Tecnicos
+    parameters:
+        - name: id
+          in: formData
+          type: integer
+          required: true
+          description: "ID del tecnico a actualizar"
+        - name: nombre
+          in: formData
+          type: string
+          required: true
+          description: "Nombre del elemento a añadir al inventario"
+        - name: cantidad
+          in: formData
+          type: string
+          required: true
+          description: "Cantidad del item a añadir al inventario"
     """
-    pass
+    nombre = request.form.get('nombre').capitalize()
+    cantidad = request.form.get('cantidad')
+
+    if nombre and cantidad:
+        item_id = request.form.get('id')
+        if not item_id:
+            return jsonify({'status': 'error', 'message': 'ID requerido'}), 400
+        item_id = int(item_id)
+
+        # Actualizar el tecnico
+        result = collection_tecnico.update_one({'id': item_id}, {'$set': {'nombre': nombre}})
+        
+        # Actualizar el inventario del tecnico
+        collection_tec_inventario.update_one(
+            {'tecnico_id': item_id},
+            {'$push': {'inventario': {'nombre': nombre, 'cantidad': cantidad}}}
+        )
+
+        if result.modified_count > 0:
+            return jsonify({'status': 'success', 'message': 'Técnico actualizado correctamente'})
+        else:
+            return jsonify({'status': 'error', 'message': 'No se ha actualizado ningún campo (¿ID válido?)'})
 
 
 if __name__ == '__main__':

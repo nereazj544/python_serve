@@ -2,7 +2,7 @@
     {
         "id": 1,
         "tecnico_id": 1,
-        "elementos": [
+        "inventario": [
             {
                 "id": 1,
                 "nombre": "Router",
@@ -23,7 +23,7 @@
     {
         "id": 2,
         "tecnico_id": 2,
-        "elementos": [
+        "inventario": [
             {
                 "id": 1,
                 "nombre": "Cables",
@@ -39,6 +39,13 @@
                 "nombre": "Pantalla",
                 "cantidad": 6
             }
+        ]
+    },
+    {
+        "id": 3,
+        "tecnico_id": 3,
+        "inventario": [
+            
         ]
     }
 ]
