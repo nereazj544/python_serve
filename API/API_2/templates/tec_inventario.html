@@ -11,7 +11,7 @@
 <body>
     <ul class="opciones">
         <li><a href="/">Inicio</a></li>
-        <li><a href="/api/terminal_view">Ver API</a></li>
+        <li><a href="/api/tecnico_view">Ver API</a></li>
         <li><a href="/apidocs">API Docs</a></li>
     </ul>
     <div class="separador"></div>
@@ -41,14 +41,6 @@
                 
             </table>
 
-
-            <div class="imagen">
-                {% if item.ubicacion_url %}
-                <img src="{{ item.ubicacion_url }}" alt="Imagen de {{ item.nombre }}" class="animal-img">
-                {% else %}
-                <p>No hay imagen disponible</p>
-                {% endif %}
-            </div>
         </div>
         <div class="separador"></div>
 
