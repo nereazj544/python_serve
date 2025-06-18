@@ -323,6 +323,42 @@ def tecnico():
         tecnico['_id'] = str(tecnico['_id'])
     return render_template('tecnico.html', tecnicos=tecnicos)
 
+@app.route('/add_tecnico', methods=['POST'])
+def add_tecnico():
+    """
+    RUTA PARA AÑADIR UN NUEVO TECNICO
+    ---
+    summary: "Añadir tecnico"
+    tags:
+        - Tecnicos Add
+    parameters:
+        - name: nombre
+          in: formData
+          type: string
+          required: true
+          description: "Nombre del tecnico"
+        - name: zona
+          in: formData
+          type: string
+          required: true
+          description: "Zona del tecnico"
+    """
+    nombre = request.form.get('nombre')
+    zona = request.form.get('zona')
+    
+
+    if nombre and zona:
+        collection_tecnico.insert_one({
+            'id': collection_tecnico.count_documents({}) + 1,
+            'nombre': nombre,
+            'zona': zona
+            
+        })
+        return jsonify({'status': 'success', 'message': 'Tecnico agregado exitosamente'})
+    else:
+        return jsonify({'status': 'error', 'message': '¡Todos los campos son obligatorios!'}), 400
+
+
 
 
 if __name__ == '__main__':
