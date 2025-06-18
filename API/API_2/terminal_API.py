@@ -54,8 +54,15 @@ def home():
     
 
 
-
-
+@app.route('/download')
+def download():
+    """
+    RUTA PARA DESCARGAR LA DOCUMENTACION DE LA API
+    ---
+    tags:
+        - Terminales
+    """
+    return jsonify({'status': 'success', 'message': 'API descargada exitosamente'})
 
 
 @app.route('/add', methods=['POST'])
