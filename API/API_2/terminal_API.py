@@ -300,9 +300,41 @@ def terminal_view():
     ---
     summary: "Obtener todos los terminales"
     tags:
-        - Terminales 
-    
-                
+        - Terminales
+    responses:
+        200:
+            description: "Lista de terminales"
+            schema:
+                type: array
+                items:
+                    type: object
+                    properties:
+                        id:
+                            type: integer
+                        nombre:
+                            type: string
+                        zona:
+                            type: string
+                        estado:
+                            type: string
+                        ubicacion:
+                            type: string
+                        ubicacion_url:
+                            type: string
+                        modelo:
+                            type: string
+                        fecha_instalacion:
+                            type: date
+                        fecha_mantenimiento:
+                            type: date
+                        fecha_reporte:
+                            type: date
+                        ultima_revision:
+                            type: date
+                        proximo_mantenimiento:
+                            type: date
+                        tecnico:
+                            type: string
     """
     items = list(collection.find())
     for item in items:

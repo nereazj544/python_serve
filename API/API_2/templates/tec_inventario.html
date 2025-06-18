@@ -46,16 +46,14 @@
 
         <h2>Historial de Incidencias</h2>
         <ul class="incidencias">
-            {% if inventario and inventario.elementos %}
-            {% for elem in inventario.elementos %}
-            <li>
-                <b>{{ elem.nombre }}:</b> {{ elem.cantidad }} unidades
-
-            </li>
+            {% if inventario and inventario.inventario %}
+            {% for elem in inventario.inventario %}
+            <li><b>{{ elem.nombre }}:</b> {{ elem.cantidad }} unidades</li>
             {% endfor %}
             {% else %}
             <li>No hay datos de inventario de este tecnico: {{ item.nombre }}.</li>
             {% endif %}
+
         </ul>
 
 
