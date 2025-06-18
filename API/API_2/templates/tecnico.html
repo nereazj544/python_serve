@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnicos</title>
+</head>
+
+<body>
+    <ul class="opciones">
+        <li><a href="/api/terminal_view">Ver API</a></li>
+        <li><a href="/apidocs">API Docs</a></li>
+        <li><a href="/tecnico">Ver Técnicos</a></li>
+        <li><a href="#add">Agregar Terminal</a></li>
+        <li><a href="#delete">Eliminar Terminal</a></li>
+        <li><a href="#filter">Filtrar Terminales</a></li>
+        <li><a href="#update">Actualizar Terminal</a></li>
+    </ul>
+    <div class="separador"></div>
+
+    <h1>Lista de Técnicos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Zona</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tecnico in tecnicos %}
+            <tr>
+                <td>{{ tecnico.id }}</td>
+                <td>{{ tecnico.nombre }}</td>
+                <td>{{ tecnico.zona }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="separador"></div>
+
+
+
+
+
+
+</body>
+
+</html>

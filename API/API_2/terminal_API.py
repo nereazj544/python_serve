@@ -8,6 +8,7 @@ client = MongoClient('mongodb://localhost:27017/')
 db = client['ns']
 collection = db['terminales']
 collection_historial = db['history']
+collection_tecnico = db['tecnicos']
 
 # TODO : ======= RUTAS DE LA APLICACION =======
 app = Flask(__name__)
@@ -163,8 +164,6 @@ parameters:
 
 
 @app.route('/filter', methods=['POST'])
-
-
 def filter_items():
     """
     RUTA PARA FILTRAR TERMINALES
@@ -310,7 +309,19 @@ def terminal_view():
     return jsonify(items)
 
 
-
+@app.route('/tecnico')
+def tecnico():
+    """
+    RUTA PARA MOSTRAR LOS TECNICOS
+    ---
+    summary: "Mostrar tecnicos"
+    tags:
+        - Tecnicos View
+    """
+    tecnicos = list(collection_tecnico.find())
+    for tecnico in tecnicos:
+        tecnico['_id'] = str(tecnico['_id'])
+    return render_template('tecnico.html', tecnicos=tecnicos)
 
 
 
