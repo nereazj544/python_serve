@@ -33,9 +33,13 @@
             {% for tecnico in tecnicos %}
             <tr>
                 <td>
-                    <a href="/tecnico/{{ tecnico.id }}">{{ tecnico.id }}</a>
+                    <a href="/tecnico_view/{{ tecnico.id }}">{{ tecnico.id }}</a>
                 </td>
-                <td>{{ tecnico.nombre }}</td>
+                <td>
+                    <a href="/tecnico_view/{{tecnico.id}}"> {{ tecnico.nombre }}</a>
+                   
+
+                </td>
                 <td>{{ tecnico.zona }}</td>
             </tr>
             {% endfor %}

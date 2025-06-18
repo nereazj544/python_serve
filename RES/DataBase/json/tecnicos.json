@@ -2,16 +2,22 @@
     {
         "id": 1, 
         "nombre": "Juan Pérez",
-        "zona": "New North"
+        "zona": "New North",
+        "telefono": 3456785394,
+        "email": "jp_@tecnico.es"
     },
     {
         "id": 2,
         "nombre": "Alec Johnson",
-        "zona": "New Elmswood"
+        "zona": "New Elmswood",
+        "telefono": 34567887,
+        "email": "alecj@tecnico.es"
     },
     {
         "id": 3,
         "nombre": "Kenny",
-        "zona": "New center"
+        "zona": "New center",
+        "telefono": 345678768965,
+        "email": "kenny@tecnico.es"
     }
 ]

@@ -9,6 +9,7 @@ db = client['ns']
 collection = db['terminales']
 collection_historial = db['history']
 collection_tecnico = db['tecnicos']
+collection_tec_inventario = db['inventario_tecnicos']
 
 # TODO : ======= RUTAS DE LA APLICACION =======
 app = Flask(__name__)
@@ -425,6 +426,46 @@ def tecnico_view():
     for item in items:
         item['_id'] = str(item['_id'])
     return jsonify(items)
+
+
+@app.route('/tecnico_view/<int:item_id>')
+def inventario(item_id):
+    """
+    RUTA PARA MOSTRAR EL INVENTARIO DE UN TECNICO ESPECIFICO
+
+    ---
+
+    tags:
+        - Tecnicos 
+
+    parameters:
+         - name: item_id
+           in: path
+           type: integer
+           required: true
+           description: "ID del terminal para mostrar su historial"
+
+    responses:
+        200:
+            description: "Historial del terminal"
+        404:
+            description: "Terminal no encontrado"
+    """
+   # Buscar datos del tecnico
+    item = collection_tecnico.find_one({'id': item_id})
+    # Buscar el inventario correspondiente
+    inventario = collection_tec_inventario.find_one({'tecnico_id': item_id})
+    # Convertir ObjectId a str si es necesario
+    if item and '_id' in item:
+        item['_id'] = str(item['_id'])
+    if inventario and '_id' in inventario:
+        inventario['_id'] = str(inventario['_id'])
+    if not item:
+        return jsonify({'status': 'error', 'message': '¡Técnico no encontrado!'}), 404
+    # Renderizar la plantilla pasando ambos objetos
+    return render_template('tec_inventario.html', item=item, inventario=inventario)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de incidencias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_history.css') }}">
+</head>
+
+<body>
+    <ul class="opciones">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/api/terminal_view">Ver API</a></li>
+        <li><a href="/apidocs">API Docs</a></li>
+    </ul>
+    <div class="separador"></div>
+
+    <h1>Informacion terminal: {{ item.nombre }}</h1>
+    <div class="info">
+
+        <div class="info-animal">
+
+            <table id="view">
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{ item.nombre }}</td>
+                </tr>
+                <tr>
+                    <th>Zona</th>
+                    <td>{{ item.zona }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ item.email }}</td>
+                </tr>
+                <tr>
+                    <th>Telefono</th>
+                    <td>{{ item.telefono }}</td>
+                </tr>
+                
+            </table>
+
+
+            <div class="imagen">
+                {% if item.ubicacion_url %}
+                <img src="{{ item.ubicacion_url }}" alt="Imagen de {{ item.nombre }}" class="animal-img">
+                {% else %}
+                <p>No hay imagen disponible</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="separador"></div>
+
+        <h2>Historial de Incidencias</h2>
+        <ul class="incidencias">
+            {% if inventario and inventario.elementos %}
+            {% for elem in inventario.elementos %}
+            <li>
+                <b>{{ elem.nombre }}:</b> {{ elem.cantidad }} unidades
+                
+            </li>
+            {% endfor %}
+            {% else %}
+            <li>No hay inventario de reparaciones para este tecnico.</li>
+            {% endif %}
+        </ul>
+
+
+
+</body>
+
+</html>

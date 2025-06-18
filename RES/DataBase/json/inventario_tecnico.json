@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "tecnico_id": 1,
+        "elementos": [
+            {
+                "id": 1,
+                "nombre": "Router",
+                "cantidad": 5
+            },
+            {
+                "id": 2,
+                "nombre": "Switch",
+                "cantidad": 3
+            },
+            {
+                "id": 3,
+                "nombre": "Pantalla",
+                "cantidad": 2
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "tecnico_id": 2,
+        "elementos": [
+            {
+                "id": 1,
+                "nombre": "Cables",
+                "cantidad": 5
+            },
+            {
+                "id": 2,
+                "nombre": "Teclado",
+                "cantidad": 3
+            },
+            {
+                "id": 3,
+                "nombre": "Pantalla",
+                "cantidad": 6
+            }
+        ]
+    }
+]
