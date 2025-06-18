@@ -23,7 +23,7 @@ def home():
         ---
 
         tags:
-            - Terminales View
+            - Terminales 
 
         parameters:
              - name: id
@@ -63,7 +63,7 @@ def add():
     RUTA PARA AÑADIR UN NUEVO TERMINAL
     ---
     tags:
-        - Terminales Add
+        - Terminales 
 
     parameters:
         - name: nombre
@@ -138,7 +138,7 @@ def delete():
 RUTA PARA ELIMINAR UN TERMINAL
 ---
 tags:
-    - Terminales Delete
+    - Terminales 
 parameters:
     - name: id
       in: formData
@@ -169,7 +169,7 @@ def filter_items():
     RUTA PARA FILTRAR TERMINALES
     ---
     tags:
-        - Terminales API
+        - Terminales 
     parameters:
         - name: estado
           in: formData
@@ -193,7 +193,7 @@ def update():
     RUTA PARA ACTUALIZAR UN TERMINAL
     ---
     tags:
-        - Terminales Update
+        - Terminales 
     parameters:
         - name: id
           in: formData
@@ -260,7 +260,7 @@ def historial(item_id):
     ---
 
     tags:
-        - Terminales View
+        - Terminales 
 
     parameters:
          - name: item_id
@@ -299,7 +299,7 @@ def terminal_view():
     ---
     summary: "Obtener todos los terminales"
     tags:
-        - Terminales API
+        - Terminales 
     
                 
     """
@@ -316,7 +316,7 @@ def tecnico():
     ---
     summary: "Mostrar tecnicos"
     tags:
-        - Tecnicos View
+        - Tecnicos 
     """
     tecnicos = list(collection_tecnico.find())
     for tecnico in tecnicos:
@@ -330,7 +330,7 @@ def add_tecnico():
     ---
     summary: "Añadir tecnico"
     tags:
-        - Tecnicos Add
+        - Tecnicos
     parameters:
         - name: nombre
           in: formData
@@ -357,8 +357,74 @@ def add_tecnico():
     else:
         return jsonify({'status': 'error', 'message': '¡Todos los campos son obligatorios!'}), 400
 
+@app.route('/delete_tecnico', methods=['POST'])
+def delete_tecnico():
+    """
+    RUTA PARA ELIMINAR UN TECNICO
+    ---
+    summary: "Eliminar tecnico"
+    tags:
+        - Tecnicos
+    parameters:
+        - name: id
+          in: formData
+          type: integer
+          required: true
+          description: "ID del tecnico a eliminar"
+    """
+    try:
+        item_id = int(request.form.get('id'))
+        if not item_id:
+            return jsonify({'status': 'error', 'message': '¡ERROR: ID NO VALIDO!'}), 400
+        
+        result = collection_tecnico.delete_one({'id': item_id})
+        if result.deleted_count > 0:
+            return jsonify({'status': 'success', 'message': '¡ID ELIMINADO EXITOSAMENTE!'})
+        else:
+            return jsonify({'status': 'error', 'message': '¡ERROR: ID NO ENCONTRADO!'})
+    except:
+        return jsonify({'status': 'error', 'message': '¡ERROR AL ELIMINAR EL ELEMENTO!'})
+
+@app.route('/filter_tecnico', methods=['POST'])
+def filter_tecnico():
+    """
+    RUTA PARA FILTRAR TECNICOS
+    ---
+    summary: "Filtrar tecnicos"
+    tags:
+        - Tecnicos
+    parameters:
+        - name: zona
+          in: formData
+          type: string
+          required: true
+          description: "Zona del tecnico"
+    """
+    valor = request.form.get('zona').capitalize()
+
+    if valor:
+        tecnicos = list(collection_tecnico.find({'zona': valor}))
+        for tecnico in tecnicos:
+            tecnico['_id'] = str(tecnico['_id'])
+        return render_template('tecnico.html', tecnicos=tecnicos)
+    else:
+        return jsonify({'status': 'error', 'message': '¡ENTORNO NO VALIDO!'}), 400
 
 
+@app.route('/api/tecnico_view')
+def tecnico_view():
+    """
+    RUTA PARA OBTENER TODOS LOS TECNICOS EN FORMATO JSON
+    ---
+    summary: "Obtener todos los tecnicos"
+    tags:
+        - Tecnicos
+
+    """
+    items = list(collection_tecnico.find())
+    for item in items:
+        item['_id'] = str(item['_id'])
+    return jsonify(items)
 
 if __name__ == '__main__':
     app.run(debug=True)
