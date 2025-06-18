@@ -380,8 +380,6 @@ def add_tecnico():
     zona = request.form.get('zona').capitalize()
     telefono = request.form.get('telefono')
     email = request.form.get('email')
-    
-    
 
     if nombre and zona:
         collection_tecnico.insert_one({
@@ -422,7 +420,8 @@ def delete_tecnico():
             return jsonify({'status': 'error', 'message': '¡ERROR: ID NO VALIDO!'}), 400
         
         result = collection_tecnico.delete_one({'id': item_id})
-        if result.deleted_count > 0:
+        result_inventario = collection_tec_inventario.delete_one({'tecnico_id': item_id})
+        if result.deleted_count > 0 and result_inventario.deleted_count > 0:
             return jsonify({'status': 'success', 'message': '¡ID ELIMINADO EXITOSAMENTE!'})
         else:
             return jsonify({'status': 'error', 'message': '¡ERROR: ID NO ENCONTRADO!'})
@@ -481,11 +480,42 @@ def tecnico_view():
                             type: string
                         email:
                             type: string
+        200:
+            description: "Lista de tecnicos"
+            schema:
+                type: array
+                items:
+                    type: object
+                    properties:
+                        id:
+                            type: integer
+                        tecnico_id:
+                            type: integer
+                        nombre:
+                            type: string
+                        cantidad:
+                            type: integer
+                        inventario:
+                            type: array
+                            items:
+                                type: object
+                                properties:
+                                    nombre:
+                                        type: string
+                                    cantidad:
+                                        type: integer
     """
     items = list(collection_tecnico.find())
+    inv = list(collection_tec_inventario.find())
     for item in items:
         item['_id'] = str(item['_id'])
-    return jsonify(items)
+    for itm in inv:
+        itm['_id'] = str(itm['_id'])
+        # Convertir tecnico_id a int si es necesario
+        if 'tecnico_id' in itm:
+            itm['tecnico_id'] = int(itm['tecnico_id'])
+
+    return jsonify({"TECNICOS": items, "INVENTARIOS DE LOS TECNICOS": inv})
 
 
 @app.route('/tecnico_view/<int:item_id>')
