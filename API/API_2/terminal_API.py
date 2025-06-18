@@ -58,6 +58,15 @@ def home():
 
 @app.route('/add', methods=['POST'])
 def add():
+    """
+    RUTA PARA AÑADIR UN NUEVO TERMINAL
+    ---
+    tags:
+        - Terminales Add
+    """
+
+
+
     nombre = request.form.get('nombre').capitalize()
     zona = request.form.get('zona').capitalize()
     estado = request.form.get('estado').capitalize()
@@ -94,6 +103,20 @@ def add():
 
 @app.route('/delete', methods=['POST'])
 def delete():
+    """
+RUTA PARA ELIMINAR UN TERMINAL
+---
+tags:
+    - Terminales Delete
+parameters:
+    - name: id
+      in: formData
+      type: integer
+      required: true
+      description: "ID del terminal a eliminar"
+    """
+
+
     try:
         item_id = int(request.form.get('id'))
         if not item_id:
@@ -110,7 +133,21 @@ def delete():
 
 
 @app.route('/filter', methods=['POST'])
+
+
 def filter_items():
+    """
+    RUTA PARA FILTRAR TERMINALES
+    ---
+    tags:
+        - Terminales API
+    parameters:
+        - name: estado
+          in: formData
+          type: string
+          required: true
+          description: "Estado del terminal (operativa, mantenimiento, inactiva)"
+    """
     valor = request.form.get('estado').capitalize()
 
     if valor:
@@ -123,6 +160,32 @@ def filter_items():
 
 @app.route('/update', methods=['POST'])
 def update():
+    """
+    RUTA PARA ACTUALIZAR UN TERMINAL
+    ---
+    tags:
+        - Terminales Update
+    parameters:
+        - name: id
+          in: formData
+          type: integer
+          required: true
+          description: "ID del terminal a actualizar"
+        - name: estado
+          in: formData
+          type: string
+          description: "Nuevo estado del terminal (operativa, mantenimiento, inactiva)"
+        - name: fecha_reporte
+          in: formData
+          type: string
+          description: "Fecha del reporte de la terminal"
+        - name: descripcion
+          in: formData
+          type: string
+          description: "Descripción de la actualización"
+    """
+
+
     try:
         item_id = request.form.get('id')
         if not item_id:
@@ -202,6 +265,15 @@ def historial(item_id):
 
 @app.route('/api/terminal_view')
 def terminal_view():
+    """
+    RUTA PARA OBTENER TODOS LOS TERMINALES EN FORMATO JSON
+    ---
+    summary: "Obtener todos los terminales"
+    tags:
+        - Terminales API
+    
+                
+    """
     items = list(collection.find())
     for item in items:
         item['_id'] = str(item['_id'])
