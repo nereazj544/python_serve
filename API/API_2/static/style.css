@@ -104,14 +104,14 @@ form{
     font-family: 'Courier New', Courier, monospace;
 }
 
-.add_animal button, .delet_animal button, .filter_animal button, .update button{
+.add_animal button, .delet_animal button, .filter_animal button, .update button, .button{
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.add_animal button:hover, .delet_animal button:hover, .filter_animal button:hover, .update button:hover{
+.add_animal button:hover, .delet_animal button:hover, .filter_animal button:hover, .update button:hover, .button:hover{
     background-color: #5cb85c;
     color: white;
 }
