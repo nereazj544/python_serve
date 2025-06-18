@@ -497,7 +497,7 @@ def inventario(item_id):
         404:
             description: "Terminal no encontrado"
     """
-   # Buscar datos del tecnico
+    # Buscar datos del tecnico
     item = collection_tecnico.find_one({'id': item_id})
     # Buscar el inventario correspondiente
     inventario = collection_tec_inventario.find_one({'tecnico_id': item_id})
@@ -546,10 +546,10 @@ def tecnico_update():
         item_id = int(item_id)
 
         # Actualizar el tecnico
-        result = collection_tecnico.update_one({'id': item_id}, {'$set': {'nombre': nombre}})
+        # result = collection_tecnico.update_one({'id': item_id}, {'$set': {'nombre': nombre}})
         
         # Actualizar el inventario del tecnico
-        collection_tec_inventario.update_one(
+        result = collection_tec_inventario.update_one(
             {'tecnico_id': item_id},
             {'$push': {'inventario': {'nombre': nombre, 'cantidad': cantidad}}}
         )
